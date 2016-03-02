@@ -20,6 +20,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import random
 from sklearn.metrics import f1_score, classification_report, confusion_matrix
+from sklearn.cross_validation import KFold
+from sklearn.ensemble import RandomForestClassifier
 
 def max_count(count):
     max_i = None
@@ -80,7 +82,7 @@ def extract(near, sentiments):
         print(" 5:%f"%float(emi_pos), end="", file=f)
         print(" 6:%f"%float(emi_neg), end="", file=f)
         print(" 7:%f"%float(emi), end="", file=f)
-        print(" 8:%f"%float(nwp), end="", file=f)
+        #  print(" 8:%f"%float(nwp), end="", file=f)
         #  sum_pre, sum_cur, sum_nex = 0, 0, 0
         #  sum_min_pre_cur, sum_min_pre_nex, sum_min_cur_nex = 0, 0, 0
         #  sum_max_pre_cur, sum_max_pre_nex, sum_max_cur_nex = 0, 0, 0
@@ -121,7 +123,7 @@ def extract(near, sentiments):
             #  sum_bool_cur_nex += int(cur != 0 and nex != 0)
             #  sum_bool_pre_cur_nex += int(pre != 0 and cur != 0 and nex != 0)
         max_count_pre, max_count_cur, max_count_nex = max_count(count_pre), max_count(count_cur), max_count(count_nex)
-        #  n = len(e) - 1
+        n = len(e) - 1
         #  print(" 9:%d"%sum_pre, end="", file=f)
         #  print(" 10:%d"%sum_cur, end="", file=f)
         #  print(" 11:%d"%sum_nex, end="", file=f)
@@ -182,17 +184,15 @@ def extract(near, sentiments):
 
         #  print(" 44:%f"%(sum_bool_pre_cur_nex/n), end="", file=f)
 
-
-        #  print(" 45:%d 46:%d 47:%d"%tuple(matrix.max(axis=0)), end="", file=f)
-        #  print(" 48:%f 49:%f 50:%f"%tuple(matrix.std(axis=0)), end="", file=f)
-        #  print(" 51:%f 52:%f 53:%f"%tuple(matrix.var(axis=0)), end="", file=f)
         #  print(" 9:%d 10:%d 11:%d"%tuple(matrix.max(axis=0)), end="", file=f)
         #  print(" 12:%f 13:%f 14:%f"%tuple(matrix.std(axis=0)), end="", file=f)
         #  print(" 15:%f 16:%f 17:%f"%tuple(matrix.var(axis=0)), end="", file=f)
-        #  print(" 54:%f 55:%f 56:%f"%tuple(matrix.mean(axis=0)), end="", file=f)
-        #  print(" 57:%d 58:%d 59:%d"%(max_count_pre, max_count_cur, max_count_nex), end="", file=f)
+        #  print(" 18:%f 19:%f 20:%f"%tuple(matrix.mean(axis=0)), end="", file=f)
+        #  print(" 21:%f 22:%f 23:%f"%tuple(matrix.min(axis=0)), end="", file=f)
+        #  print(" 24:%d 25:%d 26:%d"%(max_count_pre, max_count_cur, max_count_nex), end="", file=f)
+        print(" 8:%d 9:%d 10:%d"%(max_count_pre, max_count_cur, max_count_nex), end="", file=f)
         for x in sorted(set(word_index)):
-            print(" %d:1"%(x+17), end="", file=f)
+            print(" %d:1"%(x+10), end="", file=f)
         print(file=f)
     f.close()
     f = open(near + "feature_vector_tmp", "r", encoding="utf8")
@@ -201,12 +201,12 @@ def extract(near, sentiments):
     for line in f:
         print("%s"%(line.strip()), end="", file=g)
         for x in sorted(pos_tag[i]):
-            print(" %d:1"%(x+17+len(lexcion)), end="", file=g)
+            print(" %d:1"%(x+10+len(lexcion)), end="", file=g)
         print(file=g)
         i += 1
     f.close()
     g.close()
-    return words, mark
+    return np.array(words), np.array(mark)
 
 def fit(X_all, y_all):
     clf = LogisticRegression(C=1.0, intercept_scaling=1, dual=False,
@@ -500,6 +500,23 @@ def random_feature_vector(filename):
     g.close()
     return rand
 
+def my_cross_validation(X, y, mark, words, cv=10, has_sent=True):
+    kf = KFold(len(y), n_folds=cv)
+    scores = []
+    for train_index, test_index in kf:
+        X_train, X_test = X[train_index], X[test_index]
+        y_train, y_test = y[train_index], y[test_index]
+        mark_train, mark_test = mark[train_index], mark[test_index]
+        words_train, words_test = words[train_index], words[test_index]
+        clf = LogisticRegression(C=1.0, intercept_scaling=1, dual=False,
+                fit_intercept=True, penalty="l2", tol=0.0001)
+        clf.fit(X_train, y_train)
+        y_predict = clf.predict(X_test)
+        if not has_sent:
+            y_test = [y_test[e] for e in range(len(mark_test)) if mark_test[e] == 0]
+            y_predict= [y_predict[e] for e in range(len(mark_test)) if mark_test[e] == 0]
+        scores.append(f1_score(y_test, y_predict))
+    return np.array(scores)
 
 def usage():
 
@@ -529,30 +546,25 @@ if __name__ == "__main__":
     table_posting = content + "_posting"
     table_num = content + "_num"
 
-    connection = pymysql.connect(host="127.0.0.1",
-                                user="u20130099",
-                                passwd="u20130099",
-                                local_infile=True,
-                                db="u20130099",
-                                charset="utf8",
-                                cursorclass=pymysql.cursors.DictCursor)
-    create_feature(connection, field_content, table_lm, table_posting, table_num)
+    #  connection = pymysql.connect(host="127.0.0.1",
+                                #  user="u20130099",
+                                #  passwd="u20130099",
+                                #  local_infile=True,
+                                #  db="u20130099",
+                                #  charset="utf8",
+                                #  cursorclass=pymysql.cursors.DictCursor)
+    #  create_feature(connection, field_content, table_lm, table_posting, table_num)
 
-    #  sentiments = set(Static.sentiment_word.keys())
-    #  words, mark = extract(field_content+"near/", sentiments)
-    #  X, y = load_svmlight_file(field_content+"near/feature_vector")
+    sentiments = set(Static.sentiment_word.keys())
+    words, mark = extract(field_content+"near/", sentiments)
+    X, y = load_svmlight_file(field_content+"near/feature_vector")
 
-    #  r = int(len(y) * 0.6)
-    #  X_train, y_train = X[:r], y[:r]
-    #  X_test, y_test = X[r:], y[r:]
-    #  mark_train, mark_test = mark[:r], mark[r:]
-    #  train_words, test_words = words[:r], words[r:]
-    #  clf = fit(X_train, y_train)
-    #  print(clf.coef_)
-    #  test_all(clf, X_train, y_train, mark_train, train_words)
-    #  test_only(clf, X_train, y_train, mark_train, train_words)
-    #  print("len", X_test.shape[0])
-    #  test_all(clf, X_test, y_test, mark_test, test_words)
-    #  test_only(clf, X_test, y_test, mark_test, test_words)
-    connection.close()
+    scores = my_cross_validation(X, y, mark, words)
+    print(scores)
+    print(scores.mean())
+
+    scores = my_cross_validation(X, y, mark, words, has_sent=False)
+    print(scores)
+    print(scores.mean())
+    #  connection.close()
     print("end")
