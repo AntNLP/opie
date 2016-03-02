@@ -478,11 +478,11 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
             res1 = inquire_num(connection, i_pickle, i_sentence-1, table_num)
             res2 = inquire_num(connection, i_pickle, i_sentence, table_num)
             res3 = inquire_num(connection, i_pickle, i_sentence+1, table_num)
-            cur_num = res2['num']
-            if len(res1) == 1 and res1['i_review'] == res2['i_review']:
-                pre_num = res1['num']
-            if len(res3) == 1 and res3['i_review'] == res2['i_review']:
-                next_num = res3['num']
+            cur_num = res2[0]['num']
+            if len(res1) == 1 and res1[0]['i_review'] == res2[0]['i_review']:
+                pre_num = res1[0]['num']
+            if len(res3) == 1 and res3[0]['i_review'] == res2[0]['i_review']:
+                next_num = res3[0]['num']
             print(pre_num, cur_num, next_num, file=f)
         print(file=f)
     f.close()
