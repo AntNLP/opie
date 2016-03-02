@@ -285,7 +285,7 @@ def test_all(clf, X_test, y_test, mark_test, test_words):
     plt.title("all PR curve")
     plt.show()
 
-def calcu_count(connection, sentiment_dict):
+def calcu_count(connection, sentiment_dict, table_lm, table_posting):
     word_count_pos, word_count_neg = [], []
     print(len(sentiment_dict))
     i = 0
@@ -293,11 +293,11 @@ def calcu_count(connection, sentiment_dict):
         if i % 100 == 0:
             print(i)
         i += 1
-        word_index = inquire_word_index(connection, key)
+        word_index = get_index(connection, table_lm, key)
         if word_index == None:
             print("not index", key)
             continue
-        ret = inquire_word_count(connection, word_index)
+        ret = get_positon(connection, table_posting, word_index)
         if ret == None:
             print("posting none", key)
             continue
@@ -323,6 +323,7 @@ def inquire_num(connection, i_pickle, i_sentence, table_num):
         return None
     finally:
         pass
+
 def inquire_total(connection):
     try:
         # 游标
@@ -392,6 +393,7 @@ def get_index(connection, table_lm, var):
                 return None
             else:
                 return res[0]['id']
+
     except Exception as err:
         print(err)
         print(var)
@@ -440,7 +442,7 @@ def load_near_word(filename):
 
 def create_feature(connection, field_content, table_lm, table_posting, table_num):
     if not os.path.exists(field_content+"pickles/word_count_pos.pickle.bz2"):
-        word_count_pos, word_count_neg = calcu_count(connection, Static.sentiment_word)
+        word_count_pos, word_count_neg = calcu_count(connection, Static.sentiment_word, table_lm, table_posting)
         save_pickle_file(field_content+"pickles/word_count_pos.pickle", word_count_pos)
         save_pickle_file(field_content+"pickles/word_count_neg.pickle", word_count_neg)
     else:
@@ -526,32 +528,30 @@ if __name__ == "__main__":
     table_lm = content+"_lm"
     table_posting = content + "_posting"
     table_num = content + "_num"
+    connection = pymysql.connect(host="127.0.0.1",
+                                user="u20130099",
+                                passwd="u20130099",
+                                local_infile=True,
+                                db="u20130099",
+                                charset="utf8",
+                                cursorclass=pymysql.cursors.DictCursor)
+    create_feature(connection, field_content, table_lm, table_posting, table_num)
 
-    #  connection = pymysql.connect(host="127.0.0.1",
-                                #  user="root",
-                                #  passwd="100704048",
-                                #  local_infile=True,
-                                #  db=content,
-                                #  charset="utf8",
-                                #  cursorclass=pymysql.cursors.DictCursor)
-    #  create_feature(connection, field_content, table_lm, table_posting, table_num)
+    #  sentiments = set(Static.sentiment_word.keys())
+    #  words, mark = extract(field_content+"near/", sentiments)
+    #  X, y = load_svmlight_file(field_content+"near/feature_vector")
 
-
-    sentiments = set(Static.sentiment_word.keys())
-    words, mark = extract(field_content+"near/", sentiments)
-    X, y = load_svmlight_file(field_content+"near/feature_vector")
-
-    r = int(len(y) * 0.6)
-    X_train, y_train = X[:r], y[:r]
-    X_test, y_test = X[r:], y[r:]
-    mark_train, mark_test = mark[:r], mark[r:]
-    train_words, test_words = words[:r], words[r:]
-    clf = fit(X_train, y_train)
+    #  r = int(len(y) * 0.6)
+    #  X_train, y_train = X[:r], y[:r]
+    #  X_test, y_test = X[r:], y[r:]
+    #  mark_train, mark_test = mark[:r], mark[r:]
+    #  train_words, test_words = words[:r], words[r:]
+    #  clf = fit(X_train, y_train)
     #  print(clf.coef_)
     #  test_all(clf, X_train, y_train, mark_train, train_words)
     #  test_only(clf, X_train, y_train, mark_train, train_words)
-    print("len", X_test.shape[0])
-    test_all(clf, X_test, y_test, mark_test, test_words)
-    test_only(clf, X_test, y_test, mark_test, test_words)
-    #  connection.close()
+    #  print("len", X_test.shape[0])
+    #  test_all(clf, X_test, y_test, mark_test, test_words)
+    #  test_only(clf, X_test, y_test, mark_test, test_words)
+    connection.close()
     print("end")
