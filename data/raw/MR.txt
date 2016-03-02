@@ -1,0 +1,15 @@
+acomp
+mod
+nsubj
+csubj
+obj
+pnmod
+csubjpass
+npadvmod
+nsubjpass
+amod
+tmod
+vmod
+advmod
+rcmod
+dep
