@@ -563,11 +563,11 @@ def write_feature_sentiment(sentence, f, i):
     print("S\t{0}".format(sentence.text), file=f)
     for k in range(len(sentence.feature_sentiment)):
         key, value = sentence.feature_sentiment[k][0], sentence.feature_sentiment[k][1]
-        print("R\t{0}\t{1}\t{2} {3}\t{4} {5}\t{6}".format(
+        print("R\t{0}\t{1}\t{2}\t{3}\t{4}".format(
             sentence.get_phrase(key).lower(),
             sentence.get_phrase(value).lower(),
-            key[0], key[-1]+1,
-            value[0], value[-1]+1,
+            key,
+            value,
             sentence.fs_regu[k]), file=f)
 
 def run(field_content, sentiment_dict, b, e, connection, table_lm):
