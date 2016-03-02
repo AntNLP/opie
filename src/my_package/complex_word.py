@@ -285,7 +285,7 @@ def test_all(clf, X_test, y_test, mark_test, test_words):
     plt.title("all PR curve")
     plt.show()
 
-def calcu_count(connection, sentiment_dict):
+def calcu_count(connection, sentiment_dict, table_lm, table_posting):
     word_count_pos, word_count_neg = [], []
     print(len(sentiment_dict))
     i = 0
@@ -293,11 +293,11 @@ def calcu_count(connection, sentiment_dict):
         if i % 100 == 0:
             print(i)
         i += 1
-        word_index = inquire_word_index(connection, key)
+        word_index = get_index(connection, table_lm, key)
         if word_index == None:
             print("not index", key)
             continue
-        ret = inquire_word_count(connection, word_index)
+        ret = get_positon(connection, table_posting, word_index)
         if ret == None:
             print("posting none", key)
             continue
@@ -442,7 +442,7 @@ def load_near_word(filename):
 
 def create_feature(connection, field_content, table_lm, table_posting, table_num):
     if not os.path.exists(field_content+"pickles/word_count_pos.pickle.bz2"):
-        word_count_pos, word_count_neg = calcu_count(connection, Static.sentiment_word)
+        word_count_pos, word_count_neg = calcu_count(connection, Static.sentiment_word, table_lm, table_posting)
         save_pickle_file(field_content+"pickles/word_count_pos.pickle", word_count_pos)
         save_pickle_file(field_content+"pickles/word_count_neg.pickle", word_count_neg)
     else:
