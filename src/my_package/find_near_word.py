@@ -250,18 +250,19 @@ if __name__ == "__main__":
     f = open(field_content+"near/sentiment_word_near", "w", encoding="utf8")
     i = 1
     filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
-    complex_word_pos = {}
+    complex_word_pos_tag = {}
     while os.path.exists(filename+".bz2"):
         print(filename)
         sentences = load_pickle_file(filename)
         for sentence in sentences:
-            get_sentiment(sentence, word_list, sentiments, connection, complex_word_pos, table_name)
-        if i == 10:
+            get_sentiment(sentence, word_list, sentiments, connection, complex_word_pos_tag, table_name)
+        if i == 15:
             break
         i += 1
         filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
+    save_pickle_file(field_content+"pickles/complex_word_pos_tag.pickle", complex_word_pos_tag)
     word_pickle_sentence = {}
-    for word_string, word_pos in complex_word_pos.items():
+    for word_string, word_pos in complex_word_pos_tag.items():
         word_index = get_index(connection, table_name, word_string)
         if word_index == None:
             continue
