@@ -557,7 +557,7 @@ def f_using_s5(sentence, features, sentiments, connection, sentiment_dict, table
         sentence.fs_regu.append(regu_name)
 
 
-def write_feature_sentiment(sentence, f, i):
+def write_feature_sentiment(sentence, f):
     '''将句子中的 feature-sentiment pair 以及相应所用的规则输出
     '''
     print("S\t{0}".format(sentence.text), file=f)
@@ -597,11 +597,9 @@ def run(field_content, sentiment_dict, b, e, connection, table_lm):
             f_using_s3(sentence, features, sentiments, connection, table_lm)
             f_using_s4(sentence, features, sentiments, connection, table_lm)
             f_using_s5(sentence, features, sentiments, connection, sentiment_dict, table_lm)
-        for k in range(len(sentences)):
-            if len(sentences[k].feature_sentiment) == 0:
-                continue
-            write_feature_sentiment(sentences[k], f1, k)
         save_sentences = [sentence for sentence in sentences if sentence.feature_sentiment != []]
+        for k in range(len(save_sentences)):
+            write_feature_sentiment(save_sentences[k], f1, k)
         save_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle", save_sentences)
         i += 1
     for e in sentiments:
