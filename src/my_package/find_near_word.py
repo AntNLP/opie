@@ -9,6 +9,7 @@ import os
 from collections import Counter
 from itertools import chain
 from my_package.class_define import Static
+from my_package.complex_word import get_index, get_positon
 import re
 import sys, getopt
 import pymysql
@@ -238,13 +239,14 @@ if __name__ == "__main__":
     sentiment_dict = dict(Static.sentiment_word)
     sentiments = set(sentiment_dict.keys())
     word_list = ["product"]
-    connection = pymysql.connect(host="127.0.0.1",
+    connection = pymysql.connect(host="console",
                                 user="u20130099",
                                 passwd="u20130099",
                                 db="u20130099",
                                 charset="utf8",
                                 cursorclass=pymysql.cursors.DictCursor)
     table_name = content + "_lm"
+    table_posting = content + "_posting"
     f = open(field_content+"near/sentiment_word_near", "w", encoding="utf8")
     i = 1
     filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
@@ -258,7 +260,12 @@ if __name__ == "__main__":
             break
         i += 1
         filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
-    for key, value in complex_word_pos.items():
-        print("0 %s\t%s"%(key, value), file=f)
+    for word_string, word_pos in complex_word_pos.items():
+        word_index = get_index(connection, table_name, word_string)
+        if word_index == None:
+            continue
+        res = get_positon(connection, table_posting, word_index)
+        res_set = set(((e['i_pickle'], e['i_sentence']) for e in res))
+        print("0\t%d\t%s\t%s"%(len(res_set), word_string, word_pos), file=f)
     connection.close()
     f.close()

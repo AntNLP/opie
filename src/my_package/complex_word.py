@@ -17,7 +17,7 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.datasets import load_svmlight_file
 from sklearn.metrics import precision_recall_curve
 import numpy as np
-import matplotlib.pyplot as plt
+#  import matplotlib.pyplot as plt
 import random
 from sklearn.metrics import f1_score, classification_report, confusion_matrix
 from sklearn.cross_validation import KFold
@@ -454,11 +454,11 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
     word_count_pos = word_count_pos[:100]
     word_count_neg = word_count_neg[:100]
     word_count = {}
-    #  for key, value in inquire_total(connection):
-        #  n = value
-    n = 18980363
-    f = open(field_content+"near/complex_word_feature", "w", encoding="utf8")
+    for key, value in inquire_total(connection):
+        n = value
+    sys.exit()
     lexcion = {}
+    f = open(field_content+"near/complex_word_feature", "w", encoding="utf8")
     for word_label, word_string, word_pos in load_near_word(field_content+"near/complex_word_label_pos"):
         word_index = get_index(connection, table_lm, word_string)
         if word_index == None:
@@ -486,19 +486,6 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
             print(pre_num, cur_num, next_num, file=f)
         print(file=f)
     f.close()
-
-def random_feature_vector(filename):
-    f = open(filename+"_random", "w", encoding="utf8")
-    g = open(filename, "r", encoding="utf8")
-    lines = g.readlines()
-    rand = list(range(len(lines)))
-    random.shuffle(rand)
-    lines = [lines[e] for e in rand]
-    for line in lines:
-        print(line, end="", file=f)
-    f.close()
-    g.close()
-    return rand
 
 def my_cross_validation(X, y, mark, words, cv=10, has_sent=True):
     kf = KFold(len(y), n_folds=cv)
@@ -539,21 +526,20 @@ if __name__ == "__main__":
             sys.exit()
         if op in ("-d", "--domain"):
             content = value
-    soft_field_content = r"../../data/soft_domains/" + content + r"/"
-    field_content = r"../../data/domains/" + content + r"/"
+    field_content = r"../../data/soft_domains/" + content + r"/"
     create_content(field_content + "near")
     table_lm = content+"_lm"
     table_posting = content + "_posting"
     table_num = content + "_num"
 
-    #  connection = pymysql.connect(host="127.0.0.1",
-                                #  user="u20130099",
-                                #  passwd="u20130099",
-                                #  local_infile=True,
-                                #  db="u20130099",
-                                #  charset="utf8",
-                                #  cursorclass=pymysql.cursors.DictCursor)
-    #  create_feature(connection, field_content, table_lm, table_posting, table_num)
+    connection = pymysql.connect(host="console",
+                                user="u20130099",
+                                passwd="u20130099",
+                                local_infile=True,
+                                db="u20130099",
+                                charset="utf8",
+                                cursorclass=pymysql.cursors.DictCursor)
+    create_feature(connection, field_content, table_lm, table_posting, table_num)
 
     sentiments = set(Static.sentiment_word.keys())
     words, mark = extract(field_content+"near/", sentiments)
@@ -566,5 +552,5 @@ if __name__ == "__main__":
     scores = my_cross_validation(X, y, mark, words, has_sent=False)
     print(scores)
     print(scores.mean())
-    #  connection.close()
+    connection.close()
     print("end")
