@@ -161,7 +161,6 @@ if __name__ == "__main__":
     aa = (part_count - 1) * block_size + 1
     bb = (pickle_size + 1) if part_count == 8 else (aa + block_size)
     table_lm = content+"_lm"
-    connection = None
 
     sentiment_dict = dict(Static.sentiment_word)
     sentiments = set(sentiment_dict.keys())
