@@ -238,7 +238,7 @@ if __name__ == "__main__":
     create_content(field_content + "near")
     sentiment_dict = dict(Static.sentiment_word)
     sentiments = set(sentiment_dict.keys())
-    word_list = ["product"]
+    word_list = None
     connection = pymysql.connect(host="console",
                                 user="u20130099",
                                 passwd="u20130099",
@@ -260,12 +260,15 @@ if __name__ == "__main__":
             break
         i += 1
         filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
+    word_pickle_sentence = {}
     for word_string, word_pos in complex_word_pos.items():
         word_index = get_index(connection, table_name, word_string)
         if word_index == None:
             continue
         res = get_positon(connection, table_posting, word_index)
         res_set = set(((e['i_pickle'], e['i_sentence']) for e in res))
+        word_pickle_sentence[word_string] = res_set
         print("0\t%d\t%s\t%s"%(len(res_set), word_string, word_pos), file=f)
     connection.close()
     f.close()
+    save_pickle_file(field_content+"pickles/word_pickle_sentence.pickle", word_pickle_sentence)

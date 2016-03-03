@@ -458,13 +458,10 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
         n = value
     sys.exit()
     lexcion = {}
+    word_pickle_sentence = load_pickle_file(field_content+"pickles/word_pickle_sentence.pickle")
     f = open(field_content+"near/complex_word_feature", "w", encoding="utf8")
     for word_label, word_string, word_pos in load_near_word(field_content+"near/complex_word_label_pos"):
-        word_index = get_index(connection, table_lm, word_string)
-        if word_index == None:
-            continue
-        res = get_positon(connection, table_posting, word_index)
-        res_set = set(((e['i_pickle'], e['i_sentence']) for e in res))
+        res_set = word_pickle_sentence[word_string]
         pos_pmi = calcu_PMI(word_count_pos, res_set, n)
         neg_pmi = calcu_PMI(word_count_neg, res_set, n)
         pos_emi = calcu_EMI(word_count_pos, res_set, n)
