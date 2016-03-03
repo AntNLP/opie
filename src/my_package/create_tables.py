@@ -88,7 +88,6 @@ if __name__ == "__main__":
             sys.exit()
         if op in ("-d", "--domain"):
             content = value
-    field_content = r"../../data/domains/" + content + r"/"
     connection = pymysql.connect(host="127.0.0.1",
                                 user="u20130099",
                                 passwd="u20130099",
@@ -96,11 +95,11 @@ if __name__ == "__main__":
                                 charset="utf8",
                                 cursorclass=pymysql.cursors.DictCursor)
     data_path = "/export/data/sharefolder/ecnucluster/u51141201057/datb1_12/database"
-    #  drop_table(connection, content+"_lm")
-    #  drop_table(connection, content+"_posting")
-    #  drop_table(connection, content+"_num")
-    #  create_table_lm(connection, content+"_lm", data_path)
-    #  create_table_posting(connection, content+"_posting", data_path)
+    drop_table(connection, content+"_lm")
+    drop_table(connection, content+"_posting")
+    drop_table(connection, content+"_num")
+    create_table_lm(connection, content+"_lm", data_path)
+    create_table_posting(connection, content+"_posting", data_path)
     create_table_num(connection, content+"_num", data_path)
     connection.close()
     print("end")
