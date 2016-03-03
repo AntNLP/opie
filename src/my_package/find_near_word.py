@@ -259,6 +259,6 @@ if __name__ == "__main__":
         i += 1
         filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
     for key, value in complex_word_pos.items():
-        print("%s\t%s"%(key, value), file=f)
+        print("0 %s\t%s"%(key, value), file=f)
     connection.close()
     f.close()
