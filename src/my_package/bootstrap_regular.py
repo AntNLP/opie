@@ -645,13 +645,10 @@ if __name__ == "__main__":
     #  field_content = r"../../data/domains/" + content + r"/"
     field_content = r"../../data/soft_domains/" + content + r"/"
     table_lm = content + "_lm"
-    connection = pymysql.connect(host="127.0.0.1",
+    connection = pymysql.connect(host="console",
                                 user="u20130099",
                                 passwd="u20130099",
                                 db="u20130099",
-                                #  user="root",
-                                #  passwd="100704048",
-                                #  db=content,
                                 charset="utf8",
                                 cursorclass=pymysql.cursors.DictCursor)
     run(field_content, dict(Static.sentiment_word), b, e, connection, table_lm)
