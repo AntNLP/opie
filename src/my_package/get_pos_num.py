@@ -149,7 +149,7 @@ if __name__ == "__main__":
         if op in ("-p", "--part"):
             part_count = int(value)
     print(content)
-    connection = pymysql.connect(host="127.0.0.1",
+    connection = pymysql.connect(host="console",
                                 user="u20130099",
                                 passwd="u20130099",
                                 db="u20130099",
