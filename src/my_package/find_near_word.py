@@ -9,7 +9,6 @@ import os
 from collections import Counter
 from itertools import chain
 from my_package.class_define import Static
-from my_package.complex_word import get_index, get_positon
 import re
 import sys, getopt
 import pymysql
@@ -47,6 +46,40 @@ class Trie_Tree:
                 return 0
             p = p.next_node[word]
         return p.count
+
+def get_index(connection, table_lm, var):
+    try:
+        # 游标
+        with connection.cursor() as cursor:
+            sql = "select * from {0} where content=\"{1}\"".format(table_lm, var)
+            cursor.execute(sql)
+            res = cursor.fetchall()
+            if len(res) == 0:
+                return None
+            else:
+                return res[0]['id']
+
+    except Exception as err:
+        print(err)
+        print(var)
+        return None
+    finally:
+        pass
+
+def get_positon(connection, table_posting, var):
+    try:
+
+        # 游标
+        with connection.cursor() as cursor:
+            sql = "select distinct i_pickle, i_sentence from {0} where i_content={1}".format(table_posting, var)
+            cursor.execute(sql)
+            res = cursor.fetchall()
+            return res
+    except Exception as err:
+        print(err)
+        return None
+    finally:
+        pass
 
 def inquire_content(connection, var, table_name, t=-25):
     try:
@@ -238,7 +271,7 @@ if __name__ == "__main__":
     create_content(field_content + "near")
     sentiment_dict = dict(Static.sentiment_word)
     sentiments = set(sentiment_dict.keys())
-    word_list = None
+    word_list = ["dog"]
     connection = pymysql.connect(host="console",
                                 user="u20130099",
                                 passwd="u20130099",
