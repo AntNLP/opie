@@ -73,6 +73,27 @@ class Sentence:
 
         self.candidate_pairs = None
 
+    def inquire_content(self, connection, var, table_lm, t=-25):
+        try:
+
+            # 游标
+            with connection.cursor() as cursor:
+                sql = "select * from {0} where content=\"{1}\" and score>={2}".format(table_lm, var, t)
+                #  sql = "select * from lm_db where content=%s"
+                #  sql = "select * from lm_db where content=\"{0}\"".format(var)
+                #  cursor.execute(sql, (var))
+                cursor.execute(sql)
+                res = cursor.fetchall()
+                if len(res) == 0:
+                    return False
+                else:
+                    return True
+        except Exception as err:
+            print(err)
+            print(var)
+            return False
+        finally:
+            pass
 
     def fs_add(self, feature_sentiment_ele, regu):
         '''添加元素到 feature-sentiment 以及 fs_regu 中
@@ -262,7 +283,7 @@ class Sentence:
             self.trie.add(tokens[i:])
 
 
-    def get_all_sentiment(self, score_pp_set, sentiments):
+    def get_all_sentiment(self, sentiments):
         '''得到所有的情感词'''
         n = len(self.pos_tag)
         self.all_sentiment = []
@@ -503,7 +524,7 @@ class Sentence:
             return True
         return False
 
-    def get_all_np(self, score_pp_set):
+    def get_all_np(self, connection, table_lm):
         '''get all NP
         '''
         n = len(self.pos_tag)
@@ -515,25 +536,26 @@ class Sentence:
             if len(self.dictionary_of_np[i]) > 1:
                 pp = tuple(self.dictionary_of_np[i][1])
                 pp_string = self.get_phrase(pp).lower()
-                if pp_string in score_pp_set and not self.is_weak_feature(pp_string):
+                if self.inquire_content(connection, pp_string, table_lm) and not not self.is_weak_feature(pp_string):
                     self.all_np.add(pp)
-            if s_word in score_pp_set and not self.is_weak_feature(s_word):
+            if self.inquire_content(connection, self.tokens[i].lower(), table_lm) and not self.is_weak_feature(s_word):
                 self.all_np.add(tuple([i]))
         self.all_np = list(self.all_np)
 
-    def get_all_vp(self, score_pp_set):
+    def get_all_vp(self, connection, table_lm):
         '''get all VP
         '''
         n = len(self.pos_tag)
         self.all_vp = set()
         for i in range(1, n+1):
             if self.pos_tag[i] in Static.VB and self.tokens[i].lower() not in Static.BE:
+                s_word = self.tokens[i].lower()
                 if len(self.dictionary_of_vp[i]) > 1:
                     pp = tuple(self.dictionary_of_vp[i][1])
                     pp_string = self.get_phrase(pp).lower()
-                    if pp_string in score_pp_set and not self.is_weak_feature(pp_string):
+                    if self.inquire_content(connection, pp_string, table_lm) and not not self.is_weak_feature(pp_string):
                         self.all_vp.add(pp)
-                if self.tokens[i].lower() in score_pp_set and not self.is_weak_feature(self.tokens[i].lower()):
+                if self.inquire_content(connection, self.tokens[i].lower(), table_lm) and not self.is_weak_feature(s_word):
                         self.all_vp.add(tuple([i]))
         self.all_vp = list(self.all_vp)
 
@@ -554,14 +576,14 @@ class Sentence:
             minValue = min(key1)
             return list(range(maxValue2+1, minValue))
 
-    def generate_candidate(self, sentiments, score_pp_set, test=False):
+    def generate_candidate(self, sentiments, connection, table_lm, test=False):
         '''生成所有的候选特征-情感词对'''
         if self.candidate_pairs != None:
             return
         self.get_dependence_tree_up()
-        self.get_all_np(score_pp_set)
-        self.get_all_vp(score_pp_set)
-        self.get_all_sentiment(score_pp_set, sentiments)
+        self.get_all_np(connection, table_lm)
+        self.get_all_vp(connection, table_lm)
+        self.get_all_sentiment(sentiments)
 
         if test == False:
             new_set = set()
@@ -579,8 +601,6 @@ class Sentence:
         pp.extend(self.all_vp)
         self.candidate_pairs_dependency_dist = []
         self.candidate_pairs = []
-        #  print(self.tokens)
-        #  print(self.parse_tree)
         for e1 in pp:
             for e2 in self.all_sentiment:
                 if set(e1) & set(e2) != set():
