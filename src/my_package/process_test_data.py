@@ -12,13 +12,13 @@ import xml.etree.ElementTree as etree
 from collections import defaultdict
 import sys, getopt
 
-def extract_test_feature_vector(content, score_pp_set, sentiments):
-    field_content = r"../../data/domains/" + content + r"/"
+def extract_test_feature_vector(content, connection, table_lm, sentiments):
+    field_content = r"../../data/soft_domains/" + content + r"/"
     sentences = load_pickle_file(field_content+r"test/test_sentences.pickle")
     lexcion = load_pickle_file(field_content + "pickles/lexicon.pickle")
     it = 0
     for sentence in sentences:
-        sentence.generate_candidate(sentiments, score_pp_set, test=True)
+        sentence.generate_candidate(sentiments, connection, table_lm, test=True)
         sentence.generate_candidate_feature_vector(lexcion, test=True)
         sentence.generate_test_label()
         if it % 100 == 0:
@@ -42,14 +42,14 @@ def extract_test_feature_vector(content, score_pp_set, sentiments):
         print("\n", file=f)
     out.close()
     f.close()
-        
+
 def usage():
     '''打印帮助信息'''
     print("process_test_data.py 用法:")
     print("-h, --help: 打印帮助信息")
     print("-d, --domain: 需要处理的领域名称")
-    
-        
+
+
 
 if __name__ == "__main__":
     try:
@@ -65,7 +65,13 @@ if __name__ == "__main__":
         if op in ("-d", "--domain"):
             content = value
     field_content = r"../../data/domains/" + content + r"/"
-    score_pp_dict = load_pickle_file(field_content + r"pickles/score_pp.pickle")
-    score_pp_set = set(score_pp_dict.keys())
     sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
-    extract_test_feature_vector(content, score_pp_set, sentiments)
+    table_lm = content + "_lm"
+    connection = pymysql.connect(host="console",
+                                user="u20130099",
+                                passwd="u20130099",
+                                db="u20130099",
+                                charset="utf8",
+                                cursorclass=pymysql.cursors.DictCursor)
+    extract_test_feature_vector(content, connection, table_lm, sentiments)
+    connection.close()
