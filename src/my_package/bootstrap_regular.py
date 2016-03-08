@@ -576,10 +576,10 @@ def run(field_content, sentiment_dict, b, e, connection, table_lm):
 
     # 根据语言模型筛选通用情感词典
     new_sentiment_dict = {key : value for key, value in sentiment_dict.items() if inquire_content(connection, key, table_lm)}
-    #  save_json_file(field_content + "pickles/raw_sentiment_dict.json", sentiment_dict)
     sentiments = set(new_sentiment_dict.keys())
     #  sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
     features = set()
+    #  features = load_pickle_file(field_content + r"pickles/features.pickle")
     create_content(field_content + r"bootstrap")
     create_content(field_content + r"pickles/bootstrap_sentences")
     f1 = open(field_content + r"bootstrap/feat_sent", "w", encoding="utf8")
@@ -599,7 +599,7 @@ def run(field_content, sentiment_dict, b, e, connection, table_lm):
             f_using_s5(sentence, features, sentiments, connection, sentiment_dict, table_lm)
         save_sentences = [sentence for sentence in sentences if sentence.feature_sentiment != []]
         for k in range(len(save_sentences)):
-            write_feature_sentiment(save_sentences[k], f1, k)
+            write_feature_sentiment(save_sentences[k], f1)
         save_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle", save_sentences)
         i += 1
     for e in sentiments:
