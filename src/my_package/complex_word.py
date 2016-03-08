@@ -484,9 +484,9 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
         print(file=f)
     f.close()
 
-def my_cross_validation(X, y, mark, words, cv=10, has_sent=True):
+def my_cross_validation(X, y, mark, words, cv=10):
     kf = KFold(len(y), n_folds=cv)
-    scores = []
+    scores, scores_without = [], []
     for train_index, test_index in kf:
         X_train, X_test = X[train_index], X[test_index]
         y_train, y_test = y[train_index], y[test_index]
@@ -495,12 +495,13 @@ def my_cross_validation(X, y, mark, words, cv=10, has_sent=True):
         clf = LogisticRegression(C=1.0, intercept_scaling=1, dual=False,
                 fit_intercept=True, penalty="l2", tol=0.0001)
         clf.fit(X_train, y_train)
-        y_predict = clf.predict(X_test)
-        if not has_sent:
-            y_test = [y_test[e] for e in range(len(mark_test)) if mark_test[e] == 0]
-            y_predict= [y_predict[e] for e in range(len(mark_test)) if mark_test[e] == 0]
+        y_predict = np.sign(clf.predict(X_test))
+        y_predict = [int(e) for e in y_predict]
         scores.append(f1_score(y_test, y_predict))
-    return np.array(scores)
+        y_test = [y_test[e] for e in range(len(mark_test)) if mark_test[e] == 0]
+        y_predict= [y_predict[e] for e in range(len(mark_test)) if mark_test[e] == 0]
+        scores_without.append(f1_score(y_test, y_predict))
+    return np.array(scores), np.array(scores_without)
 
 def usage():
 
@@ -541,13 +542,13 @@ if __name__ == "__main__":
     sentiments = set(Static.sentiment_word.keys())
     words, mark = extract(field_content+"near/", sentiments)
     X, y = load_svmlight_file(field_content+"near/feature_vector")
+    X = X.toarray()
 
-    scores = my_cross_validation(X, y, mark, words)
+    scores, socres_without = my_cross_validation(X, y, mark, words)
     print(scores)
     print(scores.mean())
 
-    scores = my_cross_validation(X, y, mark, words, has_sent=False)
-    print(scores)
-    print(scores.mean())
+    print(scores_without)
+    print(scores_without.mean())
     connection.close()
     print("end")
