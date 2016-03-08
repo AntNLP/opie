@@ -456,8 +456,6 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
     word_count = {}
     for key, value in inquire_total(connection):
         n = value
-    sys.exit()
-    lexcion = {}
     word_pickle_sentence = load_pickle_file(field_content+"pickles/word_pickle_sentence.pickle")
     f = open(field_content+"near/complex_word_feature", "w", encoding="utf8")
     for word_label, word_string, word_pos in load_near_word(field_content+"near/complex_word_label_pos"):
