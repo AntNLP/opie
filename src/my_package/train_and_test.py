@@ -71,6 +71,37 @@ def get_sort(t):
         ret_dict[key] = [int(line[0]) for line in sorted(value, key=lambda x:x[1], reverse=True)]
     return ret_dict[1]
 
+def test_and_output(field_content, feature_vector_path, clf, f):
+    X_test, y_test = load_svmlight_file(feature_vector_path)
+    sentences = load_pickle_file(field_content + r"test/feature_vector_sentences.pickle")
+    y = clf.predict(X_test)
+    if f == all_match:
+        out_path = field_content + r"results/all_match_predict_text"
+        #  res_path = field_content + r"results/all_match_res"
+    elif f == all_cover:
+        out_path = field_content + r"results/all_cover_predict_text"
+        #  res_path = field_content + r"results/all_cover_res"
+    else:
+        out_path = field_content + r"results/have_part_predict_text"
+        #  res_path = field_content + r"results/have_part_res"
+    f = open(out_path, "w", encoding="utf8")
+    i = 0
+    for sentence in sentences:
+        mark = False
+        for pair in sentence.candidate_pairs:
+            if y[i] != 0:
+                key, value = pair[0], pair[1]
+                if mark == False:
+                    print("S\t%s"%sentence.text, file=f)
+                mark = True
+                print("R\t{0}\t{1}\t{2}\t{3}".format(
+                    sentence.get_phrase(key).lower(),
+                    sentence.get_phrase(value).lower(),
+                    key,
+                    value), file=f)
+            i += 1
+    f.close()
+
 def test_and_classifiy(field_content, feature_vector_path, clf, f):
     X_test, y_test = load_svmlight_file(feature_vector_path)
 
@@ -160,7 +191,8 @@ def train_and_test_solve(field_content, r):
     clf1, clf2, clf3 = train_and_classifiy(field_content + r"train/")
     feature_vector_path = field_content + r"test/feature_vectors"
 
-    test_and_classifiy(field_content, feature_vector_path, clf1, all_match)
+    # test_and_classifiy(field_content, feature_vector_path, clf1, all_match)
+    test_and_output(field_content, feature_vector_path, clf1, all_match)
 
     #  test_and_classifiy(field_content, feature_vector_path, clf1, all_cover)
 
@@ -189,5 +221,5 @@ if __name__ == "__main__":
             content = value
         if op in ("-r", "--rate"):
             r = float(value)
-    field_content = r"../../data/domains/" + content + r"/"
+    field_content = r"../../data/soft_domains/" + content + r"/"
     train_and_test_solve(field_content, r)

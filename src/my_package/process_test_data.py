@@ -11,6 +11,7 @@ import re
 import xml.etree.ElementTree as etree
 from collections import defaultdict
 import sys, getopt
+import pymysql
 
 def extract_test_feature_vector(content, connection, table_lm, sentiments):
     field_content = r"../../data/soft_domains/" + content + r"/"
@@ -64,7 +65,7 @@ if __name__ == "__main__":
             sys.exit()
         if op in ("-d", "--domain"):
             content = value
-    field_content = r"../../data/domains/" + content + r"/"
+    field_content = r"../../data/soft_domains/" + content + r"/"
     sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
     table_lm = content + "_lm"
     connection = pymysql.connect(host="console",
