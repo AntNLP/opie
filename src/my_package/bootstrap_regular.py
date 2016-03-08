@@ -84,7 +84,7 @@ def nn_mod_and_obj(sentence, features, sentiments, new_feature_string, key, valu
                 if sentence.fs_dict.get((tuple(np), tuple([value, key]))) != None:
                     continue
                 new_sentiment_string = sentence.tokens[value].lower() +" " + sentence.tokens[key].lower()
-                sentiments.add(new_sentiment_string)
+                #  sentiments.add(new_sentiment_string)
                 sentence.fs_dict[(tuple(np), tuple([value, key]))] = 1
                 sentence.feature_sentiment.append([np, [value, key]])
                 sentence.fs_regu.append(regu_name)
@@ -97,7 +97,7 @@ def nn_mod_and_obj(sentence, features, sentiments, new_feature_string, key, valu
                 # 语言模型过滤
                 if not inquire_content(connection, new_sentiment_string, table_lm):
                     break
-                sentiments.add(new_sentiment_string)
+                #  sentiments.add(new_sentiment_string)
                 sentence.fs_dict[(tuple(np), tuple([key, value]))] = 1
                 sentence.feature_sentiment.append([np, [key, value]])
                 sentence.fs_regu.append(regu_name)
@@ -137,7 +137,7 @@ def jj_conj_jj(sentence, sentiments, new_feature_string, value, pp, connection, 
             # 判断之前是否已经找出
             if sentence.fs_dict.get((tuple(pp), tuple([i_jj]))) != None:
                 continue
-            sentiments.add(new_sentiment_string)
+            #  sentiments.add(new_sentiment_string)
             sentence.fs_dict[(tuple(pp), tuple([i_jj]))] = 1
             sentence.feature_sentiment.append([pp, [i_jj]])
             sentence.fs_regu.append(regu_name)
@@ -173,7 +173,7 @@ def jj_conj_jj(sentence, sentiments, new_feature_string, value, pp, connection, 
                             continue
 
                         #  print(new_sentiment_string)
-                        sentiments.add(new_sentiment_string)
+                        #  sentiments.add(new_sentiment_string)
                         sentence.fs_dict[(tuple(pp), tuple([i_jj, i_to, i_vb]))] = 1
                         sentence.feature_sentiment.append([pp, [i_jj, i_to, i_vb]])
                         sentence.fs_regu.append(regu_name)
@@ -250,7 +250,7 @@ def jj_to_vp(sentence, sentiments, sent, new_feature_string, i_feat, connection,
         if not inquire_content(connection, new_sentiment_string, table_lm):
             continue
 
-        sentiments.add(new_sentiment_string)
+        #  sentiments.add(new_sentiment_string)
         sentence.fs_dict[(tuple(i_feat), tuple([sent, i_to, i_vb]))] = 1
         sentence.feature_sentiment.append([i_feat, [sent, i_to, i_vb]])
         sentence.fs_regu.append(regu_name)
@@ -550,7 +550,7 @@ def f_using_s5(sentence, features, sentiments, connection, sentiment_dict, table
         # 语言模型过滤
         if not inquire_content(connection, new_sentiment_string, table_lm):
             continue
-        sentiments.add(new_sentiment_string)
+        #  sentiments.add(new_sentiment_string)
         features.add(new_feature_string)
         sentence.fs_dict[(tuple(pp), tuple(sp))] = 1
         sentence.feature_sentiment.append([pp, sp])
