@@ -16,7 +16,7 @@ import pymysql
 def extract_test_feature_vector(content, connection, table_lm, sentiments):
     field_content = r"../../data/soft_domains/" + content + r"/"
     sentences = load_pickle_file(field_content+r"test/test_sentences.pickle")
-    sentences = sentences[:2000]
+    sentences = sentences[:4000]
     lexcion = load_pickle_file(field_content + "pickles/lexicon.pickle")
     print(len(sentences))
     it = 0
