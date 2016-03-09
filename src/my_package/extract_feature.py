@@ -138,12 +138,7 @@ def extract_feature_vector(sentences, lexcion, f, g):
                 print("{0}\t\t{1}".format(
                 sentence.get_phrase(feat).lower(),
                 sentence.get_phrase(sent).lower()),
-                # sentence.all_match_label[i]),
                 file=g)
-            #  print("{0}\t\t{1}\t\t{2}".format(
-                #  sentence.get_phrase(feat).lower(),
-                #  sentence.get_phrase(sent).lower(),
-                #  sentence.all_match_label[i]), file=g)
         print(file=g)
 
 def get_count(str1, str2, field_content):
@@ -181,7 +176,7 @@ if __name__ == "__main__":
             e = int(value)
     field_content = r"../../data/soft_domains/" + content + r"/"
     table_lm = content + "_lm"
-    connection = pymysql.connect(host="console",
+    connection = pymysql.connect(host="localhost",
                                 user="u20130099",
                                 passwd="u20130099",
                                 db="u20130099",
@@ -199,6 +194,7 @@ if __name__ == "__main__":
         print("loading")
         sentences = load_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle")
         print("loaded")
+        print(len(sentences))
         train_feature_solve(field_content, lexcion, sentences, connection, table_lm, sentiments)
         save_pickle_file(field_content + r"pickles/feature_vectors/sentences_" + str(i) +".pickle", sentences)
         i += 1
