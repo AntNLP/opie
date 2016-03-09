@@ -49,7 +49,8 @@ week
 weeks
 's
 this
-come 
+come
+came
 comes
 info
 reason
@@ -132,3 +133,6 @@ had
 first
 now
 also
+ones
+should
+shoud
