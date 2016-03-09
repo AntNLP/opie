@@ -324,11 +324,11 @@ def inquire_num(connection, i_pickle, i_sentence, table_num):
     finally:
         pass
 
-def inquire_total(connection):
+def inquire_total(connection, table_posting):
     try:
         # 游标
         with connection.cursor() as cursor:
-            sql = "select count(distinct i_pickle, i_sentence) from posting_db"
+            sql = "select count(distinct i_pickle, i_sentence) from %s"%table_posting
             cursor.execute(sql)
             res = cursor.fetchone()
             return res
@@ -454,8 +454,14 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
     word_count_pos = word_count_pos[:100]
     word_count_neg = word_count_neg[:100]
     word_count = {}
-    for key, value in inquire_total(connection):
-        n = value
+    if not os.path.exists(field_content+"pickles/pickle_sentence_count.pickle.bz2"):
+        ret = inquire_total(connection, table_posting)
+        for key, value in ret.items():
+            n = value
+        save_pickle_file(field_content+"pickles/pickle_sentence_count.pickle", n)
+    else:
+        n = load_pickle_file(field_content+"pickles/pickle_sentence_count.pickle")
+    print("n=", n)
     word_pickle_sentence = load_pickle_file(field_content+"pickles/word_pickle_sentence.pickle")
     f = open(field_content+"near/complex_word_feature", "w", encoding="utf8")
     for word_label, word_string, word_pos in load_near_word(field_content+"near/complex_word_label_pos"):
