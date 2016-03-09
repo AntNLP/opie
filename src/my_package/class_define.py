@@ -591,18 +591,18 @@ class Sentence:
                 if len(sent) == 3:
                     new_set.add(tuple(sent))
             self.all_sentiment.extend([list(e) for e in new_set])
-        #  else:
-            #  for k in range(1, len(self.tokens)):
-                #  new_word = self.tokens[k].lower() + " " + self.tokens[k+1].lower()
-                #  if new_word in sentiments:
-                    #  self.all_sentiment.append([k, k+1])
-
+            fset = set([tuple(e[0]) for e in self.feature_sentiment])
+            sset = set([tuple(e[0]) for e in self.feature_sentiment])
         pp = self.all_np.copy()
         pp.extend(self.all_vp)
         self.candidate_pairs_dependency_dist = []
         self.candidate_pairs = []
         for e1 in pp:
             for e2 in self.all_sentiment:
+                if not test and tuple(e1) not in fset and tuple(e2) not in sset:
+                    continue
+                #  if len(self.get_between_word(e1, e2)) >= 10:
+                    #  continue
                 if set(e1) & set(e2) != set():
                     continue
                 f, dist, dep_str = self.path_word(e1, e2)
@@ -751,6 +751,10 @@ class Sentence:
                 feat_vector.append(base + e)
             base += 13
 
+            # 两词之间是否有be
+            for e in f[25]:
+                feat_vector.append(base + e)
+            base += 2
 
             # 特征词和情感词的相对顺序
             for e in f[0]:
@@ -827,9 +831,20 @@ class Sentence:
         # 依赖路径上词的个数
         f24 = self.create_dependency_word_count(lexcion, i_dep, test)
 
+        # 两个词之间是否有 is
+        f25 = self.judge_has_be(words_list)
+
         return [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10,
                 f11, f12, f13, f14, f15, f16, f17, f18, f19,
-                f20, f21, f22, f23, f24]
+                f20, f21, f22, f23, f24, f25]
+
+    def judge_has_be(self, words_list):
+        be_set = set(["is", "was", "are", "were", "am"])
+        for i in words_list:
+            if self.tokens[i].lower() in be_set:
+                return [1]
+        return [2]
+
 
     def create_dependency_word_count(self, lexcion, i_dep, test=False):
         f = []
