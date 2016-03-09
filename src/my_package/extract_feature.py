@@ -11,6 +11,7 @@ from collections import Counter
 import pymysql
 import re
 from my_package.process_test_data import extract_test_feature_vector
+from my_package.class_define import Static
 import sys, getopt
 from timeit import timeit
 import cProfile
@@ -192,7 +193,7 @@ if __name__ == "__main__":
                {"word":{},
                 "pos_tag":{},
                  "dep":{}}}
-    # sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
+    sentiments = set(Static.sentiment_word.keys())
     i = b
     while i < e and os.path.exists(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle.bz2"):
         print("loading")
