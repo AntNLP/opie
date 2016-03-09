@@ -5,7 +5,7 @@ Created on 2015年9月1日
 @author: Changzhi Sun
 '''
 import os
-#  from my_package.class_define import Sentence, Static
+from my_package.class_define import Static
 from my_package.scripts import create_content, save_pickle_file,load_pickle_file, return_none
 import re
 import xml.etree.ElementTree as etree
@@ -16,7 +16,9 @@ import pymysql
 def extract_test_feature_vector(content, connection, table_lm, sentiments):
     field_content = r"../../data/soft_domains/" + content + r"/"
     sentences = load_pickle_file(field_content+r"test/test_sentences.pickle")
+    sentences = sentences[:2000]
     lexcion = load_pickle_file(field_content + "pickles/lexicon.pickle")
+    print(len(sentences))
     it = 0
     for sentence in sentences:
         sentence.generate_candidate(sentiments, connection, table_lm, test=True)
@@ -66,7 +68,8 @@ if __name__ == "__main__":
         if op in ("-d", "--domain"):
             content = value
     field_content = r"../../data/soft_domains/" + content + r"/"
-    sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
+    #  sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
+    sentiments= set(Static.sentiment_word.keys())
     table_lm = content + "_lm"
     connection = pymysql.connect(host="console",
                                 user="u20130099",
