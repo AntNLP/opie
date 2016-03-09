@@ -14,11 +14,13 @@ import random
 import numpy as np
 import sys, getopt
 from collections import defaultdict
+from sklearn.metrics import f1_score, classification_report, confusion_matrix
 
 def train_and_classifiy(feature_vector_content):
     ''''''
-    X_all, y_all = load_svmlight_file(feature_vector_content + r"all_match_feature_vectors")
+    X_all, y_all = load_svmlight_file(feature_vector_content + r"raw_all_match_feature_vectors")
     print("train set len:", len(y_all))
+    print("positive", sum(y_all))
     #  print("random classifier")
     #  clf1= RandomForestClassifier(n_estimators=1000)
     #  clf1 = svm.LinearSVC()
@@ -28,6 +30,8 @@ def train_and_classifiy(feature_vector_content):
     print("fit..")
     clf1.fit(X_all, y_all)
     print("fit end...")
+    y = clf1.predict(X_all)
+    print(f1_score(y_all, y))
     '''
     X_all, y_all = load_svmlight_file(feature_vector_content + r"all_cover_feature_vectors.txt")
     clf2= RandomForestClassifier(n_estimators=1000)
@@ -97,8 +101,8 @@ def test_and_output(field_content, feature_vector_path, clf, f):
                 print("R\t{0}\t{1}\t{2}\t{3}".format(
                     sentence.get_phrase(key).lower(),
                     sentence.get_phrase(value).lower(),
-                    key,
-                    value), file=f)
+                    list(key),
+                    list(value)), file=f)
             i += 1
     f.close()
 
@@ -186,7 +190,7 @@ def train_and_validation_solve(field_content):
 
 def train_and_test_solve(field_content, r):
     create_content(field_content + "results")
-    adjust_train_set(field_content+"train/", r)
+    #  adjust_train_set(field_content+"train/", r)
 
     clf1, clf2, clf3 = train_and_classifiy(field_content + r"train/")
     feature_vector_path = field_content + r"test/feature_vectors"
