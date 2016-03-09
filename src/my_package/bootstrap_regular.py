@@ -575,16 +575,16 @@ def run(field_content, sentiment_dict, b, e, connection, table_lm):
     iter_count = 0
 
     # 根据语言模型筛选通用情感词典
-    new_sentiment_dict = {key : value for key, value in sentiment_dict.items() if inquire_content(connection, key, table_lm)}
-    sentiments = set(new_sentiment_dict.keys())
+    # new_sentiment_dict = {key : value for key, value in sentiment_dict.items() if inquire_content(connection, key, table_lm)}
     #  sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
+    sentiments = set(sentiment_dict.keys())
     features = set()
     #  features = load_pickle_file(field_content + r"pickles/features.pickle")
     create_content(field_content + r"bootstrap")
     create_content(field_content + r"pickles/bootstrap_sentences")
     f1 = open(field_content + r"bootstrap/feat_sent", "w", encoding="utf8")
-    f2 = open(field_content + r"bootstrap/feat_iter", "w", encoding="utf8")
-    f3 = open(field_content + r"bootstrap/sent_iter", "w", encoding="utf8")
+    f2 = open(field_content + r"bootstrap/feat", "w", encoding="utf8")
+    f3 = open(field_content + r"bootstrap/sent", "w", encoding="utf8")
     i = b
     while i < e and os.path.exists(field_content + r"pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle.bz2"):
         print(i, "loading")
