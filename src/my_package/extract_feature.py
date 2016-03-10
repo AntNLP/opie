@@ -187,6 +187,7 @@ if __name__ == "__main__":
     lexcion = {"unigram":
                {"word":{},
                 "pos_tag":{},
+                "word_pos_tag":{},
                  "dep":{}}}
     sentiments = set(Static.sentiment_word.keys())
     i = b
@@ -203,6 +204,7 @@ if __name__ == "__main__":
     save_json_file(field_content + "pickles/lexicon.json", lexcion)
     print("word:", len(lexcion['unigram']['word']))
     print("pos_tag:", len(lexcion['unigram']['pos_tag']))
+    print("word_pos_tag:", len(lexcion['unigram']['word_pos_tag']))
     print("dep:", len(lexcion['unigram']['dep']))
     i = b
     f = open(field_content + r"train/raw_all_match_feature_vectors", mode="w", encoding="utf8")
