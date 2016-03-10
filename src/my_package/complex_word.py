@@ -473,8 +473,7 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
         emi, nwp = calcu_emi_nwp(connection, table_lm, res_set, word_string, n, word_count)
         print("%d\t%d\t%.10f\t%.10f\t%.10f\t%.10f\t%.10f\t%.10f\t%s\t%s"%(int(word_label), len(res_set), pos_pmi, neg_pmi,
             pos_emi, neg_emi, emi, nwp, word_string, word_pos), file=f)
-        for e in res:
-            i_pickle, i_sentence = e['i_pickle'], e['i_sentence']
+        for i_pickle, i_sentence in res_set:
             pre_num, cur_num, next_num = 0, 0, 0
             res1 = inquire_num(connection, i_pickle, i_sentence-1, table_num)
             res2 = inquire_num(connection, i_pickle, i_sentence, table_num)
@@ -534,7 +533,7 @@ if __name__ == "__main__":
     table_posting = content + "_posting"
     table_num = content + "_num"
 
-    connection = pymysql.connect(host="console",
+    connection = pymysql.connect(host="localhost",
                                 user="u20130099",
                                 passwd="u20130099",
                                 local_infile=True,
