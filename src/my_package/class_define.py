@@ -700,161 +700,6 @@ class Sentence:
                 feat_vector.append(base + e)
             base += 2
 
-            #  #  特征词
-            #  for e in sorted(set(f[22])):
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  情感词
-            #  for e in sorted(set(f[23])):
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  特征词前一个词
-            #  for e in f[1]:
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  特征词前两个词
-            #  for e in f[2]:
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  特征词前一个词 POS tag
-            #  for e in f[3]:
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-            #  #  特征词前两个词 POS tag
-            #  for e in f[4]:
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-            #  #  特征词后一个词
-            #  for e in f[5]:
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  特征词后两个词
-            #  for e in f[6]:
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  特征词后一个词 POS tag
-            #  for e in f[7]:
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-            #  #  特征词后两个词 POS tag
-            #  for e in f[8]:
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-
-
-            #  #  情感词前一个词
-            #  for e in f[9]:
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  情感词前两个词
-            #  for e in f[10]:
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  情感词前一个词 POS tag
-            #  for e in f[11]:
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-            #  #  情感词前两个词 POS tag
-            #  for e in f[12]:
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-            #  #  情感词后一个词
-            #  for e in f[13]:
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  情感词后两个词
-            #  for e in f[14]:
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  情感词后一个词 POS tag
-            #  for e in f[15]:
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-            #  #  情感词后两个词 POS tag
-            #  for e in f[16]:
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-            #  #  特征词和情感词中间词
-            #  for e in sorted(set(f[17])):
-                #  feat_vector.append(base + e)
-            #  base += word_len
-
-            #  #  特征词和情感词中间词 POS tag
-            #  for e in sorted(set(f[18])):
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-
-            #  #  特征词 POS tag
-            #  for e in sorted(set(f[20])):
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-            #  #  情感词 POS tag
-            #  for e in sorted(set(f[21])):
-                #  feat_vector.append(base + e)
-            #  base += pos_tag_len
-
-
-
-
-            #  # 特征词前一个词以及POS tag
-            #  for e in f[26]:
-                #  feat_vector.append(base + e)
-            #  base += word_pos_tag_len
-
-            #  # 特征词前两个词以及POS tag
-            #  for e in f[27]:
-                #  feat_vector.append(base + e)
-            #  base += word_pos_tag_len
-
-            #  # 特征词后一个词以及POS tag
-            #  for e in f[28]:
-                #  feat_vector.append(base + e)
-            #  base += word_pos_tag_len
-
-            #  # 特征词后两个词以及POS tag
-            #  for e in f[29]:
-                #  feat_vector.append(base + e)
-            #  base += word_pos_tag_len
-
-            #  # 情感词前一个词以及POS tag
-            #  for e in f[30]:
-                #  feat_vector.append(base + e)
-            #  base += word_pos_tag_len
-
-            #  # 情感词前两个词以及POS tag
-            #  for e in f[31]:
-                #  feat_vector.append(base + e)
-            #  base += word_pos_tag_len
-
-            #  # 情感词后一个词以及POS tag
-            #  for e in f[32]:
-                #  feat_vector.append(base + e)
-            #  base += word_pos_tag_len
-
-            #  # 情感词后两个词以及POS tag
-            #  for e in f[33]:
-                #  feat_vector.append(base + e)
-            #  base += word_pos_tag_len
             self.feature_vector.append(feat_vector)
 
 
@@ -1003,37 +848,7 @@ class Sentence:
             return [1]
         else:
             return [2]
-    #  def create_words(self, lexcion, words_list, test=False):
-        #  f = []
-        #  for w in words_list:
-            #  word_str = self.tokens[w].lower()
-            #  if re.search(r"^\W+$", word_str) != None:
-                #  continue
-            #  if word_str in Static.stops:
-                #  continue
-            #  if lexcion["unigram"]["word"].get(word_str) == None:
-                #  if test:
-                    #  continue
-                #  f.append(len(lexcion["unigram"]["word"]) + 1)
-                #  lexcion["unigram"]["word"][word_str] = f[-1]
-            #  else:
-                #  f.append(lexcion["unigram"]["word"][word_str])
-        #  return f
 
-    #  def create_words_pos_tag(self, lexcion, words_list, test=False):
-        #  f = []
-        #  for w in words_list:
-            #  word_str = self.pos_tag[w].lower()
-            #  if re.search(r"^\W+$", word_str) != None:
-                #  continue
-            #  if lexcion["unigram"]["pos_tag"].get(word_str) == None:
-                #  if test:
-                    #  continue
-                #  f.append(len(lexcion["unigram"]["pos_tag"]) + 1)
-                #  lexcion["unigram"]["pos_tag"][word_str] = f[-1]
-            #  else:
-                #  f.append(lexcion["unigram"]["pos_tag"][word_str])
-        #  return f
     def create_words(self, lexcion, words_list, option, test=False):
         '''
         @option: 0   word
@@ -1065,51 +880,6 @@ class Sentence:
                 f.append(lex[target])
         return f
 
-    #  def create_one_word(self, lexcion, k, order, is_feature, is_left, test=False):
-        #  f = []
-        #  if order == 1 and is_feature and not is_left:
-            #  return f
-        #  if order == 2 and is_feature and is_left:
-            #  return f
-        #  if order == 1 and not is_feature and is_left:
-            #  return f
-        #  if order == 2 and not is_feature and not is_left:
-            #  return f
-        #  word_str = "#" if self.tokens.get(k) == None else self.tokens[k].lower()
-        #  if re.search(r"^\W+$", word_str) != None:
-            #  return f
-        #  if word_str in Static.stops:
-            #  return f
-        #  if lexcion["unigram"]["word"].get(word_str) == None:
-            #  if test:
-                #  return f
-            #  f.append(len(lexcion["unigram"]["word"]) + 1)
-            #  lexcion["unigram"]["word"][word_str] = f[0]
-        #  else:
-            #  f.append(lexcion["unigram"]["word"][word_str])
-        #  return f
-
-    #  def create_one_word_pos_tag(self, lexcion, k, order, is_feature, is_left, test=False):
-        #  f = []
-        #  if order == 1 and is_feature and not is_left:
-            #  return f
-        #  if order == 2 and is_feature and is_left:
-            #  return f
-        #  if order == 1 and not is_feature and is_left:
-            #  return f
-        #  if order == 2 and not is_feature and not is_left:
-            #  return f
-        #  pos_tag_str = "#" if self.tokens.get(k) == None else self.pos_tag[k].lower()
-        #  if re.search(r"^\W+$", pos_tag_str) != None:
-            #  return f
-        #  if lexcion["unigram"]["pos_tag"].get(pos_tag_str) == None:
-            #  if test:
-                #  return f
-            #  f.append(len(lexcion["unigram"]["pos_tag"]) + 1)
-            #  lexcion["unigram"]["pos_tag"][pos_tag_str] = f[0]
-        #  else:
-            #  f.append(lexcion["unigram"]["pos_tag"][pos_tag_str])
-        #  return f
     def create_one_word(self, lexcion, k, order, is_feature, is_left, option, test=False):
         '''
         @option: 0   word
@@ -1160,25 +930,23 @@ class Sentence:
                     break
             self.all_match_label.append(label)
 
-        '''
-        self.all_cover_label = []
-        for pair in self.candidate_pairs:
-            label = 0
-            for fs_ele in self.fs_dict.keys():
-                if all_cover(fs_ele, pair):
-                    label = 1
-                    break
-            self.all_cover_label.append(label)
+        #  self.all_cover_label = []
+        #  for pair in self.candidate_pairs:
+            #  label = 0
+            #  for fs_ele in self.fs_dict.keys():
+                #  if all_cover(fs_ele, pair):
+                    #  label = 1
+                    #  break
+            #  self.all_cover_label.append(label)
 
-        self.have_part_label = []
-        for pair in self.candidate_pairs:
-            label = 0
-            for fs_ele in self.fs_dict.keys():
-                if have_part(pair, fs_ele):
-                    label = 1
-                    break
-            self.have_part_label.append(label)
-        '''
+        #  self.have_part_label = []
+        #  for pair in self.candidate_pairs:
+            #  label = 0
+            #  for fs_ele in self.fs_dict.keys():
+                #  if have_part(pair, fs_ele):
+                    #  label = 1
+                    #  break
+            #  self.have_part_label.append(label)
 
     def generate_test_label(self):
         self.all_match_label = [0 for e in self.candidate_pairs]
