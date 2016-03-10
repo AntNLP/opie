@@ -71,7 +71,7 @@ if __name__ == "__main__":
     #  sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
     sentiments= set(Static.sentiment_word.keys())
     table_lm = content + "_lm"
-    connection = pymysql.connect(host="console",
+    connection = pymysql.connect(host="localhost",
                                 user="u20130099",
                                 passwd="u20130099",
                                 db="u20130099",
