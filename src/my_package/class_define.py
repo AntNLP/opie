@@ -661,7 +661,8 @@ class Sentence:
                                   30, # 情感词前一个词以及POS tag
                                   31, # 情感词前两个词以及POS tag
                                   32, # 情感词后一个词以及POS tag
-                                  33  # 情感词后两个词以及POS tag
+                                  33, # 情感词后两个词以及POS tag
+                                  34  # 特征词和情感词中间词以及POS tag
                                   ]
 
             for i in word_index:
@@ -1147,25 +1148,6 @@ class Sentence:
         else:
             f.append(lex[target])
         return f
-
-    #  def create_one_words(self, lexcion, indexes):
-        #  ''''''
-        #  ret_feat_vec, ret_feat_vec_len = [], 0
-        #  text_string_set = set([self.tokens[e].lower() for e in indexes if e > 0 and e <= len(self.tokens)])
-        #  reverse_word_lexcion = {value:key for key, value in lexcion['unigram']['word'].items()}
-        #  for i in range(len(reverse_word_lexcion)):
-            #  if reverse_word_lexcion[i] in text_string_set:
-                #  ret_feat_vec.append(ret_feat_vec_len+1)
-                #  for j in indexes:
-                    #  if reverse_word_lexcion[i] != self.tokens[j].lower():
-                        #  continue
-                    #  if lexcion['unigram']['pos_tag'].get(self.pos_tag[j].lower()) == None:
-                        #  continue
-                    #  ret_feat_vec.append(ret_feat_vec_len+2+lexcion['unigram']['pos_tag'][self.pos_tag[j].lower()])
-
-            #  ret_feat_vec_len += 1 + len(lexcion['unigram']['pos_tag'])
-
-        #  return ret_feat_vec, ret_feat_vec_len
 
     def generate_train_label(self):
         ''''''
