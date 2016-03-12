@@ -498,8 +498,7 @@ def my_cross_validation(X, y, mark, words, cv=10):
         clf = LogisticRegression(C=1.0, intercept_scaling=1, dual=False,
                 fit_intercept=True, penalty="l2", tol=0.0001)
         clf.fit(X_train, y_train)
-        y_predict = np.sign(clf.predict(X_test))
-        y_predict = [int(e) for e in y_predict]
+        y_predict = clf.predict(X_test)
         scores.append(f1_score(y_test, y_predict))
         y_test = [y_test[e] for e in range(len(mark_test)) if mark_test[e] == 0]
         y_predict= [y_predict[e] for e in range(len(mark_test)) if mark_test[e] == 0]
@@ -547,7 +546,7 @@ if __name__ == "__main__":
     X, y = load_svmlight_file(field_content+"near/feature_vector")
     X = X.toarray()
 
-    scores, socres_without = my_cross_validation(X, y, mark, words)
+    scores, scores_without = my_cross_validation(X, y, mark, words)
     print(scores)
     print(scores.mean())
 
