@@ -51,7 +51,9 @@ weeks
 this
 come
 came
+coming
 comes
+let
 info
 reason
 none
@@ -128,8 +130,8 @@ am
 was
 being
 had
-#been
-#much
+been
+much
 first
 now
 also
