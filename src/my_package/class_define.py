@@ -334,10 +334,9 @@ class Sentence:
                     f_x = True
                 if self.pos_tag[x] in Static.VB:
                     f_x = True
-
+                if self.tokens[x].lower() in sentiments:
+                    f_x = True
             if not f_x:
-                continue
-            if np_string not in sentiments:
                 continue
             np_set.add(tuple(np))
         self.all_sentiment.extend([list(e) for e in np_set])
@@ -588,7 +587,7 @@ class Sentence:
         if test == False:
             new_set = set()
             for feat, sent in self.feature_sentiment:
-                if len(sent) == 3:
+                if len(sent) > 1:
                     new_set.add(tuple(sent))
             self.all_sentiment.extend([list(e) for e in new_set])
             fset = set([tuple(e[0]) for e in self.feature_sentiment])
@@ -695,6 +694,16 @@ class Sentence:
                 feat_vector.append(base + e)
             base += 2
 
+            # 特征词和情感词中间是否有this it ... [PRP, EX]
+            for e in f[35]:
+                feat_vector.append(base + e)
+            base += 2
+
+            # 特征词和情感词的POS tag
+            for e in f[36]:
+                feat_vector.append(base + e)
+            base += len(lexcion["unigram"]["joint_pos_tag"])
+
             # 特征词和情感词的相对顺序
             for e in f[0]:
                 feat_vector.append(base + e)
@@ -800,10 +809,39 @@ class Sentence:
         # 特征词和情感词中间词以及POS tag
         f34 = self.create_words(lexcion, words_list, 2, test)
 
+        # 特征词和情感词中间是否有this it ... [PRP, EX]
+        f35 = self.judge_has_it(words_list)
+
+        # 特征词和情感词的POS tag
+        f36 = self.create_feature_sentiment_pos_tag(lexcion, pair[0], pair[1], test)
+
         return [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10,
                 f11, f12, f13, f14, f15, f16, f17, f18, f19,
                 f20, f21, f22, f23, f24, f25, f26, f27, f28,
-                f29, f30, f31, f32, f33, f34]
+                f29, f30, f31, f32, f33, f34, f35, f36]
+
+
+    def create_feature_sentiment_pos_tag(self, lexcion, feat, sent, test):
+        feat_pos_tag = " ".join([self.pos_tag[e] for e in feat])
+        sent_pos_tag = " ".join([self.pos_tag[e] for e in sent])
+        joint_pos_tag = "#".join([feat_pos_tag, sent_pos_tag])
+        f = []
+        lex = lexcion["unigram"]["joint_pos_tag"]
+        if joint_pos_tag not in lex:
+            if not test:
+                f.append(len(lex)+1)
+                lex[joint_pos_tag] = f[0]
+        else:
+            f.append(lex[joint_pos_tag])
+        return f
+
+
+    def judge_has_it(self, words_list):
+        it_set = set(["PRP", "EX"])
+        for i in words_list:
+            if self.pos_tag[i].lower() in it_set:
+                return [1]
+        return [2]
 
     def judge_has_be(self, words_list):
         be_set = set(["is", "was", "are", "were", "am"])
@@ -811,7 +849,6 @@ class Sentence:
             if self.tokens[i].lower() in be_set:
                 return [1]
         return [2]
-
 
     def create_dependency_word_count(self, lexcion, i_dep, test=False):
         f = []

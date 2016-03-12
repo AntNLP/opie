@@ -187,6 +187,7 @@ if __name__ == "__main__":
     lexcion = {"unigram":
                {"word":{},
                 "pos_tag":{},
+                "joint_pos_tag":{},
                 "word_pos_tag":{},
                  "dep":{}}}
     sentiments = set(Static.sentiment_word.keys())
@@ -206,6 +207,7 @@ if __name__ == "__main__":
     print("pos_tag:", len(lexcion['unigram']['pos_tag']))
     print("word_pos_tag:", len(lexcion['unigram']['word_pos_tag']))
     print("dep:", len(lexcion['unigram']['dep']))
+    print("joint_pos_tag:", len(lexcion["unigram"]["joint_pos_tag"]))
     i = b
     f = open(field_content + r"train/raw_all_match_feature_vectors", mode="w", encoding="utf8")
     g = open(field_content + r"train/train_candidate", mode="w", encoding="utf8")
