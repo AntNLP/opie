@@ -271,7 +271,7 @@ if __name__ == "__main__":
     create_content(field_content + "near")
     sentiment_dict = dict(Static.sentiment_word)
     sentiments = set(sentiment_dict.keys())
-    word_list = ["dog"]
+    word_list = ["product"]
     connection = pymysql.connect(host="console",
                                 user="u20130099",
                                 passwd="u20130099",
