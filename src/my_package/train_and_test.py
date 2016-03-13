@@ -207,12 +207,11 @@ def usage():
     print("train_and_test.py 用法:")
     print("-h, --help: 打印帮助信息")
     print("-d, --domain: 需要处理的领域名称")
-    print("-r, --rate： 负样本与正样本数量的比值")
 
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hd:r:", ["help", "domain=", "rate="])
+        opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help", "domain="])
     except getopt.GetoptError:
         print("命令行参数输入错误！")
         usage()
@@ -223,7 +222,5 @@ if __name__ == "__main__":
             sys.exit()
         if op in ("-d", "--domain"):
             content = value
-        if op in ("-r", "--rate"):
-            r = float(value)
     field_content = r"../../data/soft_domains/" + content + r"/"
-    train_and_test_solve(field_content, r)
+    train_and_test_solve(field_content, 1)
