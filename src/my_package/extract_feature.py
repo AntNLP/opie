@@ -176,7 +176,7 @@ if __name__ == "__main__":
             e = int(value)
     field_content = r"../../data/soft_domains/" + content + r"/"
     table_lm = content + "_lm"
-    connection = pymysql.connect(host="localhost",
+    connection = pymysql.connect(host="console",
                                 user="u20130099",
                                 passwd="u20130099",
                                 db="u20130099",
@@ -187,6 +187,7 @@ if __name__ == "__main__":
     lexcion = {"unigram":
                {"word":{},
                 "pos_tag":{},
+                "pos_tags":{},
                 "joint_pos_tag":{},
                 "word_pos_tag":{},
                  "dep":{}}}

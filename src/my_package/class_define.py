@@ -287,59 +287,79 @@ class Sentence:
         '''得到所有的情感词'''
         n = len(self.pos_tag)
         self.all_sentiment = []
+        sent_set = set()
         for i in range(1, n+1):
             #  情感词词性
-            if self.pos_tag[i] not in Static.JJ and self.pos_tag[i] not in Static.RB:
-                continue
             word_str = self.tokens[i].lower()
-
-            #  情感词典
-            if word_str not in sentiments:
-                continue
-
-            #  去除 "as well"
-            if self.judge_as_well(i):
-                continue
-
-            self.all_sentiment.append([i])
-
-        for i in range(1, n+1):
-            if self.pos_tag[i] not in Static.VB:
-                continue
-            i_word = self.tokens[i].lower()
-            for j in range(1, n+1):
-                if self.pos_tag[j] not in Static.RB:
+            if self.pos_tag[i] in Static.JJ:
+                adjp = self.get_min_adjp(i)
+                m = False
+                for j in adjp:
+                    if self.tokens[j].lower() in sentiments:
+                        m = True
+                        break
+                if not m:
                     continue
-                ij_word = i_word + " " + self.tokens[j].lower()
-                if ij_word not in sentiments:
+                sent_set.add(tuple(adjp))
+                if len(adjp) > 1 and word_str in sentiments and word_str not in Static.weak_sentiment:
+                    sent_set.add(tuple([i]))
+            elif self.pos_tag[i] in Static.RB:
+                #  去除 "as well"
+                if self.judge_as_well(i):
                     continue
-                self.all_sentiment.append([i, j])
+                if word_str in sentiments and word_str not in Static.weak_sentiment:
+                    sent_set.add(tuple([i]))
 
-        np_set = set()
-        for i in range(1, n+1):
-            if self.pos_tag[i] not in Static.NN:
-                continue
-            np = self.get_np(i)
-            if len(np) == 1:
-                continue
-            np_string = self.get_phrase(np).lower()
+            elif self.pos_tag[i] in Static.VB:
+                vp = self.get_vp(i)
+                m = False
+                for j in vp:
+                    if self.tokens[j].lower() in sentiments:
+                        m = True
+                        break
+                if not m:
+                    continue
+                sent_set.add(tuple(vp))
+                if len(vp) > 1 and word_str in sentiments and word_str not in Static.weak_sentiment:
+                    sent_set.add(tuple([i]))
 
-            f_x = False
-            for x in np[:-1]:
-                if self.pos_tag[x] in Static.NN:
-                    f_x = True
-                if self.pos_tag[x] in Static.JJ:
-                    f_x = True
-                if self.pos_tag[x] in Static.RB:
-                    f_x = True
-                if self.pos_tag[x] in Static.VB:
-                    f_x = True
-                if self.tokens[x].lower() in sentiments:
-                    f_x = True
-            if not f_x:
-                continue
-            np_set.add(tuple(np))
-        self.all_sentiment.extend([list(e) for e in np_set])
+        #  for i in range(1, n+1):
+            #  if self.pos_tag[i] not in Static.VB:
+                #  continue
+            #  i_word = self.tokens[i].lower()
+            #  for j in range(1, n+1):
+                #  if self.pos_tag[j] not in Static.RB:
+                    #  continue
+                #  ij_word = i_word + " " + self.tokens[j].lower()
+                #  if ij_word not in sentiments:
+                    #  continue
+                #  self.all_sentiment.append([i, j])
+
+        #  np_set = set()
+        #  for i in range(1, n+1):
+            #  if self.pos_tag[i] not in Static.NN:
+                #  continue
+            #  np = self.get_np(i)
+            #  if len(np) == 1:
+                #  continue
+            #  np_string = self.get_phrase(np).lower()
+
+            #  f_x = False
+            #  for x in np[:-1]:
+                #  if self.pos_tag[x] in Static.NN:
+                    #  f_x = True
+                #  if self.pos_tag[x] in Static.JJ:
+                    #  f_x = True
+                #  if self.pos_tag[x] in Static.RB:
+                    #  f_x = True
+                #  if self.pos_tag[x] in Static.VB:
+                    #  f_x = True
+                #  if self.tokens[x].lower() in sentiments:
+                    #  f_x = True
+            #  if not f_x:
+                #  continue
+            #  np_set.add(tuple(np))
+        self.all_sentiment.extend([list(e) for e in sent_set])
 
     def root_to_this(self, this):
         '''返回从根节点到this依赖路径的列表
@@ -535,7 +555,7 @@ class Sentence:
             if len(self.dictionary_of_np[i]) > 1:
                 pp = tuple(self.dictionary_of_np[i][1])
                 pp_string = self.get_phrase(pp).lower()
-                if self.inquire_content(connection, pp_string, table_lm) and not not self.is_weak_feature(pp_string):
+                if self.inquire_content(connection, pp_string, table_lm) and not self.is_weak_feature(pp_string):
                     self.all_np.add(pp)
             if self.inquire_content(connection, self.tokens[i].lower(), table_lm) and not self.is_weak_feature(s_word):
                 self.all_np.add(tuple([i]))
@@ -552,7 +572,7 @@ class Sentence:
                 if len(self.dictionary_of_vp[i]) > 1:
                     pp = tuple(self.dictionary_of_vp[i][1])
                     pp_string = self.get_phrase(pp).lower()
-                    if self.inquire_content(connection, pp_string, table_lm) and not not self.is_weak_feature(pp_string):
+                    if self.inquire_content(connection, pp_string, table_lm) and not self.is_weak_feature(pp_string):
                         self.all_vp.add(pp)
                 if self.inquire_content(connection, self.tokens[i].lower(), table_lm) and not self.is_weak_feature(s_word):
                         self.all_vp.add(tuple([i]))
@@ -587,9 +607,11 @@ class Sentence:
         if test == False:
             new_set = set()
             for feat, sent in self.feature_sentiment:
-                if len(sent) > 1:
-                    new_set.add(tuple(sent))
-            self.all_sentiment.extend([list(e) for e in new_set])
+                new_set.add(tuple(sent))
+            for e in new_set:
+                ee = list(e)
+                if ee not in self.all_sentiment:
+                    self.all_sentiment.append(ee)
             fset = set([tuple(e[0]) for e in self.feature_sentiment])
             sset = set([tuple(e[0]) for e in self.feature_sentiment])
         pp = self.all_np.copy()
@@ -598,18 +620,32 @@ class Sentence:
         self.candidate_pairs = []
         for e1 in pp:
             for e2 in self.all_sentiment:
+                if len(e1) > 8 or len(e2) > 6:
+                    continue
                 if not test and tuple(e1) not in fset and tuple(e2) not in sset:
                     continue
-                #  if len(self.get_between_word(e1, e2)) >= 10:
-                    #  continue
+                words_list = self.get_between_word(e1, e2)
+                if self.judge_middle_word(words_list):
+                    continue
                 if set(e1) & set(e2) != set():
                     continue
                 f, dist, dep_str = self.path_word(e1, e2)
                 if not f or dist > 13:
                     continue
-
                 self.candidate_pairs.append(tuple([tuple(e1), tuple(e2)]))
                 self.candidate_pairs_dependency_dist.append([dist, dep_str])
+
+    def judge_middle_word(self, words_list):
+        if len(words_list) >= 7:
+            return True
+        it_set = set(["PRP", "EX"])
+        and_set = set(["and", "but", "or", ",", ";"])
+        for i in words_list:
+            if self.pos_tag[i] in it_set:
+                return True
+            if self.tokens[i].lower() in and_set:
+                return True
+        return False
 
 
     def generate_candidate_feature_vector(self, lexcion, test=False):
@@ -625,6 +661,7 @@ class Sentence:
         self.feature_vector = []
         word_len, pos_tag_len= len(lexcion["unigram"]["word"]), len(lexcion["unigram"]["pos_tag"])
         word_pos_tag_len = len(lexcion["unigram"]["word_pos_tag"])
+        pos_tags_len = len(lexcion["unigram"]["pos_tags"])
         for f in self.feature_vector_dict:
             base = 0
             feat_vector = []
@@ -663,6 +700,10 @@ class Sentence:
                                   33, # 情感词后两个词以及POS tag
                                   34  # 特征词和情感词中间词以及POS tag
                                   ]
+            pos_tags_index = [37, # 特征词的POS tags
+                              38, # 情感词的POS tags
+                              39 # 特征词和情感词中间的POS tags
+                              ]
 
             for i in word_index:
                 for e in sorted(set(f[i])):
@@ -678,6 +719,10 @@ class Sentence:
                 for e in sorted(set(f[i])):
                     feat_vector.append(base + e)
                 base += word_pos_tag_len
+            for i in pos_tags_index:
+                for e in sorted(set(f[i])):
+                    feat_vector.append(base + e)
+                base += pos_tags_len
 
             # 特征词和情感词依赖树路径
             for e in sorted(set(f[19])):
@@ -813,18 +858,41 @@ class Sentence:
         f35 = self.judge_has_it(words_list)
 
         # 特征词和情感词的POS tag
-        f36 = self.create_feature_sentiment_pos_tag(lexcion, pair[0], pair[1], test)
+        f36 = self.create_feature_sentiment_pos_tag(lexcion, pair[0], pair[1], len(words_list), test)
+
+        # 特征词的POS tags
+        f37 = self.create_pos_tags(lexcion, pair[0], test)
+        # 情感词的POS tags
+        f38 = self.create_pos_tags(lexcion, pair[1], test)
+        # 特征词和情感词中间的POS tags
+        f39 = self.create_pos_tags(lexcion, words_list, test)
+
 
         return [f0, f1, f2, f3, f4, f5, f6, f7, f8, f9, f10,
                 f11, f12, f13, f14, f15, f16, f17, f18, f19,
                 f20, f21, f22, f23, f24, f25, f26, f27, f28,
-                f29, f30, f31, f32, f33, f34, f35, f36]
+                f29, f30, f31, f32, f33, f34, f35, f36, f37,
+                f38, f39]
+
+    def create_pos_tags(self, lexcion, word_list, test):
+        lex = lexcion["unigram"]["pos_tags"]
+        target = " ".join([self.pos_tag[e] for e in word_list])
+        f = []
+        if target not in lex:
+            if not test:
+                f.append(len(lex)+1)
+                lex[target] = f[0]
+        else:
+            f.append(lex[target])
+        return f
 
 
-    def create_feature_sentiment_pos_tag(self, lexcion, feat, sent, test):
+
+    def create_feature_sentiment_pos_tag(self, lexcion, feat, sent, num, test):
         feat_pos_tag = " ".join([self.pos_tag[e] for e in feat])
         sent_pos_tag = " ".join([self.pos_tag[e] for e in sent])
         joint_pos_tag = "#".join([feat_pos_tag, sent_pos_tag])
+        joint_pos_tag += "#%d"%num
         f = []
         lex = lexcion["unigram"]["joint_pos_tag"]
         if joint_pos_tag not in lex:
@@ -834,7 +902,6 @@ class Sentence:
         else:
             f.append(lex[joint_pos_tag])
         return f
-
 
     def judge_has_it(self, words_list):
         it_set = set(["PRP", "EX"])
