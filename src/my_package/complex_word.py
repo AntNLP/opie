@@ -310,7 +310,14 @@ def calcu_count(connection, sentiment_dict, table_lm, table_posting):
     return word_count_pos, word_count_neg
 
 
-def inquire_num(connection, i_pickle, i_sentence, table_num):
+def inquire_num(connection, i_pickle, i_sentence, table_num, seed_sent_num):
+
+    if seed_sent_num != None:
+        if i_sentence in seed_sent_num[i_pickle]:
+            tmp = {"num":seed_sent_num[i_pickle][i_sentence][0], "i_review":seed_sent_num[i_pickle][i_sentence][1]}
+            return [tmp]
+        else:
+            return []
     try:
         # 游标
         with connection.cursor() as cursor:
@@ -449,6 +456,10 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
         word_count_pos = load_pickle_file(field_content+"pickles/word_count_pos.pickle")
         word_count_neg = load_pickle_file(field_content+"pickles/word_count_neg.pickle")
 
+    if os.path.exists(field_content+"pickles/seed_sent_num.pickle.bz2"):
+        seed_sent_num = load_pickle_file(field_content+"pickles/seed_sent_num.pickle")
+    else:
+        seed_sent_num = None
     word_count_pos = list(sorted(word_count_pos, key=lambda x : len(x), reverse=True))
     word_count_neg = list(sorted(word_count_neg, key=lambda x : len(x), reverse=True))
     word_count_pos = word_count_pos[:100]
@@ -464,7 +475,11 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
     print("n=", n)
     word_pickle_sentence = load_pickle_file(field_content+"pickles/word_pickle_sentence.pickle")
     f = open(field_content+"near/complex_word_feature", "w", encoding="utf8")
+    i = 1
     for word_label, word_string, word_pos in load_near_word(field_content+"near/complex_word_label_pos"):
+        if i % 100 == 0:
+            print("i=", i)
+        i += 1
         res_set = word_pickle_sentence[word_string]
         pos_pmi = calcu_PMI(word_count_pos, res_set, n)
         neg_pmi = calcu_PMI(word_count_neg, res_set, n)
@@ -475,9 +490,9 @@ def create_feature(connection, field_content, table_lm, table_posting, table_num
             pos_emi, neg_emi, emi, nwp, word_string, word_pos), file=f)
         for i_pickle, i_sentence in res_set:
             pre_num, cur_num, next_num = 0, 0, 0
-            res1 = inquire_num(connection, i_pickle, i_sentence-1, table_num)
-            res2 = inquire_num(connection, i_pickle, i_sentence, table_num)
-            res3 = inquire_num(connection, i_pickle, i_sentence+1, table_num)
+            res1 = inquire_num(connection, i_pickle, i_sentence-1, table_num, seed_sent_num)
+            res2 = inquire_num(connection, i_pickle, i_sentence, table_num, seed_sent_num)
+            res3 = inquire_num(connection, i_pickle, i_sentence+1, table_num, seed_sent_num)
             cur_num = res2[0]['num']
             if len(res1) == 1 and res1[0]['i_review'] == res2[0]['i_review']:
                 pre_num = res1[0]['num']
