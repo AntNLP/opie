@@ -285,11 +285,13 @@ class Sentence:
 
     def get_all_sentiment(self, sentiments):
         '''得到所有的情感词'''
-        n = len(self.pos_tag)
         self.all_sentiment = []
         sent_set = set()
+        n = len(self.tokens)
         for i in range(1, n+1):
             #  情感词词性
+            if self.tokens.get(i) == None:
+                break
             word_str = self.tokens[i].lower()
             if self.pos_tag[i] in Static.JJ:
                 adjp = self.get_min_adjp(i)
