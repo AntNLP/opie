@@ -14,11 +14,13 @@ import random
 import numpy as np
 import sys, getopt
 from collections import defaultdict
+from sklearn.metrics import f1_score, classification_report, confusion_matrix
 
 def train_and_classifiy(feature_vector_content):
     ''''''
-    X_all, y_all = load_svmlight_file(feature_vector_content + r"all_match_feature_vectors")
+    X_all, y_all = load_svmlight_file(feature_vector_content + r"raw_all_match_feature_vectors")
     print("train set len:", len(y_all))
+    print("positive", sum(y_all))
     #  print("random classifier")
     #  clf1= RandomForestClassifier(n_estimators=1000)
     #  clf1 = svm.LinearSVC()
@@ -28,6 +30,8 @@ def train_and_classifiy(feature_vector_content):
     print("fit..")
     clf1.fit(X_all, y_all)
     print("fit end...")
+    y = clf1.predict(X_all)
+    print(f1_score(y_all, y))
     '''
     X_all, y_all = load_svmlight_file(feature_vector_content + r"all_cover_feature_vectors.txt")
     clf2= RandomForestClassifier(n_estimators=1000)
@@ -70,6 +74,37 @@ def get_sort(t):
     for key, value in d.items():
         ret_dict[key] = [int(line[0]) for line in sorted(value, key=lambda x:x[1], reverse=True)]
     return ret_dict[1]
+
+def test_and_output(field_content, feature_vector_path, clf, f):
+    X_test, y_test = load_svmlight_file(feature_vector_path)
+    sentences = load_pickle_file(field_content + r"test/feature_vector_sentences.pickle")
+    y = clf.predict(X_test)
+    if f == all_match:
+        out_path = field_content + r"results/all_match_predict_text"
+        #  res_path = field_content + r"results/all_match_res"
+    elif f == all_cover:
+        out_path = field_content + r"results/all_cover_predict_text"
+        #  res_path = field_content + r"results/all_cover_res"
+    else:
+        out_path = field_content + r"results/have_part_predict_text"
+        #  res_path = field_content + r"results/have_part_res"
+    f = open(out_path, "w", encoding="utf8")
+    i = 0
+    for sentence in sentences:
+        mark = False
+        for pair in sentence.candidate_pairs:
+            if y[i] != 0:
+                key, value = pair[0], pair[1]
+                if mark == False:
+                    print("S\t%s"%sentence.text, file=f)
+                mark = True
+                print("R\t{0}\t{1}\t{2}\t{3}".format(
+                    sentence.get_phrase(key).lower(),
+                    sentence.get_phrase(value).lower(),
+                    list(key),
+                    list(value)), file=f)
+            i += 1
+    f.close()
 
 def test_and_classifiy(field_content, feature_vector_path, clf, f):
     X_test, y_test = load_svmlight_file(feature_vector_path)
@@ -155,12 +190,13 @@ def train_and_validation_solve(field_content):
 
 def train_and_test_solve(field_content, r):
     create_content(field_content + "results")
-    adjust_train_set(field_content+"train/", r)
+    #  adjust_train_set(field_content+"train/", r)
 
     clf1, clf2, clf3 = train_and_classifiy(field_content + r"train/")
     feature_vector_path = field_content + r"test/feature_vectors"
 
-    test_and_classifiy(field_content, feature_vector_path, clf1, all_match)
+    # test_and_classifiy(field_content, feature_vector_path, clf1, all_match)
+    test_and_output(field_content, feature_vector_path, clf1, all_match)
 
     #  test_and_classifiy(field_content, feature_vector_path, clf1, all_cover)
 
@@ -171,12 +207,11 @@ def usage():
     print("train_and_test.py 用法:")
     print("-h, --help: 打印帮助信息")
     print("-d, --domain: 需要处理的领域名称")
-    print("-r, --rate： 负样本与正样本数量的比值")
 
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hd:r:", ["help", "domain=", "rate="])
+        opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help", "domain="])
     except getopt.GetoptError:
         print("命令行参数输入错误！")
         usage()
@@ -187,7 +222,5 @@ if __name__ == "__main__":
             sys.exit()
         if op in ("-d", "--domain"):
             content = value
-        if op in ("-r", "--rate"):
-            r = float(value)
-    field_content = r"../../data/domains/" + content + r"/"
-    train_and_test_solve(field_content, r)
+    field_content = r"../../data/soft_domains/" + content + r"/"
+    train_and_test_solve(field_content, 1)

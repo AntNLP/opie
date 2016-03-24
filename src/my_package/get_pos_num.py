@@ -109,18 +109,18 @@ def pos_and_num(i, pickle_content, sentiments, out, connection, f, table_lm):
             if k % 1000 == 0:
                 print(k)
             print("%d\t%d\t%d\t%d\t"%(i, k, get_sentiment_count(sentence, sentiments), sentence.review_index), file=out)
-            #  if "dictionary_of_adjp" in dir(sentence):
-                #  adjp = sentence.dictionary_of_adjp
-            #  else:
-                #  adjp = sentence.get("ADJP")
-            #  g = set()
-            #  get_dict_pos(connection, sentence, adjp, Static.JJ, sent_index, i, k, f, g, table_lm)
-            #  get_dict_pos(connection, sentence, sentence.dictionary_of_vp, Static.VB, sent_index, i, k, f, g, table_lm)
-            #  get_dict_pos(connection, sentence, sentence.dictionary_of_np, Static.NN, sent_index, i, k, f, g, table_lm)
-            #  for key, value in sentence.pos_tag.items():
-                #  if value in Static.SENTIMENT:
-                    #  tmp = sentence.tokens[key].lower()
-                    #  insert_posting(tmp, sent_index, connection, i, k, f, key, key+1, g, table_lm)
+            if "dictionary_of_adjp" in dir(sentence):
+                adjp = sentence.dictionary_of_adjp
+            else:
+                adjp = sentence.get("ADJP")
+            g = set()
+            get_dict_pos(connection, sentence, adjp, Static.JJ, sent_index, i, k, f, g, table_lm)
+            get_dict_pos(connection, sentence, sentence.dictionary_of_vp, Static.VB, sent_index, i, k, f, g, table_lm)
+            get_dict_pos(connection, sentence, sentence.dictionary_of_np, Static.NN, sent_index, i, k, f, g, table_lm)
+            for key, value in sentence.pos_tag.items():
+                if value in Static.SENTIMENT:
+                    tmp = sentence.tokens[key].lower()
+                    insert_posting(tmp, sent_index, connection, i, k, f, key, key+1, g, table_lm)
             k += 1
     else:
         print(filename + "not exists!")
@@ -149,29 +149,26 @@ if __name__ == "__main__":
         if op in ("-p", "--part"):
             part_count = int(value)
     print(content)
-    #  connection = pymysql.connect(host="127.0.0.1",
-                                #  user="u20130099",
-                                #  passwd="u20130099",
-                                #  db="u20130099",
-                                #  charset="utf8",
-                                #  cursorclass=pymysql.cursors.DictCursor)
-    #  pickle_content = r"../../data/soft_domains/" + content + r"/pickles/"
-    pickle_content = r"../../data/domains/" + content + r"/pickles/"
+    connection = pymysql.connect(host="console",
+                                user="u20130099",
+                                passwd="u20130099",
+                                db="u20130099",
+                                charset="utf8",
+                                cursorclass=pymysql.cursors.DictCursor)
+    pickle_content = r"../../data/soft_domains/" + content + r"/pickles/"
     pickle_size = len(os.listdir(pickle_content + "without_parse_sentences"))
     block_size = int(pickle_size / 8)
     aa = (part_count - 1) * block_size + 1
     bb = (pickle_size + 1) if part_count == 8 else (aa + block_size)
     table_lm = content+"_lm"
-    connection = None
 
     sentiment_dict = dict(Static.sentiment_word)
     sentiments = set(sentiment_dict.keys())
     out = open(pickle_content+"seed_sent_num_%d"%part_count, "w", encoding="utf8")
-    #  f = open(pickle_content+"posting_"+str(part_count)+".txt", "w", encoding="utf8")
-    f = None
+    f = open(pickle_content+"posting_"+str(part_count)+".txt", "w", encoding="utf8")
     for i in range(aa, bb):
         pos_and_num(i, pickle_content, sentiments, out, connection, f, table_lm)
-    #  f.close()
+    f.close()
     out.close()
-    #  connection.close()
+    connection.close()
     print("end")

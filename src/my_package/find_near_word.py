@@ -47,6 +47,40 @@ class Trie_Tree:
             p = p.next_node[word]
         return p.count
 
+def get_index(connection, table_lm, var):
+    try:
+        # 游标
+        with connection.cursor() as cursor:
+            sql = "select * from {0} where content=\"{1}\"".format(table_lm, var)
+            cursor.execute(sql)
+            res = cursor.fetchall()
+            if len(res) == 0:
+                return None
+            else:
+                return res[0]['id']
+
+    except Exception as err:
+        print(err)
+        print(var)
+        return None
+    finally:
+        pass
+
+def get_positon(connection, table_posting, var):
+    try:
+
+        # 游标
+        with connection.cursor() as cursor:
+            sql = "select distinct i_pickle, i_sentence from {0} where i_content={1}".format(table_posting, var)
+            cursor.execute(sql)
+            res = cursor.fetchall()
+            return res
+    except Exception as err:
+        print(err)
+        return None
+    finally:
+        pass
+
 def inquire_content(connection, var, table_name, t=-25):
     try:
 
@@ -238,27 +272,37 @@ if __name__ == "__main__":
     sentiment_dict = dict(Static.sentiment_word)
     sentiments = set(sentiment_dict.keys())
     word_list = ["product"]
-    connection = pymysql.connect(host="127.0.0.1",
+    connection = pymysql.connect(host="console",
                                 user="u20130099",
                                 passwd="u20130099",
                                 db="u20130099",
                                 charset="utf8",
                                 cursorclass=pymysql.cursors.DictCursor)
     table_name = content + "_lm"
+    table_posting = content + "_posting"
     f = open(field_content+"near/sentiment_word_near", "w", encoding="utf8")
     i = 1
     filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
-    complex_word_pos = {}
+    complex_word_pos_tag = {}
     while os.path.exists(filename+".bz2"):
         print(filename)
         sentences = load_pickle_file(filename)
         for sentence in sentences:
-            get_sentiment(sentence, word_list, sentiments, connection, complex_word_pos, table_name)
-        if i == 10:
+            get_sentiment(sentence, word_list, sentiments, connection, complex_word_pos_tag, table_name)
+        if i == 15:
             break
         i += 1
         filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
-    for key, value in complex_word_pos.items():
-        print("%s\t%s"%(key, value), file=f)
+    save_pickle_file(field_content+"pickles/complex_word_pos_tag.pickle", complex_word_pos_tag)
+    word_pickle_sentence = {}
+    for word_string, word_pos in complex_word_pos_tag.items():
+        word_index = get_index(connection, table_name, word_string)
+        if word_index == None:
+            continue
+        res = get_positon(connection, table_posting, word_index)
+        res_set = set(((e['i_pickle'], e['i_sentence']) for e in res))
+        word_pickle_sentence[word_string] = res_set
+        print("0\t%d\t%s\t%s"%(len(res_set), word_string, word_pos), file=f)
     connection.close()
     f.close()
+    save_pickle_file(field_content+"pickles/word_pickle_sentence.pickle", word_pickle_sentence)

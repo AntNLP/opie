@@ -31,18 +31,17 @@ if __name__ == "__main__":
         if op in ("-d", "--domain"):
             content = value
     print(content)
-    #  field_content = r"../../data/soft_domains/" + content + r"/"
-    field_content = r"../../data/domains/" + content + r"/"
-    #  f = open(field_content + "/pickles/posting", "w", encoding="utf8")
+    field_content = r"../../data/soft_domains/" + content + r"/"
+    f = open(field_content + "/pickles/posting", "w", encoding="utf8")
     g = open(field_content+"/pickles/seed_sent_num", "w", encoding="utf8")
     for i in range(1, 9):
         print(i)
-        #  with open(field_content + "pickles/posting_{0}.txt".format(i), "r", encoding="utf8") as out:
-            #  for line in out:
-                #  print(line, end="", file=f)
+        with open(field_content + "pickles/posting_{0}.txt".format(i), "r", encoding="utf8") as out:
+            for line in out:
+                print(line, end="", file=f)
 
         with open(field_content + "pickles/seed_sent_num_{0}".format(i), "r", encoding="utf8") as out:
             for line in out:
                 print(line, end="", file=g)
-    #  f.clsose()
+    f.close()
     g.close()

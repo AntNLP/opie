@@ -8,9 +8,10 @@ from my_package.scripts import load_pickle_file, return_none, save_pickle_file, 
 from nltk.corpus import stopwords
 import os
 from collections import Counter
-from my_package.class_define import Static
+import pymysql
 import re
 from my_package.process_test_data import extract_test_feature_vector
+from my_package.class_define import Static
 import sys, getopt
 from timeit import timeit
 import cProfile
@@ -107,14 +108,11 @@ import cProfile
     #  #                          "pos_tag":{key : value for value, key in enumerate(bigram_pos_tag_set)}}
     #  return ret_lexicon
 
-def train_feature_solve(field_content, lexcion, sentences, score_pp_set, sentiments):
+def train_feature_solve(field_content, lexcion, sentences, connection, table_lm, sentiments):
     ''''''
     it = 0
     for sentence in sentences:
-        #  if it != 62:
-            #  it += 1
-            #  continue
-        sentence.generate_candidate(sentiments, score_pp_set)
+        sentence.generate_candidate(sentiments, connection, table_lm)
         sentence.generate_candidate_feature_vector(lexcion)
         sentence.generate_train_label()
         if it % 1000 == 0:
@@ -140,12 +138,7 @@ def extract_feature_vector(sentences, lexcion, f, g):
                 print("{0}\t\t{1}".format(
                 sentence.get_phrase(feat).lower(),
                 sentence.get_phrase(sent).lower()),
-                # sentence.all_match_label[i]),
                 file=g)
-            #  print("{0}\t\t{1}\t\t{2}".format(
-                #  sentence.get_phrase(feat).lower(),
-                #  sentence.get_phrase(sent).lower(),
-                #  sentence.all_match_label[i]), file=g)
         print(file=g)
 
 def get_count(str1, str2, field_content):
@@ -181,22 +174,31 @@ if __name__ == "__main__":
             b = int(value)
         if op in ("-e", "--end"):
             e = int(value)
-    field_content = r"../../data/domains/" + content + r"/"
-    score_pp_dict = load_pickle_file(field_content + r"pickles/score_pp.pickle")
-    score_pp_set = set(score_pp_dict.keys())
+    field_content = r"../../data/soft_domains/" + content + r"/"
+    table_lm = content + "_lm"
+    connection = pymysql.connect(host="console",
+                                user="u20130099",
+                                passwd="u20130099",
+                                db="u20130099",
+                                charset="utf8",
+                                cursorclass=pymysql.cursors.DictCursor)
     create_content(field_content + r"train")
     create_content(field_content + r"pickles/feature_vectors")
     lexcion = {"unigram":
                {"word":{},
                 "pos_tag":{},
+                "pos_tags":{},
+                "joint_pos_tag":{},
+                "word_pos_tag":{},
                  "dep":{}}}
-    sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
+    sentiments = set(Static.sentiment_word.keys())
     i = b
     while i < e and os.path.exists(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle.bz2"):
         print("loading")
         sentences = load_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle")
         print("loaded")
-        train_feature_solve(field_content, lexcion, sentences, score_pp_set, sentiments)
+        print(len(sentences))
+        train_feature_solve(field_content, lexcion, sentences, connection, table_lm, sentiments)
         save_pickle_file(field_content + r"pickles/feature_vectors/sentences_" + str(i) +".pickle", sentences)
         i += 1
 
@@ -204,7 +206,9 @@ if __name__ == "__main__":
     save_json_file(field_content + "pickles/lexicon.json", lexcion)
     print("word:", len(lexcion['unigram']['word']))
     print("pos_tag:", len(lexcion['unigram']['pos_tag']))
+    print("word_pos_tag:", len(lexcion['unigram']['word_pos_tag']))
     print("dep:", len(lexcion['unigram']['dep']))
+    print("joint_pos_tag:", len(lexcion["unigram"]["joint_pos_tag"]))
     i = b
     f = open(field_content + r"train/raw_all_match_feature_vectors", mode="w", encoding="utf8")
     g = open(field_content + r"train/train_candidate", mode="w", encoding="utf8")
@@ -214,5 +218,6 @@ if __name__ == "__main__":
         i += 1
     f.close()
     g.close()
-    extract_test_feature_vector(content, score_pp_set, sentiments)
+    extract_test_feature_vector(content, connection, table_lm, sentiments)
+    connection.close()
     print("end")

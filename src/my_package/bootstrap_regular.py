@@ -55,7 +55,7 @@ def have_overlap(index1, index2):
     return bool(set(index1) & set(index2))
 
 
-def nn_mod_and_obj(sentence, features, sentiments, score_pp_set, new_feature_string, key, value, r_list, connection, table_lm, is_swap=False):
+def nn_mod_and_obj(sentence, features, sentiments, new_feature_string, key, value, r_list, connection, table_lm, regu_name, is_swap=False):
     if sentence.dependency_tree.get(key) != None:
         for i_value in sentence.dependency_tree[key]:
             if i_value['type'] not in r_list:
@@ -74,10 +74,8 @@ def nn_mod_and_obj(sentence, features, sentiments, score_pp_set, new_feature_str
                 continue
 
             # 语言模型过滤
-            #  if new_np_string not in score_pp_set:
+            #  if not inquire_content(connection, new_np_string, table_lm):
                 #  break
-            if not inquire_content(connection, new_np_string, table_lm):
-                break
 
 
             features.add(new_np_string)
@@ -86,10 +84,10 @@ def nn_mod_and_obj(sentence, features, sentiments, score_pp_set, new_feature_str
                 if sentence.fs_dict.get((tuple(np), tuple([value, key]))) != None:
                     continue
                 new_sentiment_string = sentence.tokens[value].lower() +" " + sentence.tokens[key].lower()
-                #  print(new_sentiment_string)
                 sentiments.add(new_sentiment_string)
                 sentence.fs_dict[(tuple(np), tuple([value, key]))] = 1
                 sentence.feature_sentiment.append([np, [value, key]])
+                sentence.fs_regu.append(regu_name)
             else:
                 # 判断之前是否已经找出
                 if sentence.fs_dict.get((tuple(np), tuple([key, value]))) != None:
@@ -97,30 +95,22 @@ def nn_mod_and_obj(sentence, features, sentiments, score_pp_set, new_feature_str
                 new_sentiment_string = sentence.tokens[key].lower() +" " + sentence.tokens[value].lower()
 
                 # 语言模型过滤
-                #  if new_np_string not in score_pp_set:
+                #  if not inquire_content(connection, new_sentiment_string, table_lm):
                     #  break
-                if not inquire_content(connection, new_sentiment_string, table_lm):
-                    break
-                #  print(new_sentiment_string)
                 sentiments.add(new_sentiment_string)
                 sentence.fs_dict[(tuple(np), tuple([key, value]))] = 1
                 sentence.feature_sentiment.append([np, [key, value]])
+                sentence.fs_regu.append(regu_name)
             return False
     else:
         return True
     return True
 
+def nn_dobj(sentence, features, sentiments, new_feature_string, key, value, connection, table_lm, regu_name):
+    return nn_mod_and_obj(sentence, features, sentiments, 
+            new_feature_string, key, value, ["dobj"], connection, table_lm, regu_name)
 
-#  def nn_npadvmod(sentence, features, sentiments, score_pp_set, new_feature_string, key, value, connection):
-
-    #  return nn_mod_and_obj(sentence, features, sentiments, score_pp_set,
-            #  new_feature_string, key, value, ["npadvmod"], connection, True)
-
-def nn_dobj(sentence, features, sentiments, score_pp_set, new_feature_string, key, value, connection, table_lm):
-    return nn_mod_and_obj(sentence, features, sentiments, score_pp_set,
-            new_feature_string, key, value, ["dobj"], connection, table_lm)
-
-def sent_weak_lang_overlap(new_sentiment_string, score_pp_set, pp, qq, connection, table_lm):
+def sent_weak_lang_overlap(new_sentiment_string, pp, qq, connection, table_lm):
     # 判断新找出的情感词时候weak
     if new_sentiment_string in Static.weak_sentiment:
         return True
@@ -130,21 +120,19 @@ def sent_weak_lang_overlap(new_sentiment_string, score_pp_set, pp, qq, connectio
         return True
 
     # 语言模型过滤
-    #  if new_sentiment_string not in score_pp_set:
+    #  if not inquire_content(connection, new_sentiment_string, table_lm):
         #  return True
-    if not inquire_content(connection, new_sentiment_string, table_lm):
-        return True
 
     return False
 
-def jj_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, value, pp, connection, table_lm, add_complex=False):
+def jj_conj_jj(sentence, sentiments, new_feature_string, value, pp, connection, table_lm, regu_name, add_complex=False):
     if sentence.dependency_tree.get(value) == None:
         return
     for sent_value in sentence.dependency_tree[value]:
         if sent_value['type'] in ["conj"] and sentence.pos_tag[sent_value['id']] in Static.JJ:
             i_jj = sent_value['id']
             new_sentiment_string = sentence.tokens[i_jj].lower()
-            if sent_weak_lang_overlap(new_sentiment_string, score_pp_set, pp, [i_jj], connection, table_lm):
+            if sent_weak_lang_overlap(new_sentiment_string, pp, [i_jj], connection, table_lm):
                 continue
             # 判断之前是否已经找出
             if sentence.fs_dict.get((tuple(pp), tuple([i_jj]))) != None:
@@ -152,6 +140,7 @@ def jj_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, value, pp
             sentiments.add(new_sentiment_string)
             sentence.fs_dict[(tuple(pp), tuple([i_jj]))] = 1
             sentence.feature_sentiment.append([pp, [i_jj]])
+            sentence.fs_regu.append(regu_name)
             if not add_complex:
                 continue
             for i_value in sentence.dependency_tree[value]:
@@ -180,17 +169,16 @@ def jj_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, value, pp
                             continue
 
                         # 语言模型过滤
-                        #  if new_sentiment_string not in score_pp_set:
+                        #  if not inquire_content(connection, new_sentiment_string, table_lm):
                             #  continue
-                        if not inquire_content(connection, new_sentiment_string, table_lm):
-                            continue
 
                         #  print(new_sentiment_string)
                         sentiments.add(new_sentiment_string)
                         sentence.fs_dict[(tuple(pp), tuple([i_jj, i_to, i_vb]))] = 1
                         sentence.feature_sentiment.append([pp, [i_jj, i_to, i_vb]])
+                        sentence.fs_regu.append(regu_name)
 
-def nn_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, key, pp, connection, table_lm):
+def nn_conj_jj(sentence, sentiments, new_feature_string, key, pp, connection, table_lm, regu_name):
     if sentence.dependency_tree_up.get(key) != None:
         up = sentence.dependency_tree_up[key]
     else:
@@ -211,7 +199,7 @@ def nn_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, key, pp, 
         # 判断特征词和找出情感词是否有重叠
         if have_overlap(pp, [up]):
             continue
-        if sent_weak_lang_overlap(new_sentiment_string, score_pp_set, pp, [up], connection, table_lm):
+        if sent_weak_lang_overlap(new_sentiment_string, pp, [up], connection, table_lm):
             continue
 
         # 判断之前是否已经找出
@@ -219,15 +207,14 @@ def nn_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, key, pp, 
             continue
 
         #  语言模型过滤
-        #  if new_sentiment_string not in score_pp_set:
+        #  if not inquire_content(connection, new_sentiment_string, table_lm):
             #  continue
-        if not inquire_content(connection, new_sentiment_string, table_lm):
-            continue
         sentence.fs_dict[(tuple(pp), tuple([up]))] = 1
         sentence.feature_sentiment.append([pp, [up]])
+        sentence.fs_regu.append(regu_name)
         return
 
-def jj_to_vp(sentence, score_pp_set, sentiments, sent, new_feature_string, i_feat, connection, table_lm):
+def jj_to_vp(sentence, sentiments, sent, new_feature_string, i_feat, connection, table_lm, regu_name):
     if sent not in sentence.dependency_tree:
         return
     for value in sentence.dependency_tree[sent]:
@@ -260,17 +247,17 @@ def jj_to_vp(sentence, score_pp_set, sentiments, sent, new_feature_string, i_fea
         new_sentiment_string = " ".join([sentence.tokens[sent].lower(), sentence.tokens[i_to].lower(), sentence.tokens[i_vb].lower()])
 
         # 语言模型过滤
-        #  if new_sentiment_string not in score_pp_set:
+        #  if not inquire_content(connection, new_sentiment_string, table_lm):
             #  continue
-        if not inquire_content(connection, new_sentiment_string, table_lm):
-            continue
 
         sentiments.add(new_sentiment_string)
         sentence.fs_dict[(tuple(i_feat), tuple([sent, i_to, i_vb]))] = 1
         sentence.feature_sentiment.append([i_feat, [sent, i_to, i_vb]])
+        sentence.fs_regu.append(regu_name)
 
 
-def f_using_s1(sentence, features, sentiments, score_pp_set, connection, table_lm):
+def f_using_s1(sentence, features, sentiments, connection, table_lm):
+    regu_name = "f_using_s1"
     for key, values in sentence.dependency_tree.items():
         if values == None or key == 0:
             continue
@@ -308,20 +295,20 @@ def f_using_s1(sentence, features, sentiments, score_pp_set, connection, table_l
                 continue
 
             # 语言模型过滤
-            #  if new_feature_string not in score_pp_set:
+            #  if not inquire_content(connection, new_feature_string, table_lm):
                 #  break
-            if not inquire_content(connection, new_feature_string, table_lm):
-                break
             features.add(new_feature_string)
             sentence.fs_dict[(tuple(np), tuple([value['id']]))] = 1
             sentence.feature_sentiment.append([np, [value['id']]])
-            jj_to_vp(sentence, score_pp_set, sentiments, value['id'], new_feature_string, np, connection, table_lm)
+            sentence.fs_regu.append(regu_name)
+            jj_to_vp(sentence, sentiments, value['id'], new_feature_string, np, connection, table_lm, regu_name)
             if value['type'] == "amod":
-                jj_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, value['id'], np, connection, table_lm)
+                jj_conj_jj(sentence, sentiments, new_feature_string, value['id'], np, connection, table_lm, regu_name)
             else:
-                nn_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, key, np, connection, table_lm)
+                nn_conj_jj(sentence, sentiments, new_feature_string, key, np, connection, table_lm, regu_name)
 
-def f_using_s2(sentence, features, sentiments, score_pp_set, connection, table_lm):
+def f_using_s2(sentence, features, sentiments, connection, table_lm):
+    regu_name = "f_using_s2"
     for key, values in sentence.dependency_tree.items():
         if values == None or key == 0:
             continue
@@ -361,68 +348,17 @@ def f_using_s2(sentence, features, sentiments, score_pp_set, connection, table_l
                 continue
 
             # 语言模型过滤
-            #  if new_feature_string not in score_pp_set:
+            #  if not inquire_content(connection, new_feature_string, table_lm):
                 #  break
-            if not inquire_content(connection, new_feature_string, table_lm):
-                break
             features.add(new_feature_string)
             sentence.fs_dict[(tuple(vp), tuple([value['id']]))] = 1
             sentence.feature_sentiment.append([vp, [value['id']]])
-            jj_to_vp(sentence, score_pp_set, sentiments, value['id'], new_feature_string, vp, connection, table_lm)
-            jj_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, value['id'], vp, connection, table_lm)
+            sentence.fs_regu.append(regu_name)
+            jj_to_vp(sentence, sentiments, value['id'], new_feature_string, vp, connection, table_lm, regu_name)
+            jj_conj_jj(sentence, sentiments, new_feature_string, value['id'], vp, connection, table_lm, regu_name)
 
-
-#  def f_using_s3(sentence, features, sentiments, score_pp_set, connection):
-    #  for key, values in sentence.dependency_tree.items():
-        #  if values == None or key == 0:
-            #  continue
-
-        #  given_sentiment_string = sentence.tokens[key].lower()
-
-        #  # 判断给定情感词在不在 sentiments
-        #  if given_sentiment_string not in sentiments:
-            #  continue
-
-        #  # 判断给定情感词的词性
-        #  if sentence.pos_tag[key] not in Static.JJ:
-            #  continue
-
-        #  for value in values:
-            #  if value['type'] not in ["nsubj"]:
-                #  continue
-
-            #  # 判断找出特征词的词性
-            #  if sentence.pos_tag[value['id']] not in Static.NN:
-                #  continue
-
-            #  np = sentence.get_np(value['id'], key)
-            #  new_feature_string = sentence.get_phrase(np).lower()
-
-            #  # 判断找出特征词是否 weak
-            #  if is_weak_feature(new_feature_string):
-                #  break
-
-
-            #  # 判断特征词和情感词是否有重叠
-            #  if have_overlap(np, [key]):
-                #  continue
-
-            #  # 判断之前是否已经找出
-            #  if sentence.fs_dict.get((tuple(np), tuple([key]))) != None:
-                #  continue
-
-            #  # 语言模型过滤
-            #  #  if new_feature_string not in score_pp_set:
-                #  #  break
-            #  if not inquire_content(connection, new_feature_string):
-                #  continue
-            #  features.add(new_feature_string)
-            #  sentence.fs_dict[(tuple(np), tuple([key]))] = 1
-            #  sentence.feature_sentiment.append([np, [key]])
-            #  jj_to_vp(sentence, score_pp_set, sentiments, key, new_feature_string, np, connection)
-            #  jj_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, key, np, connection, True)
-
-def f_using_s3(sentence, features, sentiments, score_pp_set, connection, table_lm):
+def f_using_s3(sentence, features, sentiments, connection, table_lm):
+    regu_name = "f_using_s3"
     for key, values in sentence.dependency_tree.items():
         if values == None or key == 0:
             continue
@@ -459,21 +395,19 @@ def f_using_s3(sentence, features, sentiments, score_pp_set, connection, table_l
                 continue
 
             # 语言模型过滤
-            #  if new_feature_string not in score_pp_set:
+            #  if not inquire_content(connection, new_feature_string, table_lm):
                 #  break
-            if not inquire_content(connection, new_feature_string, table_lm):
-                break
 
             sentence.fs_dict[(tuple([key]), tuple([value['id']]))] = 1
             features.add(new_feature_string)
-            #  sentence.feature_sentiment.append([[key], [value['id']]])
-            add_f1 = nn_dobj(sentence, features, sentiments, score_pp_set,
-                    new_feature_string, key, value['id'], connection, table_lm)
-            #  add_f2 = nn_npadvmod(sentence, features, sentiments, score_pp_set,
-                    #  new_feature_string, value['id'], key, connection)
+            sentence.feature_sentiment.append([[key], [value['id']]])
+            sentence.fs_regu.append(regu_name)
+            nn_dobj(sentence, features, sentiments, 
+                    new_feature_string, key, value['id'], connection, table_lm, regu_name)
 
 
-def f_using_s4(sentence, features, sentiments, score_pp_set, connection, table_lm):
+def f_using_s4(sentence, features, sentiments, connection, table_lm):
+    regu_name = "f_using_s4"
     for key, values in sentence.dependency_tree.items():
         if values == None or key == 0:
             continue
@@ -517,215 +451,13 @@ def f_using_s4(sentence, features, sentiments, score_pp_set, connection, table_l
                 continue
 
             # 语言模型过滤
-            #  if new_feature_string not in score_pp_set:
+            #  if not inquire_content(connection, new_feature_string, table_lm):
                 #  break
-            if not inquire_content(connection, new_feature_string, table_lm):
-                break
             features.add(new_feature_string)
             sentence.fs_dict[(tuple(np), tuple([value['id']]))] = 1
             sentence.feature_sentiment.append([np, [value['id']]])
-            jj_conj_jj(sentence, sentiments, score_pp_set, new_feature_string, value['id'], np, connection, table_lm)
-
-
-#  def f_using_s6(sentence, features, sentiments, score_pp_set, connection):
-    #  for key, values in sentence.dependency_tree.items():
-        #  if values == None or key == 0:
-            #  continue
-
-        #  # 判断情感词的词性
-        #  if sentence.pos_tag[key] not in Static.VB:
-            #  continue
-
-        #  # 判断情感词是否weak
-        #  if sentence.tokens[key].lower() in Static.weak_sentiment:
-            #  continue
-
-        #  for value in values:
-            #  if value['type'] not in ["xcomp"]:
-                #  continue
-
-            #  # 判断找出情感词的词性
-            #  #  if sentence.pos_tag[value['id']] not in Static.VB and sentence.pos_tag[value['id']] not in Static.JJ:
-            #  if sentence.pos_tag[value['id']] not in Static.VB:
-                #  continue
-
-            #  if sentence.dependency_tree.get(value['id']) == None:
-                #  continue
-
-            #  i_np, i_to = None, None
-            #  for i_value in sentence.dependency_tree[value['id']]:
-                #  if i_value['type'] in ["dobj"] and sentence.pos_tag[i_value['id']] in Static.NN:
-                    #  np = sentence.get_np(i_value['id'], value['id'])
-                    #  i_np = i_value['id']
-                #  if i_value['type'] in ['aux']:
-                    #  i_to = i_value['id']
-
-            #  if i_np == None or i_to == None:
-                #  continue
-            #  if i_to != key + 1 or i_to != value['id'] - 1:
-                #  continue
-            #  new_feature_string = sentence.get_phrase(np).lower()
-            #  new_sentiment_string = " ".join([sentence.tokens[key].lower(), sentence.tokens[i_to].lower(), sentence.tokens[value['id']].lower()])
-
-            #  # 判断找出特征词是否 weak
-            #  if is_weak_feature(new_feature_string):
-                #  continue
-
-
-            #  # 判断特征词和情感词是否有重叠
-            #  if have_overlap(np, [key, i_to, value['id']]):
-                #  continue
-
-            #  # 判断之前是否已经找出
-            #  if sentence.fs_dict.get((tuple(np), tuple([key, i_to, value['id']]))) != None:
-                #  continue
-
-            #  # 语言模型过滤
-            #  #  if new_feature_string not in score_pp_set:
-                #  #  continue
-            #  #  if new_sentiment_string not in score_pp_set:
-                #  #  continue
-            #  if not inquire_content(connection, new_feature_string):
-                #  continue
-            #  if not inquire_content(connection, new_sentiment_string):
-                #  continue
-            #  #  print(new_sentiment_string)
-            #  sentiments.add(new_sentiment_string)
-            #  features.add(new_feature_string)
-            #  sentence.fs_dict[(tuple(np), tuple([key, i_to, value['id']]))] = 1
-            #  sentence.feature_sentiment.append([np, [key, i_to, value['id']]])
-
-#  def f_using_s5(sentence, features, sentiments, score_pp_set, sentiment_dict, connection):
-
-    #  for key, values in sentence.dependency_tree.items():
-        #  if values == None or key == 0:
-            #  continue
-
-        #  for value in values:
-            #  if value['type'] not in ["nsubj"]:
-                #  continue
-
-            #  # 判断特征词的词性
-            #  if sentence.pos_tag[value['id']] not in Static.NN:
-                #  continue
-            #  np = sentence.get_np(value['id'], key)
-            #  new_feature_string = sentence.get_phrase(np).lower()
-            #  # 语言模型过滤
-            #  if new_feature_string not in score_pp_set:
-                #  break
-
-            #  # 判断找出特征词是否 weak
-            #  if is_weak_feature(new_feature_string):
-                #  break
-
-            #  # 判断给定情感词的词性
-            #  if sentence.pos_tag[key] in Static.NN:
-                #  pp = sentence.get_np(key, value['id'])
-            #  elif sentence.pos_tag[key] in Static.VB:
-                #  pp = sentence.get_vp(key, value['id'])
-            #  elif sentence.pos_tag[key] in Static.JJ:
-                #  pp = sentence.get_max_adjp(key, [value['id']])
-            #  else:
-                #  break
-            #  if len(pp) == 1:
-                #  continue
-            #  f_x = False
-            #  #  for x in np[:-1]:
-            #  for x in pp:
-                #  #  if sentence.pos_tag[x] in Static.NN:
-                    #  #  f_x = True
-                #  #  if sentence.pos_tag[x] in Static.JJ:
-                    #  #  f_x = True
-                #  #  if sentence.pos_tag[x] in Static.RB:
-                    #  #  f_x = True
-                #  #  if sentence.pos_tag[x] in Static.VB:
-                    #  #  f_x = True
-                #  if sentence.tokens[x].lower() in sentiment_dict:
-                    #  f_x = True
-            #  if not f_x:
-                #  break
-
-            #  new_sentiment_string = sentence.get_phrase(pp).lower()
-
-
-            #  # 判断找出情感词是否 weak
-            #  if is_weak_feature(new_sentiment_string):
-                #  break
-
-            #  # 判断特征词和情感词是否有重叠
-            #  if have_overlap(pp, np):
-                #  continue
-
-            #  # 判断之前是否已经找出
-            #  if sentence.fs_dict.get((tuple(np), tuple(pp))) != None:
-                #  continue
-
-            #  # 语言模型过滤
-            #  #  if new_sentiment_string not in score_pp_set:
-                #  #  break
-            #  if not inquire_content(connection, new_sentiment_string):
-                #  break
-            #  features.add(new_feature_string)
-            #  sentiments.add(new_sentiment_string)
-            #  sentence.fs_dict[(tuple(np), tuple(pp))] = 1
-            #  sentence.feature_sentiment.append([np, pp])
-
-#  def f_using_s8(sentence, features, sentiments, score_pp_set, connection):
-    #  for key, values in sentence.dependency_tree.items():
-        #  if values == None or key == 0:
-            #  continue
-        #  for value in values:
-            #  if value['type'] not in ["rcmod"]:
-                #  continue
-
-            #  #  given_sentiment_string = sentence.tokens[value['id']].lower()
-            #  #  # 判断给定情感词在不在 sentiments
-            #  #  if given_sentiment_string not in sentiments:
-                #  #  continue
-
-            #  # 判断给定情感词的词性
-            #  if sentence.pos_tag[value['id']] not in Static.VB:
-                #  continue
-            #  if sentence.tokens[value['id']] in Static.weak_sentiment:
-                #  continue
-
-            #  # 判断找出特征词的词性
-            #  if sentence.pos_tag[key] not in Static.NN:
-                #  break
-
-            #  np = sentence.get_np(key, value['id'])
-            #  new_feature_string = sentence.get_phrase(np).lower()
-
-            #  # 判断找出特征词是否 weak
-            #  if is_weak_feature(new_feature_string):
-                #  break
-
-
-            #  if sentence.dependency_tree.get(value['id']) == None:
-                #  continue
-
-            #  # 语言模型过滤
-            #  #  if new_feature_string not in score_pp_set:
-                #  #  break
-            #  if not inquire_content(connection, new_feature_string):
-                #  break
-            #  for i_value in sentence.dependency_tree[value['id']]:
-                #  if i_value['type'] not in ["advmod"]:
-                    #  continue
-                #  if sentence.pos_tag[i_value['id']] not in Static.RB:
-                    #  continue
-                #  #  new_sentiment_string = sentence.tokens[i_value['id']].lower() + " " + sentence.tokens[value['id']].lower()
-                #  new_sentiment_string = sentence.tokens[value['id']].lower()+ " " + sentence.tokens[i_value['id']].lower()
-                #  if new_sentiment_string not in score_pp_set:
-                    #  continue
-                #  # 判断之前是否已经找出
-                #  if sentence.fs_dict.get((tuple(np), tuple([value['id'], i_value['id']]))) != None:
-                    #  continue
-                #  #  print(new_sentiment_string)
-                #  sentiments.add(new_sentiment_string)
-                #  features.add(new_feature_string)
-                #  sentence.fs_dict[(tuple(np), tuple([value['id'], i_value['id']]))] = 1
-                #  sentence.feature_sentiment.append([np, [value['id'], i_value['id']]])
+            sentence.fs_regu.append(regu_name)
+            jj_conj_jj(sentence, sentiments, new_feature_string, value['id'], np, connection, table_lm, regu_name)
 
 def have_dependent(dependency_tree, pp, sp):
     sp_set = set(sp)
@@ -745,7 +477,8 @@ def have_dependent(dependency_tree, pp, sp):
     return False
 
 
-def f_using_s5(sentence, features, sentiments, score_pp_set, connection, sentiment_dict, table_lm):
+def f_using_s5(sentence, features, sentiments, connection, sentiment_dict, table_lm):
+    regu_name = "f_using_s5"
     for i in range(1, len(sentence.pos_tag) + 1):
         if sentence.tokens[i] == None:
             continue
@@ -769,10 +502,8 @@ def f_using_s5(sentence, features, sentiments, score_pp_set, connection, sentime
             continue
 
         # 语言模型过滤
-        #  if new_feature_string not in score_pp_set:
+        #  if not inquire_content(connection, new_feature_string, table_lm):
             #  continue
-        if not inquire_content(connection, new_feature_string, table_lm):
-            continue
 
         j = i + 1
         sp_nn, sp_vb, sp_jj = None, None, None
@@ -817,88 +548,69 @@ def f_using_s5(sentence, features, sentiments, score_pp_set, connection, sentime
             continue
 
         # 语言模型过滤
-        #  if new_sentiment_string not in score_pp_set:
+        #  if not inquire_content(connection, new_sentiment_string, table_lm):
             #  continue
-        if not inquire_content(connection, new_sentiment_string, table_lm):
-            continue
         sentiments.add(new_sentiment_string)
         features.add(new_feature_string)
         sentence.fs_dict[(tuple(pp), tuple(sp))] = 1
         sentence.feature_sentiment.append([pp, sp])
+        sentence.fs_regu.append(regu_name)
 
 
-def write_feature_sentiment(sentence, f, i):
+def write_feature_sentiment(sentence, f):
     '''将句子中的 feature-sentiment pair 以及相应所用的规则输出
     '''
-    #  print("{0}:{1}".format(i, sentence.text), file=f)
-    print("{0}".format(sentence.text), file=f)
-    for key, value in sentence.feature_sentiment:
-        print("{0}\t\t{1}".format(sentence.get_phrase(key).lower(),
-                                 sentence.get_phrase(value).lower()), file=f)
-    print(file=f)
+    print("S\t{0}".format(sentence.text), file=f)
+    for k in range(len(sentence.feature_sentiment)):
+        key, value = sentence.feature_sentiment[k][0], sentence.feature_sentiment[k][1]
+        print("R\t{0}\t{1}\t{2}\t{3}\t{4}".format(
+            sentence.get_phrase(key).lower(),
+            sentence.get_phrase(value).lower(),
+            key,
+            value,
+            sentence.fs_regu[k]), file=f)
 
-def run(field_content, sentiment_dict, iter_num, b, e, connection, table_lm):
+def run(field_content, sentiment_dict, b, e, connection, table_lm):
     ''' 运行该领域内的  bootstrap '''
     iter_count = 0
-    #  score_pp_dict = load_pickle_file(field_content + r"pickles/score_pp.pickle")
-    #  score_pp_set = set(score_pp_dict.keys())
-    score_pp_set = None
 
     # 根据语言模型筛选通用情感词典
-    #  new_sentiment_dict = {key : value for key, value in sentiment_dict.items() if key in score_pp_set}
-    new_sentiment_dict = {key : value for key, value in sentiment_dict.items() if inquire_content(connection, key, table_lm)}
-    #  save_json_file(field_content + "pickles/raw_sentiment_dict.json", sentiment_dict)
-    sentiments = set(new_sentiment_dict.keys())
-    #  sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
-    features = set()
+    # new_sentiment_dict = {key : value for key, value in sentiment_dict.items() if inquire_content(connection, key, table_lm)}
+    sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
+    #  sentiments = set(sentiment_dict.keys())
+    #  features = set()
+    features = load_pickle_file(field_content + r"pickles/features.pickle")
     create_content(field_content + r"bootstrap")
     create_content(field_content + r"pickles/bootstrap_sentences")
-    while iter_count < iter_num:
-        print("iter :", iter_count+1)
-        f1 = open(field_content + r"bootstrap/feat_sent_iter" + str(iter_count+1), "w", encoding="utf8")
-        f2 = open(field_content + r"bootstrap/feat_iter" + str(iter_count+1), "w", encoding="utf8")
-        f3 = open(field_content + r"bootstrap/sent_iter" + str(iter_count+1), "w", encoding="utf8")
-        i = b
-        while i < e and os.path.exists(field_content + r"pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle.bz2"):
-            print(i)
-            print("loading")
-            if iter_count == 0:
-                sentences = load_pickle_file(field_content + r"pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle")
-            else:
-                sentences = load_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle")
-            print("loaded")
-            #  kkk = 0
-            for sentence in sentences:
-                sentence.set_init()
-                #  if kkk != 25180:
-                    #  kkk += 1
-                    #  continue
-                #  kkk += 1
-                #  print(sentence.text_and_pos_tag)
-                #  print(sentence.dependency_tree)
-                #  f_using_s1(sentence, features, sentiments, score_pp_set, connection, table_lm)
-                #  f_using_s2(sentence, features, sentiments, score_pp_set, connection, table_lm)
-                #  f_using_s3(sentence, features, sentiments, score_pp_set, connection, table_lm)
-                #  f_using_s4(sentence, features, sentiments, score_pp_set, connection, table_lm)
-                f_using_s5(sentence, features, sentiments, score_pp_set, connection, sentiment_dict, table_lm)
-            for k in range(len(sentences)):
-                if len(sentences[k].feature_sentiment) == 0:
-                    continue
-                write_feature_sentiment(sentences[k], f1, k)
-            #  if iter_count == iter_num - 1:
-                #  save_sentences = [sentence for sentence in sentences if sentence.feature_sentiment != []]
-                #  save_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle", save_sentences)
-            #  else:
-                #  save_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle", sentences)
-            i += 1
-        for e in sentiments:
-            print(e, file=f3)
-        for e in features:
-            print(e, file=f2)
-        f1.close()
-        f2.close()
-        f3.close()
-        iter_count += 1
+    f1 = open(field_content + r"bootstrap/feat_sent", "w", encoding="utf8")
+    f2 = open(field_content + r"bootstrap/feat", "w", encoding="utf8")
+    f3 = open(field_content + r"bootstrap/sent", "w", encoding="utf8")
+    i = b
+    while i < e and os.path.exists(field_content + r"pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle.bz2"):
+        print(i, "loading")
+        sentences = load_pickle_file(field_content + r"pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle")
+        sentences = sentences[:1000]
+        print(i, "loaded")
+        for sentence in sentences:
+            sentence.set_init()
+            f_using_s1(sentence, features, sentiments, connection, table_lm)
+            f_using_s2(sentence, features, sentiments, connection, table_lm)
+            f_using_s3(sentence, features, sentiments, connection, table_lm)
+            f_using_s4(sentence, features, sentiments, connection, table_lm)
+            f_using_s5(sentence, features, sentiments, connection, sentiment_dict, table_lm)
+        save_sentences = [sentence for sentence in sentences if sentence.feature_sentiment != []]
+        for k in range(len(save_sentences)):
+            write_feature_sentiment(save_sentences[k], f1)
+        #  save_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle", save_sentences)
+        i += 1
+    for e in sentiments:
+        print(e, file=f3)
+    for e in features:
+        print(e, file=f2)
+    f1.close()
+    f2.close()
+    f3.close()
+    iter_count += 1
     save_pickle_file(field_content + r"pickles/sentiments.pickle", sentiments)
     save_pickle_file(field_content + r"pickles/features.pickle", features)
     return sentiment_dict
@@ -910,11 +622,10 @@ def usage():
     print("-d, --domain: 需要处理的领域名称")
     print("-b, --begin: parse_sentences pickel 文件的开始编号(包含此文件)")
     print("-e, --end: parse_sentences pickel 文件的结束编号(不包含此文件)")
-    print("-i, --iter: boostrap 的迭代次数")
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hd:b:e:i:", ["help", "domain=", "begin=", "end=", "iter="])
+        opts, args = getopt.getopt(sys.argv[1:], "hd:b:e:", ["help", "domain=", "begin=", "end="])
     except getopt.GetoptError:
         print("命令行参数输入错误！")
         usage()
@@ -929,19 +640,16 @@ if __name__ == "__main__":
             b = int(value)
         if op in ("-e", "--end"):
             e = int(value)
-        if op in ("-i", "--iter"):
-            iter_num = int(value)
 
-    field_content = r"../../data/domains/" + content + r"/"
+    #  field_content = r"../../data/domains/" + content + r"/"
+    field_content = r"../../data/soft_domains/" + content + r"/"
     table_lm = content + "_lm"
-    connection = pymysql.connect(host="127.0.0.1",
+    #  connection = pymysql.connect(host="console",
                                 #  user="u20130099",
                                 #  passwd="u20130099",
                                 #  db="u20130099",
-                                user="root",
-                                passwd="100704048",
-                                db=content,
-                                charset="utf8",
-                                cursorclass=pymysql.cursors.DictCursor)
-    run(field_content, dict(Static.sentiment_word), iter_num, b, e, connection, table_lm)
-    connection.close()
+                                #  charset="utf8",
+                                #  cursorclass=pymysql.cursors.DictCursor)
+    connection = None
+    run(field_content, dict(Static.sentiment_word), b, e, connection, table_lm)
+    #  connection.close()
