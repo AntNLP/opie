@@ -17,11 +17,13 @@ from sklearn.linear_model import LogisticRegression
 from sklearn.datasets import load_svmlight_file
 from sklearn.metrics import precision_recall_curve
 import numpy as np
-#  import matplotlib.pyplot as plt
 import random
 from sklearn.metrics import f1_score, classification_report, confusion_matrix
 from sklearn.cross_validation import KFold
 from sklearn.ensemble import RandomForestClassifier
+from sklearn import cross_validation
+from my_package.find_near_word import inquire_content
+from my_package.find_near_word import filter_word
 
 def max_count(count):
     max_i = None
@@ -42,7 +44,156 @@ def parse(filename):
             else:
                 record.append(tmp)
 
+def create_unigram(target_list1, target_list2, lexcion, indexs, opt, test=False):
+    '''
+    @opt: 0 -- word
+          1 -- pos_tag
+          2 -- word_pos_tag
+    '''
+    if opt == 0:
+        lex, index = lexcion["word"], indexs["word"]
+        target_list = target_list1
+    elif opt == 1:
+        lex, index = lexcion["pos_tag"], indexs["pos_tag"]
+        target_list = target_list2
+    elif opt == 2:
+        lex, index = lexcion["word_pos_tag"], indexs["word_pos_tag"]
+        target_list = []
+        for i in range(len(target_list1)):
+            target_list.append("#".join([target_list1[i], target_list2[i]]))
+    ret = {}
+    for each in target_list:
+        if not test:
+            if each not in lex:
+                lex[each] = len(lex) + 1
+            if lex[each] not in ret:
+                ret[lex[each]] = 0
+            ret[lex[each]] += 1
+        else:
+            if each in lex:
+                if lex[each] not in ret:
+                    ret[lex[each]] = 0
+                ret[lex[each]] += 1
+    index.append(ret)
+
+
+def create_bigram(target_list1, target_list2, lexcion, indexs, opt, test=False):
+    '''
+    @opt: 0 -- word
+          1 -- pos_tag
+          2 -- word_pos_tag
+    '''
+    if opt == 0:
+        lex, index = lexcion["word"], indexs["word"]
+        target_list = ["#"]
+        target_list.extend(target_list1)
+        target_list.append("#")
+    elif opt == 1:
+        lex, index = lexcion["pos_tag"], indexs["pos_tag"]
+        target_list = ["#"]
+        target_list.extend(target_list2)
+        target_list.append("#")
+    else:
+        lex, index = lexcion["word_pos_tag"], indexs["word_pos_tag"]
+        target_list = ["#|#"]
+        for i in range(len(target_list1)):
+            target_list.append("|".join([target_list1[i], target_list2[i]]))
+        target_list.append("#|#")
+    ret = {}
+    for i in range(0, len(target_list)-1):
+        each = " ".join(target_list[i:i+2])
+        if not test:
+            if each not in lex:
+                lex[each] = len(lex) + 1
+            if lex[each] not in ret:
+                ret[lex[each]] = 0
+            ret[lex[each]] += 1
+        else:
+            if each in lex:
+                if lex[each] not in ret:
+                    ret[lex[each]] = 0
+                ret[lex[each]] += 1
+    index.append(ret)
+
 def extract(near, sentiments):
+
+    lexcion = {"unigram":
+                    {
+                        "word":{},
+                        "pos_tag":{},
+                        "word_pos_tag":{}
+                    },
+               "bigram":
+                    {
+                        "word":{},
+                        "pos_tag":{},
+                        "word_pos_tag":{}
+                    }
+              }
+    index = {"unigram":
+                    {
+                        "word":[],
+                        "pos_tag":[],
+                        "word_pos_tag":[]
+                    },
+               "bigram":
+                    {
+                        "word":[],
+                        "pos_tag":[],
+                        "word_pos_tag":[]
+                    }
+              }
+    y, lens = [], []
+    mark, words = [], []
+    with open(near + "complex_word_label_pos", "r", encoding="utf8") as out:
+        for line in out:
+            label, word, pos_tag = line.strip().split('\t')
+            y.append(int(label))
+            word_list, pos_tag_list = word.split(' '), pos_tag.split(' ')
+            lens.append(len(word_list))
+            create_unigram(word_list, pos_tag_list, lexcion["unigram"], index["unigram"], 0)
+            create_unigram(word_list, pos_tag_list, lexcion["unigram"], index["unigram"], 1)
+            create_unigram(word_list, pos_tag_list, lexcion["unigram"], index["unigram"], 2)
+            create_bigram(word_list, pos_tag_list, lexcion["bigram"], index["bigram"], 0)
+            create_bigram(word_list, pos_tag_list, lexcion["bigram"], index["bigram"], 1)
+            create_bigram(word_list, pos_tag_list, lexcion["bigram"], index["bigram"], 2)
+            m = 0
+            for w in word.split(' '):
+                if w in sentiments:
+                    m = 1
+            mark.append(m)
+            words.append(word)
+    print("write")
+    print("unigram word:", len(lexcion["unigram"]["word"]))
+    print("unigram pos tag:", len(lexcion["unigram"]["pos_tag"]))
+    print("unigram word pos tag:", len(lexcion["unigram"]["word_pos_tag"]))
+    print("bigram word:", len(lexcion["bigram"]["word"]))
+    print("bigram pos tag:", len(lexcion["bigram"]["pos_tag"]))
+    print("bigram word pos tag:", len(lexcion["bigram"]["word_pos_tag"]))
+    with open(near+"feature_vector", "w", encoding="utf8") as out:
+        for i in range(len(y)):
+            base = 0
+            print("%d"%y[i], end="", file=out)
+            base = write_feature_vector(base, lexcion["unigram"]["word"], index["unigram"]["word"][i], out)
+            base = write_feature_vector(base, lexcion["unigram"]["pos_tag"], index["unigram"]["pos_tag"][i], out)
+            base = write_feature_vector(base, lexcion["unigram"]["word_pos_tag"], index["unigram"]["word_pos_tag"][i], out)
+            base = write_feature_vector(base, lexcion["bigram"]["word"], index["bigram"]["word"][i], out, True)
+            base = write_feature_vector(base, lexcion["bigram"]["pos_tag"], index["bigram"]["pos_tag"][i], out, True)
+            base = write_feature_vector(base, lexcion["bigram"]["word_pos_tag"], index["bigram"]["word_pos_tag"][i], out, True)
+            print(" %d:%d"%(base+1, lens[i]), end="", file=out)
+            base += 1
+            print(file=out)
+    return lexcion, np.array(words), np.array(mark)
+
+def write_feature_vector(base, lexcion, index, out, num=False):
+    for key in sorted(index.keys()):
+        if num:
+            print(" %d:%d"%(base+key, index[key]), end="", file=out)
+        else:
+            print(" %d:1"%(base+key), end="", file=out)
+    return base + len(lexcion)
+
+def extract_previous(near, sentiments):
     X, y = [], []
     mark = []
     words = []
@@ -520,6 +671,167 @@ def my_cross_validation(X, y, mark, words, cv=10):
         scores_without.append(f1_score(y_test, y_predict))
     return np.array(scores), np.array(scores_without)
 
+def PR_curve(y_test_have_general, y_proba_have_general, y_test_no_general, y_proba_no_general):
+    #  precision, recall, thresholds = precision_recall_curve(y_test_have_general, y_proba_have_general)
+    #  plt.plot(recall, precision)
+    #  precision, recall, thresholds = precision_recall_curve(y_test_no_general, y_proba_no_general)
+    #  plt.plot(recall, precision)
+    #  plt.xlabel('Recall')
+    #  plt.ylabel('Precision')
+    #  plt.title('PR curve')
+    #  plt.show()
+
+    #  plt.clf()
+    #  precision, recall, thresholds = precision_recall_curve(y_test_have_general, y_proba_have_general)
+    #  plt.plot(recall, precision, label="P-R curve")
+    #  precision, recall, thresholds = precision_recall_curve(y_test_no_general, y_proba_no_general)
+    #  plt.plot(recall, precision)
+    #  plt.xlabel('Recall')
+    #  plt.ylabel('Precision')
+    #  plt.ylim([0.0, 1.05])
+    #  plt.xlim([0.0, 1.0])
+    #  plt.show()
+    fig = plt.figure()
+    ax1 = fig.add_subplot(2, 2, 1)
+    precision, recall, thresholds = precision_recall_curve(y_test_have_general, y_proba_have_general)
+    plt.plot(recall, precision, label="P-R curve")
+    precision, recall, thresholds = precision_recall_curve(y_test_no_general, y_proba_no_general)
+    plt.plot(recall, precision, label="P-R curve")
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.ylim([0.0, 1.05])
+    plt.xlim([0.0, 1.0])
+
+    plt.show()
+
+
+def sentiment_classification(field_content):
+    filename = field_content + "near/no_general_complex_word"
+    word_pickle_sentence = load_pickle_file(field_content+"pickles/word_pickle_sentence.pickle")
+    seed_pos_neg = load_pickle_file(field_content+"pickles/seed_pos_neg.pickle")
+    with open(filename, "r", encoding="utf8") as f:
+        for line in f:
+            word = line.strip()
+            pos, neg = 0, 0
+            for i_pickle, i_sentence in word_pickle_sentence[word]:
+                if i_pickle in seed_pos_neg:
+                    pos += seed_pos_neg[i_pickle][i_sentence][0]
+                    neg += seed_pos_neg[i_pickle][i_sentence][1]
+            print("{0}\t{1}\t{2}\t{3}".format(word, pos, neg, 1 if pos > neg else 0))
+
+
+def create_domain_complex_word(content):
+    field_content = "../../data/soft_domains/" + content + "/"
+    table_name = content + "_lm"
+    complex_word_pos = {}
+    connection = pymysql.connect(host="localhost",
+                                user="u20130099",
+                                passwd="u20130099",
+                                db="u20130099",
+                                charset="utf8",
+                                cursorclass=pymysql.cursors.DictCursor)
+    i = 1
+    filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
+    while os.path.exists(filename+".bz2"):
+        sentences = load_pickle_file(filename)
+        for sentence in sentences:
+            for m in range(1, len(sentence.tokens) + 1):
+                if sentence.tokens.get(m) == None:
+                    break
+                if sentence.pos_tag[m] in Static.VB:
+                    vp = sentence.get_vp(m)
+                    if len(vp) == 1:
+                        continue
+                    if filter_word(sentence, vp):
+                        continue
+                    new_sentiment_string = sentence.get_phrase(vp).lower()
+                    #  语言模型过滤
+                    if inquire_content(connection, new_sentiment_string, table_name):
+                        if new_sentiment_string not in complex_word_pos:
+                            complex_word_pos[new_sentiment_string] = " ".join([sentence.pos_tag[e] for e in vp])
+
+                if sentence.pos_tag[m] in Static.JJ:
+                    adjp = sentence.get_min_adjp(m)
+                    new_sentiment_string = sentence.get_phrase(adjp).lower()
+                    if len(adjp) == 1:
+                        continue
+                    if filter_word(sentence, adjp):
+                        continue
+                    # 语言模型过滤
+                    if inquire_content(connection, new_sentiment_string, table_name):
+                        if new_sentiment_string not in complex_word_pos:
+                            complex_word_pos[new_sentiment_string] = " ".join([sentence.pos_tag[e] for e in adjp])
+        if i == 1:
+            break
+        i += 1
+        filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
+    with open(field_content+"near/domain_complex_word", "w", encoding="utf8") as f:
+        for word_string, word_pos in complex_word_pos.items():
+            print("%s\t%s"%(word_string, word_pos), file=f)
+    connection.close()
+
+def classify_domain_word(clf, lexcion, field_content):
+    index = {"unigram":
+                    {
+                        "word":[],
+                        "pos_tag":[],
+                        "word_pos_tag":[]
+                    },
+               "bigram":
+                    {
+                        "word":[],
+                        "pos_tag":[],
+                        "word_pos_tag":[]
+                    }
+              }
+    mark, lens, words = [], [], []
+    with open(field_content+"near/domain_complex_word", "r", encoding="utf8") as out:
+        for line in out:
+            word, pos_tag = line.strip().split('\t')
+            word_list, pos_tag_list = word.split(' '), pos_tag.split(' ')
+            m = 0
+            for w in word.split(' '):
+                if w in sentiments:
+                    m = 1
+            mark.append(m)
+            words.append(word)
+            lens.append(len(word_list))
+            create_unigram(word_list, pos_tag_list, lexcion["unigram"], index["unigram"], 0, test=True)
+            create_unigram(word_list, pos_tag_list, lexcion["unigram"], index["unigram"], 1, test=True)
+            create_unigram(word_list, pos_tag_list, lexcion["unigram"], index["unigram"], 2, test=True)
+            create_bigram(word_list, pos_tag_list, lexcion["bigram"], index["bigram"], 0, test=True)
+            create_bigram(word_list, pos_tag_list, lexcion["bigram"], index["bigram"], 1, test=True)
+            create_bigram(word_list, pos_tag_list, lexcion["bigram"], index["bigram"], 2, test=True)
+
+    with open(field_content+"near/feature_vector_domain", "w", encoding="utf8") as out:
+        for i in range(len(mark)):
+            base = 0
+            print("0", end="", file=out)
+            base = write_feature_vector(base, lexcion["unigram"]["word"], index["unigram"]["word"][i], out)
+            base = write_feature_vector(base, lexcion["unigram"]["pos_tag"], index["unigram"]["pos_tag"][i], out)
+            base = write_feature_vector(base, lexcion["unigram"]["word_pos_tag"], index["unigram"]["word_pos_tag"][i], out)
+            base = write_feature_vector(base, lexcion["bigram"]["word"], index["bigram"]["word"][i], out, True)
+            base = write_feature_vector(base, lexcion["bigram"]["pos_tag"], index["bigram"]["pos_tag"][i], out, True)
+            base = write_feature_vector(base, lexcion["bigram"]["word_pos_tag"], index["bigram"]["word_pos_tag"][i], out, True)
+            print(" %d:%d"%(base+1, lens[i]), end="", file=out)
+            base += 1
+            print(file=out)
+    X, y = load_svmlight_file(field_content+"near/feature_vector_domain")
+    y_proba = clf.predict_proba(X)
+    probas = [1, 0.9, 0.8, 0.7, 0.6, 0.5, 0.4, 0.3, 0.2, 0.1]
+    for p in probas:
+        with open(field_content+"near/complex_word_domain_{0}".format(p), "w", encoding="utf8") as f:
+            for i in range(len(y_proba)):
+                if y_proba[i][1] > p:
+                    print("%s\t%f"%(words[i], y_proba[i][1]), file=f)
+
+    y_proba = [y_proba[e] for e in range(len(mark)) if mark[e] == 0]
+    words = [words[e] for e in range(len(mark)) if mark[e] == 0]
+    for p in probas:
+        with open(field_content+"near/no_general_complex_word_domain_{0}".format(p), "w", encoding="utf8") as f:
+            for i in range(len(y_proba)):
+                if y_proba[i][1] >= p and y_proba[i][1] < p+0.1:
+                    print("%s\t%f"%(words[i], y_proba[i][1]), file=f)
 def usage():
 
     '''打印帮助信息'''
@@ -543,29 +855,40 @@ if __name__ == "__main__":
             content = value
     field_content = r"../../data/soft_domains/" + content + r"/"
     create_content(field_content + "near")
-    table_lm = content+"_lm"
-    table_posting = content + "_posting"
-    table_num = content + "_num"
-
-    connection = pymysql.connect(host="localhost",
-                                user="u20130099",
-                                passwd="u20130099",
-                                local_infile=True,
-                                db="u20130099",
-                                charset="utf8",
-                                cursorclass=pymysql.cursors.DictCursor)
-    create_feature(connection, field_content, table_lm, table_posting, table_num)
-
     sentiments = set(Static.sentiment_word.keys())
-    words, mark = extract(field_content+"near/", sentiments)
+    lexcion, words, mark = extract(field_content+"near/", sentiments)
     X, y = load_svmlight_file(field_content+"near/feature_vector")
-    X = X.toarray()
+    r = int(len(y)*0.8)
 
-    scores, scores_without = my_cross_validation(X, y, mark, words)
-    print(scores)
-    print(scores.mean())
+    X_train, X_test = X[:r], X[r:]
+    y_train, y_test = y[:r], y[r:]
+    word_train, word_test = words[:r], words[r:]
+    mark_train, mark_test = mark[:r], mark[r:]
 
-    print(scores_without)
-    print(scores_without.mean())
-    connection.close()
+    clf = LogisticRegression(C=1.0, intercept_scaling=1, dual=False,
+            fit_intercept=True, penalty="l2", tol=0.0001)
+    clf.fit(X_train, y_train)
+    #  y_proba = clf.predict_proba(X_test)
+
+    #  np.save(field_content+"/pickles/y_proba_have_general.npy", y_proba)
+    #  np.save(field_content+"/pickles/y_test_have_general.npy", y_test)
+    #  y_test = [y_test[e] for e in range(len(mark_test)) if mark_test[e] == 0]
+    #  y_proba = [y_proba[e] for e in range(len(mark_test)) if mark_test[e] == 0]
+    #  word_test = [word_test[e] for e in range(len(mark_test)) if mark_test[e] == 0]
+    #  np.save(field_content+"/pickles/y_proba_no_general.npy", y_proba)
+    #  np.save(field_content+"/pickles/y_test_no_general.npy", y_test)
+    #  scores, scores_without = my_cross_validation(X, y, mark, words)
+    #  print(scores)
+    #  print(scores.mean())
+
+    #  print(scores_without)
+    #  print(scores_without.mean())
+    #  with open(field_content+"near/no_general_complex_word", "w", encoding="utf8") as f:
+        #  for i in range(len(y_proba)):
+            #  if y_proba[i][1] > 0.5:
+                #  print(word_test[i],file=f)
+    #  sentiment_classification(field_content)
+    if not os.path.exists(field_content+"near/domain_complex_word"):
+        create_domain_complex_word(content)
+    classify_domain_word(clf, lexcion, field_content)
     print("end")

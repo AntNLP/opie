@@ -74,8 +74,8 @@ def nn_mod_and_obj(sentence, features, sentiments, new_feature_string, key, valu
                 continue
 
             # 语言模型过滤
-            if not inquire_content(connection, new_np_string, table_lm):
-                break
+            #  if not inquire_content(connection, new_np_string, table_lm):
+                #  break
 
 
             features.add(new_np_string)
@@ -84,7 +84,7 @@ def nn_mod_and_obj(sentence, features, sentiments, new_feature_string, key, valu
                 if sentence.fs_dict.get((tuple(np), tuple([value, key]))) != None:
                     continue
                 new_sentiment_string = sentence.tokens[value].lower() +" " + sentence.tokens[key].lower()
-                #  sentiments.add(new_sentiment_string)
+                sentiments.add(new_sentiment_string)
                 sentence.fs_dict[(tuple(np), tuple([value, key]))] = 1
                 sentence.feature_sentiment.append([np, [value, key]])
                 sentence.fs_regu.append(regu_name)
@@ -95,9 +95,9 @@ def nn_mod_and_obj(sentence, features, sentiments, new_feature_string, key, valu
                 new_sentiment_string = sentence.tokens[key].lower() +" " + sentence.tokens[value].lower()
 
                 # 语言模型过滤
-                if not inquire_content(connection, new_sentiment_string, table_lm):
-                    break
-                #  sentiments.add(new_sentiment_string)
+                #  if not inquire_content(connection, new_sentiment_string, table_lm):
+                    #  break
+                sentiments.add(new_sentiment_string)
                 sentence.fs_dict[(tuple(np), tuple([key, value]))] = 1
                 sentence.feature_sentiment.append([np, [key, value]])
                 sentence.fs_regu.append(regu_name)
@@ -120,8 +120,8 @@ def sent_weak_lang_overlap(new_sentiment_string, pp, qq, connection, table_lm):
         return True
 
     # 语言模型过滤
-    if not inquire_content(connection, new_sentiment_string, table_lm):
-        return True
+    #  if not inquire_content(connection, new_sentiment_string, table_lm):
+        #  return True
 
     return False
 
@@ -137,7 +137,7 @@ def jj_conj_jj(sentence, sentiments, new_feature_string, value, pp, connection, 
             # 判断之前是否已经找出
             if sentence.fs_dict.get((tuple(pp), tuple([i_jj]))) != None:
                 continue
-            #  sentiments.add(new_sentiment_string)
+            sentiments.add(new_sentiment_string)
             sentence.fs_dict[(tuple(pp), tuple([i_jj]))] = 1
             sentence.feature_sentiment.append([pp, [i_jj]])
             sentence.fs_regu.append(regu_name)
@@ -169,11 +169,11 @@ def jj_conj_jj(sentence, sentiments, new_feature_string, value, pp, connection, 
                             continue
 
                         # 语言模型过滤
-                        if not inquire_content(connection, new_sentiment_string, table_lm):
-                            continue
+                        #  if not inquire_content(connection, new_sentiment_string, table_lm):
+                            #  continue
 
                         #  print(new_sentiment_string)
-                        #  sentiments.add(new_sentiment_string)
+                        sentiments.add(new_sentiment_string)
                         sentence.fs_dict[(tuple(pp), tuple([i_jj, i_to, i_vb]))] = 1
                         sentence.feature_sentiment.append([pp, [i_jj, i_to, i_vb]])
                         sentence.fs_regu.append(regu_name)
@@ -207,8 +207,8 @@ def nn_conj_jj(sentence, sentiments, new_feature_string, key, pp, connection, ta
             continue
 
         #  语言模型过滤
-        if not inquire_content(connection, new_sentiment_string, table_lm):
-            continue
+        #  if not inquire_content(connection, new_sentiment_string, table_lm):
+            #  continue
         sentence.fs_dict[(tuple(pp), tuple([up]))] = 1
         sentence.feature_sentiment.append([pp, [up]])
         sentence.fs_regu.append(regu_name)
@@ -247,10 +247,10 @@ def jj_to_vp(sentence, sentiments, sent, new_feature_string, i_feat, connection,
         new_sentiment_string = " ".join([sentence.tokens[sent].lower(), sentence.tokens[i_to].lower(), sentence.tokens[i_vb].lower()])
 
         # 语言模型过滤
-        if not inquire_content(connection, new_sentiment_string, table_lm):
-            continue
+        #  if not inquire_content(connection, new_sentiment_string, table_lm):
+            #  continue
 
-        #  sentiments.add(new_sentiment_string)
+        sentiments.add(new_sentiment_string)
         sentence.fs_dict[(tuple(i_feat), tuple([sent, i_to, i_vb]))] = 1
         sentence.feature_sentiment.append([i_feat, [sent, i_to, i_vb]])
         sentence.fs_regu.append(regu_name)
@@ -295,8 +295,8 @@ def f_using_s1(sentence, features, sentiments, connection, table_lm):
                 continue
 
             # 语言模型过滤
-            if not inquire_content(connection, new_feature_string, table_lm):
-                break
+            #  if not inquire_content(connection, new_feature_string, table_lm):
+                #  break
             features.add(new_feature_string)
             sentence.fs_dict[(tuple(np), tuple([value['id']]))] = 1
             sentence.feature_sentiment.append([np, [value['id']]])
@@ -348,8 +348,8 @@ def f_using_s2(sentence, features, sentiments, connection, table_lm):
                 continue
 
             # 语言模型过滤
-            if not inquire_content(connection, new_feature_string, table_lm):
-                break
+            #  if not inquire_content(connection, new_feature_string, table_lm):
+                #  break
             features.add(new_feature_string)
             sentence.fs_dict[(tuple(vp), tuple([value['id']]))] = 1
             sentence.feature_sentiment.append([vp, [value['id']]])
@@ -395,8 +395,8 @@ def f_using_s3(sentence, features, sentiments, connection, table_lm):
                 continue
 
             # 语言模型过滤
-            if not inquire_content(connection, new_feature_string, table_lm):
-                break
+            #  if not inquire_content(connection, new_feature_string, table_lm):
+                #  break
 
             sentence.fs_dict[(tuple([key]), tuple([value['id']]))] = 1
             features.add(new_feature_string)
@@ -451,8 +451,8 @@ def f_using_s4(sentence, features, sentiments, connection, table_lm):
                 continue
 
             # 语言模型过滤
-            if not inquire_content(connection, new_feature_string, table_lm):
-                break
+            #  if not inquire_content(connection, new_feature_string, table_lm):
+                #  break
             features.add(new_feature_string)
             sentence.fs_dict[(tuple(np), tuple([value['id']]))] = 1
             sentence.feature_sentiment.append([np, [value['id']]])
@@ -502,8 +502,8 @@ def f_using_s5(sentence, features, sentiments, connection, sentiment_dict, table
             continue
 
         # 语言模型过滤
-        if not inquire_content(connection, new_feature_string, table_lm):
-            continue
+        #  if not inquire_content(connection, new_feature_string, table_lm):
+            #  continue
 
         j = i + 1
         sp_nn, sp_vb, sp_jj = None, None, None
@@ -548,9 +548,9 @@ def f_using_s5(sentence, features, sentiments, connection, sentiment_dict, table
             continue
 
         # 语言模型过滤
-        if not inquire_content(connection, new_sentiment_string, table_lm):
-            continue
-        #  sentiments.add(new_sentiment_string)
+        #  if not inquire_content(connection, new_sentiment_string, table_lm):
+            #  continue
+        sentiments.add(new_sentiment_string)
         features.add(new_feature_string)
         sentence.fs_dict[(tuple(pp), tuple(sp))] = 1
         sentence.feature_sentiment.append([pp, sp])
@@ -576,10 +576,10 @@ def run(field_content, sentiment_dict, b, e, connection, table_lm):
 
     # 根据语言模型筛选通用情感词典
     # new_sentiment_dict = {key : value for key, value in sentiment_dict.items() if inquire_content(connection, key, table_lm)}
-    #  sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
-    sentiments = set(sentiment_dict.keys())
-    features = set()
-    #  features = load_pickle_file(field_content + r"pickles/features.pickle")
+    sentiments = load_pickle_file(field_content + r"pickles/sentiments.pickle")
+    #  sentiments = set(sentiment_dict.keys())
+    #  features = set()
+    features = load_pickle_file(field_content + r"pickles/features.pickle")
     create_content(field_content + r"bootstrap")
     create_content(field_content + r"pickles/bootstrap_sentences")
     f1 = open(field_content + r"bootstrap/feat_sent", "w", encoding="utf8")
@@ -589,6 +589,7 @@ def run(field_content, sentiment_dict, b, e, connection, table_lm):
     while i < e and os.path.exists(field_content + r"pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle.bz2"):
         print(i, "loading")
         sentences = load_pickle_file(field_content + r"pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle")
+        sentences = sentences[:1000]
         print(i, "loaded")
         for sentence in sentences:
             sentence.set_init()
@@ -600,7 +601,7 @@ def run(field_content, sentiment_dict, b, e, connection, table_lm):
         save_sentences = [sentence for sentence in sentences if sentence.feature_sentiment != []]
         for k in range(len(save_sentences)):
             write_feature_sentiment(save_sentences[k], f1)
-        save_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle", save_sentences)
+        #  save_pickle_file(field_content + r"pickles/bootstrap_sentences/bootstrap_sentences_" + str(i) + ".pickle", save_sentences)
         i += 1
     for e in sentiments:
         print(e, file=f3)
@@ -643,11 +644,12 @@ if __name__ == "__main__":
     #  field_content = r"../../data/domains/" + content + r"/"
     field_content = r"../../data/soft_domains/" + content + r"/"
     table_lm = content + "_lm"
-    connection = pymysql.connect(host="console",
-                                user="u20130099",
-                                passwd="u20130099",
-                                db="u20130099",
-                                charset="utf8",
-                                cursorclass=pymysql.cursors.DictCursor)
+    #  connection = pymysql.connect(host="console",
+                                #  user="u20130099",
+                                #  passwd="u20130099",
+                                #  db="u20130099",
+                                #  charset="utf8",
+                                #  cursorclass=pymysql.cursors.DictCursor)
+    connection = None
     run(field_content, dict(Static.sentiment_word), b, e, connection, table_lm)
-    connection.close()
+    #  connection.close()

@@ -73,7 +73,7 @@ if __name__ == "__main__":
         #  table_lm = domains[i] + "_lm"
         f = open(field_content+"test/nearest_neighbor_relation", "w", encoding="utf8")
         sentences = load_pickle_file(field_content+"test/test_sentences.pickle")
-        sentences = sentences[:4000]
+        sentences = sentences[:2000]
         sentiments = set(Static.sentiment_word.keys())
         for sentence in sentences:
             i = 1
@@ -83,6 +83,5 @@ if __name__ == "__main__":
                     m = get_nearest_relation(sentence, i, m, f)
                 i += 1
         f.close()
-        break
     #  connection.close()
 
