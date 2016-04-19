@@ -13,6 +13,17 @@ from nltk.corpus import stopwords
 from my_package.scripts import load_file_line
 
 
+def get_wpath(wname):
+    '''read config file'''
+    cf = configparser.ConfigParser()
+    cf.read(os.path.join(os.getenv("OPIE_DIR"), "my.cnf"))
+    return abs_path(cf.get("word", wname))
+
+
+def abs_path(fpath):
+    return os.path.join(os.getenv("OPIE_DIR"), fpath)
+
+
 class Static:
 
     ADJ = set(["JJ", "JJR", "JJS"])
@@ -45,17 +56,6 @@ class Static:
 
     def __init__(self):
         pass
-
-
-def get_wpath(wname):
-    '''read config file'''
-    cf = configparser.ConfigParser()
-    cf.read(os.path.join(os.getenv("OPIE_DIR"), "my.cnf"))
-    return abs_path(cf.get("word", wname))
-
-
-def abs_path(fpath):
-    return os.path.join(os.getenv("OPIE_DIR"), fpath)
 
 if __name__ == "__main__":
     print(Static.opinword)

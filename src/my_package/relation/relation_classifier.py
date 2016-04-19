@@ -52,11 +52,12 @@ class RelationClassifier:
         sentence.generate_label(test)
 
     def handle_sentences(self, sentences, test=False):
-        i = 0
+        print("handle sentences")
+        i = 1
         for sentence in sentences:
             self.handle_sentence(sentence, test)
             if i % 1000 == 0:
-                print(i)
+                print("sentence index: %d" % i)
             i += 1
 
     def output_sentence_feature_vector(self, sentence, f, g):
@@ -125,9 +126,9 @@ if __name__ == "__main__":
     spath = os.path.join(r.pickle_btsp,
                          "bootstrapping_sentences_%d.pickle" % i)
     while i < e and os.path.exists(spath + ".bz2"):
-        print(i, "loading")
+        print("pickle index: %d loading" % i)
         sentences = load_pickle_file(spath)
-        print(i, "loaded")
+        print("pickle index: %d loaded" % i)
         r.handle_sentences(sentences)
         save_pickle_file(
             os.path.join(r.pickle_featvect,
@@ -142,9 +143,9 @@ if __name__ == "__main__":
     spath = os.path.join(r.pickle_featvect,
                          "feature_vector_sentences_%d.pickle" % i)
     while i < e and os.path.exists(spath + ".bz2"):
-        print(i, "loading")
+        print("pickle index: %d loading" % i)
         sentences = load_pickle_file(spath)
-        print(i, "loaded")
+        print("pickle index: %d loaded" % i)
         r.output_sentences_feature_vector(sentences, r.train_dir)
         i += 1
         spath = os.path.join(r.pickle_featvect,

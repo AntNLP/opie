@@ -15,7 +15,7 @@ from my_package.scripts import load_pickle_file, save_pickle_file
 from my_package.scripts import mkdir
 
 
-def add_parse_info(kk, parse_path, pickle_path):
+def add_parse_info(kk, parse_path, pickle_path, part_count):
     without_parse_path = os.path.join(pickle_path, "without_parse_sentences")
     parse_sentence_path = os.path.join(pickle_path, "parse_sentences")
     print(os.path.join(without_parse_path,
@@ -53,7 +53,8 @@ def add_parse_info(kk, parse_path, pickle_path):
                                         parse_string, dependency_tree)
             k += 1
             if k % 1000 == 0:
-                print("kk:", kk, "k:", k)
+                print("part: %d  pickle index: %d  sentence index: %d" % (
+                      part_count, kk, k))
             if k == len(sentences):
                 break
         if k == len(sentences):
@@ -99,5 +100,6 @@ if __name__ == "__main__":
     start = (part_count - 1) * block_size + 1
     end = (pickle_size + 1) if part_count == 8 else (start + block_size)
     for i in range(start, end):
-        add_parse_info(i, parse_path, pickle_path)
+        add_parse_info(i, parse_path, pickle_path, part_count)
     print("end")
+

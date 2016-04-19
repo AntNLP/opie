@@ -103,9 +103,9 @@ if __name__ == "__main__":
     i = 1
     filename = os.path.join(c.pickle_parse, "parse_sentences_%d.pickle" % i)
     while os.path.exists(filename+".bz2"):
-        print("%d loading" % i)
+        print("pickle index: %d loading" % i)
         sentences = load_pickle_file(filename)
-        print("loaded")
+        print("pickle index: %d loaded" % i)
         c.handle_sentences(sentences)
         if i == 1:
             break

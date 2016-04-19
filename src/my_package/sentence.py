@@ -820,14 +820,15 @@ class Sentence:
         return cls.is_weak(opinwd_str, Static.weak_opinwd)
 
 if __name__ == "__main__":
-    parse_sentence_path = os.path.join(
-        os.getenv("OPIE_DIR"),
-        "data/domains/reviews_Musical_Instruments/
-        pickles/parse_sentences/parse_sentences_1.pickle")
-    sentences = load_pickle_file(parse_sentence_path)
-    for sentence in sentences:
-        print(sentence.text)
-        print(sentence.dependency_tree)
-        print(sentence.dependency_path([1, 2], [10, 11]))
-        break
-    print("end")
+    #  parse_sentence_path = os.path.join(
+        #  os.getenv("OPIE_DIR"),
+        #  "data/domains/reviews_Musical_Instruments/
+        #  pickles/parse_sentences/parse_sentences_1.pickle")
+    #  sentences = load_pickle_file(parse_sentence_path)
+    #  for sentence in sentences:
+        #  print(sentence.text)
+        #  print(sentence.dependency_tree)
+        #  print(sentence.dependency_path([1, 2], [10, 11]))
+        #  break
+    #  print("end")
+    pass

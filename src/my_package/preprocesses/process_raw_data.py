@@ -16,23 +16,6 @@ from sentence_tokenizer import SentenceTokenizer
 from my_package.scripts import mkdir, save_pickle_file, save_json_file
 
 
-def parse_old(file_name):
-    ''' 解析亚马逊某个领域的原始数据 '''
-    with gzip.open(file_name) as file:
-        entry = {}
-        for line in file:
-            line = line.decode("utf8")
-            line = line.strip()
-            colon_pos = line.find(":")
-            if colon_pos == -1:
-                yield entry
-                entry = {}
-                continue
-            eName = line[:colon_pos]
-            rest = line[colon_pos + 2:]
-            entry[eName] = rest
-
-
 def parse(path):
     ''' 解析亚马逊某个领域的原始数据 '''
     g = gzip.open(path, 'r')
@@ -41,10 +24,10 @@ def parse(path):
 
 
 def usage():
-    '''打印帮助信息'''
-    print("process_raw_data.py 用法:")
-    print("-h, --help: 打印帮助信息")
-    print("-d, --domain: 需要处理的领域名称")
+    '''print help information'''
+    print("process_raw_data.py :")
+    print("-h, --help: print help information")
+    print("-d, --domain: domain name")
 
 if __name__ == "__main__":
     try:
@@ -106,4 +89,3 @@ if __name__ == "__main__":
     if sentences:
         save_pickle_file(domain_path + pickle_head + str(kk) + ".pickle",
                          sentences)
-    print("end")
