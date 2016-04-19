@@ -7,10 +7,14 @@ Created on 2015年8月28日
 import os
 import gzip
 import shutil
-from my_package.class_define import SentenceTokenizer, Sentence
-from my_package.scripts import create_content, save_pickle_file, save_json_file
 import re
-import sys, getopt
+import sys
+import getopt
+
+from my_package.sentence import Sentence
+from sentence_tokenizer import SentenceTokenizer
+from my_package.scripts import mkdir, save_pickle_file, save_json_file
+
 
 def parse_old(file_name):
     ''' 解析亚马逊某个领域的原始数据 '''
@@ -28,11 +32,13 @@ def parse_old(file_name):
             rest = line[colon_pos + 2:]
             entry[eName] = rest
 
+
 def parse(path):
     ''' 解析亚马逊某个领域的原始数据 '''
     g = gzip.open(path, 'r')
     for l in g:
         yield eval(l)
+
 
 def usage():
     '''打印帮助信息'''
@@ -52,27 +58,27 @@ if __name__ == "__main__":
             usage()
             sys.exit()
         if op in ("-d", "--domain"):
-            content = value
-    print(content)
-    raw_data_path = r"../../data/raw/domains"
-    myTokenizer = SentenceTokenizer()
-    mk_path = r"../../data/domains/" + content
-    #  mk_path = r"../../data/soft_domains/" + content
-    file_path = content + ".json.gz"
-    create_content(mk_path)
-    if os.path.exists(mk_path + r"/sentences"):
-        shutil.rmtree(mk_path + r"/sentences")
-    create_content(mk_path + r"/sentences")
-    create_content(mk_path + r"/pickles")
-    create_content(mk_path + r"/pickles/without_parse_sentences")
-
+            domain = value
+    raw_dpath = os.path.join(os.getenv("OPIE_DIR"), "data/raw/domains")
+    domain_path = os.path.join(os.getenv("OPIE_DIR"), "data/domains", domain)
+    pickle_head = "/pickles/without_parse_sentences/without_parse_sentences_"
+    fname = domain + ".json.gz"
+    mkdir(domain_path)
+    spath = os.path.join(domain_path, "sentences")
+    if os.path.exists(spath):
+        shutil.rmtree(spath)
+    mkdir(os.path.join(domain_path, "sentences"))
+    mkdir(os.path.join(domain_path, "pickles"))
+    mkdir(os.path.join(domain_path, "pickles/without_parse_sentences"))
     sentences, i, k, review_index = [], 0, 1, 1
     kk = 1
-    f = open(mk_path + r"/sentences/sentences_1.txt", "a", encoding="utf8")
+    f = open(domain_path + "/sentences/sentences_1.txt", "a", encoding="utf8")
     flag = False
-    for e in parse(raw_data_path + r"/" + file_path):
+    myTokenizer = SentenceTokenizer()
+    for e in parse(os.path.join(raw_dpath, fname)):
         text, score = e['reviewText'], float(e['overall'])
-        text = re.sub(r'[\x00-\x1f]', '', text) # 去除所有的控制字符，防止parse出错
+        # 去除所有的控制字符，防止parse出错
+        text = re.sub(r'[\x00-\x1f]', '', text)
         sents = myTokenizer.segment_text(text)
         for sent in sents:
             t = Sentence()
@@ -81,8 +87,10 @@ if __name__ == "__main__":
                 continue
             sentences.append(t)
             print(sent, file=f)
-            if len(sentences) == 60000:  # 60000个句子序列化一次
-                save_pickle_file(mk_path + r"/pickles/without_parse_sentences/without_parse_sentences_" +str(kk) + ".pickle", sentences)
+            # 60000个句子序列化一次
+            if len(sentences) == 60000:
+                save_pickle_file(domain_path + pickle_head +
+                                 str(kk) + ".pickle", sentences)
                 sentences = []
                 kk += 1
             i += 1
@@ -91,13 +99,11 @@ if __name__ == "__main__":
                 k += 1
                 i = 0
                 flag = True
-                #break # 现在只产生前面 6000 个句子
-                f = open(mk_path + r"/sentences/sentences_"+str(k) + r".txt", "a", encoding="utf8")
-
-        #if flag:
-           # break
+                f = open(domain_path + "/sentences/sentences_" +
+                         str(k) + ".txt", "a", encoding="utf8")
         review_index += 1
     f.close()
-    if sentences != []:
-        save_pickle_file(mk_path + r"/pickles/without_parse_sentences/without_parse_sentences_" +str(kk) + ".pickle", sentences)
-
+    if sentences:
+        save_pickle_file(domain_path + pickle_head + str(kk) + ".pickle",
+                         sentences)
+    print("end")

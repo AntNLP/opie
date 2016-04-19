@@ -4,11 +4,15 @@ Created on 2015年9月1日
 
 @author: Changzhi Sun
 '''
-from my_package.scripts import load_pickle_file, return_none, save_pickle_file, save_json_file, create_content, load_json_file
 import os
+import sys
+import getopt
 from collections import Counter
+
+from my_package.scripts import load_pickle_file, return_none
+from my_package.scripts import save_pickle_file, save_json_file
+from my_package.scripts import create_content, load_json_file
 from my_package.class_define import Static
-import sys, getopt
 
 
 def get_sentiment_count(sentence, sentiments):
@@ -22,7 +26,8 @@ def get_sentiment_count(sentence, sentiments):
 
 
 def pos_and_num(i, pickle_content, positives, negatives, out):
-    filename = pickle_content + "parse_sentences/parse_sentences_" + str(i) + ".pickle"
+    filename = (pickle_content +
+                "parse_sentences/parse_sentences_" + str(i) + ".pickle")
     if os.path.exists(filename+".bz2"):
         sentences = load_pickle_file(filename)
         print(filename)
@@ -37,6 +42,7 @@ def pos_and_num(i, pickle_content, positives, negatives, out):
                 sentence.review_index), file=out)
             k += 1
 
+
 def usage():
 
     '''打印帮助信息'''
@@ -47,7 +53,8 @@ def usage():
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hd:p:", ["help", "domain=", "part="])
+        opts, args = getopt.getopt(sys.argv[1:], "hd:p:",
+                                   ["help", "domain=", "part="])
     except getopt.GetoptError:
         print("命令行参数输入错误！")
         usage()
@@ -66,9 +73,12 @@ if __name__ == "__main__":
     block_size = int(pickle_size / 8)
     aa = (part_count - 1) * block_size + 1
     bb = (pickle_size + 1) if part_count == 8 else (aa + block_size)
-    positives = set([key for key, value in Static.sentiment_word.items() if value == 1])
-    negatives = set([key for key, value in Static.sentiment_word.items() if value == -1])
-    out = open(pickle_content+"seed_pos_neg_%d"%part_count, "w", encoding="utf8")
+    positives = set([key for key, value in Static.sentiment_word.items()
+                     if value == 1])
+    negatives = set([key for key, value in Static.sentiment_word.items()
+                     if value == -1])
+    out = open(pickle_content+"seed_pos_neg_%d"%part_count,
+               "w", encoding="utf8")
     for i in range(aa, bb):
         pos_and_num(i, pickle_content, positives, negatives, out)
     out.close()

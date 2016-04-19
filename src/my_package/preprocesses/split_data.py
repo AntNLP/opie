@@ -6,25 +6,30 @@ Created on 2015年10月3日
 '''
 import os
 import shutil
-from my_package.scripts import create_content
-import sys, getopt
+import sys
+import getopt
+
+from my_package.scripts import mkdir
+
 
 def split_data(input_path):
     '''将所有句子平均分为 8 份，然后并行 parse'''
+
     n = int(len(os.listdir(input_path)) / 8)
     k = 1
-    filename = input_path + "sentences_" + str(k) + ".txt"
+    filename = os.path.join(input_path, "sentences_%d.txt" % k)
     for i in range(1, 9):
-        if os.path.exists(input_path + "Part" + str(i)):
-            shutil.rmtree(input_path + "Part" + str(i))
-        create_content(input_path + "Part" + str(i))
+        if os.path.exists(os.path.join(input_path, "Part%d" % i)):
+            shutil.rmtree(os.path.join(input_path, "Part%d" % i))
+        mkdir(os.path.join(input_path, "Part%d" % i))
     i = 1
     while os.path.exists(filename):
-        shutil.move(filename, input_path + "Part" + str(i))
+        shutil.move(filename, os.path.join(input_path, "Part%d" % i))
         if k % n == 0 and i < 8:
             i += 1
         k += 1
-        filename = input_path + "sentences_" + str(k) + ".txt"
+        filename = os.path.join(input_path, "sentences_%d.txt" % k)
+
 
 def usage():
     '''打印帮助信息'''
@@ -44,8 +49,7 @@ if __name__ == "__main__":
             usage()
             sys.exit()
         if op in ("-d", "--domain"):
-            content = value
-    print(content)
-    input_path = r"../../data/domains/" + content + r"/sentences/"
-    #  create_content(output_path)
+            domain = value
+    input_path = os.path.join(os.getenv("OPIE_DIR"),
+                              "data/domains", domain, "sentences")
     split_data(input_path)

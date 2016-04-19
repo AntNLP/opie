@@ -4,11 +4,15 @@ Created on 2016年1月1日
 
 @author: Changzhi Sun
 '''
-import sys, getopt
+import sys
+import getopt
 import os
-from my_package.class_define import Sentence
-from my_package.scripts import load_pickle_file, save_pickle_file, save_json_file, load_json_file
 import numpy as np
+
+from my_package.class_define import Sentence
+from my_package.scripts import load_pickle_file, save_pickle_file
+from my_package.scripts import save_json_file, load_json_file
+
 
 def usage():
     '''打印帮助信息'''
@@ -36,11 +40,13 @@ if __name__ == "__main__":
     g = open(field_content+"/pickles/seed_sent_num", "w", encoding="utf8")
     for i in range(1, 9):
         print(i)
-        with open(field_content + "pickles/posting_{0}.txt".format(i), "r", encoding="utf8") as out:
+        with open(field_content + "pickles/posting_{0}.txt".format(i),
+                  "r", encoding="utf8") as out:
             for line in out:
                 print(line, end="", file=f)
 
-        with open(field_content + "pickles/seed_sent_num_{0}".format(i), "r", encoding="utf8") as out:
+        with open(field_content + "pickles/seed_sent_num_{0}".format(i),
+                  "r", encoding="utf8") as out:
             for line in out:
                 print(line, end="", file=g)
     f.close()

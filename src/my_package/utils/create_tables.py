@@ -5,14 +5,18 @@ Created on 2015年8月29日
 @author: Changzhi Sun
 '''
 import os
-import sys, getopt
+import sys
+import getopt
+
 import pymysql
+
 
 def usage():
     '''打印帮助信息'''
     print("create_database.py 用法:")
     print("-h, --help: 打印帮助信息")
     print("-d, --domain: 需要处理的领域名称")
+
 
 def drop_table(connection, table_name):
     # 连接
@@ -24,6 +28,7 @@ def drop_table(connection, table_name):
         connection.commit()
     finally:
         pass
+
 
 def create_database(name):
     # 连接
@@ -41,6 +46,7 @@ def create_database(name):
     finally:
         pass
 
+
 def create_table_lm(connection, table_name, data_path):
     # 连接
     try:
@@ -53,6 +59,7 @@ def create_table_lm(connection, table_name, data_path):
     finally:
         pass
 
+
 def create_table_num(connection, table_name, data_path):
     # 连接
     try:
@@ -63,6 +70,7 @@ def create_table_num(connection, table_name, data_path):
         connection.commit()
     finally:
         pass
+
 
 def create_table_posting(connection, table_name, data_path):
     # 连接

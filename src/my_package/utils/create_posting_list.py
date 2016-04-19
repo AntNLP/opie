@@ -4,14 +4,17 @@ Created on 2015年9月1日
 
 @author: Changzhi Sun
 '''
-from my_package.scripts import load_pickle_file, return_none, save_pickle_file, save_json_file, create_content, load_json_file
 import os
+import re
+import sys
+import getopt
 from collections import Counter
 from itertools import chain
+
+from my_package.scripts import save_json_file, create_content, load_json_file
+from my_package.scripts import load_pickle_file, return_none, save_pickle_file
 from my_package.class_define import Static
-import re
-import sys, getopt
-from my_package.class_define import Trie
+
 
 def get_pp_index(sentence, var, pos_tag):
     ret_set = set()
@@ -23,7 +26,8 @@ def get_pp_index(sentence, var, pos_tag):
 
 
 def get_posting_list(i, pickle_content, post_list):
-    filename = pickle_content + "parse_sentences/parse_sentences_" + str(i) + ".pickle"
+    filename = (pickle_content +
+                "parse_sentences/parse_sentences_" + str(i) + ".pickle")
     if os.path.exists(filename+".bz2"):
         sentences = load_pickle_file(filename)
         print(filename)
@@ -35,8 +39,10 @@ def get_posting_list(i, pickle_content, post_list):
                 adjp = sentence.get("ADJP")
             i_set = set()
             i_set |= get_pp_index(sentence, adjp, Static.JJ)
-            i_set |= get_pp_index(sentence, sentence.dictionary_of_np, Static.NN)
-            i_set |= get_pp_index(sentence, sentence.dictionary_of_vp, Static.VB)
+            i_set |= get_pp_index(sentence,
+                                  sentence.dictionary_of_np, Static.NN)
+            i_set |= get_pp_index(sentence,
+                                  sentence.dictionary_of_vp, Static.VB)
             for e in i_set:
                 word = sentence.tokens[e].lower()
                 if word not in post_list:
@@ -50,6 +56,7 @@ def get_posting_list(i, pickle_content, post_list):
     else:
         print(filename + "not exists!")
 
+
 def usage():
 
     '''打印帮助信息'''
@@ -60,7 +67,8 @@ def usage():
 
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hd:p:", ["help", "domain=", "part="])
+        opts, args = getopt.getopt(sys.argv[1:], "hd:p:",
+                                   ["help", "domain=", "part="])
     except getopt.GetoptError:
         print("命令行参数输入错误！")
         usage()

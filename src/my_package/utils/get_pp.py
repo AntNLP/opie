@@ -5,21 +5,26 @@ Created on 2015年8月29日
 @author: Changzhi Sun
 '''
 import os
-from my_package.class_define import Static
-from my_package.scripts import load_json_file, load_pickle_file, create_content, save_pickle_file,\
-    save_json_file
-import kenlm
-import sys, getopt
+import sys
+import getopt
 import re
-import pymysql
 import random
+
+import kenlm
+import pymysql
 from pybloom import ScalableBloomFilter
+
+from my_package.class_define import Static
+from my_package.scripts import load_json_file, load_pickle_file
+from my_package.scripts import create_content, save_pickle_file, save_json_file
+
 
 def usage():
     '''打印帮助信息'''
     print("get_pp.py 用法:")
     print("-h, --help: 打印帮助信息")
     print("-d, --domain: 需要处理的领域名称")
+
 
 def execute(connection, sql):
     try:
@@ -31,6 +36,7 @@ def execute(connection, sql):
         print(err)
     finally:
         pass
+
 
 def inquire_word(connection, inquir_list):
 
@@ -45,6 +51,7 @@ def inquire_word(connection, inquir_list):
         print(err)
     finally:
         pass
+
 
 def get_pp_condition(sentence, var, pos_tag, res_dict, model):
     for key, values in var.items():
@@ -63,6 +70,7 @@ def get_pp_condition(sentence, var, pos_tag, res_dict, model):
             tmp_sc = model.score(tmp)
             res_dict[tmp] = tmp_sc
 
+
 def get_pp_sentences(sentences, model):
 
     res_dict ={}
@@ -71,8 +79,10 @@ def get_pp_sentences(sentences, model):
             adjp = sentence.dictionary_of_adjp
         else:
             adjp = sentence.get("ADJP")
-        get_pp_condition(sentence, sentence.dictionary_of_np, Static.NN, res_dict, model)
-        get_pp_condition(sentence, sentence.dictionary_of_vp, Static.VB, res_dict, model)
+        get_pp_condition(sentence,
+                         sentence.dictionary_of_np, Static.NN, res_dict, model)
+        get_pp_condition(sentence,
+                         sentence.dictionary_of_vp, Static.VB, res_dict, model)
         get_pp_condition(sentence, adjp, Static.JJ, res_dict, model)
         for key, value in sentence.pos_tag.items():
             if value in Static.SENTIMENT:
@@ -103,16 +113,18 @@ if __name__ == "__main__":
     field_content = r"../../data/domains/" + content + r"/"
     print(content)
     #  connection = pymysql.connect(host="127.0.0.1",
-                                #  user="root",
-                                #  passwd="100704048",
-                                #  local_infile=True,
-                                #  max_allowed_packet=1024*1024*1024,
-                                #  db=content,
-                                #  charset="utf8",
-                                #  cursorclass=pymysql.cursors.DictCursor)
-    model = kenlm.LanguageModel(r'../../data/domains/' + content + r'/lm/text.arpa')
+                                #   user="root",
+                                #   passwd="100704048",
+                                #   local_infile=True,
+                                #   max_allowed_packet=1024*1024*1024,
+                                #   db=content,
+                                #   charset="utf8",
+                                #   cursorclass=pymysql.cursors.DictCursor)
+    model = kenlm.LanguageModel('../../data/domains/' +
+                                content + r'/lm/text.arpa')
     i = 1
-    filename = field_content + "pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle"
+    filename = (field_content + "pickles/parse_sentences/parse_sentences_" +
+                str(i) + ".pickle")
     f = open(field_content+"lm/data.txt", "w", encoding="utf8")
     while os.path.exists(filename+".bz2"):
         print(filename)
@@ -123,10 +135,13 @@ if __name__ == "__main__":
         for key, value in res_dict.items():
             print("NULL\t{0}\t{1}".format(key, value), file=f)
         i += 1
-        filename = field_content + "pickles/parse_sentences/parse_sentences_" + str(i) + ".pickle"
+        filename = (field_content +
+                    "pickles/parse_sentences/parse_sentences_" +
+                    str(i) + ".pickle")
 
 
-    sbf = ScalableBloomFilter(initial_capacity=150000000, mode=ScalableBloomFilter.LARGE_SET_GROWTH)
+    sbf = ScalableBloomFilter(initial_capacity=150000000,
+                              mode=ScalableBloomFilter.LARGE_SET_GROWTH)
     out = open(field_content + "lm/data.new", "w", encoding="utf8")
     with open(field_content + "lm/data.txt", "r", encoding="utf8") as f:
         for line in f:
