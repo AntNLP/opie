@@ -4,44 +4,20 @@ Created on 2015年9月1日
 
 @author: Changzhi Sun
 '''
-from my_package.scripts import load_pickle_file, return_none, save_pickle_file, save_json_file, create_content
 import os
+import re
+import sys
+import getopt
 from collections import Counter
 from itertools import chain
-from my_package.class_define import Static
-from my_package.bootstrap_regular import have_dependent, is_weak_feature, have_overlap
-import re
-import sys, getopt
+
 import pymysql
 
-def inquire_content(connection, var, table_name, t=-25):
-    try:
+from my_package.scripts import load_pickle_file, return_none, save_pickle_file
+from my_package.scripts import save_json_file, create_content, inquire_content
+from my_package.scripts import have_overlap, have_dependent, filter_word
+from my_package.class_define import Static
 
-        # 游标
-        with connection.cursor() as cursor:
-            sql = "select * from {0} where content=\"{1}\" and score>={2}".format(table_name, var, t)
-            #  sql = "select * from lm_db where content=%s"
-            #  sql = "select * from lm_db where content=\"{0}\"".format(var)
-            #  cursor.execute(sql, (var))
-            cursor.execute(sql)
-            res = cursor.fetchall()
-            if len(res) == 0:
-                return False
-            else:
-                return True
-
-    except Exception as err:
-        print(err)
-        print(var)
-        return False
-    finally:
-        pass
-
-def filter_word(sentence, pp):
-    for i in pp:
-        if re.search(r"^\W*$", sentence.tokens[i]) != None:
-            return True
-    return False
 
 def f1(sentence, i, j, m, connection, table_name, mark, ff):
     if sentence.pos_tag[m] in Static.NN:
@@ -52,10 +28,12 @@ def f1(sentence, i, j, m, connection, table_name, mark, ff):
             return False
         new_feature_string = sentence.get_phrase(np).lower()
 
-        if is_weak_feature(new_feature_string):
+        if sentence.is_weak_feature(new_feature_string):
             return False
         #  语言模型过滤
-        if inquire_content(connection, new_feature_string, table_name) and have_dependent(sentence.dependency_tree, np, list(range(i, j))):
+        if (inquire_content(connection, new_feature_string, table_name) and
+                have_dependent(sentence.dependency_tree,
+                               np, list(range(i, j)))):
             if mark[0] == False:
                 print("S\t{0}".format(sentence.text), file=ff)
                 mark[0] = True
@@ -63,8 +41,7 @@ def f1(sentence, i, j, m, connection, table_name, mark, ff):
             print("R\t{0}\t{1}\t{2}\t{3}".format(
                 sentence.get_phrase(key).lower(),
                 sentence.get_phrase(value).lower(),
-                key,
-                value), file=ff)
+                key, value), file=ff)
             return True
 
     elif sentence.pos_tag[m] in Static.VB:
@@ -76,11 +53,13 @@ def f1(sentence, i, j, m, connection, table_name, mark, ff):
             return False
         new_feature_string = sentence.get_phrase(vp).lower()
 
-        if is_weak_feature(new_feature_string):
+        if sentence.is_weak_feature(new_feature_string):
             return False
 
         #  语言模型过滤
-        if inquire_content(connection, new_feature_string, table_name) and have_dependent(sentence.dependency_tree, vp, list(range(i, j))):
+        if (inquire_content(connection, new_feature_string, table_name) and
+                have_dependent(sentence.dependency_tree,
+                               vp, list(range(i, j)))):
             if mark[0] == False:
                 print("S\t{0}".format(sentence.text), file=ff)
                 mark[0] = True
@@ -157,7 +136,8 @@ if __name__ == "__main__":
     table_name = content + "_lm"
     f = open(field_content+"near/complex_word_apply", "w", encoding="utf8")
     i = 1
-    filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
+    filename = (field_content +
+               "pickles/parse_sentences/parse_sentences_%d.pickle"%i)
     while os.path.exists(filename+".bz2"):
         print(filename)
         sentences = load_pickle_file(filename)
@@ -166,6 +146,7 @@ if __name__ == "__main__":
         if i == 5:
             break
         i += 1
-        filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
+        filename = (field_content +
+                   "pickles/parse_sentences/parse_sentences_%d.pickle"%i)
     connection.close()
     f.close()

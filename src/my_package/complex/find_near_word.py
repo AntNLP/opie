@@ -4,113 +4,22 @@ Created on 2015年9月1日
 
 @author: Changzhi Sun
 '''
-from my_package.scripts import load_pickle_file, return_none, save_pickle_file, save_json_file, create_content
 import os
+import re
+import sys
+import getopt
 from collections import Counter
 from itertools import chain
-from my_package.class_define import Static
-import re
-import sys, getopt
+
 import pymysql
 
-class Node:
-    def __init__(self):
-        self.count = 0
-        self.next_node = {}
+from my_package.scripts import load_pickle_file, return_none, save_pickle_file
+from my_package.scripts import save_json_file, create_content, inquire_content
+from my_package.scripts import get_index, get_position, filter_word
+from my_package.class_define import Static
 
-class Trie_Tree:
-    def __init__(self):
-        self.root = Node()
-
-    def build_trie_tree(self, word_list):
-
-        if word_list == []:
-            return
-
-        p = self.root
-        for word in word_list:
-            if p.next_node.get(word) == None:
-                q = Node()
-                p.next_node[word] = q
-            p = p.next_node[word]
-        p.count += 1
-
-    def build_suffix_tree(self, word_list):
-        for i in range(len(word_list)):
-            self.build_trie_tree(word_list[i:])
-
-    def inquire_word_string_count(self, word_list):
-        p = self.root
-        for word in word_list:
-            if p.next_node.get(word) == None:
-                return 0
-            p = p.next_node[word]
-        return p.count
-
-def get_index(connection, table_lm, var):
-    try:
-        # 游标
-        with connection.cursor() as cursor:
-            sql = "select * from {0} where content=\"{1}\"".format(table_lm, var)
-            cursor.execute(sql)
-            res = cursor.fetchall()
-            if len(res) == 0:
-                return None
-            else:
-                return res[0]['id']
-
-    except Exception as err:
-        print(err)
-        print(var)
-        return None
-    finally:
-        pass
-
-def get_positon(connection, table_posting, var):
-    try:
-
-        # 游标
-        with connection.cursor() as cursor:
-            sql = "select distinct i_pickle, i_sentence from {0} where i_content={1}".format(table_posting, var)
-            cursor.execute(sql)
-            res = cursor.fetchall()
-            return res
-    except Exception as err:
-        print(err)
-        return None
-    finally:
-        pass
-
-def inquire_content(connection, var, table_name, t=-25):
-    try:
-
-        # 游标
-        with connection.cursor() as cursor:
-            sql = "select * from {0} where content=\"{1}\" and score>={2}".format(table_name, var, t)
-            #  sql = "select * from lm_db where content=%s"
-            #  sql = "select * from lm_db where content=\"{0}\"".format(var)
-            #  cursor.execute(sql, (var))
-            cursor.execute(sql)
-            res = cursor.fetchall()
-            if len(res) == 0:
-                return False
-            else:
-                return True
-
-    except Exception as err:
-        print(err)
-        print(var)
-        return False
-    finally:
-        pass
-
-def filter_word(sentence, pp):
-    for i in pp:
-        if re.search(r"^\W*$", sentence.tokens[i]) != None:
-            return True
-    return False
-
-def get_sentiment(sentence, wrod_list, sentiments, connection, complex_word_pos, table_name, w=5):
+def get_sentiment(sentence, wrod_list, sentiments,
+                  connection, complex_word_pos, table_name, w=5):
     n = len(sentence.pos_tag)
     for i in range(1, n+1):
         j, k = i, 0
@@ -149,9 +58,11 @@ def get_sentiment(sentence, wrod_list, sentiments, connection, complex_word_pos,
 
                     #  语言模型过滤
                     #  if new_sentiment_string in score_pp_set:
-                    if inquire_content(connection, new_sentiment_string, table_name):
+                    if inquire_content(connection,
+                                       new_sentiment_string, table_name):
                         if new_sentiment_string not in complex_word_pos:
-                            complex_word_pos[new_sentiment_string] = " ".join([sentence.pos_tag[e] for e in vp])
+                            complex_word_pos[new_sentiment_string] = " ".join(
+                                [sentence.pos_tag[e] for e in vp])
 
 
                 if sentence.pos_tag[m] in Static.JJ:
@@ -164,9 +75,11 @@ def get_sentiment(sentence, wrod_list, sentiments, connection, complex_word_pos,
 
                     # 语言模型过滤
                     #  if new_sentiment_string in score_pp_set:
-                    if inquire_content(connection, new_sentiment_string, table_name):
+                    if inquire_content(connection,
+                                       new_sentiment_string, table_name):
                         if new_sentiment_string not in complex_word_pos:
-                            complex_word_pos[new_sentiment_string] = " ".join([sentence.pos_tag[e] for e in adjp])
+                            complex_word_pos[new_sentiment_string] = " ".join(
+                                [sentence.pos_tag[e] for e in adjp])
 
                     adjp = sentence.get_min_adjp(m, obj_index)
                     new_sentiment_string = sentence.get_phrase(adjp).lower()
@@ -175,11 +88,14 @@ def get_sentiment(sentence, wrod_list, sentiments, connection, complex_word_pos,
 
                     if filter_word(sentence, adjp):
                         continue
+
                     # 语言模型过滤
                     #  if new_sentiment_string in score_pp_set:
-                    if inquire_content(connection, new_sentiment_string, table_name):
+                    if inquire_content(connection,
+                                       new_sentiment_string, table_name):
                         if new_sentiment_string not in complex_word_pos:
-                            complex_word_pos[new_sentiment_string] = " ".join([sentence.pos_tag[e] for e in adjp])
+                            complex_word_pos[new_sentiment_string] = " ".join(
+                                [sentence.pos_tag[e] for e in adjp])
 
             for m in range(j, e):
                 #  if sentence.pos_tag[m] in Static.NN:
@@ -210,9 +126,11 @@ def get_sentiment(sentence, wrod_list, sentiments, connection, complex_word_pos,
 
                     #  语言模型过滤
                     #  if new_sentiment_string in score_pp_set:
-                    if inquire_content(connection, new_sentiment_string, table_name):
+                    if inquire_content(connection,
+                                       new_sentiment_string, table_name):
                         if new_sentiment_string not in complex_word_pos:
-                            complex_word_pos[new_sentiment_string] = " ".join([sentence.pos_tag[e] for e in vp])
+                            complex_word_pos[new_sentiment_string] = " ".join(
+                                [sentence.pos_tag[e] for e in vp])
 
                 if sentence.pos_tag[m] in Static.JJ:
                     adjp = sentence.get_max_adjp(m, obj_index)
@@ -224,9 +142,11 @@ def get_sentiment(sentence, wrod_list, sentiments, connection, complex_word_pos,
 
                     # 语言模型过滤
                     #  if new_sentiment_string in score_pp_set:
-                    if inquire_content(connection, new_sentiment_string, table_name):
+                    if inquire_content(connection,
+                                       new_sentiment_string, table_name):
                         if new_sentiment_string not in complex_word_pos:
-                            complex_word_pos[new_sentiment_string] = " ".join([sentence.pos_tag[e] for e in adjp])
+                            complex_word_pos[new_sentiment_string] = " ".join(
+                                [sentence.pos_tag[e] for e in adjp])
                     adjp = sentence.get_min_adjp(m, obj_index)
                     if len(adjp) == 1:
                         continue
@@ -236,9 +156,13 @@ def get_sentiment(sentence, wrod_list, sentiments, connection, complex_word_pos,
 
                     # 语言模型过滤
                     #  if new_sentiment_string in score_pp_set:
-                    if inquire_content(connection, new_sentiment_string, table_name):
+                    if inquire_content(connection,
+                                       new_sentiment_string, table_name):
                         if new_sentiment_string not in complex_word_pos:
-                            complex_word_pos[new_sentiment_string] = " ".join([sentence.pos_tag[e] for e in adjp])
+                            complex_word_pos[new_sentiment_string] = " ".join(
+                                [sentence.pos_tag[e] for e in adjp])
+
+
 def usage():
 
     '''打印帮助信息'''
@@ -247,13 +171,6 @@ def usage():
     print("-d, --domain: 需要处理的领域名称")
 
 if __name__ == "__main__":
-    #  t = Trie_Tree()
-    #  t.build_suffix_tree(["a", "b", "c"])
-    #  t.build_suffix_tree(["c", "b", "c"])
-
-    #  print(t.inquire_word_string_count(["b", "c"]))
-
-
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help", "domain="])
     except getopt.GetoptError:
@@ -282,27 +199,32 @@ if __name__ == "__main__":
     table_posting = content + "_posting"
     f = open(field_content+"near/sentiment_word_near", "w", encoding="utf8")
     i = 1
-    filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
+    filename = (field_content +
+               "pickles/parse_sentences/parse_sentences_%d.pickle"%i)
     complex_word_pos_tag = {}
     while os.path.exists(filename+".bz2"):
         print(filename)
         sentences = load_pickle_file(filename)
         for sentence in sentences:
-            get_sentiment(sentence, word_list, sentiments, connection, complex_word_pos_tag, table_name)
-        if i == 15:
+            get_sentiment(sentence, word_list, sentiments,
+                          connection, complex_word_pos_tag, table_name)
+        if i == 1:
             break
         i += 1
-        filename = field_content + "pickles/parse_sentences/parse_sentences_%d.pickle"%i
-    save_pickle_file(field_content+"pickles/complex_word_pos_tag.pickle", complex_word_pos_tag)
+        filename = (field_content +
+                   "pickles/parse_sentences/parse_sentences_%d.pickle"%i)
+    save_pickle_file(field_content + "pickles/complex_word_pos_tag.pickle",
+                     complex_word_pos_tag)
     word_pickle_sentence = {}
     for word_string, word_pos in complex_word_pos_tag.items():
         word_index = get_index(connection, table_name, word_string)
         if word_index == None:
             continue
-        res = get_positon(connection, table_posting, word_index)
+        res = get_position(connection, table_posting, word_index)
         res_set = set(((e['i_pickle'], e['i_sentence']) for e in res))
         word_pickle_sentence[word_string] = res_set
         print("0\t%d\t%s\t%s"%(len(res_set), word_string, word_pos), file=f)
     connection.close()
     f.close()
-    save_pickle_file(field_content+"pickles/word_pickle_sentence.pickle", word_pickle_sentence)
+    save_pickle_file(field_content + "pickles/word_pickle_sentence.pickle",
+                     word_pickle_sentence)

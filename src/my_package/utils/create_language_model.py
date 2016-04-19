@@ -5,8 +5,12 @@ Created on 2015年8月29日
 @author: Changzhi Sun
 '''
 import os
+import sys
+import getopt
+
 from my_package.scripts import create_content
-import sys, getopt
+
+
 def usage():
     '''打印帮助信息'''
     print("create_language_model.py 用法:")
@@ -31,7 +35,8 @@ if __name__ == "__main__":
     #  cmd_string = r"find " + input_path + r"/sentences -type f | xargs cat > " + input_path + "/text"
     #  os.system(cmd_string)
 
-    cmd_string = r"../../tools/kenlm/bin/lmplz -o 5 <" + input_path + "/text " + ">" + input_path + "/lm/text.arpa"
+    cmd_string = ("../../tools/kenlm/bin/lmplz -o 5 <" +
+                  input_path + "/text " + ">" + input_path + "/lm/text.arpa")
     os.system(cmd_string)
     #cmd_string = r"rm " + input_path + "/text"
     #os.system(cmd_string)

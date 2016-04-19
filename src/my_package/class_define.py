@@ -5,73 +5,73 @@ Created on 2015年8月28日
 @author: Changzhi Sun
 '''
 import nltk
+import re
 from nltk import Tree
 from nltk.corpus import stopwords
-import re
 from nltk.tokenize import TreebankWordTokenizer
-from my_package.scripts import load_file_line, return_none, all_match, all_cover, have_part
-from _collections import defaultdict
+from collections import defaultdict
 from itertools import chain
 
+from my_package.scripts import load_file_line, return_none, all_match, all_cover, have_part
+
+
 class Sentence:
+
+
     def __init__(self):
-        '''
+        ''' initialize '''
+        self.feats = None  # 规则产生的特征词(类) [[begin,..., end], ...]
+        self.feats_regu = None  # 产生特征词所用的规则
+        self.feats_set = None  # 规则产生的特征词集合{(begin, ... end), ...}
 
-        initialize
+        self.sents = None # 规则产生的情感词 [[(b, ..., e), polarity], ...]
+        self.sents_regu = None  # 产生情感词所用的规则
+        self.sents_dict = None  # 规则产生的情感词集合{(b, ... e), ...}
 
-        '''
-        self.feats = None #规则产生的特征词(类) [[begin,..., end], ...]
-        self.feats_regu = None #产生特征词所用的规则
-        self.feats_set = None #规则产生的特征词集合{(begin, ... end), ...}
-
-        self.sents = None #规则产生的情感词 [[(b, ..., e), polarity], ...]
-        self.sents_regu = None # 产生情感词所用的规则
-        self.sents_dict = None #规则产生的情感词集合{(b, ... e), ...}
-
-        self.feature_sentiment = None #[[(), (), polarity], ....]
-        self.fs_regu = None #产生 pair 对所用的规则
-        self.fs_dict = None #产生 feature-sentiment 的结合 {(特征词索引， 情感词索引), ...}
+        self.feature_sentiment = None  #[[(), (), polarity], ....]
+        self.fs_regu = None  # 产生 pair 对所用的规则
+        self.fs_dict = None  # 产生 feature-sentiment 的结合 {(特征词索引， 情感词索引), ...}
 
 
-        self.text = None #句子的内容
+        self.text = None  # 句子的内容
 
-        self.tokens = None #句子的分词结果，下标从 1 开始
+        self.tokens = None  # 句子的分词结果，下标从 1 开始
 
-        self.pos_tag = None #句子的POS tag， 下标从 1 开始
+        self.pos_tag = None  # 句子的POS tag， 下标从 1 开始
 
-        self.parse_string = None #句子的解析树 string
+        self.parse_string = None  # 句子的解析树 string
 
-        self.dependency_tree = None #句子的依赖树
+        self.dependency_tree = None  # 句子的依赖树
 
-        self.score = None #该句子所在 review 的评分
+        self.score = None  # 该句子所在 review 的评分
 
-        self.polarity = None #该句子的极性
+        self.polarity = None  # 该句子的极性
 
-        self.review_index =  None #该句子所在 review 的index
+        self.review_index =  None  # 该句子所在 review 的index
 
-        self.parse_tree = None #该句子的 parse tree
+        self.parse_tree = None  # 该句子的 parse tree
 
-        self.dictionary_of_np = None #
+        self.dictionary_of_np = None  #
 
-        self.dictionary_of_vp = None #
+        self.dictionary_of_vp = None  #
 
-        self.dictionary_of_adjp = None #
+        self.dictionary_of_adjp = None  #
 
-        self.dependency_tree_up = None #
+        self.dependency_tree_up = None  #
 
-        self.all_sentiment = None #
+        self.all_sentiment = None  #
 
-        self.all_vp = None #
+        self.all_vp = None  #
 
-        self.all_np = None #
+        self.all_np = None  #
 
-        self.sentiment = None #
+        self.sentiment = None  #
 
-        self.text_and_pos_tag = None #
+        self.text_and_pos_tag = None  #
 
-        self.feature_vector = None
+        self.feature_vector = None  #
 
-        self.candidate_pairs = None
+        self.candidate_pairs = None #
 
     def inquire_content(self, connection, var, table_lm, t=-25):
         try:
@@ -431,7 +431,7 @@ class Sentence:
         elif list1[:b] == list2:
             ret_dep_direct.append(self.tokens[feat])
             #  ret_dep_direct.append(self.pos_tag[feat])
-            ret_dep_direct.append(self.dependency_tree_up_type[feat])
+            #  ret_dep_direct.append(self.dependency_tree_up_type[feat])
             for e in list1[::-1][1:]:
                 ret_dep_direct.append("<")
                 #  dep_order.append("<")
@@ -448,7 +448,7 @@ class Sentence:
                     break
             ret_dep_direct.append(self.tokens[feat])
             #  ret_dep_direct.append(self.pos_tag[feat])
-            ret_dep_direct.append(self.dependency_tree_up_type[feat])
+            #  ret_dep_direct.append(self.dependency_tree_up_type[feat])
             for e in list1[b:-1][::-1]:
                 ret_dep_direct.append("<")
                 #  dep_order.append("<")
@@ -471,7 +471,6 @@ class Sentence:
         if None in set(ret_dep_direct):
             return False, 0, 0
         return True, len(ret_dep_direct), ret_dep_direct
-
 
     def get_phrase(self, index=[]):
         '''get phrase of the sentence by index, and index is number sequence
@@ -514,7 +513,6 @@ class Sentence:
             k += 1
         return count
 
-
     def check_not(self, a, b = -1):
         ''' check not
 
@@ -538,9 +536,8 @@ class Sentence:
     def is_weak_feature(self, word):
         '''判断当前特征词 是否 weak
         '''
-        for line in Static.weak_feature:
-            if line in set(word.split()):
-                return True
+        if word.lower() in Static.weak_feature:
+            return True
         if re.search(r"^\W*$", word) != None:
             return True
         return False
@@ -668,44 +665,48 @@ class Sentence:
             base = 0
             feat_vector = []
 
-            word_index = [1,  #  特征词前一个词
-                          2,  #  特征词前两个词
-                          5,  #  特征词后一个词
-                          6,  #  特征词后两个词
-                          9,  #  情感词前一个词
-                          10, #  情感词前两个词
-                          13, #  情感词后一个词
-                          14, #  情感词后两个词
-                          17  #  特征词和情感词中间词
-                         # 22 # 特征词
-                         # 23 # 情感词
-                          ]
-            pos_tag_index = [3,  #  特征词前一个词 POS tag
-                             4,  #  特征词前两个词 POS tag
-                             7,  #  特征词后一个词 POS tag
-                             8,  #  特征词后两个词 POS tag
-                             11, #  情感词前一个词 POS tag
-                             12, #  情感词前两个词 POS tag
-                             15, #  情感词后一个词 POS tag
-                             16, #  情感词后两个词 POS tag
-                             18, #  特征词和情感词中间词 POS tag
-                             20, #  特征词 POS tag
-                             21  #  情感词 POS tag
-                             ]
-            word_pos_tag_index = [26, # 特征词前一个词以及POS tag
-                                  27, # 特征词前两个词以及POS tag
-                                  28, # 特征词后一个词以及POS tag
-                                  29, # 特征词后两个词以及POS tag
-                                  30, # 情感词前一个词以及POS tag
-                                  31, # 情感词前两个词以及POS tag
-                                  32, # 情感词后一个词以及POS tag
-                                  33, # 情感词后两个词以及POS tag
-                                  34  # 特征词和情感词中间词以及POS tag
-                                  ]
-            pos_tags_index = [37, # 特征词的POS tags
-                              38, # 情感词的POS tags
-                              39 # 特征词和情感词中间的POS tags
-                              ]
+            word_index = [
+                1,  #  特征词前一个词
+                2,  #  特征词前两个词
+                5,  #  特征词后一个词
+                6,  #  特征词后两个词
+                9,  #  情感词前一个词
+                10,  #  情感词前两个词
+                13,  #  情感词后一个词
+                14,  #  情感词后两个词
+                17   #  特征词和情感词中间词
+                #  22  # 特征词
+                #  23  # 情感词
+                ]
+            pos_tag_index = [
+                3,  #  特征词前一个词 POS tag
+                4,  #  特征词前两个词 POS tag
+                7,  #  特征词后一个词 POS tag
+                8,  #  特征词后两个词 POS tag
+                11,  #  情感词前一个词 POS tag
+                12,  #  情感词前两个词 POS tag
+                15,  #  情感词后一个词 POS tag
+                16,  #  情感词后两个词 POS tag
+                18,  #  特征词和情感词中间词 POS tag
+                20,  #  特征词 POS tag
+                21   #  情感词 POS tag
+                ]
+            word_pos_tag_index = [
+                26,  # 特征词前一个词以及POS tag
+                27,  # 特征词前两个词以及POS tag
+                28,  # 特征词后一个词以及POS tag
+                29,  # 特征词后两个词以及POS tag
+                30,  # 情感词前一个词以及POS tag
+                31,  # 情感词前两个词以及POS tag
+                32,  # 情感词后一个词以及POS tag
+                33,  # 情感词后两个词以及POS tag
+                34   # 特征词和情感词中间词以及POS tag
+                ]
+            pos_tags_index = [
+                37,  # 特征词的POS tags
+                38,  # 情感词的POS tags
+                39  # 特征词和情感词中间的POS tags
+                ]
 
             for i in word_index:
                 for e in sorted(set(f[i])):
@@ -721,6 +722,7 @@ class Sentence:
                 for e in sorted(set(f[i])):
                     feat_vector.append(base + e)
                 base += word_pos_tag_len
+
             for i in pos_tags_index:
                 for e in sorted(set(f[i])):
                     feat_vector.append(base + e)
@@ -1199,45 +1201,45 @@ class SentenceTokenizer:
 
 
 
-class Static:
-    JJ = set(["JJ", "JJR", "JJS"])
+#  class Static:
+    #  JJ = set(["JJ", "JJR", "JJS"])
 
-    NN = set(["NN", "NNS", "NNP", "NNPS"])
+    #  NN = set(["NN", "NNS", "NNP", "NNPS"])
 
-    VB = set(["VB", "VBZ", "VBD", "VBG", "VBN", "VBP"])
+    #  VB = set(["VB", "VBZ", "VBD", "VBG", "VBN", "VBP"])
 
-    RB = set(["RB", "RBR", "RBS"])
+    #  RB = set(["RB", "RBR", "RBS"])
 
-    MR = set(load_file_line(r"../../data/raw/MR.txt"))
+    #  MR = set(load_file_line(r"../../data/raw/MR.txt"))
 
-    BE = set(load_file_line(r"../../data/raw/BE.txt"))
+    #  BE = set(load_file_line(r"../../data/raw/BE.txt"))
 
-    SENTIMENT = VB|RB|JJ
+    #  SENTIMENT = VB|RB|JJ
 
-    terminal_signal = set(load_file_line(r"../../data/raw/terminal_signal.txt"))
+    #  terminal_signal = set(load_file_line(r"../../data/raw/terminal_signal.txt"))
 
-    contrary = set(load_file_line(r"../../data/raw/contrary_word.txt"))
+    #  contrary = set(load_file_line(r"../../data/raw/contrary_word.txt"))
 
-    #  weak_sentiment = set(load_file_line(r"../../data/raw/weak_sentiment.txt"))
+    #  #  weak_sentiment = set(load_file_line(r"../../data/raw/weak_sentiment.txt"))
 
-    weak_sentiment = set(load_file_line(r"../../data/raw/weak_sentiment_add.txt"))
+    #  weak_sentiment = set(load_file_line(r"../../data/raw/weak_sentiment_add.txt"))
 
-    positive_word = set(load_file_line(r"../../data/raw/positive-words.txt"))
+    #  positive_word = set(load_file_line(r"../../data/raw/positive-words.txt"))
 
-    negative_word = set(load_file_line(r"../../data/raw/negative-words.txt"))
+    #  negative_word = set(load_file_line(r"../../data/raw/negative-words.txt"))
 
-    weak_feature = set(load_file_line(r"../../data/raw/weak_feature.txt"))
+    #  weak_feature = set(load_file_line(r"../../data/raw/weak_feature.txt"))
 
-    sentiment_word = {e:1 for e in positive_word}
+    #  sentiment_word = {e:1 for e in positive_word}
 
-    sentiment_word.update({e:-1 for e in negative_word})
+    #  sentiment_word.update({e:-1 for e in negative_word})
 
-    stops = set(stopwords.words('english'))
+    #  stops = set(stopwords.words('english'))
 
 
-    def __init__(self):
-        ''''''
-        pass
+    #  def __init__(self):
+        #  ''''''
+        #  pass
 
 
 class TrieNode:

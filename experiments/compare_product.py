@@ -4,43 +4,19 @@ Created on 2015年9月1日
 
 @author: Changzhi Sun
 '''
-from my_package.scripts import load_pickle_file, return_none, save_pickle_file, save_json_file, create_content
 import os
+import re
+import sys
+import getopt
 from collections import Counter
 from itertools import chain
-from my_package.class_define import Static
-import re
-import sys, getopt
+
 import pymysql
 
-def inquire_content(connection, var, table_name, t=-25):
-    try:
-
-        # 游标
-        with connection.cursor() as cursor:
-            sql = "select * from {0} where content=\"{1}\" and score>={2}".format(table_name, var, t)
-            #  sql = "select * from lm_db where content=%s"
-            #  sql = "select * from lm_db where content=\"{0}\"".format(var)
-            #  cursor.execute(sql, (var))
-            cursor.execute(sql)
-            res = cursor.fetchall()
-            if len(res) == 0:
-                return False
-            else:
-                return True
-
-    except Exception as err:
-        print(err)
-        print(var)
-        return False
-    finally:
-        pass
-
-def filter_word(sentence, pp):
-    for i in pp:
-        if re.search(r"^\W*$", sentence.tokens[i]) != None:
-            return True
-    return False
+from my_package.scripts import load_pickle_file, return_none, save_pickle_file
+from my_package.scripts import save_json_file, create_content
+from my_package.scripts import inquire_content, filter_word
+from my_package.class_define import Static
 
 def get_sentiment(sentence, wrod_list, sentiments, connection, product_word, all_word, table_name, w=5):
     n = len(sentence.pos_tag)

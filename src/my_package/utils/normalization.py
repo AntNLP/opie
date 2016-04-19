@@ -9,6 +9,7 @@ import getopt
 import sys
 from itertools import chain
 
+
 def parse(filename):
     with open(filename, "r", encoding="utf8") as f:
         res = {}
@@ -25,6 +26,7 @@ def parse(filename):
                     res["R"] = []
                 res["R"].append(e[1:])
         yield res
+
 
 def remove_subset(new):
     res = set()
@@ -48,6 +50,7 @@ def remove_subset(new):
             tmp.add(e)
         res = tmp
     return res
+
 
 def merge_continues(new):
     res = set()
@@ -89,7 +92,6 @@ def merge_continues(new):
     return res
 
 
-
 def usage():
     '''打印帮助信息'''
     print("normalization.py 用法:")
@@ -114,7 +116,8 @@ if __name__ == "__main__":
     #  field_content = r"../../data/soft_domains/" + content + r"/"
     #  files = [field_content+"bootstrap/bootstarp_general_relation",
              #  field_content+"result/all_match_predict_text"]
-    article = set(["the", "a", "an", "'s'", "is", "am", "are", "was", "were", "been", "being", "be"])
+    article = set(["the", "a", "an", "'s'", "is",
+                   "am", "are", "was", "were", "been", "being", "be"])
     files = [field_content+"bootstrap/bootstrap_test_general_relation"]
     for each_file in files:
         out = open(each_file+".normalize", "w", encoding="utf8")
@@ -142,10 +145,11 @@ if __name__ == "__main__":
             new = remove_subset(new)
             new = merge_continues(new)
             for feat, sent, regu in new:
-                print("R\t%s"%(" ".join([tokens[e] for e in feat])), end="\t", file=out)
-                print("%s"%(" ".join([tokens[e] for e in sent])), end="\t", file=out)
+                print("R\t%s"%(" ".join([tokens[e]
+                                         for e in feat])), end="\t", file=out)
+                print("%s"%(" ".join([tokens[e]
+                                      for e in sent])), end="\t", file=out)
                 print(list(feat), end="\t", file=out)
                 print(list(sent), end="\t", file=out)
                 print(regu, file=out)
         out.close()
-

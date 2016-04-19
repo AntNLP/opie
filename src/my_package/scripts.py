@@ -7,8 +7,14 @@ Created on 2015年8月28日
 import pickle
 import os
 import json
-from json.encoder import JSONEncoder
 import bz2
+from json.encoder import JSONEncoder
+
+
+def remove(filename):
+    if os.path.exists(filename):
+        os.remove(filename)
+
 
 def all_match(pair1, pair2):
     '''判断两个 pair 是否完全匹配
@@ -24,6 +30,7 @@ def all_match(pair1, pair2):
 
     '''
     return pair1 == pair2
+
 
 def all_cover(pair1, pair2):
     '''判断两个 pair2 是否完全覆盖 pair1
@@ -45,6 +52,7 @@ def all_cover(pair1, pair2):
     if set1 & set3 == set1 and set2 & set4 == set2:
         return True
     return False
+
 
 def have_part(pair1, pair2):
     '''判断 pair1 和 pair2 是否有重叠的部分
@@ -86,6 +94,7 @@ class ClsEncoder(JSONEncoder):
     def default(self, o):
         return obj2dict(o)
 
+
 def load_json_file(filename):
     ''' load json 文件
 
@@ -100,6 +109,7 @@ def load_json_file(filename):
     with open(filename, "r", encoding="utf-8") as f:
         return json.load(f)
 
+
 def save_json_file(filename, var):
     '''将变量 var 序列化到 file 文件
 
@@ -112,13 +122,18 @@ def save_json_file(filename, var):
     with open(filename, mode="w", encoding="utf8") as f:
         json.dump(var, f, indent=2, cls=ClsEncoder)
 
+
 def create_content(content_name):
     '''若当前目录不存在，则创建当前目录
     '''
     if not os.path.exists(content_name):
-            os.mkdir(content_name)
-    else:
-        print("目录已经存在！" + content_name)
+        os.mkdir(content_name)
+
+def mkdir(dirname):
+    '''若当前目录不存在，则创建当前目录
+    '''
+    if not os.path.exists(dirname):
+        os.mkdir(dirname)
 
 def load_pickle_file(filename):
     ''' load pickle 文件
@@ -158,8 +173,10 @@ def save_pickle_file(filename, var):
     with bz2.open(filename, "wb") as out:
         pickle.dump(var, out)
 
+
 def return_none():
     return None
+
 
 def load_file_line(filename):
     '''load 文件
@@ -178,6 +195,7 @@ def load_file_line(filename):
             if not strip_line.startswith("#"):
                 yield strip_line
 
+
 def read_weak(file_name):
     ''''''
     with open(file_name, "r", encoding="utf8") as out:
@@ -195,11 +213,13 @@ def read_weak(file_name):
             if entry['type'] == "weaksubj":
                 yield entry['word1']
 
+
 def create_weak_file(file_name):
     ''''''
     with open(r"../../data/raw/weak_sentiment_raw.txt", "w", encoding="utf8") as out:
         for e in read_weak(file_name):
             print(e, file=out)
+
 
 def read_to_set(file_name):
     ''''''
@@ -208,6 +228,7 @@ def read_to_set(file_name):
         for line in out:
             word_set.add(line.strip())
         return word_set
+
 
 def del_common():
     ''''''
@@ -233,7 +254,86 @@ def del_common():
             print(e, file=out)
 
 
+def inquire_content(connection, var, table_lm, t=-25):
+    try:
 
+        # 游标
+        with connection.cursor() as cursor:
+            sql = "select * from {0} where content=\"{1}\" and score>={2}".format(table_lm, var, t)
+            #  sql = "select * from lm_db where content=%s"
+            #  sql = "select * from lm_db where content=\"{0}\"".format(var)
+            #  cursor.execute(sql, (var))
+            cursor.execute(sql)
+            res = cursor.fetchall()
+            if len(res) == 0:
+                return False
+            else:
+                return True
+    except Exception as err:
+        print(err)
+        print(var)
+        return False
+    finally:
+        pass
+
+
+def get_index(connection, table_lm, var):
+    try:
+        # 游标
+        with connection.cursor() as cursor:
+            sql = "select * from {0} where content=\"{1}\"".format(table_lm, var)
+            cursor.execute(sql)
+            res = cursor.fetchall()
+            if len(res) == 0:
+                return None
+            else:
+                return res[0]['id']
+
+    except Exception as err:
+        print(err)
+        print(var)
+        return None
+    finally:
+        pass
+
+
+def get_position(connection, table_posting, var):
+    try:
+
+        # 游标
+        with connection.cursor() as cursor:
+            sql = "select distinct i_pickle, i_sentence from {0} where i_content={1}".format(table_posting, var)
+            cursor.execute(sql)
+            res = cursor.fetchall()
+            return res
+    except Exception as err:
+        print(err)
+        return None
+    finally:
+        pass
+
+def have_overlap(index1, index2):
+    '''判断两个下标是否有重叠
+    '''
+    return bool(set(index1) & set(index2))
+
+
+def have_dependent(dependency_tree, pp, sp):
+    sp_set = set(sp)
+    pp_set = set(pp)
+    for e in pp:
+        if e not in dependency_tree:
+            continue
+        for value in dependency_tree[e]:
+            if value['id'] in sp_set:
+                return True
+    for e in sp:
+        if e not in dependency_tree:
+            continue
+        for value in dependency_tree[e]:
+            if value['id'] in pp_set:
+                return True
+    return False
 
 if __name__ == "__main__":
     create_weak_file(r"../../data/raw/subjclueslen1-HLTEMNLP05.tff")

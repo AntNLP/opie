@@ -5,16 +5,19 @@ Created on 2015年9月1日
 @author: Changzhi Sun
 '''
 import os
-from my_package.scripts import create_content, load_pickle_file, all_match,\
-    have_part, all_cover, load_file_line
+import random
+import sys
+import getopt
+from collections import defaultdict
+
+import numpy as np
+from sklearn.metrics import f1_score, classification_report, confusion_matrix
 from sklearn.datasets import load_svmlight_file
 from sklearn import svm
 from sklearn.linear_model import LogisticRegression
-import random
-import numpy as np
-import sys, getopt
-from collections import defaultdict
-from sklearn.metrics import f1_score, classification_report, confusion_matrix
+
+from my_package.scripts import create_content, load_pickle_file, all_match
+from my_package.scripts import have_part, all_cover, load_file_line
 
 def train_and_classifiy(feature_vector_content):
     ''''''
