@@ -218,6 +218,13 @@ class ComplexWordClassifier:
                 print(" %d:1" % (base+key), end="", file=out)
         return base + len(lexcion)
 
+
+def usage():
+    '''print help information'''
+    print("complex_word_classifier.py 用法:")
+    print("-h, --help: 打印帮助信息")
+    print("-d, --domain: 需要处理的领域名称")
+
 if __name__ == "__main__":
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help", "domain="])

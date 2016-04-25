@@ -276,6 +276,15 @@ def write(sentences, f):
         if sentence.relation:
             write_sentence(sentence, f)
 
+
+def usage():
+    '''print help information'''
+    print("pattern_extractor.py 用法:")
+    print("-h, --help: 打印帮助信息")
+    print("-d, --domain: 需要处理的领域名称")
+    print("-b, --begin: parse_sentences pickel 文件的开始编号(包含此文件)")
+    print("-e, --end: parse_sentences pickel 文件的结束编号(不包含此文件)")
+
 if __name__ == "__main__":
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hd:b:e:",
@@ -301,9 +310,9 @@ if __name__ == "__main__":
     i = b
     spath = os.path.join(r.pickle_parse, "parse_sentences_%d.pickle" % i)
     while i < e and os.path.exists(spath + ".bz2"):
-        print(i, "loading")
+        print("pickle index: %d  loading" % i)
         sentences = load_pickle_file(spath)
-        print(i, "loaded")
+        print("pickle index: %d  loaded" % i)
         r.handle_sentences(sentences)
         write(sentences, f)
         save_pickle_file(
@@ -313,4 +322,3 @@ if __name__ == "__main__":
         i += 1
         spath = os.path.join(r.pickle_parse, "parse_sentences_%d.pickle" % i)
     f.close()
-    print("end")

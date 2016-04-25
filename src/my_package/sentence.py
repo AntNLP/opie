@@ -10,8 +10,8 @@ import re
 
 from nltk import Tree
 
-from scripts import load_pickle_file
-from static import Static
+from my_package.scripts import load_pickle_file
+from my_package.static import Static
 
 
 class Sentence:

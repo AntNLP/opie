@@ -94,6 +94,14 @@ class RelationClassifier:
         self.handle_sentences(sentences, test=True)
         self.output_sentences_feature_vector(sentences, self.test_dir)
 
+def usage():
+    '''print help information'''
+    print("relation_classifier.py 用法:")
+    print("-h, --help: 打印帮助信息")
+    print("-d, --domain: 需要处理的领域名称")
+    print("-b, --begin: bootstrapping pickel 文件的开始编号(包含此文件)")
+    print("-e, --end: bootstrapping pickel 文件的结束编号(不包含此文件)")
+
 if __name__ == "__main__":
     try:
         opts, args = getopt.getopt(
@@ -153,4 +161,3 @@ if __name__ == "__main__":
     save_pickle_file(
         os.path.join(r.pickle_dir, "relation_classifier.pickle"), r)
     r.run_test()
-    print("end")

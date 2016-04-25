@@ -16,85 +16,6 @@ def remove(filename):
         os.remove(filename)
 
 
-def all_match(pair1, pair2):
-    '''判断两个 pair 是否完全匹配
-
-    keyword argument:
-
-    pair1 -- 当前一个 pair
-    pair2 -- 当前另一个 pair
-
-    return:
-
-    如果完全匹配，返回 True，否则返回 False
-
-    '''
-    return pair1 == pair2
-
-
-def all_cover(pair1, pair2):
-    '''判断两个 pair2 是否完全覆盖 pair1
-
-    keyword argument:
-
-    pair1 -- 当前一个 pair
-    pair2 -- 当前另一个 pair
-
-    return:
-
-    如果完全覆盖，返回 True，否则返回 False
-
-    '''
-    set1 = set(pair1[0])
-    set2 = set(pair1[1])
-    set3 = set(pair2[0])
-    set4 = set(pair2[1])
-    if set1 & set3 == set1 and set2 & set4 == set2:
-        return True
-    return False
-
-
-def have_part(pair1, pair2):
-    '''判断 pair1 和 pair2 是否有重叠的部分
-
-    keyword argument:
-
-    pair1 -- 当前一个 pair
-    pair2 -- 当前另一个 pair
-
-    return:
-
-    如果对应部分都有重叠，则返回 True，否则返回 False
-
-    '''
-    set1 = set(pair1[0])
-    set2 = set(pair1[1])
-    set3 = set(pair2[0])
-    set4 = set(pair2[1])
-    if (set1 & set3 != set()) and (set2 & set4 != set()):
-        return True
-    return False
-
-
-def obj2dict(obj):
-
-    #if isinstance(obj, bytes):
-    #    return {'__class__': 'bytes',
-    #            '__value__': list(obj)}
-    memberlist = [m for m in dir(obj)]
-    _dict = {}
-    for m in memberlist:
-        if m[0] != '_' and not callable(m):
-            _dict[m] = getattr(obj, m)
-    return _dict
-    raise TypeError(repr(object) + ' is not JSON serializable')
-
-
-class ClsEncoder(JSONEncoder):
-    def default(self, o):
-        return obj2dict(o)
-
-
 def load_json_file(filename):
     ''' load json 文件
 
@@ -122,12 +43,6 @@ def save_json_file(filename, var):
     with open(filename, mode="w", encoding="utf8") as f:
         json.dump(var, f, indent=2, cls=ClsEncoder)
 
-
-def create_content(content_name):
-    '''若当前目录不存在，则创建当前目录
-    '''
-    if not os.path.exists(content_name):
-        os.mkdir(content_name)
 
 def mkdir(dirname):
     '''若当前目录不存在，则创建当前目录
@@ -172,10 +87,6 @@ def save_pickle_file(filename, var):
         filename = filename + ".bz2"
     with bz2.open(filename, "wb") as out:
         pickle.dump(var, out)
-
-
-def return_none():
-    return None
 
 
 def load_file_line(filename):
@@ -254,29 +165,6 @@ def del_common():
             print(e, file=out)
 
 
-def inquire_content(connection, var, table_lm, t=-25):
-    try:
-
-        # 游标
-        with connection.cursor() as cursor:
-            sql = "select * from {0} where content=\"{1}\" and score>={2}".format(table_lm, var, t)
-            #  sql = "select * from lm_db where content=%s"
-            #  sql = "select * from lm_db where content=\"{0}\"".format(var)
-            #  cursor.execute(sql, (var))
-            cursor.execute(sql)
-            res = cursor.fetchall()
-            if len(res) == 0:
-                return False
-            else:
-                return True
-    except Exception as err:
-        print(err)
-        print(var)
-        return False
-    finally:
-        pass
-
-
 def get_index(connection, table_lm, var):
     try:
         # 游标
@@ -311,29 +199,6 @@ def get_position(connection, table_posting, var):
         return None
     finally:
         pass
-
-def have_overlap(index1, index2):
-    '''判断两个下标是否有重叠
-    '''
-    return bool(set(index1) & set(index2))
-
-
-def have_dependent(dependency_tree, pp, sp):
-    sp_set = set(sp)
-    pp_set = set(pp)
-    for e in pp:
-        if e not in dependency_tree:
-            continue
-        for value in dependency_tree[e]:
-            if value['id'] in sp_set:
-                return True
-    for e in sp:
-        if e not in dependency_tree:
-            continue
-        for value in dependency_tree[e]:
-            if value['id'] in pp_set:
-                return True
-    return False
 
 if __name__ == "__main__":
     create_weak_file(r"../../data/raw/subjclueslen1-HLTEMNLP05.tff")
