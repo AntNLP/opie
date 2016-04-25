@@ -32,10 +32,10 @@ def split_data(input_path):
 
 
 def usage():
-    '''打印帮助信息'''
-    print("split_data.py 用法:")
-    print("-h, --help: 打印帮助信息")
-    print("-d, --domain: 需要处理的领域名称")
+    '''print help information'''
+    print("process_raw_data.py :")
+    print("-h, --help: print help information")
+    print("-d, --domain: domain name")
 
 if __name__ == "__main__":
     try:
