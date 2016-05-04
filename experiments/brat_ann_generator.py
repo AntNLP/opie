@@ -94,7 +94,7 @@ if __name__ == "__main__":
                               "data/domains", domain)
     test_dir = os.path.join(domain_dir, "test")
     review_dir = os.path.join(test_dir, "reviews")
-    ann_dir = os.path.join(test_dir, "ann")
+    ann_dir = os.path.join(test_dir, "ann.pre")
     sent_ann = {}
     for filename in os.listdir(ann_dir):
         #  if filename != "bootstrap_test_general_relation.ann":
