@@ -33,7 +33,7 @@ class PatternExtractor:
                                         "pickles/bootstrapping")
         self.btsp_dir = os.path.join(self.domain_dir, "bootstrapping")
         self.p1_dep_type = set(["amod", "dep"])
-        self.p2_dep_type = set(["acomp", "xcomp"])
+        self.p2_dep_type = set(["acomp", "xcomp", "dobj"])
         self.p3_dep_type = set(["advmod"])
         self.p4_mid_pos_tag = set(["PRP", "EX", "CD"])
         self.p4_coplua = set(["is", "was", "are", "were", "am", "be"])
@@ -148,12 +148,14 @@ class PatternExtractor:
             if idx_token == 0:
                 continue
             for child in childs:
-                idx_profeat, idx_opinwd = idx_token, child['id']
-                if idx_profeat > idx_opinwd:
-                    continue
+                if idx_token < child['id']:
+                    idx_profeat, idx_opinwd = idx_token, child['id']
+                else:
+                    idx_profeat, idx_opinwd = child['id'], idx_token
                 if not self.match_middle_condition(sentence,
                                                    idx_profeat, idx_opinwd):
                     continue
+                #  print(idx_profeat, idx_opinwd)
                 if not self.match_profeat_condition(sentence,
                                                     idx_profeat, Static.NOUN):
                     break
