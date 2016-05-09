@@ -1,3 +1,7 @@
+Setup
+================
+Download Lucene 6.0.0, and unzip it in opie/tools directory
+
 Build
 ================
 Following command will generate opie-indexsearch.jar
