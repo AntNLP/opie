@@ -228,7 +228,10 @@ class Sentence:
             #  dependency_item.append(self.dependency_parent_type[feat])
             for e in profeat_to_root[b:-1][::-1]:
                 dependency_item.append("<")
-                dependency_item.append(self.tokens[e])
+                if e == 0:
+                    dependency_item.append("ROOT")
+                else:
+                    dependency_item.append(self.tokens[e])
                 #  dependency_item.append(self.pos_tag[e])
                 if e == bb:
                     break

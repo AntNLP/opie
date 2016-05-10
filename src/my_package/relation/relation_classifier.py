@@ -85,12 +85,11 @@ class RelationClassifier:
         f.close()
         g.close()
 
-    def run_test(self):
+    def run_test(self, sentences):
         print("test")
         remove(os.path.join(self.test_dir, "candidates"))
         remove(os.path.join(self.test_dir, "feature_vector"))
-        sentences = load_pickle_file(self.test_path)
-        sentences = sentences[:4000]
+        #  sentences = sentences[:4000]
         self.handle_sentences(sentences, test=True)
         self.output_sentences_feature_vector(sentences, self.test_dir)
 
@@ -128,7 +127,8 @@ if __name__ == "__main__":
     if test:
         r = load_pickle_file(os.path.join(r.pickle_dir,
                                           "relation_classifier.pickle"))
-        r.run_test()
+        sentences = load_pickle_file(r.test_path)
+        r.run_test(sentences)
         sys.exit()
     i = b
     spath = os.path.join(r.pickle_btsp,
