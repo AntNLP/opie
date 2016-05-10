@@ -1,0 +1,52 @@
+Setup
+================
+Download Lucene 6.0.0, and unzip it in opie/tools directory
+
+Build
+================
+Following command will generate opie-indexsearch.jar
+
+% ./build.sh
+
+
+Doc format
+================
+Files to be indexed should be orgnized in the manner of sentence-per-line. 
+Each line is in column format (separated by tab):
+
+  pickleid-sentid   sentence_contents
+
+The following is an example file:
+
+  1-1   hello world
+  1-2   good bye
+
+The frist line represents that the first sentence in pickle file #1 is "hello
+world", and the second sentence in picle file #1 is "good bye".
+
+
+
+Build index
+================
+The main class: antnlp.opie.indexsearch.IndexFiles
+
+Usage: 
+% java antnlp.opie.indexsearch.IndexFiles [-index INDEX_PATH] [-docs DOCS_PATH] [-update]
+
+This indexes the documents in DOCS_PATH, creating a Lucene indexin INDEX_PATH that can be searched with SearchFiles
+
+
+
+Search
+================
+The main class: antnlp.opie.indexsearch.SearchFiles
+
+Usage:	java antnlp.opie.indexsearch.SearchFiles [-index dir] [-field f] [-repeat n] [-queries file] [-query string] [-raw] [-paging hitsPerPage]
+
+Useful options are:
+  -index: indicate the directory of index
+  -queries: a file containing all the queries, query-per-line
+  -paging: the number of sentences returned
+
+
+
