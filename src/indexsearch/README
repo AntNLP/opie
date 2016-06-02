@@ -22,7 +22,7 @@ The following is an example file:
   1-2   good bye
 
 The frist line represents that the first sentence in pickle file #1 is "hello
-world", and the second sentence in picle file #1 is "good bye".
+world", and the second sentence in pickle file #1 is "good bye".
 
 
 

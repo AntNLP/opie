@@ -43,7 +43,7 @@ if __name__ == "__main__":
     print("test pickle loading")
     raw_sentences = load_pickle_file(os.path.join(test_dir,
                                               "sentences_raw.pickle"))
-    #  raw_sentences = raw_sentences[29420:]
+    raw_sentences = raw_sentences[39700:]
     sentences = []
     print("test pickle loaded")
     first_review_index = raw_sentences[0].review_index
@@ -61,7 +61,7 @@ if __name__ == "__main__":
                 sentence = raw_sentences[i]
                 sentences.append(sentence)
                 print(sentence.text, file=f)
-                #  print(sentence.text)
+                print(sentence.text)
                 i += 1
                 sentence_count += 1
             f.close()
