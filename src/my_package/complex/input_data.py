@@ -19,7 +19,9 @@ from my_package.scripts import load_pickle_file, save_pickle_file
 from my_package.static import Static
 
 
-def generate_train_datas(pickle_dir, start_index, end_index, w=5):
+WDPSTG = Static.SENTIMENT | Static.NOUN
+
+def generate_train_datas(pickle_dir, start_index, end_index, w=10):
     x_text = []
     x_context = []
     y = []
@@ -37,10 +39,11 @@ def generate_train_datas(pickle_dir, start_index, end_index, w=5):
                 if phrase_str in Static.opinwd:
                     have_general = True
                     context = [(sentence.tokens[k].lower(), sentence.pos_tag[k])
-                               for k in range(max(1, j-w), j)]
+                               for k in range(max(1, j-w), j) if sentence.pos_tag[k] in WDPSTG]
                     #  context.append(("<placeholder/>", "<placeholder/>"))
                     context.extend([(sentence.tokens[k].lower(), sentence.pos_tag[k])
-                                    for k in range(j+1, min(len(sentence.tokens)+1, j+w+1))])
+                                    for k in range(j+1, min(len(sentence.tokens)+1, j+w+1))
+                                    if sentence.pos_tag[k] in WDPSTG])
                     x_text.append([(phrase_str, sentence.pos_tag[j])])
                     x_context.append(context)
                     y.append([0.0, 1.0])
@@ -49,10 +52,11 @@ def generate_train_datas(pickle_dir, start_index, end_index, w=5):
                     phrase_str = sentence.tokens[j].lower()
                     x_text.append([(phrase_str, sentence.pos_tag[j])])
                     context = [(sentence.tokens[k].lower(), sentence.pos_tag[k])
-                               for k in range(max(1, j-w), j)]
+                               for k in range(max(1, j-w), j) if sentence.pos_tag[k] in WDPSTG]
                     #  context.append(("<placeholder/>", "<placeholder/>"))
                     context.extend([(sentence.tokens[k].lower(), sentence.pos_tag[k])
-                                    for k in range(j+1, min(len(sentence.tokens)+1, j+w+1))])
+                                    for k in range(j+1, min(len(sentence.tokens)+1, j+w+1))
+                                    if sentence.pos_tag[k] in WDPSTG])
                     x_context.append(context)
                     y.append([1.0, 0.0])
     return x_text, x_context, y
@@ -76,7 +80,7 @@ def load_complex_ann(domain_dir, have_general=True):
     return complex_dict
 
 
-def generate_test_datas(domain_dir, pickle_dir, start_index, end_index, w=5):
+def generate_test_datas(domain_dir, pickle_dir, start_index, end_index, w=10):
     x_text = []
     x_context = []
     y = []
@@ -111,11 +115,12 @@ def generate_test_datas(domain_dir, pickle_dir, start_index, end_index, w=5):
                     postag_str = [sentence.pos_tag[e] for e in range(j, j+idx1)]
                     x_text.append(list(zip(phrase_str, postag_str)))
                     context = [(sentence.tokens[k].lower(), sentence.pos_tag[k])
-                               for k in range(max(1, j-w), j)]
+                               for k in range(max(1, j-w), j) if sentence.pos_tag[k] in WDPSTG]
                     #  for e in range(j, j+idx1):
                         #  context.append(("<placeholder/>", "<placeholder/>"))
                     context.extend([(sentence.tokens[k].lower(), sentence.pos_tag[k])
-                                    for k in range(j+idx1, min(len(sentence.tokens)+1, j+idx1+w+1))])
+                                    for k in range(j+idx1, min(len(sentence.tokens)+1, j+idx1+w+1))
+                                    if sentence.pos_tag[k] in WDPSTG])
                     x_context.append(context)
                     print(sentence.text, file=f)
                     if complex_dict[complex_word] == 1:

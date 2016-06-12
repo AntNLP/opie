@@ -121,16 +121,16 @@ class CNN(object):
 
         # Add dropout
         with tf.name_scope("dropout"):
-            self.h_drop = tf.nn.dropout(self.joint_feature, self.dropout_keep_prob)
+            #  self.h_drop = tf.nn.dropout(self.joint_feature, self.dropout_keep_prob)
             #  self.h_drop = tf.nn.dropout(self.h_pool_flat1, self.dropout_keep_prob)
-            #  self.h_drop = tf.nn.dropout(self.h_pool_flat2, self.dropout_keep_prob)
+            self.h_drop = tf.nn.dropout(self.h_pool_flat2, self.dropout_keep_prob)
 
         # Final (unnormalized) scores and predictions
         with tf.name_scope("output"):
             W = tf.get_variable(
                 "W",
-                shape=[2*num_filters_total, num_classes],
-                #  shape=[num_filters_total, num_classes],
+                #  shape=[2*num_filters_total, num_classes],
+                shape=[num_filters_total, num_classes],
                 initializer=tf.contrib.layers.xavier_initializer())
             b = tf.Variable(tf.constant(0.1, shape=[num_classes]), name="b")
             l2_loss += tf.nn.l2_loss(W)
