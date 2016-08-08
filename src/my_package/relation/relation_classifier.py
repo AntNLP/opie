@@ -28,9 +28,18 @@ class RelationClassifier:
         self.pickle_dir = os.path.join(self.domain_dir, "pickles")
         self.pickle_btsp = os.path.join(self.pickle_dir, "bootstrapping")
         self.pickle_featvect = os.path.join(self.pickle_dir, "feature_vector")
-        self.train_dir = os.path.join(self.domain_dir, "train")
-        self.test_dir = os.path.join(self.domain_dir, "test")
+        self.train_dir = os.path.join(self.domain_dir, "relation", "train")
+        self.test_dir = os.path.join(self.domain_dir, "relation", "test")
         self.test_path = os.path.join(self.test_dir, "sentences.pickle")
+        self.complex_dir = os.path.join(self.domain_dir, "complex")
+        self.complex_opinwd_train = self.get_complex_opinwd(
+            os.path.join(self.complex_dir,
+                         "candidate_clean",
+                         "0.8-complex.train"))
+        self.complex_opinwd_test = self.get_complex_opinwd(
+            os.path.join(self.complex_dir,
+                         "candidate_clean",
+                         "0.8-complex.test"))
         self.lexcion = {
             "unigram": {
                 "word": {},
@@ -45,9 +54,32 @@ class RelationClassifier:
         mkdir(self.test_dir)
         mkdir(self.pickle_featvect)
 
+    def get_complex_opinwd(self, filename):
+        if not os.path.exists(filename):
+            print("%s not exists" % filename)
+            return None
+        print("%s exists" % filename)
+        complex_opinwd = set()
+        with open(filename, "r", encoding="utf8") as f:
+            for line in f:
+                complex_opinwd.add(line.strip())
+        return complex_opinwd
+
     def handle_sentence(self, sentence, test):
-        sentence.generate_candidate_relation(self.table_opinwd,
-                                             self.mysql_db, test)
+        if not test:
+            sentence.generate_candidate_relation(
+                self.table_opinwd,
+                self.mysql_db,
+                #  complex_opinwd=self.complex_opinwd_train,
+                complex_opinwd=None,
+                test=test)
+        else:
+            sentence.generate_candidate_relation(
+                self.table_opinwd,
+                self.mysql_db,
+                #  complex_opinwd=self.complex_opinwd_test,
+                complex_opinwd=None,
+                test=test)
         sentence.generate_candidate_featvect_item(self.lexcion, test)
         sentence.generate_label(test)
 
@@ -86,18 +118,17 @@ class RelationClassifier:
         g.close()
 
     def run_test(self, sentences):
-        print("test")
         remove(os.path.join(self.test_dir, "candidates"))
         remove(os.path.join(self.test_dir, "feature_vector"))
-        #  sentences = sentences[:4000]
         self.handle_sentences(sentences, test=True)
         self.output_sentences_feature_vector(sentences, self.test_dir)
 
 def usage():
     '''print help information'''
     print("relation_classifier.py 用法:")
-    print("-h, --help: 打印帮助信息")
-    print("-d, --domain: 需要处理的领域名称")
+    print("-h, --help: help information")
+    print("-d, --domain: the domain's name")
+    print("-t, --test: only for test set")
     print("-b, --begin: bootstrapping pickel 文件的开始编号(包含此文件)")
     print("-e, --end: bootstrapping pickel 文件的结束编号(不包含此文件)")
 
@@ -160,4 +191,4 @@ if __name__ == "__main__":
                              "feature_vector_sentences_%d.pickle" % i)
     save_pickle_file(
         os.path.join(r.pickle_dir, "relation_classifier.pickle"), r)
-    r.run_test()
+    r.run_test(sentences)

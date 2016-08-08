@@ -121,27 +121,34 @@ class CNN(object):
 
         # Add dropout
         with tf.name_scope("dropout"):
-            #  self.h_drop = tf.nn.dropout(self.joint_feature, self.dropout_keep_prob)
+            self.h_drop = tf.nn.dropout(self.joint_feature, self.dropout_keep_prob)
             #  self.h_drop = tf.nn.dropout(self.h_pool_flat1, self.dropout_keep_prob)
-            self.h_drop = tf.nn.dropout(self.h_pool_flat2, self.dropout_keep_prob)
+            #  self.h_drop = tf.nn.dropout(self.h_pool_flat2, self.dropout_keep_prob)
 
         # Final (unnormalized) scores and predictions
         with tf.name_scope("output"):
             W = tf.get_variable(
                 "W",
-                #  shape=[2*num_filters_total, num_classes],
-                shape=[num_filters_total, num_classes],
+                shape=[2*num_filters_total, num_classes],
+                #  shape=[num_filters_total, num_classes],
                 initializer=tf.contrib.layers.xavier_initializer())
             b = tf.Variable(tf.constant(0.1, shape=[num_classes]), name="b")
             l2_loss += tf.nn.l2_loss(W)
             l2_loss += tf.nn.l2_loss(b)
             self.scores = tf.nn.xw_plus_b(self.h_drop, W, b, name="scores")
+
+            #  self.predictions = tf.argmax(tf.cast(tf.greater(self.scores, 0.8), tf.int32),  1, name=predictions)
             self.predictions = tf.argmax(self.scores, 1, name="predictions")
+            self.pred_ = tf.argmax(tf.cast(tf.greater(tf.nn.softmax(self.scores), 0.8), tf.int32),  1, name="pred_")
 
         # CalculateMean cross-entropy loss
         with tf.name_scope("loss"):
             losses = tf.nn.softmax_cross_entropy_with_logits(self.scores, self.input_y)
             self.loss = tf.reduce_mean(losses) + l2_reg_lambda * l2_loss
+
+        # pred
+        with tf.name_scope("pred"):
+            self.pred = self.predictions
 
         # Accuracy
         with tf.name_scope("accuracy"):

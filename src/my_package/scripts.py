@@ -6,8 +6,10 @@ Created on 2015年8月28日
 '''
 import pickle
 import os
+import sys
 import json
 import bz2
+import numpy as np
 from json.encoder import JSONEncoder
 
 
@@ -48,7 +50,7 @@ def mkdir(dirname):
     '''若当前目录不存在，则创建当前目录
     '''
     if not os.path.exists(dirname):
-        os.mkdir(dirname)
+        os.makedirs(dirname)
 
 def load_pickle_file(filename):
     ''' load pickle 文件
@@ -200,6 +202,64 @@ def get_position(connection, table_posting, var):
     finally:
         pass
 
+
+def print_percentage(i, total):
+    percent = float(i)*100 / float(total)
+    sys.stdout.write("process percentage: %.2f" % percent)
+    sys.stdout.write("%\r")
+    sys.stdout.flush()
+
+
+# load wordvec bin file
+def load_bin_vec(fname, vocab, embedding_size=300):
+    """
+    Loads 300x1 word vecs from Google (Mikolov) word2vec
+    """
+    word_vecs = {}
+    with open(fname, "rb") as f:
+        header = f.readline()
+        length = len(vocab)
+        vocab_size, layer1_size = map(int, header.split())
+        binary_len = np.dtype('float32').itemsize * layer1_size
+        for line in range(vocab_size):
+            word = []
+            i = 0
+            print_percentage(line, vocab_size)
+            if len(word_vecs) == length:
+                return word_vecs
+            while True:
+                ch = f.read(1)
+                if ch == b' ':
+                    word = b''.join(word)
+                    break
+                if ch != b'\n':
+                    word.append(ch)
+            word = word.decode()
+            if word in vocab:
+                i += 1
+                word_vecs[word] = np.fromstring(f.read(binary_len), dtype='float32')
+            else:
+                f.read(binary_len)
+
+    vocab_embeddings = [np.array([0] * embedding_size)] * len(vocab)
+    print("The number of word in vec:%d" % len(word_vecs))
+    for word in vocab:
+        index = vocab[word]
+        if index == 0:
+            continue
+        if word in word_vecs:
+            vocab_embeddings[index] = word_vecs[word]
+        else:
+            vocab_embeddings[index] = np.random.uniform(-0.25, 0.25, 300)
+    #  with open("../data/train/google_wordvec." + str(embedding_size) + ".txt","w") as fw:
+        #  for vec in vocab_embeddings:
+            #  fw.write(" ".join([str(v) for v in vec]) + "\n")
+    return vocab_embeddings
+
 if __name__ == "__main__":
-    create_weak_file(r"../../data/raw/subjclueslen1-HLTEMNLP05.tff")
-    del_common()
+    #  create_weak_file(r"../../data/raw/subjclueslen1-HLTEMNLP05.tff")
+    #  del_common()
+    word2vect_path = os.path.join(os.getenv("OPIE_DIR"), "tools", "GoogleNews-vectors-negative300.bin")
+    vocab = {"UNK": 0, "word": 1}
+    vocal_embedings = load_bin_vec(word2vect_path, vocab)
+    print(vocal_embedings["UNK"].shape)

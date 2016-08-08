@@ -54,8 +54,8 @@ print("")
 print("Loading data...")
 
 #  domain = "reviews_Movies_and_TV"
-domain = "reviews_Pet_Supplies"
-#  domain = "reviews_Cell_Phones_and_Accessories"
+#  domain = "reviews_Pet_Supplies"
+domain = "reviews_Cell_Phones_and_Accessories"
 #  domain = "reviews_Grocery_and_Gourmet_Food"
 
 domain_dir = os.path.join(os.getenv("OPIE_DIR"), "data/domains", domain)
@@ -179,7 +179,7 @@ with tf.Graph().as_default():
             print("{}: step {}, loss {:g}, f1 score {:g}".format(time_str, step, loss, f1_score))
             train_summary_writer.add_summary(summaries, step)
 
-        def dev_step(X_batch, y_batch, x_string, f, g, writer=None):
+        def dev_step(X_batch, y_batch, writer=None):
             """
             Evaluates model on a dev set
             """
@@ -193,23 +193,18 @@ with tf.Graph().as_default():
               cnn.input_y: y_batch,
               cnn.dropout_keep_prob: 1.0
             }
+            scores = sess.run(cnn.scores_proba, feed_dict)
+            print(scores)
             step, summaries, loss, precision, recall, f1_score, pred, pred_ = sess.run(
-                [global_step, dev_summary_op, cnn.loss, cnn.precision,
-                 cnn.recall, cnn.f1_score, cnn.pred, cnn.pred_],
+                [global_step, dev_summary_op, cnn.loss, cnn.precision, cnn.recall, cnn.f1_score, cnn.pred, cnn.pred_],
                 feed_dict)
-            #  time_str = datetime.datetime.now().isoformat()
-            #  print("{}: step {}, loss {:g}, f1 score {:g}".format(time_str, step, loss, f1_score))
-            #  print("Precision", precision)
-            #  print("Recall", recall)
-            #  print("f1_score", f1_score)
-            #  if writer:
-                #  writer.add_summary(summaries, step)
-            for i in range(len(pred)):
-                if pred[i]:
-                    print(x_string[i], file=f)
-            for i in range(len(pred_)):
-                if pred_[i]:
-                    print(x_string[i], file=g)
+            time_str = datetime.datetime.now().isoformat()
+            print("{}: step {}, loss {:g}, f1 score {:g}".format(time_str, step, loss, f1_score))
+            print("Precision", precision)
+            print("Recall", recall)
+            print("f1_score", f1_score)
+            if writer:
+                writer.add_summary(summaries, step)
             return pred
 
         # Generate batches
@@ -222,20 +217,7 @@ with tf.Graph().as_default():
             train_step(X_batch, y_batch)
             current_step = tf.train.global_step(sess, global_step)
             if current_step % FLAGS.evaluate_every == 0:
-                print("\nEvaluation:")
-                f = open(os.path.join(complex_dir, "candidate_raw", "0.5-step%d.test" % current_step),
-                         "w", encoding="utf8")
-                g = open(os.path.join(complex_dir, "candidate_raw", "0.8-step%d.test" % current_step),
-                         "w", encoding="utf8")
-                b = 0
-                while b < len(y_dev):
-                    e = min(b+1000, len(y_dev))
-                    pred = dev_step(X_dev[b:e], y_dev[b:e],
-                                    x_string[b:e], f, g, writer=dev_summary_writer)
-                    b += 1000
-                f.close()
-                g.close()
-
+               pred = dev_step(X_dev, y_dev, writer=dev_summary_writer)
                 #  with open("pred.dump", "w", encoding="utf8") as out:
                     #  for i in range(len(pred)):
                         #  print(record[i][0], file=out)

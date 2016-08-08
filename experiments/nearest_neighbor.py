@@ -5,17 +5,22 @@ Created on 16/03/16 13:09:36
 
 @author: Changzhi Sun
 """
-from my_package.class_define import Static
+import os
 from my_package.scripts import load_pickle_file
+from my_package.static import Static
+from normalization import parse
+from normalization import handle_normalize
+from relation import get_ann, calcu_PRF
+import numpy as np
 
 def get_nearest_relation(sentence, k, m, f):
     i = k - 1
     pp1 = None
-    while sentence.tokens.get(i) != None:
-        if sentence.pos_tag[i] in Static.NN:
-            pp1 = sentence.get_np(i, k)
-        elif sentence.pos_tag[i] in Static.VB and sentence.tokens[i].lower() not in Static.BE:
-            pp1 = sentence.get_vp(i, k)
+    while i in sentence.tokens:
+        if sentence.pos_tag[i] in Static.NOUN:
+            pp1 = sentence.get_max_NP(i, k)
+        elif sentence.pos_tag[i] in Static.VERB and sentence.tokens[i].lower() not in Static.BE:
+            pp1 = sentence.get_max_VP(i, k)
         else:
             i -= 1
             continue
@@ -23,11 +28,11 @@ def get_nearest_relation(sentence, k, m, f):
 
     i = k + 1
     pp2 = None
-    while sentence.tokens.get(i) != None:
-        if sentence.pos_tag[i] in Static.NN:
-            pp2 = sentence.get_np(i, k)
-        elif sentence.pos_tag[i] in Static.VB:
-            pp2 = sentence.get_vp(i, k)
+    while i in sentence.tokens:
+        if sentence.pos_tag[i] in Static.NOUN:
+            pp2 = sentence.get_max_NP(i, k)
+        elif sentence.pos_tag[i] in Static.VERB:
+            pp2 = sentence.get_max_VP(i, k)
         else:
             i += 1
             continue
@@ -48,11 +53,17 @@ def get_nearest_relation(sentence, k, m, f):
     if not m:
         print("S\t%s"%sentence.text, file=f)
         m = True
-    print("R\t{0}\t{1}\t{2}\t{3}".format(
-            sentence.get_phrase(pp).lower(),
-            sentence.tokens[k].lower(),
-            pp,
-            [k]), file=f)
+        print("R\t{0}\t{1}\t{2}\t{3}".format(
+                sentence.print_phrase(pp).lower(),
+                sentence.tokens[k].lower(),
+                pp,
+                [k]), file=f)
+    else:
+        print("R\t{0}\t{1}\t{2}\t{3}".format(
+                sentence.print_phrase(pp).lower(),
+                sentence.tokens[k].lower(),
+                pp,
+                [k]), file=f)
     return m
 
 if __name__ == "__main__":
@@ -60,28 +71,25 @@ if __name__ == "__main__":
                "reviews_Movies_and_TV",
                "reviews_Cell_Phones_and_Accessories",
                "reviews_Pet_Supplies"]
-    #  connection = pymysql.connect(host="console",
-                                #  user="u20130099",
-                                #  passwd="u20130099",
-                                #  db="u20130099",
-                                #  charset="utf8",
-                                #  cursorclass=pymysql.cursors.DictCursor)
-    for i in range(len(domains)):
-        print(domains[i])
-        field_content = "../../data/domains/" + domains[i] + "/"
-        #  field_content = "../../data/soft_domains/" + domains[i] + "/"
-        #  table_lm = domains[i] + "_lm"
-        f = open(field_content+"test/nearest_neighbor_relation", "w", encoding="utf8")
-        sentences = load_pickle_file(field_content+"test/test_sentences.pickle")
-        sentences = sentences[:2000]
-        sentiments = set(Static.sentiment_word.keys())
+    for domain in domains:
+        print(domain)
+        domain_dir = os.path.join(os.getenv("OPIE_DIR"),
+                                "data/domains", domain)
+        test_dir = os.path.join(domain_dir, "relation", "test")
+        f = open(os.path.join(test_dir, "relation.nearest.neighbor"), "w", encoding="utf8")
+        sentences = load_pickle_file(os.path.join(test_dir, "sentences.pickle"))
+        table_opinwd = set(Static.opinwd.keys())
         for sentence in sentences:
             i = 1
             m = False
-            while sentence.tokens.get(i) != None:
-                if sentence.tokens[i].lower() in sentiments:
+            while i in sentence.tokens:
+                if sentence.tokens[i].lower() in table_opinwd:
                     m = get_nearest_relation(sentence, i, m, f)
                 i += 1
         f.close()
-    #  connection.close()
-
+        ann_dir = os.path.join(test_dir, "ann")
+        sent_ann = get_ann(ann_dir)
+        handle_normalize(os.path.join(test_dir, 'relation.nearest.neighbor'))
+        print("nearest result")
+        calcu_PRF(os.path.join(test_dir, 'relation.nearest.neighbor.normalize'), sent_ann)
+        print()

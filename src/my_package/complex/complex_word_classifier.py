@@ -29,7 +29,7 @@ class ComplexWordClassifier:
         self.pickle_dir = os.path.join(self.domain_dir, "pickles")
         self.train_dir = os.path.join(self.domain_dir, "train")
         self.test_dir = os.path.join(self.domain_dir, "test")
-        self.near_dir = os.path.join(self.domain_dir, "near")
+        self.near_dir = os.path.join(self.domain_dir, "complex", "near")
         self.table_opinwd = set(Static.opinwd.keys())
         self.lexcion = {
             "unigram": {
@@ -88,7 +88,7 @@ class ComplexWordClassifier:
                     self.lexcion["unigram"], self.featvect_item["unigram"], 0, test)
                 self.create_unigram(
                     complex_word_list, pos_tag_list,
-                    self.lexcion["unigram"], self.featvect_item["unigram"], 1)
+                    self.lexcion["unigram"], self.featvect_item["unigram"], 1, test)
                 self.create_unigram(
                     complex_word_list, pos_tag_list,
                     self.lexcion["unigram"], self.featvect_item["unigram"], 2, test)
@@ -218,8 +218,8 @@ class ComplexWordClassifier:
                 base = self.write_feature_vector(
                     base, self.lexcion["bigram"]["word_pos_tag"],
                     self.featvect_item["bigram"]["word_pos_tag"][i], out, True)
-                #  print(" %d:%d" % (base+1, self.lens[i]), end="", file=out)
-                #  base += 1
+                print(" %d:%d" % (base+1, self.lens[i]), end="", file=out)
+                base += 1
                 print(file=out)
         self.opinwd_str = np.array(self.opinwd_str)
         self.is_general_opinwd = np.array(self.is_general_opinwd)
@@ -259,26 +259,40 @@ if __name__ == "__main__":
         if op in ("-d", "--domain"):
             domain = value
     c = ComplexWordClassifier(domain)
-    c.generate_featvect_item("pseudo_train")
-    c.output_feature_vector("train_feature_vector")
-    c.generate_featvect_item("complex_data.ann", True)
-    c.output_feature_vector("test_feature_vector", False)
 
-    X, y = load_svmlight_file(os.path.join(c.near_dir, "feature_vector"))
-    r = 37040
-    X_train, X_test = X[:r, :], X[r:, :]
-    y_train, y_test = y[:r], y[r:]
+    c.generate_featvect_item("complex_data.ann")
+    c.output_feature_vector("train_feature_vector")
+
+    c.generate_featvect_item("complex_pickle_test", True)
+    c.output_feature_vector("pickle_test_feature_vector")
+
+    X_train, y_train  = load_svmlight_file(os.path.join(c.near_dir, "train_feature_vector"))
+    X_test, y_test = load_svmlight_file(os.path.join(c.near_dir, "pickle_test_feature_vector"))
+
+    #  r = int(len(y) * 0.6)
+    #  X_train, X_test = X[:r, :], X[r:, :]
+    #  y_train, y_test = y[:r], y[r:]
     clf = LogisticRegression(C=1.0, intercept_scaling=1, dual=False,
             fit_intercept=True, penalty="l2", tol=0.0001)
     print("fit..")
     clf.fit(X_train, y_train)
     print("fit end...")
     y = clf.predict(X_test)
-    y_rand = np.random.randint(0, 2, (len(y)))
+    #  y_rand = np.random.randint(0, 2, (len(y)))
     #  y = [1 if e == 0 else 0 for e in y]
-    print("P", precision_score(y_test, y))
-    print("R", recall_score(y_test, y))
-    print("F", f1_score(y_test, y))
-    print("P", precision_score(y_test, y_rand))
-    print("R", recall_score(y_test, y_rand))
-    print("F", f1_score(y_test, y_rand))
+    #  print("P", precision_score(y_test, y))
+    #  print("R", recall_score(y_test, y))
+    #  print("F", f1_score(y_test, y))
+    #  print("P", precision_score(y_test, y_rand))
+    #  print("R", recall_score(y_test, y_rand))
+    #  print("F", f1_score(y_test, y_rand))
+    f = open(os.path.join(c.domain_dir, "complex", "candidate_raw", "step"),
+             "w", encoding="utf8")
+    with open(os.path.join(c.near_dir, "complex_pickle_test"), "r", encoding="utf8") as out:
+        i = 0
+        for line in out:
+            _, word, _ = line.strip().split('\t')
+            if y[i]:
+                print(word, file=f)
+            i += 1
+    f.close()

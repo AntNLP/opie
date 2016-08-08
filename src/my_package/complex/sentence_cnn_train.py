@@ -12,18 +12,18 @@ import os
 import time
 import datetime
 import input_data
-from cnn import CNN
+from sentence_cnn import CNN
 
 from my_package.scripts import load_pickle_file
-from my_package.scripts import save_pickle_file
 
 # Parameters
 # ==================================================
 
 # Model Hyperparameters
-tf.flags.DEFINE_integer("embedding_dim", 128, "Dimensionality of character embedding (default: 128)")
+#  tf.flags.DEFINE_integer("embedding_dim", 128, "Dimensionality of character embedding (default: 128)")
+tf.flags.DEFINE_integer("embedding_dim", 50, "Dimensionality of character embedding (default: 128)")
 #  tf.flags.DEFINE_string("filter_sizes", "2,3,4", "Comma-separated filter sizes (default: '3,4,5')")
-tf.flags.DEFINE_string("filter_sizes", "1,2,3", "Comma-separated filter sizes (default: '3,4,5')")
+tf.flags.DEFINE_string("filter_sizes", "3,4,5", "Comma-separated filter sizes (default: '3,4,5')")
 #  tf.flags.DEFINE_integer("num_filters", 50, "Number of filters per filter size (default: 128)")
 tf.flags.DEFINE_integer("num_filters", 128, "Number of filters per filter size (default: 128)")
 tf.flags.DEFINE_float("dropout_keep_prob", 0.5, "Dropout keep probability (default: 0.5)")
@@ -53,8 +53,8 @@ print("")
 # Load data
 print("Loading data...")
 
-#  domain = "reviews_Movies_and_TV"
-domain = "reviews_Pet_Supplies"
+domain = "reviews_Movies_and_TV"
+#  domain = "reviews_Pet_Supplies"
 #  domain = "reviews_Cell_Phones_and_Accessories"
 #  domain = "reviews_Grocery_and_Gourmet_Food"
 
@@ -63,15 +63,13 @@ pickle_dir = os.path.join(domain_dir, "pickles")
 complex_dir = os.path.join(domain_dir, "complex")
 
 
-#  data = input_data.load_datas(domain_dir, pickle_dir, 1, 2)
-#  save_pickle_file("data.pickle", data)
-#  X, y, vocabulary, x_string, r = load_pickle_file("data.pickle")
-X, y, vocabulary, x_string, r = input_data.load_datas(domain_dir, pickle_dir, 1, 2)
+x_phrase, x_context, y, vocabulary, vocabulary_inv, r, x_string = input_data.load_datas(domain_dir, pickle_dir, 1, 2)
 
 #  record = load_pickle_file(os.path.join(domain_dir, "complex", "test", "record.pickle"))
 # Split train/test set
 # TODO: This is very crude, should use cross-validation
-X_train, X_dev = X[:r], X[r:]
+x_train_phrase, x_dev_phrase = x_phrase[:r], x_phrase[r:]
+x_train_context, x_dev_context= x_context[:r], x_context[r:]
 y_train, y_dev = y[:r], y[r:]
 # Randomly shuffle data
 #  np.random.seed(10)
@@ -82,15 +80,15 @@ y_train, y_dev = y[:r], y[r:]
 
 #  x_train, x_dev = x[:r], x[r:]
 #  y_train, y_dev = y[:r], y[r:]
-lengths = [len(X_train[0][0]), len(X_train[0][1]), len(X_train[0][2]),
-           len(X_train[0][3]), len(X_train[0][4]), len(X_train[0][5])]
 print("Word Vocabulary Size: {:d}".format(len(vocabulary["word"])))
 print("Postag Vocabulary Size: {:d}".format(len(vocabulary["postag"])))
 print("Train/Dev split: {:d}/{:d}".format(len(y_train), len(y_dev)))
-print("L context: ", lengths[0])
-print("complex : ", lengths[2])
-print("R context: ", lengths[4])
+print("phrase length: ", x_train_phrase.shape[1])
+print("context length: ", x_train_context.shape[1])
 
+#  print(len(x_train_phrase))
+#  print(len(x_train_context))
+#  print(len(y_train))
 
 # Training
 # ==================================================
@@ -102,7 +100,8 @@ with tf.Graph().as_default():
     sess = tf.Session(config=session_conf)
     with sess.as_default():
         cnn = CNN(
-            lengths=lengths,
+            phrase_length=x_train_phrase.shape[1],
+            context_length=x_train_context.shape[1],
             num_classes=2,
             word_vocab_size=len(vocabulary["word"]),
             postag_vocab_size = len(vocabulary["postag"]),
@@ -156,22 +155,16 @@ with tf.Graph().as_default():
         # Initialize all variables
         sess.run(tf.initialize_all_variables())
 
-        def train_step(X_batch, y_batch):
+        def train_step(x_phrase_batch, x_context_batch, y_batch):
             """
             A single training step
             """
             feed_dict = {
-              cnn.input0: np.array([e[0] for e in X_batch]),
-              cnn.input1: np.array([e[1] for e in X_batch]),
-              cnn.input2: np.array([e[2] for e in X_batch]),
-              cnn.input3: np.array([e[3] for e in X_batch]),
-              cnn.input4: np.array([e[4] for e in X_batch]),
-              cnn.input5: np.array([e[5] for e in X_batch]),
+              cnn.input_x1: x_phrase_batch,
+              cnn.input_x2: x_context_batch,
               cnn.input_y: y_batch,
               cnn.dropout_keep_prob: FLAGS.dropout_keep_prob
             }
-            #  embed = sess.run(cnn.joint_feature, feed_dict)
-            #  print(embed.shape)
             _, step, summaries, loss, f1_score = sess.run(
                 [train_op, global_step, train_summary_op, cnn.loss, cnn.accuracy],
                 feed_dict)
@@ -179,23 +172,18 @@ with tf.Graph().as_default():
             print("{}: step {}, loss {:g}, f1 score {:g}".format(time_str, step, loss, f1_score))
             train_summary_writer.add_summary(summaries, step)
 
-        def dev_step(X_batch, y_batch, x_string, f, g, writer=None):
+        def dev_step(x_phrase_batch, x_context_batch, y_batch, x_string, f, g, writer=None):
             """
             Evaluates model on a dev set
             """
             feed_dict = {
-              cnn.input0: np.array([e[0] for e in X_batch]),
-              cnn.input1: np.array([e[1] for e in X_batch]),
-              cnn.input2: np.array([e[2] for e in X_batch]),
-              cnn.input3: np.array([e[3] for e in X_batch]),
-              cnn.input4: np.array([e[4] for e in X_batch]),
-              cnn.input5: np.array([e[5] for e in X_batch]),
+              cnn.input_x1: x_phrase_batch,
+              cnn.input_x2: x_context_batch,
               cnn.input_y: y_batch,
               cnn.dropout_keep_prob: 1.0
             }
             step, summaries, loss, precision, recall, f1_score, pred, pred_ = sess.run(
-                [global_step, dev_summary_op, cnn.loss, cnn.precision,
-                 cnn.recall, cnn.f1_score, cnn.pred, cnn.pred_],
+                [global_step, dev_summary_op, cnn.loss, cnn.precision, cnn.recall, cnn.f1_score, cnn.pred, cnn.pred_],
                 feed_dict)
             #  time_str = datetime.datetime.now().isoformat()
             #  print("{}: step {}, loss {:g}, f1 score {:g}".format(time_str, step, loss, f1_score))
@@ -214,12 +202,11 @@ with tf.Graph().as_default():
 
         # Generate batches
         batches = input_data.batch_iter(
-            list(zip(X_train, y_train)),
-            FLAGS.batch_size, FLAGS.num_epochs)
+                    list(zip(x_train_phrase, x_train_context, y_train)), FLAGS.batch_size, FLAGS.num_epochs)
         # Training loop. For each batch...
         for batch in batches:
-            X_batch, y_batch = zip(*batch)
-            train_step(X_batch, y_batch)
+            x_phrase_batch, x_context_batch, y_batch = zip(*batch)
+            train_step(x_phrase_batch, x_context_batch, y_batch)
             current_step = tf.train.global_step(sess, global_step)
             if current_step % FLAGS.evaluate_every == 0:
                 print("\nEvaluation:")
@@ -230,7 +217,7 @@ with tf.Graph().as_default():
                 b = 0
                 while b < len(y_dev):
                     e = min(b+1000, len(y_dev))
-                    pred = dev_step(X_dev[b:e], y_dev[b:e],
+                    pred = dev_step(x_dev_phrase[b:e], x_dev_context[b:e], y_dev[b:e],
                                     x_string[b:e], f, g, writer=dev_summary_writer)
                     b += 1000
                 f.close()
