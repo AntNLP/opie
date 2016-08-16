@@ -24,7 +24,7 @@ def usage():
 if __name__ == "__main__":
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hd:e:",
-                                   ["help", "domain=", "end="])
+                                   ["help", "domain="])
     except getopt.GetoptError:
         print("命令行参数输入错误！")
         usage()
@@ -35,22 +35,23 @@ if __name__ == "__main__":
             sys.exit()
         if op in ("-d", "--domain"):
             domain = value
-        if op in ("-e", "--end"):
-            end = int(value)
-    domain_dir = os.path.join(os.getenv("OPIE_DIR"), "data/domains", domain)
-    pickle_without = os.path.join(domain_dir,
-                                  "pickles/without_parse_sentences")
+    domain_dir = os.path.join(os.getenv("OPIE_DIR"), "data", "domains", domain)
+    pickle_without_dir = os.path.join(domain_dir,
+                                      "pickles", "without_parse_sentences")
     mkdir(os.path.join(domain_dir, "docs"))
-    f = open(os.path.join(domain_dir, "docs/text"), "w", encoding="utf8")
+    f = open(os.path.join(domain_dir, "docs/doc/text"), "w", encoding="utf8")
+    g = open(os.path.join(domain_dir, "docs/review"), "w", encoding="utf8")
     i = 1
-    filename = os.path.join(pickle_without,
+    filename = os.path.join(pickle_without_dir,
                             "without_parse_sentences_%d.pickle" % i)
-    while i < end and os.path.exists(filename + ".bz2"):
+    while os.path.exists(filename + ".bz2"):
         print("pickle index: ", i)
         sentences = load_pickle_file(filename)
         for j, sentence in enumerate(sentences):
-            print("%d-%d\t%s" % (i, j, sentence.text), file=f)
+            print("%d-%d\t%s" % (i, j, sentence.text.lower()), file=f)
+            print("%d" % sentence.review_index, file=g)
         i += 1
-        filename = os.path.join(pickle_without,
+        filename = os.path.join(pickle_without_dir,
                                 "without_parse_sentences_%d.pickle" % i)
     f.close()
+    g.close()
