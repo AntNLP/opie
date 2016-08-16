@@ -94,8 +94,8 @@ public class IndexFiles {
 
       Directory dir = FSDirectory.open(Paths.get(indexPath));
       //Analyzer analyzer = new StandardAnalyzer();
-      Analyzer analyzer = new StandardAnalyzer(CharArraySet.EMPTY_SET);
-      //Analyzer analyzer = new WhitespaceAnalyzer();
+      //Analyzer analyzer = new StandardAnalyzer(CharArraySet.EMPTY_SET);
+      Analyzer analyzer = new WhitespaceAnalyzer();
       IndexWriterConfig iwc = new IndexWriterConfig(analyzer);
 
       if (create) {
