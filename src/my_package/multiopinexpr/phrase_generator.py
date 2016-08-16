@@ -158,66 +158,66 @@ if __name__ == "__main__":
     #  print("NUM: %d" % i)
 
     ###  根据 phrase 出现次数过滤 ###
-    #  print("######  过滤出现次数  ######")
-    #  parse_queries_result(os.path.join(docs_dir, "queries_phrases_result"),
-                         #  os.path.join(docs_dir, "phrases-1_freq"))
-    #  vocab = set()
-    #  f = open(os.path.join(docs_dir, "phrases-1_freq"), "r", encoding="utf8")
-    #  g = open(os.path.join(docs_dir, "queries"), "w", encoding="utf8")
-    #  h = open(os.path.join(docs_dir, "phrases-2_freq_filter"), "w", encoding="utf8")
-    #  for line in f:
-        #  phrase, num = line.strip().split('\t')
-        #  if int(num) >= 20:
-            #  print(line, end="", file=h)
-            #  for token in phrase.split(' '):
-                #  vocab.add(token)
-    #  for token in vocab:
-        #  print(token, file=g)
-    #  h.close()
-    #  g.close()
-    #  f.close()
-    #  print("######  VOCABULARY QUERIES  ######")
-    #  remove(os.path.join(docs_dir, "tokens_queries_result"))
-    #  search(domain, "tokens_queries_result")
-    #  parse_queries_result(os.path.join(docs_dir, "queries_tokens_result"),
-                         #  os.path.join(docs_dir, "tokens_freq"))
-
-    ###  PMI  ###
-    word_freq = {}
-    f = open(os.path.join(docs_dir, "tokens_freq"), "r", encoding="utf8")
+    print("######  过滤出现次数  ######")
+    parse_queries_result(os.path.join(docs_dir, "queries_phrases_result"),
+                         os.path.join(docs_dir, "phrases-1_freq"))
+    vocab = set()
+    f = open(os.path.join(docs_dir, "phrases-1_freq"), "r", encoding="utf8")
+    g = open(os.path.join(docs_dir, "queries"), "w", encoding="utf8")
+    h = open(os.path.join(docs_dir, "phrases-2_freq_filter"), "w", encoding="utf8")
     for line in f:
-        word, freq = line.strip().split('\t')
-        word_freq[word] = int(freq)
-    f.close()
-    n = 0
-    f = open(os.path.join(docs_dir, "doc", "text"), "r", encoding="utf8")
-    for line in f:
-        n += len(line.strip().split('\t')[-1].split(' '))
-    f.close()
-    f = open(os.path.join(docs_dir, "phrases-2_freq_filter"),
-             "r", encoding="utf8")
-    g = open(os.path.join(docs_dir, "phrases-3_general"),
-             "w", encoding="utf8")
-    h = open(os.path.join(docs_dir, "phrases-3_without_general"),
-             "w", encoding="utf8")
-    for line in f:
-        phrase, phrase_fq = line.strip().split('\t')
-        phrase_fq = int(phrase_fq)
-        tokens = phrase.split(' ')
-        if len(tokens) == 1:
-            continue
-        has_general = False
-        for token in tokens:
-            if token in Static.opinwd:
-                has_general = True
-        if has_general:
-            t = g
-        else:
-            t = h
-        score = 1
-        for token in tokens:
-            score *= phrase_fq / (word_freq[token] - phrase_fq)
-        print("%s\t%f" % (phrase, score), file=t)
+        phrase, num = line.strip().split('\t')
+        if int(num) >= 20:
+            print(line, end="", file=h)
+            for token in phrase.split(' '):
+                vocab.add(token)
+    for token in vocab:
+        print(token, file=g)
     h.close()
     g.close()
     f.close()
+    print("######  VOCABULARY QUERIES  ######")
+    remove(os.path.join(docs_dir, "queries_tokens_result"))
+    search(domain, "queries_tokens_result")
+    parse_queries_result(os.path.join(docs_dir, "queries_tokens_result"),
+                         os.path.join(docs_dir, "tokens_freq"))
+
+    ###  PMI  ###
+    #  word_freq = {}
+    #  f = open(os.path.join(docs_dir, "tokens_freq"), "r", encoding="utf8")
+    #  for line in f:
+        #  word, freq = line.strip().split('\t')
+        #  word_freq[word] = int(freq)
+    #  f.close()
+    #  n = 0
+    #  f = open(os.path.join(docs_dir, "doc", "text"), "r", encoding="utf8")
+    #  for line in f:
+        #  n += len(line.strip().split('\t')[-1].split(' '))
+    #  f.close()
+    #  f = open(os.path.join(docs_dir, "phrases-2_freq_filter"),
+             #  "r", encoding="utf8")
+    #  g = open(os.path.join(docs_dir, "phrases-3_general"),
+             #  "w", encoding="utf8")
+    #  h = open(os.path.join(docs_dir, "phrases-3_without_general"),
+             #  "w", encoding="utf8")
+    #  for line in f:
+        #  phrase, phrase_fq = line.strip().split('\t')
+        #  phrase_fq = int(phrase_fq)
+        #  tokens = phrase.split(' ')
+        #  if len(tokens) == 1:
+            #  continue
+        #  has_general = False
+        #  for token in tokens:
+            #  if token in Static.opinwd:
+                #  has_general = True
+        #  if has_general:
+            #  t = g
+        #  else:
+            #  t = h
+        #  score = 1
+        #  for token in tokens:
+            #  score *= phrase_fq / (word_freq[token] - phrase_fq)
+        #  print("%s\t%f" % (phrase, score), file=t)
+    #  h.close()
+    #  g.close()
+    #  f.close()
