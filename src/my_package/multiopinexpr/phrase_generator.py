@@ -10,6 +10,7 @@ import sys
 import os
 import math
 import re
+import numpy as np
 
 from my_package.scripts import load_pickle_file
 from my_package.scripts import save_pickle_file
@@ -71,7 +72,7 @@ def parse_queries_result(queries_file, save_file):
 
 
 def search(domain, save_file):
-    
+
     cmd = "%s/src/my_package/utils/search.sh %s %s" % (os.getenv("OPIE_DIR"),
                                                        domain,
                                                        save_file)
@@ -79,7 +80,7 @@ def search(domain, save_file):
 
 
 def index(domain):
-    
+
     cmd = "%s/src/my_package/utils/index.sh %s" % (os.getenv("OPIE_DIR"),
                                                    domain)
     os.system(cmd)
@@ -109,6 +110,7 @@ if __name__ == "__main__":
             domain = value
     domain_dir = os.path.join(os.getenv("OPIE_DIR"), "data", "domains", domain)
     pickle_parse_dir = os.path.join(domain_dir, "pickles", "parse_sentences")
+    pickle_without_parse_dir = os.path.join(domain_dir, "pickles", "without_parse_sentences")
     multi_opin_expr_dir = os.path.join(domain_dir, "multiopinexpr")
     docs_dir = os.path.join(domain_dir, "docs")
 
@@ -118,7 +120,7 @@ if __name__ == "__main__":
     #  index(domain)
 
     ### 生成 queries 以及统计词频率
-    #  print("######  GENERATE PHEASES  ######") 
+    #  print("######  GENERATE PHEASES  ######")
     #  f = open(os.path.join(docs_dir, "phrases-0"), "w", encoding="utf8")
     #  i = 1
     #  filename = os.path.join(pickle_parse_dir, "parse_sentences_%d.pickle" % i)
@@ -140,7 +142,7 @@ if __name__ == "__main__":
 
     ### 统计全领域出现词频
     #  print("######  PHRASES QUERIES  ######")
-    #  remove(os.path.join(docs_dir, "phrases_queries_result"))
+    #  remove(os.path.join(docs_dir, "queries_phrases_result"))
     #  f = open(os.path.join(docs_dir, "phrases-0"), "r", encoding="utf8")
     #  g = open(os.path.join(docs_dir, "queries"), "w", encoding="utf8")
     #  i = 0
@@ -158,66 +160,90 @@ if __name__ == "__main__":
     #  print("NUM: %d" % i)
 
     ###  根据 phrase 出现次数过滤 ###
-    print("######  过滤出现次数  ######")
-    parse_queries_result(os.path.join(docs_dir, "queries_phrases_result"),
-                         os.path.join(docs_dir, "phrases-1_freq"))
-    vocab = set()
-    f = open(os.path.join(docs_dir, "phrases-1_freq"), "r", encoding="utf8")
-    g = open(os.path.join(docs_dir, "queries"), "w", encoding="utf8")
-    h = open(os.path.join(docs_dir, "phrases-2_freq_filter"), "w", encoding="utf8")
-    for line in f:
-        phrase, num = line.strip().split('\t')
-        if int(num) >= 20:
-            print(line, end="", file=h)
-            for token in phrase.split(' '):
-                vocab.add(token)
-    for token in vocab:
-        print(token, file=g)
-    h.close()
-    g.close()
-    f.close()
-    print("######  VOCABULARY QUERIES  ######")
-    remove(os.path.join(docs_dir, "queries_tokens_result"))
-    search(domain, "queries_tokens_result")
-    parse_queries_result(os.path.join(docs_dir, "queries_tokens_result"),
-                         os.path.join(docs_dir, "tokens_freq"))
-
-    ###  PMI  ###
-    #  word_freq = {}
-    #  f = open(os.path.join(docs_dir, "tokens_freq"), "r", encoding="utf8")
+    #  print("######  过滤出现次数  ######")
+    #  parse_queries_result(os.path.join(docs_dir, "queries_phrases_result"),
+                         #  os.path.join(docs_dir, "phrases-1_freq"))
+    #  f = open(os.path.join(docs_dir, "phrases-1_freq"), "r", encoding="utf8")
+    #  h = open(os.path.join(multi_opin_expr_dir, "phrases"), "w", encoding="utf8")
     #  for line in f:
-        #  word, freq = line.strip().split('\t')
-        #  word_freq[word] = int(freq)
-    #  f.close()
-    #  n = 0
-    #  f = open(os.path.join(docs_dir, "doc", "text"), "r", encoding="utf8")
-    #  for line in f:
-        #  n += len(line.strip().split('\t')[-1].split(' '))
-    #  f.close()
-    #  f = open(os.path.join(docs_dir, "phrases-2_freq_filter"),
-             #  "r", encoding="utf8")
-    #  g = open(os.path.join(docs_dir, "phrases-3_general"),
-             #  "w", encoding="utf8")
-    #  h = open(os.path.join(docs_dir, "phrases-3_without_general"),
-             #  "w", encoding="utf8")
-    #  for line in f:
-        #  phrase, phrase_fq = line.strip().split('\t')
-        #  phrase_fq = int(phrase_fq)
-        #  tokens = phrase.split(' ')
-        #  if len(tokens) == 1:
-            #  continue
-        #  has_general = False
-        #  for token in tokens:
-            #  if token in Static.opinwd:
-                #  has_general = True
-        #  if has_general:
-            #  t = g
-        #  else:
-            #  t = h
-        #  score = 1
-        #  for token in tokens:
-            #  score *= phrase_fq / (word_freq[token] - phrase_fq)
-        #  print("%s\t%f" % (phrase, score), file=t)
+        #  phrase, num = line.strip().split('\t')
+        #  if int(num) >= 10:
+            #  if len(phrase.split(' ')) > 1:
+                #  print(phrase, file=h)
     #  h.close()
-    #  g.close()
     #  f.close()
+
+    ###  Replace Phrase  ###
+    #  print("######  REPLACE PHRASES  ######")
+    #  f = open(os.path.join(multi_opin_expr_dir, "phrases"),
+             #  "r", encoding="utf8")
+    #  phrases = set()
+    #  for line in f:
+        #  phrases.add(line.strip())
+    #  f.close()
+
+    #  f = open(os.path.join(multi_opin_expr_dir, "replace_text"),
+             #  "w", encoding="utf8")
+    #  i = 1
+    #  filename = os.path.join(pickle_without_parse_dir, "without_parse_sentences_%d.pickle" % i)
+    #  while os.path.exists(filename + ".bz2"):
+        #  print("pickle index: % d  loading" % i)
+        #  sentences = load_pickle_file(filename)
+        #  print("pickle index: % d  loaded" % i)
+        #  for sentence in sentences:
+            #  text = sentence.text.lower()
+            #  for phrase in phrases:
+                #  replace_text = text.replace(phrase, "^".join(phrase.split(' ')))
+                #  if replace_text != text:
+                    #  text = replace_text
+            #  if sentence.text.lower() != text:
+                #  print("%s\t%d" % (text, sentence.review_index), file=f)
+        #  i += 1
+        #  filename = os.path.join(pickle_parse_dir,
+                                #  "parse_sentences_%d.pickle" % i)
+        #  break
+    #  f.close()
+
+    ###  Build Token-Reivew Matrix  ###
+    #  print("######  TOKEN-REVIEW MATRIX  ######")
+    #  f = open(os.path.join(multi_opin_expr_dir, "replace_text"),
+             #  "r", encoding="utf8")
+    #  vocab = {}
+    #  for line in f:
+        #  for token in line.strip().split('\t')[0].split(' '):
+            #  if token in Static.stopwords:
+                #  continue
+            #  if re.search(r"^\W*$", token):
+                #  continue
+            #  if token not in vocab:
+                #  vocab[token] = len(vocab)
+    #  f.close()
+    #  token_review_matrix = []
+    #  review_id = 0
+    #  f = open(os.path.join(multi_opin_expr_dir, "replace_text"),
+             #  "r", encoding="utf8")
+    #  s = 0
+    #  for line in f:
+        #  text, num = line.strip().split('\t')
+        #  if int(num) != review_id:
+            #  if review_id > 0:
+                #  token_review_matrix.append(review_tokens)
+                #  s += sum(review_tokens)
+            #  review_tokens = np.zeros(len(vocab))
+            #  review_id = int(num)
+        #  for token in text.split(' '):
+            #  if token in vocab:
+                #  review_tokens[vocab[token]] += 1
+    #  f.close()
+    #  token_review_matrix = np.array(token_review_matrix)
+    #  reverse_vocab = {value : key for key, value in vocab.items()}
+    #  i = 0
+    #  for t in token_review_matrix[1]:
+        #  if t > 0:
+            #  print(reverse_vocab[i])
+        #  i += 1
+    #  print(sum(sum(token_review_matrix)))
+    #  save_pickle_file(
+        #  os.path.join(multi_opin_expr_dir, "token_review_matrix.pickle"),
+        #  token_review_matrix.T)
+
