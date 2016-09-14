@@ -10,6 +10,7 @@ import sys
 import os
 import math
 import re
+import zipfile
 import numpy as np
 
 from my_package.scripts import load_pickle_file
@@ -34,23 +35,10 @@ def get_all_phrase(sentence):
     n = len(sentence.tokens)
     for idx_opinwd in idx_candidate_opinwd:
         word = sentence.print_phrase(idx_opinwd).lower()
-        if sentence.tokens[idx_opinwd[0]] in Static.BE:
-            continue
-        if len(idx_opinwd) == 1 and re.search(r"^\W*$", word):
+        if len(idx_opinwd) == 1:
             continue
         if re.search(r"^[-_>< #'+]*$", word):
             continue
-        #  if len(idx_opinwd) > 20:
-            #  continue
-        #  if sentence.is_weak_opinwd(word):
-            #  continue
-        #  mark = False
-        #  for token in word.split(' '):
-            #  if re.search(r"^[^a-zA-Z0-9_$&%]*$", token):
-                #  mark = True
-                #  break
-        #  if mark:
-            #  continue
         yield word
 
 
@@ -86,6 +74,35 @@ def index(domain):
     os.system(cmd)
 
 
+def generate_data():
+    """Extract the first file enclosed in a zip file as a list of words"""
+
+    f = open(os.path.join(multi_opin_expr_dir, "clean_replace_text"),
+             "w", encoding="utf8")
+    g = open(os.path.join(multi_opin_expr_dir, "replace_text"),
+             "r", encoding="utf8")
+    ftext = open(os.path.join(multi_opin_expr_dir, "clean_replace_sentences"),
+                 "w", encoding="utf8")
+    for line in g:
+        text, review_id = line.split('\t')
+        tokens = []
+        for token in text.split(' '):
+            if token in Static.stopwords:
+                continue
+            if re.search(r"^\W*$", token):
+                continue
+            tokens.append(token)
+            print("%s " % token, end="", file=f)
+        print("%s\t%s" % (" ".join(tokens), review_id), end="", file=ftext)
+    g.close()
+    f.close()
+    ftext.close()
+    filename = os.path.join(multi_opin_expr_dir, "text.zip")
+    with zipfile.ZipFile(filename, "w") as myzip:
+        myzip.write(os.path.join(multi_opin_expr_dir, "clean_replace_text"))
+    return filename
+
+
 def usage():
     '''print help information'''
     print("phrase_generator.py 用法:")
@@ -118,91 +135,71 @@ if __name__ == "__main__":
 
     print("DOMAIN: %s" % domain)
     ### 为全领域生成 index
-    print("######  GENERATE INDEX IN ALL DOMAIN ######")
-    index(domain)
+    #  print("######  GENERATE INDEX IN ALL DOMAIN ######")
+    #  index(domain)
 
     ### 生成 queries 以及统计词频率
-    print("######  GENERATE PHEASES  ######")
-    f = open(os.path.join(docs_dir, "phrases-0"), "w", encoding="utf8")
-    i = 1
-    filename = os.path.join(pickle_parse_dir, "parse_sentences_%d.pickle" % i)
-    while os.path.exists(filename + ".bz2"):
-        print("pickle index: % d  loading" % i)
-        sentences = load_pickle_file(filename)
-        print("pickle index: % d  loaded" % i)
-        mark = set()
-        for sentence in sentences:
-            for phrase in get_all_phrase(sentence):
-                if phrase not in mark:
-                    print(phrase, file=f)
-                    mark.add(phrase)
-        i += 1
-        filename = os.path.join(pickle_parse_dir,
-                                "parse_sentences_%d.pickle" % i)
-        break
-    f.close()
+    #  fphrase = open(os.path.join(multi_opin_expr_dir, "phrases"),
+                   #  "w", encoding="utf8")
+    #  freplace = open(os.path.join(multi_opin_expr_dir, "replace_text"),
+                    #  "w", encoding="utf8")
+    #  fscore = open(os.path.join(multi_opin_expr_dir, "score"),
+                  #  "w", encoding="utf8")
+    #  i = 1
+    #  filename = os.path.join(pickle_parse_dir, "parse_sentences_%d.pickle" % i)
+    #  while os.path.exists(filename + ".bz2"):
+        #  print("pickle index: % d  loading" % i)
+        #  sentences = load_pickle_file(filename)
+        #  print("pickle index: % d  loaded" % i)
 
-    ### 统计全领域出现词频
-    print("######  PHRASES QUERIES  ######")
-    remove(os.path.join(docs_dir, "queries_phrases_result"))
-    f = open(os.path.join(docs_dir, "phrases-0"), "r", encoding="utf8")
-    g = open(os.path.join(docs_dir, "queries"), "w", encoding="utf8")
-    i = 0
-    for line in f:
-        print(line, end="", file=g)
-        i += 1
-        if i % 10000 == 0:
-            g.close()
-            search(domain, "queries_phrases_result")
-            print("NUM: %d" % i)
-            g = open(os.path.join(docs_dir, "queries"), "w", encoding="utf8")
-    f.close()
-    g.close()
-    search(domain, "queries_phrases_result")
-    print("NUM: %d" % i)
+        #  ######  GERERATE QUERIES  ######
+        #  mark = set()
+        #  print("######  GENERATE QUERIES  ######")
+        #  fquery = open(os.path.join(docs_dir, "queries"), "w", encoding="utf8")
+        #  for sentence in sentences:
+            #  print(sentence.score, file=fscore)
+            #  for phrase in get_all_phrase(sentence):
+                #  if phrase not in mark:
+                    #  print(phrase, file=fquery)
+                    #  mark.add(phrase)
+        #  fquery.close()
+        #  remove(os.path.join(docs_dir, "queries_phrases_result"))
+        #  print("######  SEARCHING  ######")
+        #  search(domain, "queries_phrases_result")
+        #  parse_queries_result(os.path.join(docs_dir, "queries_phrases_result"),
+                            #  os.path.join(docs_dir, "phrases_freq"))
 
-    ###  根据 phrase 出现次数过滤 ###
-    print("######  过滤出现次数  ######")
-    parse_queries_result(os.path.join(docs_dir, "queries_phrases_result"),
-                         os.path.join(docs_dir, "phrases-1_freq"))
-    f = open(os.path.join(docs_dir, "phrases-1_freq"), "r", encoding="utf8")
-    h = open(os.path.join(multi_opin_expr_dir, "phrases"),
-             "w", encoding="utf8")
-    for line in f:
-        phrase, num = line.strip().split('\t')
-        if int(num) >= 10:
-            if len(phrase.split(' ')) > 1:
-                print(phrase, file=h)
-    h.close()
-    f.close()
+        #  ######  filter by the number of occurence  ######
+        #  print("######  FILTERING  ######")
+        #  phrases = []
+        #  with open(
+            #  os.path.join(docs_dir, "phrases_freq"),
+            #  "r", encoding="utf8") as f:
+            #  for line in f:
+                #  phrase, num = line.strip().split('\t')
+                #  if int(num) >= 10:
+                    #  if len(phrase.split(' ')) > 1:
+                        #  phrases.append(phrase)
+                        #  print(phrase, file=fphrase)
 
-    ###  Replace Phrase  ###
-    print("######  REPLACE PHRASES  ######")
-    f = open(os.path.join(multi_opin_expr_dir, "phrases"),
-             "r", encoding="utf8")
-    phrases = set()
-    for line in f:
-        phrases.add(line.strip())
-    f.close()
-    f = open(os.path.join(multi_opin_expr_dir, "replace_text"),
-             "w", encoding="utf8")
-    i = 1
-    filename = os.path.join(pickle_without_parse_dir,
-                            "without_parse_sentences_%d.pickle" % i)
-    while os.path.exists(filename + ".bz2"):
-        print("pickle index: % d  loading" % i)
-        sentences = load_pickle_file(filename)
-        print("pickle index: % d  loaded" % i)
-        for sentence in sentences:
-            text = sentence.text.lower()
-            for phrase in phrases:
-                replace_text = text.replace(phrase, "^".join(phrase.split(' ')))
-                if replace_text != text:
-                    text = replace_text
-            if sentence.text.lower() != text:
-                print("%s\t%d" % (text, sentence.review_index), file=f)
-        i += 1
-        filename = os.path.join(pickle_without_parse_dir,
-                                "without_parse_sentences_%d.pickle" % i)
-        break
-    f.close()
+        #  ######  RELACE TEXT  ######
+        #  print("######  REPLACE TEXT  ######")
+        #  phrases = sorted(phrases, key=lambda x : len(x.split(' ')), reverse=True)
+        #  #  for phrase in phrases:
+            #  #  print(phrase)
+        #  for sentence in sentences:
+            #  text = sentence.text.lower()
+            #  for phrase in phrases:
+                #  replace_text = text.replace(phrase, "^".join(phrase.split(' ')))
+                #  if replace_text != text:
+                    #  text = replace_text
+            #  print("%s\t%d" % (text, sentence.review_index), file=freplace)
+        #  i += 1
+        #  filename = os.path.join(pickle_parse_dir,
+                                #  "parse_sentences_%d.pickle" % i)
+        #  if i == 41:
+            #  break
+    #  fphrase.close()
+    #  freplace.close()
+    #  fscore.close()
+    generate_data()
