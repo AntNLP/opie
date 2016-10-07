@@ -70,7 +70,7 @@ def get_vocab(filename):
 
 def usage():
     '''print help information'''
-    print("label_propagation.py 用法:")
+    print("dump_nearest.py 用法:")
     print("-h, --help: 打印帮助信息")
     print("-d, --domain: 需要处理的领域名称")
 
