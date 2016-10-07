@@ -24,6 +24,7 @@ tf.flags.DEFINE_integer("max_document_length", 200, "Max document length (defaul
 tf.flags.DEFINE_boolean("embedding_init", False, "use embeddings from language model(default: False)")
 tf.flags.DEFINE_boolean("device_gpu", False, "use gpu (default: False)")
 tf.flags.DEFINE_boolean("shuffle_data", False, "shuffle data (default: False)")
+tf.flags.DEFINE_boolean("embed_trainable", True, "embed trainable(default: True)")
 
 # Model Hyperparameters
 tf.flags.DEFINE_integer("embedding_dim", 128, "Dimensionality of character embedding (default: 128)")
@@ -95,6 +96,7 @@ with tf.Graph().as_default():
             num_classes=2,
             vocab_size=len(vocab_processor.vocabulary_),
             embedding_size=FLAGS.embedding_dim,
+            embed_trainable=FLAGS.embed_trainable,
             filter_sizes=list(map(int, FLAGS.filter_sizes.split(","))),
             num_filters=FLAGS.num_filters,
             device_gpu=FLAGS.device_gpu,

@@ -45,5 +45,5 @@ if __name__ == "__main__":
             domain = value
     domain_dir = os.path.join(os.getenv("OPIE_DIR"), "data", "domains", domain)
     multi_opin_expr_dir = os.path.join(domain_dir, "multiopinexpr")
-    x_text, y, _ = data_helpers.load_data_and_labels(domain_dir)
-
+    x_text, y, vocab = data_helpers.load_data_and_labels(domain_dir)
+    print(dir(vocab))

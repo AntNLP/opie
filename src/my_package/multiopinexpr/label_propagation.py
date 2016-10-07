@@ -101,8 +101,10 @@ if __name__ == "__main__":
 
     ####### LABEL PROPAGATION  ######
     #  print("####### LABEL PROPAGATION  ######")
+    #  word_embeddings = load_pickle_file(
+        #  os.path.join(multi_opin_expr_dir, "word2vec", "embeddings.pickle"))
     word_embeddings = load_pickle_file(
-        os.path.join(multi_opin_expr_dir, "word2vec", "embeddings.pickle"))
+        os.path.join(multi_opin_expr_dir, "fine_tune_embeddings.pickle"))
     #  context_embeddings= load_pickle_file(
         #  os.path.join(multi_opin_expr_dir, "context_embeddings.pickle"))
     print("word embedding shape: ", word_embeddings.shape)
@@ -116,12 +118,12 @@ if __name__ == "__main__":
     print("vocab size: ", len(vocab))
 
     #  print("######  DUMP EMBEDDINGS  ######")
-    f = open(os.path.join(multi_opin_expr_dir, "word_embeddings"),
-            "w", encoding="utf8")
-    print(word_embeddings.shape)
-    for i in range(len(reverse_vocab)):
-        print(reverse_vocab[i], "\t", word_embeddings[i], file=f)
-    f.close()
+    #  f = open(os.path.join(multi_opin_expr_dir, "word_embeddings"),
+            #  "w", encoding="utf8")
+    #  print(word_embeddings.shape)
+    #  for i in range(len(reverse_vocab)):
+        #  print(reverse_vocab[i], "\t", word_embeddings[i], file=f)
+    #  f.close()
 
     #  print("######  TEST ######")
     num_nearest = 10

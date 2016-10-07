@@ -19,7 +19,7 @@ from my_package.static import Static
 
 class RelationClassifier:
 
-    def __init__(self, domain, mysql_db=None):
+    def __init__(self, domain, mysql_db=None, complex_file="0.8-complex"):
         self.table_opinwd = set(Static.opinwd.keys())
         self.mysql_db = mysql_db
         self.domain = domain
@@ -35,11 +35,11 @@ class RelationClassifier:
         self.complex_opinwd_train = self.get_complex_opinwd(
             os.path.join(self.complex_dir,
                          "candidate_clean",
-                         "0.8-complex.train"))
+                         "%s.train" % complex_file))
         self.complex_opinwd_test = self.get_complex_opinwd(
             os.path.join(self.complex_dir,
                          "candidate_clean",
-                         "0.8-complex.test"))
+                         "%s.test" % complex_file))
         self.lexcion = {
             "unigram": {
                 "word": {},
@@ -65,29 +65,38 @@ class RelationClassifier:
                 complex_opinwd.add(line.strip())
         return complex_opinwd
 
-    def handle_sentence(self, sentence, test):
+    def handle_sentence(self, sentence, test,
+                        complex_opinwd_train, complex_opinwd_test):
         if not test:
             sentence.generate_candidate_relation(
                 self.table_opinwd,
                 self.mysql_db,
-                #  complex_opinwd=self.complex_opinwd_train,
-                complex_opinwd=None,
+                complex_opinwd=complex_opinwd_train,
                 test=test)
         else:
             sentence.generate_candidate_relation(
                 self.table_opinwd,
                 self.mysql_db,
-                #  complex_opinwd=self.complex_opinwd_test,
-                complex_opinwd=None,
+                complex_opinwd=complex_opinwd_test,
                 test=test)
         sentence.generate_candidate_featvect_item(self.lexcion, test)
         sentence.generate_label(test)
 
-    def handle_sentences(self, sentences, test=False):
+    def handle_sentences(self, sentences, use_complex, test=False):
         print("handle sentences")
+        if use_complex:
+            print("USE COMPLEX WORD")
+            complex_opinwd_train = self.complex_opinwd_train
+            complex_opinwd_test = self.complex_opinwd_test
+        else:
+            print("WITHOUT USE COMPLEX WORD")
+            complex_opinwd_train = None
+            complex_opinwd_test= None
         i = 1
         for sentence in sentences:
-            self.handle_sentence(sentence, test)
+            self.handle_sentence(sentence, test,
+                                 complex_opinwd_train,
+                                 complex_opinwd_test)
             if i % 1000 == 0:
                 print("sentence index: %d" % i)
             i += 1
@@ -103,7 +112,7 @@ class RelationClassifier:
             print(sentence.print_phrase(sentence.candidate_relation[i][1]),
                   file=f)
             print(sentence.label[i], end="", file=g)
-            for e in featvect:
+            for e in sorted(set(featvect)):
                 print(" {}:1".format(e), end="", file=g)
             print("", file=g)
         print("\n", file=f)
@@ -117,10 +126,10 @@ class RelationClassifier:
         f.close()
         g.close()
 
-    def run_test(self, sentences):
+    def run_test(self, sentences, use_complex):
         remove(os.path.join(self.test_dir, "candidates"))
         remove(os.path.join(self.test_dir, "feature_vector"))
-        self.handle_sentences(sentences, test=True)
+        self.handle_sentences(sentences, use_complex, test=True)
         self.output_sentences_feature_vector(sentences, self.test_dir)
 
 def usage():

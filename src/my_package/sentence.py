@@ -130,9 +130,6 @@ class Sentence:
         idx_candidate_opinwd_set = self.generate_candidate_VP()
         idx_candidate_opinwd_set |= self.generate_candidate_ADJP()
         idx_candidate_opinwd_set |= self.generate_candidate_ADV()
-        #  for i in range(1, len(self.tokens) + 1):
-            #  if self.tokens[i].lower() in table_opinwd:
-                #  idx_candidate_opinwd_set.add(tuple([i]))
         return list(idx_candidate_opinwd_set)
 
     def generate_candidate_ADJP(self):
@@ -204,15 +201,32 @@ class Sentence:
             idx_candidate_relation.append((idx_profeat, idx_opinwd))
             self.candidate_dependency.append([dist, dep_str])
         # add relation
-        #  for e in self.relation.keys():
-            #  m = False
-            #  for i in range(len(idx_candidate_relation)):
-                #  if e == idx_candidate_relation[i]:
-                    #  m = True
-            #  if not m:
-                #  f, dist, dep_str = self.dependency_path(e[0], e[1])
-                #  idx_candidate_relation.append(e)
-                #  self.candidate_dependency.append([dist, dep_str])
+        if test:
+            idx_candidate_relation = []
+            self.candidate_dependency = []
+            #  #  idx_profeat_set = [e[0] for e in self.relation.keys()]
+            #  #  idx_opinwd_set = [e[1] for e in self.relation.keys()]
+            idx_profeat_set = self.aspect
+            idx_opinwd_set = self.subj
+            for e1 in set(idx_profeat_set):
+                for e2 in set(idx_opinwd_set):
+                    if set(e1) & set(e2):
+                        continue
+                    if self.restrict_middle_word(e1, e2):
+                        continue
+                    f, dist, dep_str = self.dependency_path(e1, e2)
+                    idx_candidate_relation.append((e1, e2))
+                    self.candidate_dependency.append([dist, dep_str])
+
+            #  for e in self.relation.keys():
+                #  m = False
+                #  for i in range(len(idx_candidate_relation)):
+                    #  if e == idx_candidate_relation[i]:
+                        #  m = True
+                #  if not m:
+                    #  f, dist, dep_str = self.dependency_path(e[0], e[1])
+                    #  idx_candidate_relation.append(e)
+                    #  self.candidate_dependency.append([dist, dep_str])
         return idx_candidate_relation
 
     def dependency_path(self, idx_profeat, idx_opinwd):
@@ -849,17 +863,17 @@ class Sentence:
             base += len(lexcion["unigram"]["dep"])
 
             # 依赖路径上词的个数
-            for e in f[24]:
+            for e in sorted(set(f[24])):
                 feat_vector.append(base + e)
             base += self.dep_count
 
             # 两词之间是否有be
-            for e in f[25]:
+            for e in sorted(set(f[25])):
                 feat_vector.append(base + e)
             base += 2
 
             # 特征词和情感词中间是否有this it ... [PRP, EX]
-            for e in f[35]:
+            for e in sorted(set(f[35])):
                 feat_vector.append(base + e)
             base += 2
 
@@ -869,7 +883,7 @@ class Sentence:
             base += len(lexcion["unigram"]["joint_pos_tag"])
 
             # 特征词和情感词的相对顺序
-            for e in f[0]:
+            for e in sorted(set(f[0])):
                 feat_vector.append(base + e)
             base += 2
 
