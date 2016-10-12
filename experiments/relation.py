@@ -187,9 +187,11 @@ def combine_result(f1, f2, outfile):
         for v in t:
             print("R\t%s"%("\t".join(v)), file=out)
     out.close()
+
+
 def usage():
     '''print help information'''
-    print("pattern_extractor.py 用法:")
+    print("relation.py 用法:")
     print("-h, --help: 打印帮助信息")
     print("-d, --domain: 需要处理的领域名称")
 
@@ -208,7 +210,8 @@ if __name__ == "__main__":
         if op in ("-d", "--domain"):
             domain = value
     r = PatternExtractor(domain)
-    c = RelationClassifier(domain)
+    c = RelationClassifier(domain, complex_file="0.5-complex")
+    use_complex = False
     ### Train
     b = 1
     e = 2
@@ -242,7 +245,7 @@ if __name__ == "__main__":
         print("pickle index: %d loading" % i)
         sentences = load_pickle_file(spath)
         print("pickle index: %d loaded" % i)
-        c.handle_sentences(sentences)
+        c.handle_sentences(sentences, use_complex=use_complex)
         save_pickle_file(
             os.path.join(c.pickle_featvect,
                          "feature_vector_sentences_%d.pickle" % i),
@@ -264,36 +267,37 @@ if __name__ == "__main__":
     save_pickle_file(
         os.path.join(c.pickle_dir, "relation_classifier.pickle"), c)
 
-    #  ### Test
+    ### Test
     test_dir = os.path.join(r.domain_dir, "relation", "test")
     sentences = load_pickle_file(os.path.join(test_dir, "sentences.pickle"))
     ann_dir = os.path.join(test_dir, "ann")
     sent_ann = get_ann(ann_dir)
 
-    #  # pattern extractor test
+    # pattern extractor test
     print("\n########## pattern extractor for test ##########")
     r.handle_sentences(sentences)
     with open(os.path.join(test_dir, "relation.pattern"), "w", encoding="utf8") as f:
         write(sentences, f)
     handle_normalize(os.path.join(test_dir, 'relation.pattern'))
 
+    sentences = load_pickle_file(os.path.join(test_dir, "sentences.ann.pickle"))
     c = load_pickle_file(os.path.join(c.pickle_dir, "relation_classifier.pickle"))
-    c.run_test(sentences)
+    c.run_test(sentences, use_complex=use_complex)
 
     # classifier test
     print("\n########## classifier for test ##########")
     scores = train_and_test(c.domain_dir, sentences)
-    save_pickle_file(os.path.join(c.domain_dir, "relation", "without.sents.pickle"), sentences)
-    np.save(os.path.join(c.domain_dir, "relation", "without.scores.npy"), scores[:, 1])
+    #  save_pickle_file(os.path.join(c.domain_dir, "relation", "without.sents.pickle"), sentences)
+    #  np.save(os.path.join(c.domain_dir, "relation", "without.scores.npy"), scores[:, 1])
     handle_normalize(os.path.join(test_dir, 'relation.classifier'))
     combine_result(os.path.join(test_dir, 'relation.pattern.normalize'),
                    os.path.join(test_dir, 'relation.classifier.normalize'),
                    os.path.join(test_dir, 'relation.combine'))
     handle_normalize(os.path.join(test_dir, 'relation.combine'))
-    combine_result(os.path.join(test_dir, 'test.dump.normalize'),
-                   os.path.join(test_dir, 'relation.combine.normalize'),
-                   os.path.join(test_dir, 'relation.combine.combine'))
-    handle_normalize(os.path.join(test_dir, 'relation.combine.combine'))
+    #  combine_result(os.path.join(test_dir, 'test.dump.normalize'),
+                   #  os.path.join(test_dir, 'relation.combine.normalize'),
+                   #  os.path.join(test_dir, 'relation.combine.combine'))
+    #  handle_normalize(os.path.join(test_dir, 'relation.combine.combine'))
     print("\npattern result")
     calcu_PRF(os.path.join(test_dir, 'relation.pattern.normalize'), sent_ann)
     print("\nclassifier result")

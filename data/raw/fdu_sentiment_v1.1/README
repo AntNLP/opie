@@ -1,0 +1,22 @@
+1. Each sentence starts with 'S'
+  - sentences have been tokenized.
+
+2. Each annotation starts with 'A'
+  - annotation fields are separated by '|'
+  - the formant of annotations is 'type|start|end|string'
+    * types (T/O/R): 'T' target; 'O' opinion; 'R' relation
+    * start/end: [start, end) of sentence is the corresponding annotation
+      (word offset)
+    * string: the substring
+  - relation annotation (type='R')
+    * include both the opinion 'O' and target 'R' involved in that relation
+
+3. Example
+    The following example shows a relation (happier, i/p button).
+
+    S|im a more happier person after discovering the i/p button ! 
+    A|T|8|10|i/p button
+    A|O|3|4|happier
+    A|R|O|3|4|happier|T|8|10|i/p button
+
+

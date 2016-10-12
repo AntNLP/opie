@@ -50,7 +50,7 @@ def generate_train_datas(domain_dir,
     return X, y
 
 
-def generate_test_datas(test_dir, sentences, test=True, complex_opinwd=None):
+def generate_test_datas(test_dir, sentences, test, complex_opinwd=None):
     X, y = [], []
     for sentence in sentences:
         sentence.generate_candidate_relation(table_opinwd,
@@ -282,50 +282,61 @@ def handle_review(review_name, ann_name, sent_ann):
     g.close()
 
 
-def get_ann(ann_dir):
-    i = 1
-    review_name = os.path.join(ann_dir, "review_%d.txt" % i)
-    ann_name = os.path.join(ann_dir, "review_%d.ann" % i)
-    sent_ann = {}
-    while os.path.exists(review_name):
-        handle_review(review_name, ann_name, sent_ann)
-        i += 1
-        review_name = os.path.join(ann_dir, "review_%d.txt" % i)
-        ann_name = os.path.join(ann_dir, "review_%d.ann" % i)
-    return sent_ann
+#  def get_ann(ann_dir):
+    #  i = 1
+    #  review_name = os.path.join(ann_dir, "review_%d.txt" % i)
+    #  ann_name = os.path.join(ann_dir, "review_%d.ann" % i)
+    #  sent_ann = {}
+    #  while os.path.exists(review_name):
+        #  handle_review(review_name, ann_name, sent_ann)
+        #  i += 1
+        #  review_name = os.path.join(ann_dir, "review_%d.txt" % i)
+        #  ann_name = os.path.join(ann_dir, "review_%d.ann" % i)
+    #  return sent_ann
 
+def get_ann(sentences):
+    sent_ann = {}
+    for sentence in sentences:
+        if sentence.text not in sent_ann:
+            sent_ann[sentence.text] = set()
+        for key in sentence.relation.keys():
+            sent_ann[sentence.text].add(key)
+    return sent_ann
 
 def calcu_PRF(filename, sent_ann):
     TP_FP = 0
     TP = 0
+    TP_P = 0
     TP_TN = 0
     for e in parse(filename):
         text = e['S']
         TP_FP += len(e['R'])
         unique_set = set()
         if text in sent_ann:
-            tokens = text.split(' ')
             for rr in e['R']:
                 r = (tuple(eval(rr[2])), tuple(eval(rr[3])))
+                m = False
                 for ee in sent_ann[text]:
                     if have_overlap(r, ee):
                         unique_set.add(ee)
-            if len(unique_set) != len(sent_ann[text]):
-                pass
-                #  print(text)
-                #  for ee in sent_ann[text]:
-                    #  if ee not in unique_set:
-                        #  print("%s\t\t%s" %
-                              #  (" ".join([tokens[e-1] for e in ee[0]]),
-                               #  " ".join([tokens[e-1] for e in ee[1]])))
-                #  print()
+                        m = True
+                TP_P += int(m)
         TP += len(unique_set)
     for key, value in sent_ann.items():
         TP_TN += len(value)
-    P = TP / TP_FP
+    P = TP_P / TP_FP
     R = TP / TP_TN
-    F = 2 * P * R / (P + R)
-    print(TP, TP_FP, TP_TN)
+    if P + R == 0:
+        F = 0
+    else:
+        F = 2 * P * R / (P + R)
+    #  print("TP:", TP)
+    #  print("TP_P:", TP_P)
+    #  print("TP_FP:", TP_FP)
+    #  print("TP_TF:", TP_TN)
+    #  print("P:", P)
+    #  print("R:", R)
+    #  print("F:", F)
     return P, R, F
 
 def dump(filename, sentences, pred):
@@ -374,7 +385,7 @@ def batch_iter(data, batch_size, num_epochs, shuffle=True):
 
 def add_test_ann(test_dir):
     sentences = load_pickle_file(os.path.join(test_dir, "sentences.pickle"))
-    sent_ann = get_ann(os.path.join(test_dir, "ann"))
+    sent_ann = get_ann(sentences)
     f = open(os.path.join(test_dir, "test.ann"), "w", encoding="utf8")
     for sentence in sentences:
         sentence.relation = {}

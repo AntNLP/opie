@@ -1,0 +1,2328 @@
+S|excellent phone , excellent service . 
+A|R|O|0|1|excellent|T|1|2|phone
+A|T|1|2|phone
+A|O|0|1|excellent
+A|T|4|5|service
+A|O|3|4|excellent
+A|R|O|3|4|excellent|T|4|5|service
+
+S|i am a business user who heavily depend on mobile service . 
+
+S|there is much which has been said in other reviews about the features of this phone , it is a great phone , mine worked without any problems right out of the box . 
+A|T|21|22|phone
+A|O|20|21|great
+A|R|O|20|21|great|T|21|22|phone
+
+S|just double check with customer service to ensure the number provided by amazon is for the city / exchange you wanted . 
+
+S|after several years of torture in the hands of at&t customer service i am delighted to drop them , and look forward to august 2004 when i will convert our other 3 family-phones from at&t to t-mobile ! 
+A|R|O|4|5|torture|T|10|12|customer service
+A|T|10|12|customer service
+A|O|4|5|torture
+
+S|i have had the phone for 1 week , the signal quality has been great in the detroit area ( suburbs ) and in my recent road trip between detroit and northern kentucky ( cincinnati ) i experienced perfect signal and reception along i-75 , far superior to at &#38; t 's which does not work along several long stretches on that same route . 
+A|T|10|12|signal quality
+A|O|14|15|great
+A|R|O|14|15|great|T|10|12|signal quality
+A|R|O|46|47|superior|T|41|42|reception
+A|O|46|47|superior
+A|O|38|39|perfect
+A|T|41|42|reception
+A|O|38|39|perfect
+A|T|39|40|signal
+A|R|O|46|47|superior|T|39|40|signal
+A|O|46|47|superior
+A|R|O|38|39|perfect|T|39|40|signal
+A|R|O|38|39|perfect|T|41|42|reception
+
+S|i have owned motorola , panasonic and nokia phones over the last 8 years and generally prefer nokia , this phone combines many of the best nokia features , the only feature missing for me is the voice recognition . 
+A|O|25|26|best
+A|T|26|28|nokia features
+A|O|16|17|prefer
+A|T|17|18|nokia
+A|R|O|25|26|best|T|26|28|nokia features
+A|R|O|32|33|missing|T|37|39|voice recognition
+A|T|37|39|voice recognition
+A|O|32|33|missing
+A|R|O|16|17|prefer|T|17|18|nokia
+
+S|my favorite features , although there are many , are the speaker phone , the radio and the infrared . 
+A|O|1|2|favorite
+A|R|O|1|2|favorite|T|18|19|infrared
+A|R|O|1|2|favorite|T|15|16|radio
+A|T|18|19|infrared
+A|R|O|1|2|favorite|T|11|13|speaker phone
+A|T|15|16|radio
+A|O|1|2|favorite
+A|T|11|13|speaker phone
+A|O|1|2|favorite
+
+S|the speaker phone is very functional and i use it in the car , very audible even with freeway noise . 
+A|R|O|15|16|audible|T|1|3|speaker phone
+A|O|15|16|audible
+A|R|O|5|6|functional|T|1|3|speaker phone
+A|T|1|3|speaker phone
+A|O|5|6|functional
+
+S|the infrared is a blessing if you have a previous nokia and want to transfer your old phone book to this phone , saved me hours of re-entering my numbers . 
+A|R|O|4|5|blessing|T|1|2|infrared
+A|T|1|2|infrared
+A|O|4|5|blessing
+
+S|the combination of the nokia 6610 and t-mobile service ( signal , price , service ) is a winner , i highly recommend it . 
+A|O|22|23|recommend
+A|O|18|19|winner
+A|R|O|22|23|recommend|T|4|9|nokia 6610 and t-mobile service
+A|T|4|9|nokia 6610 and t-mobile service
+A|R|O|18|19|winner|T|4|9|nokia 6610 and t-mobile service
+
+S|good phone , so-so service . 
+A|R|O|0|1|good|T|1|2|phone
+A|O|0|1|good
+A|T|1|2|phone
+A|R|O|3|4|so-so|T|4|5|service
+A|O|3|4|so-so
+A|T|4|5|service
+
+S|the day finally arrived when i was sure i 'd leave sprint . 
+
+S|after years with that carrier 's expensive plans and horrible customer service , portability seemed heaven-sent . 
+A|R|O|9|10|horrible|T|10|12|customer service
+A|R|O|15|16|heaven-sent|T|13|14|portability
+A|R|O|6|7|expensive|T|7|8|plans
+A|T|7|8|plans
+A|O|6|7|expensive
+A|T|13|14|portability
+A|O|15|16|heaven-sent
+A|T|10|12|customer service
+A|O|9|10|horrible
+
+S|i 'd always eyed the nokia phones and had heard decent things about t-mobile , so i gave it a whirl . 
+A|R|O|20|21|whirl|T|5|7|nokia phones
+A|T|5|7|nokia phones
+A|O|20|21|whirl
+
+S|here 's the brief synopsis : the phone is tiny , cute , feels kind of " plastic-like " ( as if it might break ) , but seems pretty sturdy . 
+A|R|O|30|31|sturdy|T|7|8|phone
+A|R|O|17|18|plastic-like|T|13|14|feels
+A|O|30|31|sturdy
+A|O|17|18|plastic-like
+A|T|13|14|feels
+A|O|11|12|cute
+A|T|7|8|phone
+A|O|9|10|tiny
+A|R|O|11|12|cute|T|7|8|phone
+A|R|O|9|10|tiny|T|7|8|phone
+
+S|it has lots of little cute features , my favorite being the games and the pim ( personal information manager -- i.e. organizer ) , and the radio ! 
+A|O|9|10|favorite
+A|O|9|10|favorite
+A|R|O|2|3|lots|T|6|7|features
+A|R|O|4|5|little|T|6|7|features
+A|R|O|9|10|favorite|T|15|16|pim
+A|R|O|9|10|favorite|T|27|28|radio
+A|O|2|3|lots
+A|O|4|5|little
+A|O|5|6|cute
+A|T|6|7|features
+A|T|27|28|radio
+A|O|9|10|favorite
+A|T|15|16|pim
+A|T|12|13|games
+A|R|O|5|6|cute|T|6|7|features
+A|R|O|9|10|favorite|T|12|13|games
+
+S|i spent hours setting up the stations ( accepts about 13-14 , i believe ) , though the reception is unpredictable . 
+A|R|O|20|21|unpredictable|T|18|19|reception
+A|T|18|19|reception
+A|O|20|21|unpredictable
+
+S|also , you need to have the headset plugged in all the time to have the radio work and that can get tedious . 
+
+S|the headset that comes with the phone has good sound volume but it hurts the ears like you cannot imagine ! 
+A|R|O|13|14|hurts|T|1|2|headset
+A|R|O|8|9|good|T|9|11|sound volum
+A|T|9|11|sound volum
+A|O|8|9|good
+A|T|1|2|headset
+A|O|13|14|hurts
+
+S|the phone comes with okay ringtones , some decent backgrounds / screensavers , but the phone has very little memory ( mine had 230kb as it arrived from amazon , so you do n't have too many options on what you can put on there ) . 
+A|R|O|8|9|decent|T|11|12|screensavers
+A|R|O|4|5|okay|T|5|6|ringtones
+A|R|O|18|19|little|T|19|20|memory
+A|R|O|8|9|decent|T|9|10|backgrounds
+A|O|4|5|okay
+A|T|5|6|ringtones
+A|O|8|9|decent
+A|T|9|10|backgrounds
+A|O|8|9|decent
+A|T|11|12|screensavers
+A|O|18|19|little
+A|T|19|20|memory
+
+S|the colors on the screen are not as crisp as i 'd have liked them to be . 
+A|O|8|9|crisp
+A|T|1|2|colors
+A|R|O|8|9|crisp|T|1|2|colors
+
+S|however , it serves its purpose . 
+
+S|the backlight on the phone goes off way too quickly ( dangerous when you 're driving at night ) , and there 's no way to change this -- 
+A|T|1|2|backlight
+A|O|9|10|quickly
+A|R|O|9|10|quickly|T|1|2|backlight
+
+S|i checked with nokia . 
+
+S|the buttons on the phone are small , even for my small fingertips , but you get used to them rather quickly . 
+A|R|O|6|7|small|T|1|2|buttons
+A|T|1|2|buttons
+A|O|6|7|small
+
+S|the menu options are uncreative , as you can 't see a full screen of menu items to pick from ; you have to scroll up and down to find what you 're looking for ( yes , this is minor , but not when you 're trying to keep your eye on the road ! ) . 
+A|T|1|3|menu options
+A|O|4|5|uncreative
+A|R|O|4|5|uncreative|T|1|3|menu options
+
+S|more downside to this phone ? 
+
+S|the volume . 
+
+S|oh my goodness -- 
+
+S|i have excellent hearing but the volume level on this phone is especially quiet . 
+A|T|6|8|volume level
+A|O|13|14|quiet
+A|R|O|13|14|quiet|T|6|8|volume level
+
+S|forget talking on it in public -- you just can 't hear the other person ! 
+
+S|on the up-side , the phone has amazing battery life . 
+A|R|O|7|8|amazing|T|8|10|battery life
+A|O|7|8|amazing
+A|T|8|10|battery life
+
+S|i do like this phone overall ( would give it a 3.5 ) , but unforutnately , i am returning it . 
+A|O|2|3|like
+A|T|4|5|phone
+A|R|O|2|3|like|T|4|5|phone
+
+S|i was surprised by t-mobile 's service . 
+A|O|2|3|surprised
+A|T|4|7|t-mobile 's service
+A|R|O|2|3|surprised|T|4|7|t-mobile 's service
+
+S|i assumed they had exceptional service , but their reception in my area ( los angeles ) is horrendous . 
+A|O|18|19|horrendous
+A|T|9|10|reception
+A|R|O|18|19|horrendous|T|9|10|reception
+
+S|reason ? 
+
+S|they piggy-back on cingular 's service . 
+A|O|1|2|piggy-back
+A|R|O|1|2|piggy-back|T|3|6|cingular 's service
+A|T|3|6|cingular 's service
+
+S|also , their t-zones , although cheap ( $ 4.99 / mo. ) never works . 
+A|O|6|7|cheap
+A|O|13|14|never
+A|R|O|6|7|cheap|T|3|4|t-zones
+A|R|O|13|14|never|T|14|15|works
+A|T|14|15|works
+A|T|3|4|t-zones
+
+S|since i received the phone , i spent countless hours on the phone with customer service reps who promised t-zones would work " in 24 hours " . 
+
+S|i must have heard this about a dozen times over the span of 2 weeks , when t-zones never worked . 
+
+S|24 hours ? 
+
+S|by what time standards -- martian ? 
+
+S|apparently , t-mobile is heavily back-logged and can 't keep up with demands . 
+A|R|O|5|6|back-logged|T|2|3|t-mobile
+A|O|5|6|back-logged
+A|T|2|3|t-mobile
+
+S|also , they 'd forgotten to add " wap " capability to my service ( duh ) , so that took another 4-5 days of figuring out . 
+
+S|in all fairness , customer reps are very nice , and they ( most of them ) try hard to answer your questions . 
+A|R|O|8|9|nice|T|4|6|customer reps
+A|O|8|9|nice
+A|T|4|6|customer reps
+
+S|but they do have this annoying habit of asking you if they 've answered all your questions , even if they did n't , to which they always seem to expect a " yes " answer from you . 
+
+S|i realize this is for quality assurance purposes , but i should have the right to say when my questions have not been answered ( i.e. me : 
+
+S|" when will my t-zones work ? " , csr : 
+
+S|" i 'm not sure " . ) . 
+
+S|umm , well , thanks for nothing . 
+
+S|this one csr insisted on trying to get me to say that he 'd answered all my questions ( same interaction as i just described ) , and well .. . 
+
+S|that was annoying . 
+
+S|t-mobile is trying very hard , and again -- they do have pretty good csr 's . 
+A|O|13|14|good
+A|T|14|16|csr 's
+A|R|O|13|14|good|T|14|16|csr 's
+
+S|however , the calls constantly drop in my area and i experince mega-static , to the point where i 'd have to dial numbers 6-7 times to get a clear line . 
+
+S|and no t-zones . 
+
+S|so what 's the point ? 
+
+S|i 'm staying with sprint , and though i fear that their csr is n't nearly as good as t-mobile 's , the clarity of their reception is exceptional . 
+A|T|23|24|clarity
+A|O|28|29|exceptional
+A|R|O|28|29|exceptional|T|23|24|clarity
+
+S|i 've bought the very expensive sanyo 5500/vm4500 -- which i love -- and i 'm okay with my services . 
+
+S|guess all that glitters is not gold . 
+
+S|it was worth a shot -- too bad it did n't work out . 
+
+S|hope someone else has better luck ! 
+
+S|the phone refused to die . 
+
+S|i bought one of these phones in kuwait to use with the mtc prepaid telephone service ez because i would be able to use it when i return to the states with t-mobile . 
+
+S|recently i accidently washed my telephone with my laundry through two complete 18 minute wash cycles of a washing machine . 
+
+S|disgusted with myself after i found the phone in the bottom of the washing machine , i was about to throw it away when one of my fellow soldiers asked if he could dry it out for me in an effort to revive the phone . 
+
+S|two days later the phone was returned to me in complete working order . 
+
+S|while i like the performance of the phone in every regard , i would buy another one solely upon the apparent indestructibility of it . 
+A|T|4|5|performance
+A|O|2|3|like
+A|R|O|2|3|like|T|4|5|performance
+
+S|i highly recommend a nokia 6610 . 
+A|R|O|2|3|recommend|T|4|6|nokia 6610
+A|T|4|6|nokia 6610
+A|O|2|3|recommend
+
+S|best phone for free . 
+A|T|1|2|phone
+A|O|0|1|best
+A|R|O|0|1|best|T|1|2|phone
+
+S|i 've had an assortment of cell phones over the years ( motorola , sony ericsson , nokia etc. ) and in my opinion , nokia has the best menus and promps hands down . 
+A|T|29|30|menus
+A|R|O|28|29|best|T|29|30|menus
+A|O|28|29|best
+
+S|no other color phone has the combination of features that the 6610 offers . 
+A|T|8|9|features
+
+S|from the speakerphone that can be used up to 15 feet away with clarity , to the downloadable poly-graphic megatones that adds a personal touch to this nifty phone . 
+
+S|whether you 're taking a brisk jog , waiting for a bus or just having lunch at the park , you 'll be glad you had the fm radio . 
+
+S|wish it were a flip phone , but thats not a deal breaker ! 
+
+S|glad to own . 
+
+S|i have had this phone for about 5 months . 
+
+S|i treat the battery well and it has lasted . 
+
+S|at my heaviest usage , i must recharge after 3 days . 
+
+S|it lasts about 5 days otherwise and has lasted up to 10 when i was making very few calls . 
+
+S|signal strength will affect the battery life . 
+
+S|frequent signal searches eat up battery power . 
+
+S|i took great care of the screen , till i realized that the part that might get scratched is part of the cover . 
+
+S|i can replace that if the scratch is unbearable to look at . 
+
+S|the volume level of the phone is not all that good . 
+A|O|10|11|good
+A|T|1|3|volume level
+A|R|O|10|11|good|T|1|3|volume level
+
+S|some of the higher pitched rings are very easy to hear , but not easy to listen to . 
+A|R|O|14|15|easy|T|16|17|listen
+A|R|O|8|9|easy|T|10|11|hear
+A|T|3|6|higher pitched rings
+A|O|14|15|easy
+A|T|16|17|listen
+A|O|8|9|easy
+A|T|10|11|hear
+
+S|the more subtle tones that were included with the phone are hard to hear at times . 
+
+S|the vibration is not top . 
+
+S|it is a teeny phone , so it is hard to put a big mechanism in . 
+A|O|3|4|teeny
+A|T|4|5|phone
+A|R|O|3|4|teeny|T|4|5|phone
+
+S|i do n't use the vibration , because it is often easier to hear it vibrate then to feel it . 
+
+S|vibration was not even listed as a feature when i purchased this . 
+
+S|so it was no loss . 
+
+S|overall this has been my favorite phone that i have owned . 
+A|R|O|5|6|favorite|T|6|7|phone
+A|T|6|7|phone
+A|O|5|6|favorite
+
+S|great battery life , perfect size , but a tid bit quieter than i would like . 
+A|T|1|3|battery life
+A|O|0|1|great
+A|T|5|6|size
+A|O|4|5|perfect
+A|R|O|11|12|quieter|T|9|10|tid
+A|R|O|0|1|great|T|1|3|battery life
+A|T|9|10|tid
+A|O|11|12|quieter
+A|R|O|4|5|perfect|T|5|6|size
+
+S|i do hope that they offer more faceplate options . 
+
+S|i am bored with the silver look . 
+A|R|O|2|3|bored|T|5|7|silver look
+A|O|2|3|bored
+A|T|5|7|silver look
+
+S|cool . 
+
+S|it has a nice color screen . 
+A|R|O|3|4|nice|T|4|6|color screen
+A|O|3|4|nice
+A|T|4|6|color screen
+
+S|it is small . 
+
+S|radio is awsome , but it does n't work unless you have the earpice in . 
+A|O|2|3|awsome
+A|T|0|1|radio
+A|R|O|2|3|awsome|T|0|1|radio
+
+S|that is a major minus , but its not that bad . 
+
+S|t-mobile was a pretty good server . 
+A|O|4|5|good
+A|T|0|1|t-mobile
+A|R|O|4|5|good|T|0|1|t-mobile
+
+S|it has 2 games . 
+
+S|they are not wowable good . 
+
+S|you have to buy better ones . 
+
+S|it also does n't have voice activated dialing . big minus ! ! 
+
+S|**[t]great phone , but no warranty ! 
+A|R|O|1|1|great|T|1|2|phone
+A|O|1|1|great
+A|R|O|4|5|no|T|5|6|warranty
+A|O|4|5|no
+A|T|5|6|warranty
+A|T|1|2|phone
+
+S|this is a very nice phone , but there is no warranty on it . 
+A|R|O|10|11|no|T|11|12|warranty
+A|T|11|12|warranty
+A|O|10|11|no
+A|T|5|6|phone
+A|O|4|5|nice
+A|R|O|4|5|nice|T|5|6|phone
+
+S|nokia will not cover phones bought from amazon . 
+
+S|we got two phones for the t-mobile family plan ( indeed very easy to switch to the family plan ) and one came with a broken headphone ( can hear but cannot be heard ) and one died today after less than two weeks of use . 
+
+S|i 'll see how much help i can get from amazon and report back . 
+
+S|menu flaws ? mine could n't send text messages . 
+
+S|i upgraded to a 6610 at my local t-mobile store . 
+
+S|when i got it home , i discovered that the menu options for sending messages via either text or email simply were n't there : 
+
+S|it defaulted to unchangeable email . 
+
+S|so i spent half an hour on the phone with tech support , only to have the online tech person pull one off the shelf and tell me he had the same problem . 
+
+S|i returned to the store , whereupon the clerk insisted that he could make it work ; he could n't . 
+
+S|he spent another half hour on the phone with tech support , to no avail . 
+
+S|so i had to give up and return it , having lost about 4 hours . 
+
+S|while i had the phone , the positive features were : good sound quality and an excellent fm phone and earpiece . 
+A|O|16|17|excellent
+A|T|20|21|earpiece
+A|T|17|19|fm phone
+A|O|16|17|excellent
+A|R|O|11|12|good|T|12|14|sound quality
+A|T|12|14|sound quality
+A|O|11|12|good
+A|R|O|16|17|excellent|T|20|21|earpiece
+A|R|O|16|17|excellent|T|17|19|fm phone
+
+S|negative : impossibly tiny and difficult to operate , barely visible , power button . 
+A|R|O|10|11|visible|T|12|14|power button
+A|O|10|11|visible
+A|T|12|14|power button
+A|R|O|5|6|difficult|T|7|8|operate
+A|O|5|6|difficult
+A|T|7|8|operate
+
+S|poor visibility on the keys . 
+A|R|O|0|1|poor|T|1|2|visibility
+A|O|0|1|poor
+A|T|1|2|visibility
+
+S|you have to tilt the phone around to catch the light on them . 
+
+S|great speakerphone and great reception ! ! reccomend ! 
+A|R|O|3|4|great|T|4|5|reception
+A|R|O|0|1|great|T|1|2|speakerphone
+A|O|0|1|great
+A|T|1|2|speakerphone
+A|O|3|4|great
+A|T|4|5|reception
+
+S|the title says it all ... 
+
+S|the two biggest things is the excellent working speakerphone " unlike the nokia 3650 " and the superb reception nokia is known for in the gsm phones they make ... 
+A|R|O|17|18|superb|T|18|19|reception
+A|R|O|6|7|excellent|T|7|9|working speakerphone
+A|T|7|9|working speakerphone
+A|O|6|7|excellent
+A|T|18|19|reception
+A|O|17|18|superb
+
+S|only con i can think of is no camera ... . 
+
+S|no big deal for the size . . 
+
+S|this phone is a winner ... 
+A|R|O|4|5|winner|T|1|2|phone
+A|T|1|2|phone
+A|O|4|5|winner
+
+S|perfect . 
+
+S|anything this phone does , it does perfectly . 
+
+S|the speakerphone , the radio , all features work perfectly . 
+A|T|4|5|radio
+A|R|O|9|10|perfectly|T|8|9|work
+A|T|1|2|speakerphone
+A|O|9|10|perfectly
+A|T|7|8|features
+A|T|8|9|work
+
+S|the speakerphone : 
+
+S|this phone has a very cool and useful feature -- the speakerphone . 
+A|T|11|12|speakerphone
+A|R|O|5|6|cool|T|11|12|speakerphone
+A|O|5|6|cool
+A|O|7|8|useful
+A|R|O|7|8|useful|T|11|12|speakerphone
+
+S|as said before this works perfectly . 
+A|R|O|5|6|perfectly|T|4|5|works
+A|O|5|6|perfectly
+A|T|4|5|works
+
+S|you can adjust the volume to be heard anywhere or so that it does n't make that big of a disturbance . 
+
+S|the person on the other end of the call can hear you perfectly . 
+
+S|you can be up to about 3 feet away from it and it will still work perfectly . 
+
+S|only one complaint about the speakerphone , you can only activate the speakerphone feature once the person you are calling answers the phone , not while it is ringing . 
+
+S|the radio : 
+
+S|this phone is one of the few phones that have an fm radio tuner built in . 
+
+S|this radio receives fairly decent reception but not nearly as good as a normal radio , but as long as the stations are coming in clearly the phone 's radio should work perfectly . 
+A|R|O|4|5|decent|T|5|6|reception
+A|R|O|10|11|good|T|5|6|reception
+A|T|31|32|work
+A|O|10|11|good
+A|R|O|32|33|perfectly|T|31|32|work
+A|O|32|33|perfectly
+A|O|4|5|decent
+A|T|5|6|reception
+
+S|tri-band : 
+
+S|one highly beneficial feature of this phone ( at least to me ) is that it can be used anywhere in the world except a few countries that do not use gsm , a few in asia . 
+
+S|i bought this phone for my trip to south africa and it worked almost perfectly . 
+A|O|14|15|perfectly
+A|T|12|13|worked
+A|R|O|14|15|perfectly|T|12|13|worked
+
+S|the only problem i had was a small glitch with t-mobile . 
+A|T|8|9|glitch
+A|R|O|2|3|problem|T|8|9|glitch
+A|O|2|3|problem
+
+S|anywhere i went in south africa this phone received full bar reception . 
+
+S|if it worked like that in south africa , i imagine it would just work without a hitch in europe . 
+
+S|sold in other parts of the world : 
+
+S|another benefit of this phone is that it is truly an international phone ; the 6610 is sold in almost everywhere in the world . 
+A|T|4|5|phone
+A|R|O|1|2|benefit|T|4|5|phone
+A|O|1|2|benefit
+
+S|this means that there is a good chance that this phone will not break easily like typical american phones . 
+
+S|or on the rare occasion it does you can bring it into any t-mobile store , which are located in many countries in europe . 
+
+S|i cannot stress enough how big of a benefit it is to have a european phone and a european company providing your cell phone service . 
+
+S|able to use service in another country : 
+
+S|if you decide to go to another country for an extended period of time , you can just buy a sim card from a service provider in that country . 
+
+S|you would then have a phone number in that country and not have to pay for international roaming in that country . 
+
+S|size and weight : 
+
+S|when you put this phone in your pocket you forget it is there ; it is unbelievably small and oh , so light . 
+
+S|this is a benefit for many reasons ; one being just for appearance , your pants wo n't be bulging with this phone in your pocket . 
+A|O|3|4|benefit
+A|R|O|3|4|benefit|T|12|13|appearance
+A|T|12|13|appearance
+
+S|battery life : 
+
+S|the battery life on this phone is surreal . 
+A|O|7|8|surreal
+A|T|1|3|battery life
+A|R|O|7|8|surreal|T|1|3|battery life
+
+S|it lasts , truly , 7 days on standby . 
+
+S|i 've used the speakerphone for almost two hours once and the battery did not even go down one single bar . 
+
+S|it is amazing that the battery lasts so long when the phone is so small and light . 
+A|R|O|2|3|amazing|T|5|6|battery
+A|R|O|14|15|small|T|11|12|phone
+A|R|O|16|17|light|T|11|12|phone
+A|O|2|3|amazing
+A|T|11|12|phone
+A|T|5|6|battery
+A|O|14|15|small
+A|O|16|17|light
+
+S|this phone has many other features , ir , ; just to name one , the features above i view as the most beneficial . 
+A|T|5|6|features
+A|O|3|4|many
+A|R|O|3|4|many|T|5|6|features
+
+S|the phone has a few minor inconveniences , but only because it lacks those features , bluetooth and high spend internet , but there are very few problems with things that you expected this phone to do . 
+A|R|O|6|7|inconveniences|T|18|21|high spend internet
+A|T|16|17|bluetooth
+A|O|6|7|inconveniences
+A|R|O|6|7|inconveniences|T|16|17|bluetooth
+A|O|6|7|inconveniences
+A|T|18|21|high spend internet
+
+S|overall , i highly recommend this phone . 
+A|O|4|5|recommend
+A|T|6|7|phone
+A|R|O|4|5|recommend|T|6|7|phone
+
+S|it is a perfect phone in such a small and appealing package . 
+A|R|O|3|4|perfect|T|4|5|phone
+A|R|O|8|9|small|T|11|12|package
+A|O|8|9|small
+A|R|O|10|11|appealing|T|11|12|package
+A|O|3|4|perfect
+A|T|4|5|phone
+A|O|10|11|appealing
+A|T|11|12|package
+
+S|so far i am more than pleased . 
+
+S|i love the pros and cons reviews so here ya go : 
+
+S|pros : 
+
+S|size - extremely small and convenient will fit in your pocket and not bother you . 
+A|T|0|1|size
+A|R|O|3|4|small|T|0|1|size
+A|O|3|4|small
+A|O|5|6|convenient
+A|R|O|5|6|convenient|T|0|1|size
+
+S|sound - excellent polyphonic ringing tones are very nice ( check cons ) it also doubles as a radio , which is a nice feature when you are bored . 
+A|O|8|9|nice
+A|R|O|8|9|nice|T|3|6|polyphonic ringing tones
+A|R|O|2|3|excellent|T|3|6|polyphonic ringing tones
+A|T|3|6|polyphonic ringing tones
+A|O|2|3|excellent
+
+S|speakerphone - loud and clear has some nice extra features like currency converter and a stopwatch . 
+A|T|0|1|speakerphone
+A|O|2|3|loud
+A|O|4|5|clear
+A|R|O|4|5|clear|T|0|1|speakerphone
+A|R|O|2|3|loud|T|0|1|speakerphone
+
+S|surfing the web on it is nice as well , i just wish there were more wap pages available . 
+A|R|O|6|7|nice|T|0|3|surfing the web
+A|T|0|3|surfing the web
+A|O|6|7|nice
+
+S|cons : 
+
+S|ring tones only come with crazy songs and annoying rings , there is only one ring that sounds close to a regular ring . 
+A|R|O|5|6|crazy|T|6|7|songs
+A|O|8|9|annoying
+A|T|9|10|rings
+A|O|5|6|crazy
+A|T|6|7|songs
+A|T|0|2|ring tones
+A|R|O|8|9|annoying|T|9|10|rings
+
+S|the screen is easily scratched but if you have the warranty you should be able to swap it out . 
+A|O|3|4|easily
+A|T|4|5|scratched
+A|T|1|2|screen
+A|R|O|3|4|easily|T|4|5|scratched
+
+S|games kind of stink and you cant download them you have to get the link cable to get additional games . 
+
+S|great buy . 
+
+S|nice little phone ... light compact . . 
+A|R|O|4|5|light|T|5|6|compact
+A|R|O|0|1|nice|T|2|3|phone
+A|T|5|6|compact
+A|O|4|5|light
+A|O|0|1|nice
+A|T|2|3|phone
+
+S|great features . . 
+A|T|1|2|features
+A|O|0|1|great
+A|R|O|0|1|great|T|1|2|features
+
+S|buttons do seem a little sticky tho .. and the hands free kits ' connector might be a problem .. 
+A|R|O|5|6|sticky|T|0|1|buttons
+A|T|10|15|hands free kits ' connector
+A|O|18|19|problem
+A|T|0|1|buttons
+A|O|5|6|sticky
+A|R|O|18|19|problem|T|10|15|hands free kits ' connector
+
+S|it works ... as a phone ! 
+
+S|perhaps there is a tone of irony in the title of my review , but i actually mean it in earnest . 
+
+S|after having had my heart broken by a sexy piece of hardware that simply would n't perform . 
+
+S|i replaced it with this not-quite-so-dazzling , but definitely more functional device . 
+
+S|although the nokia 6610 is a little short on the features department , it is an outstanding piece of hardware for doing what it was primarily meant to do : to be a wireless telephone . 
+
+S|the reception and sound quality are top-notch . 
+A|R|O|6|7|top-notch|T|3|5|sound quality
+A|R|O|6|7|top-notch|T|1|2|reception
+A|O|6|7|top-notch
+A|T|3|5|sound quality
+A|T|1|2|reception
+A|O|6|7|top-notch
+
+S|i can routinely talk on the phone in my house in the suburbs , which is an unaccustomed luxury , even with t-mobile service . 
+
+S|i like the size and weight of this little critter . 
+A|O|1|2|like
+A|T|5|6|weight
+A|R|O|1|2|like|T|5|6|weight
+A|O|1|2|like
+A|T|3|4|size
+A|R|O|1|2|like|T|3|4|size
+
+S|i am able to carry it close to my body , in places where other phones are not so easily concealed . 
+
+S|the keys are close together , and the layout is a bit funky in relation to standard rectangular layout keypads , but it 's not too weird . 
+A|R|O|3|4|close|T|1|2|keys
+A|O|26|27|weird
+A|R|O|26|27|weird|T|8|9|layout
+A|O|3|4|close
+A|T|1|2|keys
+A|R|O|12|13|funky|T|8|9|layout
+A|O|12|13|funky
+A|T|8|9|layout
+
+S|the fact that the " 0 " key is the space key for text input is a bit confusing , as many phones use the " # " key instead . 
+A|T|4|8|" 0 " key
+A|O|18|19|confusing
+A|R|O|18|19|confusing|T|4|8|" 0 " key
+
+S|but that 's not an insurmoutable obstacle . 
+
+S|the screen is bright , easy to see in the daylight , with nice colors . 
+A|O|13|14|nice
+A|R|O|3|4|bright|T|1|2|screen
+A|T|1|2|screen
+A|O|3|4|bright
+A|T|7|8|see
+A|O|5|6|easy
+A|T|14|15|colors
+A|R|O|13|14|nice|T|14|15|colors
+A|R|O|5|6|easy|T|7|8|see
+
+S|it receives very nice mms pictures from other gsm phones . 
+
+S|there are some features in the user interface that i find a little inconvenient . 
+A|T|6|8|user interface
+A|R|O|13|14|inconvenient|T|6|8|user interface
+A|O|13|14|inconvenient
+
+S|the menu options appear one at a time , taking up the whole screen , and one has to scroll down one by one , or have memorized where they are in the menu order , to select them by using the number keypad . 
+A|T|1|3|menu options
+
+S|thumbs down on that one . 
+
+S|the vibrate setting is loud ! 
+A|O|4|5|loud
+A|T|1|3|vibrate setting
+A|R|O|4|5|loud|T|1|3|vibrate setting
+
+S|so loud , really , that it does n't work terribly well as a silent ringer option . 
+
+S|but , then again , the ringer can be so loud that i heard it ringing inside my office , when i was already out on the street .. . 
+
+S|which was a good thing , because i realized i had forgotten my phone ... 
+
+S|other things that i miss are voice-activated dialing and a standard 2.5 mm headset jack . 
+
+S|i 'd like a camera phone , but i 'd rather have a phone than a toy that takes pictures but makes no calls ... 
+A|O|2|3|like
+A|T|4|6|camera phone
+A|R|O|2|3|like|T|4|6|camera phone
+
+S|pros : 
+
+S|- light , compact design 
+A|O|1|2|light
+A|T|4|5|design
+A|R|O|1|2|light|T|4|5|design
+A|R|O|3|4|compact|T|4|5|design
+A|O|3|4|compact
+
+S|- solid , high-quality construction 
+A|R|O|3|4|high-quality|T|4|5|construction
+A|O|3|4|high-quality
+A|O|1|2|solid
+A|R|O|1|2|solid|T|4|5|construction
+A|T|4|5|construction
+
+S|- well-backlit keypad 
+A|T|2|3|keypad
+A|O|1|2|well-backlit
+A|R|O|1|2|well-backlit|T|2|3|keypad
+
+S|- outstanding signal reception 
+A|R|O|1|2|outstanding|T|2|4|signal reception
+A|T|2|4|signal reception
+A|O|1|2|outstanding
+
+S|- excellent sound quality 
+A|T|2|4|sound quality
+A|O|1|2|excellent
+A|R|O|1|2|excellent|T|2|4|sound quality
+
+S|- bright , visible screen 
+A|R|O|1|2|bright|T|4|5|screen
+A|T|4|5|screen
+A|O|1|2|bright
+A|R|O|3|4|visible|T|4|5|screen
+A|O|3|4|visible
+
+S|- speakerphone 
+A|T|1|2|speakerphone
+
+S|- very long-lasting battery life 
+A|O|2|3|long-lasting
+A|T|3|5|battery life
+A|R|O|2|3|long-lasting|T|3|5|battery life
+
+S|cons : 
+
+S|- some features in the user interface 
+A|T|5|7|user interface
+
+S|- no voice activated dialing ( what were they thinking 
+A|O|1|2|no
+A|T|2|5|voice activated dialing
+A|R|O|1|2|no|T|2|5|voice activated dialing
+
+S|- no option for caller-id pictures or individualized ringtones . 
+A|O|1|2|no
+A|T|2|3|option
+A|R|O|1|2|no|T|2|3|option
+
+S|- no propietary headset jack 
+A|R|O|1|2|no|T|2|5|propietary headset jack
+A|O|1|2|no
+A|T|2|5|propietary headset jack
+
+S|
+
+S|this bumpy is wicked groovy . 
+
+S|i thought it would be haggard but when i be gotted this junky i was mad happy and stuff . 
+
+S|this junky is super duper rad. it be my fav c-phone and stuff . 
+A|O|9|10|fav
+A|T|10|11|c-phone
+A|R|O|9|10|fav|T|10|11|c-phone
+
+S|so go and buy dis sucka beefo it all be gone an stuffff . 
+
+S|aight den bumpy ? 
+
+S|word ... peace in the east bruvah . 
+
+S|i love this phone . 
+A|T|3|4|phone
+A|R|O|1|2|love|T|3|4|phone
+A|O|1|2|love
+
+S|one of the best cell phones i have ever used to-date . 
+A|O|3|4|best
+A|T|4|6|cell phones
+A|R|O|3|4|best|T|4|6|cell phones
+
+S|i like the speakphone function a lot . 
+A|O|1|2|like
+A|T|3|5|speakphone function
+A|R|O|1|2|like|T|3|5|speakphone function
+
+S|it allows me to place the phone on the table while talking and working on my computer or other jobs . 
+
+S|i am very pleased with its quality and durability . 
+A|R|O|3|4|pleased|T|6|7|quality
+A|T|6|7|quality
+A|O|3|4|pleased
+A|T|8|9|durability
+A|O|3|4|pleased
+A|R|O|3|4|pleased|T|8|9|durability
+
+S|i like the automatic key lock function . 
+A|O|1|2|like
+A|R|O|1|2|like|T|3|7|automatic key lock function
+A|T|3|7|automatic key lock function
+
+S|the phone is very light weight . 
+A|T|1|2|phone
+A|O|4|5|light
+A|R|O|4|5|light|T|1|2|phone
+
+S|the screen is bright and ring tones are unlimited . 
+A|R|O|8|9|unlimited|T|5|7|ring tones
+A|R|O|3|4|bright|T|1|2|screen
+A|O|3|4|bright
+A|T|5|7|ring tones
+A|O|8|9|unlimited
+A|T|1|2|screen
+
+S|the fm radio is cool . 
+A|T|1|3|fm radio
+A|O|4|5|cool
+A|R|O|4|5|cool|T|1|3|fm radio
+
+S|most of our emplyees use this model phone . 
+
+S|best regards sadoun satellite sales 
+
+S|best of the best mobile phone . 
+A|T|4|6|mobile phone
+A|O|3|4|best
+A|R|O|3|4|best|T|4|6|mobile phone
+
+S|while going for a cellphone , i was fully determined to buy a nokia only as it is the best in cellphones . 
+A|R|O|19|20|best|T|13|14|nokia
+A|T|13|14|nokia
+A|O|19|20|best
+
+S|after much survey of all the present handsets and recommendations from friends , i bought this nokia 6610 . 
+
+S|and really this is the best phone one could have . 
+A|O|5|6|best
+A|T|6|7|phone
+A|R|O|5|6|best|T|6|7|phone
+
+S|it has all the features one would need in a cellphone . 
+
+S|it is lightweight , sleek and attractive . 
+
+S|this phone is very user-friendly , easy to manipulate &#38; very convenient to scroll in menu etc . 
+A|R|O|6|7|easy|T|8|9|manipulate
+A|T|1|2|phone
+A|R|O|11|12|convenient|T|13|14|scroll
+A|O|11|12|convenient
+A|O|6|7|easy
+A|T|13|14|scroll
+A|O|4|5|user-friendly
+A|T|8|9|manipulate
+A|R|O|4|5|user-friendly|T|1|2|phone
+
+S|the time taken in shifting from one menu option to other is in microseconds only . 
+A|R|O|13|14|microseconds|T|1|2|time
+A|O|13|14|microseconds
+A|T|1|2|time
+
+S|it has fm radio option and i can listen to music anytime . 
+A|T|2|5|fm radio option
+
+S|its speakerphone option allows us to do long talks conveniently , lying on bed &#38; phone lying by your pillowside . 
+A|R|O|3|4|allows|T|1|3|speakerphone option
+A|T|1|3|speakerphone option
+A|O|3|4|allows
+
+S|it comes equipped with lot of wallpapers and polyphonic sweet tunes . 
+A|R|O|8|9|polyphonic|T|10|11|tunes
+A|O|8|9|polyphonic
+A|R|O|9|10|sweet|T|10|11|tunes
+A|O|9|10|sweet
+A|T|10|11|tunes
+
+S|only if we could get one camera in it . . 
+
+S|it did have scored over all other competitors .... 
+
+S|i am enjoying my phone a lot .... 
+A|O|2|3|enjoying
+A|T|4|5|phone
+A|R|O|2|3|enjoying|T|4|5|phone
+
+S|cool phone ! 
+A|O|0|1|cool
+A|T|1|2|phone
+A|R|O|0|1|cool|T|1|2|phone
+
+S|like some other reviewers , i recieved this phone using t-mobiles upgrade program . 
+
+S|i had been comparing the 3650 , 3560 and the 3595 but could n't settle ... then along came the 6610 , which was perfect for me . 
+A|T|20|21|6610
+A|R|O|24|25|perfect|T|20|21|6610
+A|O|24|25|perfect
+
+S|pros : 
+
+S|small size . 
+A|O|0|1|small
+A|R|O|0|1|small|T|1|2|size
+A|T|1|2|size
+
+S|i love the fact i can carry it in my shirt or pants pocket and forget about it . 
+
+S|just make sure the keys are locked . 
+
+S|color screen is good . 
+A|T|0|2|color screen
+A|O|3|4|good
+A|R|O|3|4|good|T|0|2|color screen
+
+S|it has lots of features such as the calendar which works like my outlook calendar . 
+A|T|8|9|calendar
+
+S|the keys are laid out normal so there is no guessing . 
+A|T|1|2|keys
+
+S|navigating through the menus is super easy , especially if you have owned a previous model nokia phone . 
+A|T|0|1|navigating
+A|O|6|7|easy
+A|R|O|6|7|easy|T|0|1|navigating
+
+S|battery life is very good , i use it every day and i have to charge it every 5 or 6 days or so . 
+A|O|4|5|good
+A|R|O|4|5|good|T|0|2|battery life
+A|T|0|2|battery life
+
+S|cons : 
+
+S|not many . 
+
+S|the volume key can be hard to press , but i think this may be by design rather than a flaw , perhaps to keep you from pressing it accidentally when you are in a call . 
+A|T|1|3|volume key
+A|O|5|6|hard
+A|T|7|8|press
+A|R|O|5|6|hard|T|7|8|press
+
+S|pc cable is too expensive ... $ 50 for a usb cable ? 
+A|R|O|4|5|expensive|T|0|2|pc cable
+A|O|4|5|expensive
+A|T|0|2|pc cable
+
+S|please ! 
+
+S|is this how nokia subsidizes their free pc software ? 
+
+S|slightly better than average phone in its class . 
+A|O|1|2|better
+A|T|4|5|phone
+A|R|O|1|2|better|T|4|5|phone
+
+S|first of all i have been a big nokia fan and have been upgrading my cell phones about once a year ( right after the release contract is over ) . 
+
+S|my last phone was a samsung s105 which imo is superior and cheaper to this phone . 
+A|O|10|11|superior
+A|T|5|7|samsung s105
+A|R|O|10|11|superior|T|5|7|samsung s105
+A|R|O|12|13|cheaper|T|5|7|samsung s105
+A|O|12|13|cheaper
+
+S|below is how i evaulate this phone with other t-mobile phones which i have borrowed from parents / friends : 
+
+S|sound quality : 
+
+S|the most important thing for me is sound quality . 
+
+S|nokias have always had good sound quality and this is no exception . 
+A|T|5|7|sound quality
+A|R|O|4|5|good|T|5|7|sound quality
+A|O|4|5|good
+
+S|i think the sound quality of this phone is slightly better than my samsung phone , the motorolla t720 series , and the sony ericsson t610 series . 
+A|R|O|10|11|better|T|3|5|sound quality
+A|O|10|11|better
+A|T|3|5|sound quality
+
+S|the loud speaker function on the 6610 is great because you do n't need to put your phone right next to your ear to talk . 
+A|O|8|9|great
+A|R|O|8|9|great|T|1|4|loud speaker function
+A|T|1|4|loud speaker function
+
+S|overall design : 
+
+S|i like my phones to be small so i can fit it in my pockets . 
+
+S|of all these phones the motorolla and the sony ericsson phones are the smallest . 
+A|O|13|14|smallest
+A|T|8|11|sony ericsson phones
+A|R|O|13|14|smallest|T|8|11|sony ericsson phones
+
+S|the 6610 is the actually the longest but they are all very small . 
+A|T|1|2|6610
+A|R|O|6|7|longest|T|1|2|6610
+A|R|O|12|13|small|T|1|2|6610
+A|O|6|7|longest
+A|O|12|13|small
+
+S|as much as i like nokia phones the flip phones imo are much better because a ) you wont scratch your screens / keys b ) you dont need to lock your phone all the time to prevent accidently hitting the keys . 
+A|O|4|5|like
+A|T|5|7|nokia phones
+A|R|O|4|5|like|T|5|7|nokia phones
+
+S|ease of use : 
+A|O|0|1|ease
+A|T|2|3|use
+A|R|O|0|1|ease|T|2|3|use
+
+S|how easy is it for me to get to a certain menu ? 
+
+S|the samsung phones has a customize function so that you can assign certain functions to directional buttons ( like assign alarm clock to the left directional key ) . 
+
+S|that is a very nice feature . 
+A|R|O|4|5|nice|T|5|6|feature
+A|O|4|5|nice
+A|T|5|6|feature
+
+S|the 6610 is still easier to use than the other two phones ( t610 , t720i ) . 
+A|R|O|4|5|easier|T|6|7|use
+A|O|4|5|easier
+A|T|6|7|use
+
+S|the sony ericsson phone ( t610 ) has the most whistles and bells , but is also the hardest to use . 
+A|O|18|19|hardest
+A|O|9|10|most
+A|T|12|13|bells
+A|O|9|10|most
+A|T|10|11|whistles
+A|R|O|9|10|most|T|12|13|bells
+A|T|20|21|use
+A|T|1|7|sony ericsson phone ( t610 )
+A|R|O|18|19|hardest|T|20|21|use
+A|R|O|9|10|most|T|10|11|whistles
+
+S|battery : 
+
+S|the nokia , samsung and the sony phones can all last for 3 days provided you do n't talk too much . 
+
+S|the motorolla phone have a horrible battery which lasts about a day ( although i heard that the motorolla t722i has a much longer battery life ) . 
+
+S|features : 
+
+S|the t610 has the most functionality hands down . 
+
+S|personally i found the integrated digital camera of the t610 to be very nice . 
+A|T|4|7|integrated digital camera
+A|O|13|14|nice
+A|R|O|13|14|nice|T|4|7|integrated digital camera
+
+S|my girlfriend is paranoid when i am not around her and i just take a pic and send it to her on the spot so she can regain her sanity . 
+
+S|the t610 can also compose music , a feature which most wo n't use . 
+
+S|the 6610 has the radio function which is utterly useless . 
+A|O|9|10|useless
+A|R|O|9|10|useless|T|4|6|radio function
+A|T|4|6|radio function
+
+S|it also has a stock tracking app built in ( also useless ) and a somewhat useful application which converts all types of metrics ( currency , length , area , etc ) . 
+A|O|11|12|useless
+A|T|4|7|stock tracking app
+A|R|O|11|12|useless|T|4|7|stock tracking app
+
+S|the s105 ( samsung ) has a beautiful big display ( 65,000 colors ) , and i can 't say much about the motorolla . 
+A|T|8|10|big display
+A|O|7|8|beautiful
+A|R|O|7|8|beautiful|T|8|10|big display
+
+S|all these phones have color screens , polymorphic tones , and are internet ready . 
+
+S|in music tones department the 6610 has 20 chords ( thats number of different instruments which it can play ) i think , the samsung i think have 15 , i donno about the other phones but i feel the t610 has the best sounding ring tones . 
+
+S|regarding pc software support nokia suite does not work with some versions of xp as i tried to connect my phone via infrared port on my laptop . 
+
+S|i called nokia tech support and they blamed microsoft . 
+
+S|oh well .. 
+
+S|overall this is a slightly better than average phone . 
+
+S|both the samsung and the sony phones offer a lot more features than this 6610 . 
+
+S|personally i like the samsung phones better because i found myself liking the flip phones so much more . 
+A|O|2|3|like
+A|R|O|2|3|like|T|4|6|samsung phones
+A|T|4|6|samsung phones
+
+S|i think there is a good chance i will try to get a samsung flip camera phone next year . 
+
+S|if t-mobile does not offer such a phone most likely i will get the t610 . 
+
+S|they are all free if you get a new account anyway , but stick to t-mobile if you are going to use your phone overseas because t-mobile actually allows you to unlock your simm cards so that you can buy simm cards cheap from other nations and plug into your phone when you are doing some international travelling . 
+
+S|perfect phone . 
+A|T|1|2|phone
+A|O|0|1|perfect
+A|R|O|0|1|perfect|T|1|2|phone
+
+S|this is the best phone i have seen . 
+A|T|4|5|phone
+A|O|3|4|best
+A|R|O|3|4|best|T|4|5|phone
+
+S|i bought 2 . 
+
+S|i bought 2 of these phones 2 months ago for myself and my girlfriend . 
+
+S|we got a familyplan from t-mobile which saves us tons . 
+
+S|the phones are awesome . 
+A|O|3|4|awesome
+A|T|1|2|phones
+A|R|O|3|4|awesome|T|1|2|phones
+
+S|we hardly ever have to charge them , get great reception ( live in chicago ) , and the customization and applications are awesome . 
+A|T|21|22|applications
+A|O|23|24|awesome
+A|T|19|20|customization
+A|O|9|10|great
+A|T|10|11|reception
+A|O|23|24|awesome
+A|R|O|9|10|great|T|10|11|reception
+A|R|O|23|24|awesome|T|19|20|customization
+A|R|O|23|24|awesome|T|21|22|applications
+
+S|here 's a hint : go to nokia.com and get their pc suite and a connection cable if you dont have irda or bluetooth . 
+
+S|you can do * so * much more with the pc suite , i.e. free ringtones from midi files , free graphics from any picture on your computer , and if you know how to program jme you can even make your own apps / games . 
+
+S|the phone 's sound quality is great ( turn up the volume if its too quiet , people , this thing will get loud ) i dont have any complaints about this phone and the only thing that i miss from my 8290 is voice dialing . 
+A|R|O|6|7|great|T|3|5|sound quality
+A|O|6|7|great
+A|T|3|5|sound quality
+
+S|nokia 6610 great for games and ringtones . 
+A|O|2|3|great
+A|T|4|5|games
+A|T|6|7|ringtones
+A|R|O|2|3|great|T|4|5|games
+A|R|O|2|3|great|T|6|7|ringtones
+A|O|2|3|great
+
+S|i bought this slick phone and i am very happy with it . 
+A|T|4|5|phone
+A|R|O|9|10|happy|T|4|5|phone
+A|O|9|10|happy
+
+S|nice and small and excellent when it comes to downloading games , graphics and ringtones from www.crazycellphone.com 
+A|O|0|1|nice
+A|R|O|0|1|nice|T|12|13|graphics
+A|T|12|13|graphics
+A|O|4|5|excellent
+A|O|2|3|small
+A|O|0|1|nice
+A|T|9|11|downloading games
+A|T|14|15|ringtones
+A|O|4|5|excellent
+A|R|O|4|5|excellent|T|9|11|downloading games
+A|O|4|5|excellent
+A|O|2|3|small
+A|O|0|1|nice
+A|R|O|2|3|small|T|14|15|ringtones
+A|R|O|0|1|nice|T|14|15|ringtones
+A|O|2|3|small
+A|R|O|0|1|nice|T|9|11|downloading games
+A|R|O|4|5|excellent|T|12|13|graphics
+A|R|O|4|5|excellent|T|14|15|ringtones
+A|R|O|2|3|small|T|12|13|graphics
+A|R|O|2|3|small|T|9|11|downloading games
+
+S|nokia 6610 . 
+
+S|i just purchased this phone and i think this is the coolest phone i ever had . 
+A|O|11|12|coolest
+A|T|12|13|phone
+A|R|O|11|12|coolest|T|12|13|phone
+
+S|the features are really cool like the radio . 
+A|T|1|2|features
+A|O|4|5|cool
+A|R|O|4|5|cool|T|1|2|features
+
+S|the first night i got this phone i put it next to me when i went to bed just to listen to my favorite music station and the handset itself doesnt weight anything its too light and feel so comfy with it . 
+A|R|O|39|40|comfy|T|37|38|feel
+A|T|37|38|feel
+A|O|39|40|comfy
+
+S|technology wise , i think this is awesome plus the speaker makes it even great ! ! ! ! i love this phone ! ! ! 
+A|R|O|20|21|love|T|22|23|phone
+A|O|20|21|love
+A|T|10|11|speaker
+A|O|7|8|awesome
+A|T|0|1|technology
+A|R|O|8|9|plus|T|10|11|speaker
+A|R|O|1|2|wise|T|0|1|technology
+A|O|8|9|plus
+A|R|O|7|8|awesome|T|10|11|speaker
+A|T|22|23|phone
+A|O|1|2|wise
+
+S|why i do n't can this product without a plan ? 
+
+S|i 'm live in brazil and i need very to buy this product without a plan to use in here in other operators . 
+
+S|i 'm pay in auto-debit in my account . 
+
+S|please , if anyone want sell to me this cell phone in my conditions , i 'm wait very happy . 
+
+S|thanks ! 
+
+S|excellent , but only gsm ? 
+
+S|i thought this was the ultimate phone when it comes to basic features , but i was dissapointed when i saw that it was only a gsm comaptible phone . 
+A|R|O|17|18|dissapointed|T|28|29|phone
+A|O|17|18|dissapointed
+A|T|28|29|phone
+
+S|as i travel quite a lot , i 'd want something with gsm as well as cdma tri-band . 
+
+S|for a specific location , i still think its a great phone . 
+A|O|10|11|great
+A|T|11|12|phone
+A|R|O|10|11|great|T|11|12|phone
+
+S|i really think . 
+
+S|i think that it is a were good mobile phone and i may buy it . 
+
+S|great phone , but what did you say ? 
+A|T|1|2|phone
+A|R|O|0|1|great|T|1|2|phone
+A|O|0|1|great
+
+S|this really is a great little phone ; its got nice features , a beatiful screen , great ergonomics , and its tiny ! 
+A|O|17|18|great
+A|T|22|23|tiny
+A|O|14|15|beatiful
+A|T|18|19|ergonomics
+A|O|10|11|nice
+A|T|15|16|screen
+A|O|4|5|great
+A|T|11|12|features
+A|R|O|17|18|great|T|18|19|ergonomics
+A|R|O|14|15|beatiful|T|15|16|screen
+A|R|O|10|11|nice|T|11|12|features
+A|T|6|7|phone
+A|R|O|4|5|great|T|6|7|phone
+
+S|i waited a few years between phones , mostly because ( like most i think ) i didnt really need one . 
+
+S|this phone won me over , and a big seller was the size ; it fits nicely into any pocket without falling out . 
+A|R|O|16|17|nicely|T|15|16|fits
+A|T|15|16|fits
+A|O|16|17|nicely
+
+S|the downside though , may be a big one for you . 
+
+S|its quiet . 
+
+S|really quiet . 
+
+S|grandma in church quiet . 
+
+S|i 've gotten used to it ( holding it in just the right realation to the ear , ducking into quieter places in bars ) but when others borrow it they 're shocked i can use it . 
+
+S|so , i recomend it , but not for those that have any hearing troubles , or for those that like to talk a lot in crowded public places ( which is annoying , by the way . ) 
+
+S|incredibly pleased . 
+
+S|i bought this phone when it first came out in the summer . 
+
+S|prior to my switch to t-mobile , sprint was my service provider . 
+
+S|to say the least , i was horribly dissatisified with my service with sprint , which was why t-mobile was so fantastically refreshing . 
+A|O|8|9|dissatisified
+A|T|11|12|service
+A|O|22|23|refreshing
+A|T|18|19|t-mobile
+A|R|O|22|23|refreshing|T|18|19|t-mobile
+A|R|O|8|9|dissatisified|T|11|12|service
+
+S|my past two phones were all flip phones , and i was beginning to tire of them . 
+
+S|nokia was my first nonflip phone , and i 'm glad i decided to go with them . 
+
+S|first of all , my calls were loud and clear , unlike with sprint . 
+A|O|7|8|loud
+A|T|5|6|calls
+A|R|O|9|10|clear|T|5|6|calls
+A|O|9|10|clear
+A|R|O|7|8|loud|T|5|6|calls
+
+S|i could make phone calls from locations i previously could not ( like my apartment ) . 
+
+S|the phone is small , light , and very attractive . 
+A|R|O|5|6|light|T|1|2|phone
+A|R|O|3|4|small|T|1|2|phone
+A|O|5|6|light
+A|T|1|2|phone
+A|O|3|4|small
+A|O|9|10|attractive
+A|R|O|9|10|attractive|T|1|2|phone
+
+S|the battery life is amazing . 
+A|T|1|3|battery life
+A|O|4|5|amazing
+A|R|O|4|5|amazing|T|1|3|battery life
+
+S|the color screen is a plus , as are the polyphonic ringtones . 
+A|R|O|5|6|plus|T|1|3|color screen
+A|O|5|6|plus
+A|T|10|12|polyphonic ringtones
+A|T|1|3|color screen
+A|O|5|6|plus
+A|R|O|5|6|plus|T|10|12|polyphonic ringtones
+
+S|i 'm not one who uses web browsing , so this phone easily met and surpassed my needs . 
+
+S|i highly recommend this phone to anyone . 
+A|R|O|2|3|recommend|T|4|5|phone
+A|T|4|5|phone
+A|O|2|3|recommend
+
+S|i 've yet to be dissappointed . 
+
+S|
+
+S|nokia 6610 ( sound quality ) the phone is great with very cool features &#38; options , but comparing to my older motorola phone , it gets a failing grade in speaker quality . 
+A|O|9|10|great
+A|T|7|8|phone
+A|R|O|9|10|great|T|7|8|phone
+A|T|13|14|features
+A|O|12|13|cool
+A|R|O|12|13|cool|T|13|14|features
+
+S|i do here a constant high-pitched distorted sound , not to mention the volume does not seem to be loud enough . 
+
+S|it 's going back today , &#38; being replaced with the new samsung x105 . 
+
+S|you do take your chances with this phone . 
+
+S|ultimate phone for mobile life . 
+A|O|0|1|ultimate
+A|T|1|2|phone
+A|R|O|0|1|ultimate|T|1|2|phone
+
+S|i considered this phone ( nokia 6610 ) , mainly because of my sister and the features . 
+
+S|it is a great phone , if you are traveling all over the world , packed with wonderful features . 
+A|R|O|3|4|great|T|4|5|phone
+A|O|3|4|great
+A|T|4|5|phone
+
+S|truly , i am quite impressed . . ! ! 
+
+S|this is a very light phone - a little less than 3 oz , with long battery life ( not as long as the new polymer technology ) . 
+A|O|15|16|long
+A|T|16|18|battery life
+A|R|O|15|16|long|T|16|18|battery life
+A|O|4|5|light
+A|T|5|6|phone
+A|R|O|4|5|light|T|5|6|phone
+
+S|on an average , you would charge it once a week . 
+
+S|the hands-free speakerphone is quite powerful ( like the motorola phone , i used to own ) . 
+A|R|O|5|6|powerful|T|1|3|hands-free speakerphone
+A|O|5|6|powerful
+A|T|1|3|hands-free speakerphone
+
+S|i simply love this feature . 
+A|R|O|2|3|love|T|4|5|feature
+A|O|2|3|love
+A|T|4|5|feature
+
+S|in addition it comes with a sleek and powerful headset . 
+A|O|6|7|sleek
+A|T|9|10|headset
+A|R|O|8|9|powerful|T|9|10|headset
+A|O|8|9|powerful
+A|R|O|6|7|sleek|T|9|10|headset
+
+S|the built in fm radio is excellent for people traveling by public transport . 
+A|T|3|5|fm radio
+A|R|O|6|7|excellent|T|3|5|fm radio
+A|O|6|7|excellent
+
+S|if you buy the stereo headset , you will enjoy it much more . 
+
+S|the pc sync feature is superb that comes with nokia pc suite software ( with data cable or infrared port or bluetooth ) . 
+A|T|1|4|pc sync feature
+A|R|O|5|6|superb|T|1|4|pc sync feature
+A|O|5|6|superb
+
+S|no more hazzles of keying in all data , using the small phone keypad . 
+
+S|just maintain them ( phonebook , calendar and to-do list ) in ms outlook or lotus notes and transfer data back and forth . 
+
+S|additionally , it has more fun stuff like more tones , wallpapers , screensaver , stop clock , alarm , java applications ( chess , currency converter etc. ) 
+
+S|the mobile text messaging , chat , picture sharing etc. other nicities , that you would enjoy . 
+
+S|the mms technology is very well integrated with this phone , which you will enjoy . 
+A|R|O|6|7|integrated|T|1|3|mms technology
+A|O|6|7|integrated
+A|T|1|3|mms technology
+
+S|the built-in camera they offer these days is more of kids stuff . 
+
+S|if you have a good digital camera , there is no reason to consider the camera capabilities of a mobile phone . 
+
+S|however , if you are keen , you can attach a camera to this phone . 
+
+S|i have not yet discovered the internet features yet , which i will be doing soon . 
+
+S|i felt that i should write this comment asap , as i am quite excited in using its features . 
+A|O|14|15|excited
+A|R|O|14|15|excited|T|18|19|features
+A|T|18|19|features
+
+S|i can recommend this phone to anyone , anytime . 
+A|O|2|3|recommend
+A|T|4|5|phone
+A|R|O|2|3|recommend|T|4|5|phone
+
+S|awesome phone choice . 
+A|T|1|3|phone choice
+A|R|O|0|1|awesome|T|1|3|phone choice
+A|O|0|1|awesome
+
+S|after using the bulky 3650 for three weeks , i searched for a smaller alternative . 
+
+S|i was immediately interested in the 6610 . 
+
+S|i have used this phone for two months now . 
+
+S|not only is it the perfect size ( not too small , not too large ) , it also has all the features a high-tech phone user would want . 
+A|O|5|6|perfect
+A|R|O|5|6|perfect|T|6|7|size
+A|T|22|23|features
+A|T|6|7|size
+
+S|if you can live without an integrated camera , you wo n't miss much more . 
+
+S|in true nokia style , the phone is simple to use and despite its delicate appearance , this little guy is as durable as other nokias i have owned . 
+A|R|O|22|23|durable|T|6|7|phone
+A|R|O|8|9|simple|T|10|11|use
+A|R|O|14|15|delicate|T|15|16|appearance
+A|O|22|23|durable
+A|T|6|7|phone
+A|O|14|15|delicate
+A|T|15|16|appearance
+A|O|8|9|simple
+A|T|10|11|use
+
+S|the phone book is very user-friendly and the speakerphone is excellent . 
+A|R|O|5|6|user-friendly|T|1|3|phone book
+A|T|1|3|phone book
+A|R|O|10|11|excellent|T|8|9|speakerphone
+A|O|5|6|user-friendly
+A|T|8|9|speakerphone
+A|O|10|11|excellent
+
+S|even better , with the optional headset you can listen to music over the integrated radio . 
+A|T|5|7|optional headset
+A|O|1|2|better
+A|R|O|1|2|better|T|5|7|optional headset
+
+S|if there are any drawbacks to this phone here they are . 
+
+S|although i find it more convenient to use 1-touch dialing , this phone does not have voice dialing . 
+
+S|the keypad is a decent size , but the power on/off key is small and difficult to press . 
+A|R|O|13|14|small|T|9|12|power on/off key
+A|O|15|16|difficult
+A|T|17|18|press
+A|T|9|12|power on/off key
+A|O|13|14|small
+A|R|O|15|16|difficult|T|17|18|press
+A|R|O|4|5|decent|T|5|6|size
+A|T|1|2|keypad
+A|T|5|6|size
+A|O|4|5|decent
+
+S|however , the battery life is good enough you should n't be overly concerned with turning this phone off . 
+A|O|6|7|good
+A|T|3|5|battery life
+A|R|O|6|7|good|T|3|5|battery life
+
+S|in my opinion the worst issue on this phone is the side-mounted volume control . 
+A|R|O|4|5|worst|T|11|14|side-mounted volume control
+A|O|4|5|worst
+A|T|11|14|side-mounted volume control
+
+S|it requires significant force to operate which can be scary on such a small phone . 
+
+S|one other issue is that the headphone jack is unique to nokia , so standard headphones will not work . 
+
+S|overall this is the best phone i have ever owned . 
+A|R|O|4|5|best|T|5|6|phone
+A|O|4|5|best
+A|T|5|6|phone
+
+S|any disadvantages are easily outweighed by its advantages . 
+
+S|nokia does not disappoint in this model . 
+A|O|3|4|disappoint
+A|T|0|1|nokia
+A|R|O|3|4|disappoint|T|0|1|nokia
+
+S|go for it ! 
+
+S|awesome phone , great prices on amazon.com . 
+A|T|4|5|prices
+A|O|3|4|great
+A|T|1|2|phone
+A|O|0|1|awesome
+A|R|O|3|4|great|T|4|5|prices
+A|R|O|0|1|awesome|T|1|2|phone
+
+S|i could n't be happier with t-mobile either , i switched from cingular . 
+A|R|O|4|5|happier|T|6|7|t-mobile
+A|T|6|7|t-mobile
+A|O|4|5|happier
+
+S|one complaint ... the screen is too easily scratched ! 
+A|O|7|8|easily
+A|R|O|7|8|easily|T|8|9|scratched
+A|T|4|5|screen
+A|T|8|9|scratched
+
+S|but there are faceplates to replace it i guess ... 
+
+S|almost there . 
+
+S|i got this phone in t-mobile 's current customer retention program for very little money and no contract renewal . 
+
+S|i was getting so sick of my old motorola l7089 , but was waiting for the right phone to come along . 
+
+S|this is almost it but not quite but the price was right . 
+A|O|11|12|right
+A|T|9|10|price
+A|R|O|11|12|right|T|9|10|price
+
+S|that said this phone does what it does extremely well - way better than anything motorola can produce . 
+
+S|it has great battery life , fm radio , excellent signal , hands free speakerphone ( which i have to say is probably my favorite function ) and downloadable java apps . 
+A|T|10|11|signal
+A|O|2|3|great
+A|T|3|5|battery life
+A|R|O|9|10|excellent|T|10|11|signal
+A|T|12|15|hands free speakerphone
+A|O|2|3|great
+A|T|6|8|fm radio
+A|O|9|10|excellent
+A|O|2|3|great
+A|T|28|31|downloadable java apps
+A|O|24|25|favorite
+A|R|O|24|25|favorite|T|12|15|hands free speakerphone
+A|R|O|2|3|great|T|6|8|fm radio
+A|R|O|2|3|great|T|28|31|downloadable java apps
+A|R|O|2|3|great|T|3|5|battery life
+
+S|what it lacks for me is n't available on one phone yet , namely gsm850 ( also sometimes known as gsm800 ) , bluetooth and edge . 
+A|R|O|7|8|available|T|25|26|edge
+A|O|7|8|available
+A|T|23|24|bluetooth
+A|O|7|8|available
+A|R|O|7|8|available|T|23|24|bluetooth
+A|T|25|26|edge
+
+S|so when the quad bands start appearing i will be upgrading again . 
+
+S|but for now this will do . 
+
+S|oh and before anyone comments yes i know motorola have announced a quad band edge bluetooth phone , but its not shipping at time of writing and the tri-band gsm850 phones lack the gsm900 band which is important if you like me globally roam . 
+
+S|great phone .. . 
+A|T|1|2|phone
+A|O|0|1|great
+A|R|O|0|1|great|T|1|2|phone
+
+S|great features .. . 
+A|R|O|0|1|great|T|1|2|features
+A|T|1|2|features
+A|O|0|1|great
+
+S|great plan . 
+A|R|O|0|1|great|T|1|2|plan
+A|T|1|2|plan
+A|O|0|1|great
+
+S|i purchased this phone after having been an at &#38; t subscriber with a nokia 8260 phone for over three years . 
+
+S|i did a ton of research and settled on this phone because of the small size , speakerphone option , great priced calling plan and access to my corporate email . 
+A|O|21|22|priced
+A|T|22|24|calling plan
+A|T|25|26|access
+A|T|15|16|size
+A|T|17|19|speakerphone option
+A|O|14|15|small
+A|R|O|14|15|small|T|15|16|size
+A|R|O|21|22|priced|T|22|24|calling plan
+
+S|i went to an at &#38; t store before i bought this phone to see if it was possible to get corporate email with any of their services and they looked at me like i had three heads . 
+
+S|they told me i would have to connect to my laptop , which had to be on and connected to my corporate network through the phone in order to access my corporate email . 
+
+S|with the t-mobile unlimited t-zones for $ 10 , i can check any number of email addresses and use unlimited internet . 
+
+S|i have had no problems with the phone . 
+
+S|friends of mine are always asking about it and wanting to use it . 
+
+S|i 've even had one friend buy one immediately after a test drive . 
+
+S|great phone , i 'd buy another . 
+A|T|1|2|phone
+A|R|O|0|1|great|T|1|2|phone
+A|O|0|1|great
+
+S|excellent phone . 
+A|T|1|2|phone
+A|R|O|0|1|excellent|T|1|2|phone
+A|O|0|1|excellent
+
+S|excellent phone , the phone looks much better than what u see in the pictures . 
+A|O|7|8|better
+A|O|0|1|excellent
+A|T|5|6|looks
+A|T|1|2|phone
+A|R|O|7|8|better|T|5|6|looks
+A|R|O|0|1|excellent|T|1|2|phone
+
+S|bluetooth functionality would have made the phone even better . 
+
+S|one more thing , the default ringtones that come with the phone are horrible . 
+A|T|5|7|default ringtones
+A|R|O|13|14|horrible|T|5|7|default ringtones
+A|O|13|14|horrible
+
+S|overall an excellent phone . 
+A|R|O|2|3|excellent|T|3|4|phone
+A|O|2|3|excellent
+A|T|3|4|phone
+
+S|the service from t-mobile is very good too . 
+A|R|O|6|7|good|T|1|2|service
+A|O|6|7|good
+A|T|1|2|service
+
+S|in all a winning combination . 
+
+S|worth every penny ! 
+A|O|0|1|worth
+A|R|O|0|1|worth|T|2|3|penny
+A|T|2|3|penny
+
+S|great phone , easy to use , excellent network , no regrets ! ! ! 
+A|R|O|0|1|great|T|1|2|phone
+A|R|O|10|11|no|T|11|12|regrets
+A|R|O|7|8|excellent|T|8|9|network
+A|R|O|3|4|easy|T|5|6|use
+A|O|3|4|easy
+A|T|8|9|network
+A|O|0|1|great
+A|T|5|6|use
+A|T|1|2|phone
+A|T|11|12|regrets
+A|O|7|8|excellent
+A|O|10|11|no
+
+S|yo what a find . 
+
+S|i purchased this phone for just 50 $ and there is no end to what i can do with it . 
+
+S|nokia and t-mobile really teamed up well on this baby . 
+
+S|it puts an end to organizational deficiencies as well as communications and internet , without a bulky phone like the treo or something , which i had to cell because i was so unhappy with it . 
+
+S|now my little 6610 is the most coveted item at school ! 
+A|O|7|8|coveted
+A|R|O|7|8|coveted|T|3|4|6610
+A|T|3|4|6610
+
+S|people have paid me money just to borrow it because its so elegant . 
+
+S|service is great as far as i can tell , features work like a charm , ringtones are high quality if you buy them from t-mobile and aim is great . 
+A|O|18|19|high
+A|O|14|15|charm
+A|R|O|2|3|great|T|0|1|service
+A|R|O|18|19|high|T|16|17|ringtones
+A|T|16|17|ringtones
+A|T|0|1|service
+A|T|10|11|features
+A|O|2|3|great
+A|R|O|14|15|charm|T|10|11|features
+
+S|now i can always be in contact . 
+
+S|this is probably your best bet if you are looking for a phone in this price range , or like me , do not have the patience to deal with annoying flip phones . 
+
+S|a great deal in general ! 
+
+S|i would not give up this phone for the world . 
+
+S|1 month , no problems , great phone i 'm very pleased with my 6610 phone . 
+A|T|14|16|6610 phone
+A|O|11|12|pleased
+A|R|O|11|12|pleased|T|14|16|6610 phone
+
+S|yes , the features are numerous . 
+A|T|3|4|features
+A|O|5|6|numerous
+A|R|O|5|6|numerous|T|3|4|features
+
+S|the speakerphone works better than any speakerphone i 've ever had . 
+A|O|3|4|better
+A|T|1|2|speakerphone
+A|R|O|3|4|better|T|1|2|speakerphone
+
+S|people i talk to on the speakerphone are shocked when it comes out at times that i 'm even using a speakerphone . 
+
+S|the sound quality is excellent , except , maybe a * tad * too quiet at times when there are quieter talkers on the other end of the line . 
+A|T|1|3|sound quality
+A|R|O|4|5|excellent|T|1|3|sound quality
+A|R|O|14|15|quiet|T|1|3|sound quality
+A|O|14|15|quiet
+A|O|4|5|excellent
+
+S|the included earpiece is very comfortable and easy to use . 
+A|R|O|7|8|easy|T|9|10|use
+A|R|O|5|6|comfortable|T|1|3|included earpiece
+A|O|7|8|easy
+A|T|9|10|use
+A|O|5|6|comfortable
+A|T|1|3|included earpiece
+
+S|i have not had any distortion problems with this phone and am more pleased with this phone than any i 've used before . 
+A|O|13|14|pleased
+A|T|16|17|phone
+A|R|O|13|14|pleased|T|16|17|phone
+
+S|nokia has definitely won me over with this one . 
+
+S|best phone out there ... a+ not only is this the best phone out there but is cheap ( free ! ! ) . 
+A|R|O|17|18|cheap|T|1|2|phone
+A|O|17|18|cheap
+A|R|O|0|1|best|T|1|2|phone
+A|O|0|1|best
+A|T|1|2|phone
+
+S|first let me say that it is much smaller than it looks on the web and it also looks better . 
+A|O|8|9|smaller
+A|O|19|20|better
+A|T|11|12|looks
+A|R|O|8|9|smaller|T|11|12|looks
+A|R|O|19|20|better|T|11|12|looks
+
+S|the radio feature has superb sound quality . 
+A|R|O|4|5|superb|T|5|7|sound quality
+A|O|4|5|superb
+A|T|5|7|sound quality
+
+S|i 've compared this phone to others such as 6100 , siemens sl55 . 
+
+S|even though they might be smaller many people seem to have alot of problems with them . 
+
+S|it has a classic design yet looks hip . 
+A|O|7|8|hip
+A|T|4|5|design
+A|O|3|4|classic
+A|T|6|7|looks
+A|R|O|3|4|classic|T|4|5|design
+A|R|O|7|8|hip|T|6|7|looks
+
+S|is a lot better compared to the toy phone design of the nokia 7210 with its cheap feel . 
+
+S|it is extremely light and dissapears in your pocket . 
+
+S|for those that are looking for camera phones just get the camera attachement and comes with the stereo headphones to listen to the radio in style . 
+
+S|the battery is alot better than most of the phones out there . 
+A|T|1|2|battery
+A|O|4|5|better
+A|R|O|4|5|better|T|1|2|battery
+
+S|one thing that i found out recently is that you do n't need t-zones from tmobile to go online . 
+
+S|every t-mobile plan comes with gsm data , meaning that instead of speeds of 56 kbps is around 9 kbps ( with those small size wap websites do you really think it makes a difference ) . 
+
+S|anyways there are ways to set up your 6610 to connect to csd which uses regular minutes and you are surfing the net , being able to download pics and ringtones ( not java apps , you need t-zones for that ) . 
+
+S|tmobiles might not have the best reception in some areas but with amazing phones such as nokia 6610 and cheap plans that you get way more minutes than any other plans . 
+A|T|16|18|nokia 6610
+A|R|O|12|13|amazing|T|16|18|nokia 6610
+A|T|20|21|plans
+A|O|12|13|amazing
+A|O|19|20|cheap
+A|R|O|19|20|cheap|T|20|21|plans
+
+S|if you thought about getting this phone buy it . 
+
+S|this phone is great as a whole and is not like others with one or two good qualities . 
+A|O|3|4|great
+A|R|O|3|4|great|T|1|2|phone
+A|T|1|2|phone
+
+S|6610 = great phone and a few extras i am a person that needs my phone ( s ) on demand . 
+A|T|0|1|6610
+A|R|O|2|3|great|T|0|1|6610
+A|O|2|3|great
+
+S|i currrently have service with t-mobile , verizon , and t-mobile . 
+
+S|the reason so many is that i am a contractor and all of my subs have these carriers and i can benifit from the mobile to mobile features that companies are now offering ! 
+
+S|that beside you are prob. very well aware of many of the features that this phone is known for , and one that has not yet been mentioned : using this phone as a modem for any computer with a usb 1.0 port ! 
+
+S|using the gprs option you can pay 19.99 extra a month and have unlimited internet access added to you account . 
+
+S|yes it is 56k speed , but the functionality is what you are paying for . 
+
+S|i myself find this great for when i am at a site i can run to my truck and hook up my modem cable ( 49.99 @ nokiausa.com or t-mobile.com ) press dial up on my laptop ( by the way it is a mac pb 1gz. and in a matter of seconds i can access my email , fax , and the entire web from my truck ! 
+
+S|the only problem that i have found with the internet service is that it does not access mls ( real estate broker software ) very well at all . 
+A|T|9|11|internet service
+A|O|2|3|problem
+A|R|O|2|3|problem|T|9|11|internet service
+
+S|i find a great amount of value in this option for any and all the people that travel buy car and do not have access to the t-mobile " hot-spots " . 
+
+S|it does well in all aspects of internet browsing . 
+A|O|2|3|well
+A|R|O|2|3|well|T|7|9|internet browsing
+A|T|7|9|internet browsing
+
+S|as i also leave you with this review i would like to thank you for reading it . 
+
+S|sound good but complicated . 
+
+S|do too many stuffs to get to a free phone after rebate . 
+
+S|also , if i want a family plan , which mean i need tw phones on a plan .. . 
+
+S|so how can i do that ... are n't that free for two after the rebates . 
+
+S|and how can i do that ... . 
+
+S|print those coupons twice for two phones ? 
+
+S|... 
+
+S|do n't have the phone just commenting . 
+
+S|i saw another review saying his only gripe was a lack of voice dialing . 
+
+S|the phone does have voice dialing according to amazon & t-mobile and nokia . 
+
+S|the phone may look large but it is very small smaller then the 3390 phone . 
+A|T|1|2|phone
+A|O|9|10|small
+A|R|O|9|10|small|T|1|2|phone
+
+S|my sister has this series of phone and she loves the radio and headset . 
+A|T|11|14|radio and headset
+A|O|9|10|loves
+A|R|O|9|10|loves|T|11|14|radio and headset
+
+S|i find the lack of entertaining games on this phone quite disturbing . 
+A|R|O|11|12|disturbing|T|5|7|entertaining games
+A|O|11|12|disturbing
+A|T|5|7|entertaining games
+
+S|i do n't really like bounce . 
+A|O|4|5|like
+A|T|5|6|bounce
+A|R|O|4|5|like|T|5|6|bounce
+
+S|i have always known nokia to provide me with good games on their phones . 
+
+S|battery life is good for a phone of this size . 
+A|T|0|2|battery life
+A|R|O|3|4|good|T|0|2|battery life
+A|O|3|4|good
+
+S|but anyway , the only thing you should really look at here is the fact that the phone does have voice dialing . 
+
+S|great screen and great sound . 
+A|R|O|0|1|great|T|1|2|screen
+A|O|3|4|great
+A|R|O|3|4|great|T|4|5|sound
+A|T|4|5|sound
+A|O|0|1|great
+A|T|1|2|screen
+
+S|ok , everybody loves the fm radio in this , but you want a cell phone first , right ? 
+A|R|O|3|4|loves|T|5|7|fm radio
+A|T|5|7|fm radio
+A|O|3|4|loves
+
+S|the 6610 excels as a cell phone , thank god . 
+A|R|O|2|3|excels|T|1|2|6610
+A|O|2|3|excels
+A|T|1|2|6610
+
+S|the voice quality is very good , and it gets great reception ( that is , in places where you get t-mobile coverage , which is not that good ; see below ) . 
+A|O|10|11|great
+A|O|5|6|good
+A|R|O|5|6|good|T|1|3|voice quality
+A|T|1|3|voice quality
+A|T|11|12|reception
+A|R|O|10|11|great|T|11|12|reception
+
+S|the color screen makes this free-after-rebates phone shine bright , and commands are very responsive . 
+A|O|14|15|responsive
+A|R|O|14|15|responsive|T|11|12|commands
+A|T|11|12|commands
+A|O|7|8|shine
+A|O|8|9|bright
+A|R|O|7|8|shine|T|1|3|color screen
+A|R|O|8|9|bright|T|1|3|color screen
+A|T|1|3|color screen
+
+S|my only gripe about the hardware is the buttons . 
+A|R|O|2|3|gripe|T|8|9|buttons
+A|O|2|3|gripe
+A|T|8|9|buttons
+
+S|nokia seems on a campaign to revamp the phone keypad , which imho is totally unnecessary . 
+A|O|15|16|unnecessary
+A|T|6|10|revamp the phone keypad
+A|R|O|15|16|unnecessary|T|6|10|revamp the phone keypad
+
+S|this model does have the traditional key arrangement , it 's just that they are really close to one another , and have unconventional shapes , so it takes a big getting used to for someone like me with big hands . 
+A|O|23|24|unconventional
+A|T|24|25|shapes
+A|T|6|8|key arrangement
+A|R|O|23|24|unconventional|T|24|25|shapes
+
+S|( to be fair , the same can be said about many korean imports , and the nokia 's build quality is light years ahead of the koreans . ) 
+
+S|other than that , this is a perfect phone for those of us with no patience for flips . 
+A|R|O|7|8|perfect|T|8|9|phone
+A|O|7|8|perfect
+A|T|8|9|phone
+
+S|finally , i reiterate my thumbs-down rating for t-mobile as a carrier . 
+
+S|their network coverage is very sporadic , and the network always seems overloaded , resulting in very unpleasant calling experience . 
+A|R|O|12|13|overloaded|T|9|10|network
+A|R|O|5|6|sporadic|T|1|3|network coverage
+A|O|12|13|overloaded
+A|T|9|10|network
+A|O|5|6|sporadic
+A|T|1|3|network coverage
+
+S|if you can get this phone for cingular or at&t , go with the other carriers . 
+
+S|great phone , great service , no voice dialing . 
+A|O|0|1|great
+A|O|6|7|no
+A|R|O|0|1|great|T|1|2|phone
+A|R|O|6|7|no|T|7|9|voice dialing
+A|T|7|9|voice dialing
+A|T|1|2|phone
+A|R|O|3|4|great|T|4|5|service
+A|O|3|4|great
+A|T|4|5|service
+
+S|the nokia 6610 is a relatively new phone , and what a great phone it is . 
+A|R|O|12|13|great|T|1|3|nokia 6610
+A|T|1|3|nokia 6610
+A|O|6|7|new
+A|O|12|13|great
+A|R|O|6|7|new|T|1|3|nokia 6610
+
+S|when i first saw the 6610 , i thought it was too small . 
+
+S|after using it , i found the size to be perfect for carrying in a pocket . 
+A|T|7|8|size
+A|O|10|11|perfect
+A|R|O|10|11|perfect|T|7|8|size
+
+S|it is just a tad small to hold to your ear with your shoulder , but that is solved with the very comfortable handsfree ear-piece which is included . 
+A|O|22|23|comfortable
+A|R|O|22|23|comfortable|T|23|25|handsfree ear-piece
+A|T|23|25|handsfree ear-piece
+
+S|the ear-piece has a button that answers and hangs-up the phone so you do not have to mess with the phone at all , unless dialing a number . 
+
+S|unfortunately , the 6610 does not offer voice dialing like my previous phone , but the other features it packs outweighs this shortcoming . 
+
+S|when i turned the phone on , the first thing that hit me is how good the screen is . 
+A|R|O|15|16|good|T|17|18|screen
+A|T|17|18|screen
+A|O|15|16|good
+
+S|the resolution is very good and the colors are bright and even changeable ! 
+A|R|O|12|13|changeable|T|7|8|colors
+A|R|O|4|5|good|T|1|2|resolution
+A|O|12|13|changeable
+A|O|9|10|bright
+A|O|4|5|good
+A|T|1|2|resolution
+A|T|7|8|colors
+A|R|O|9|10|bright|T|7|8|colors
+
+S|the phone has several color schemes you can choose from . 
+
+S|i like the default blue . 
+A|O|1|2|like
+A|T|3|5|default blue
+A|R|O|1|2|like|T|3|5|default blue
+
+S|you can also set a background wallpaper . 
+
+S|the ringtones included are awesome , and did i mention they were polyphonic ? 
+A|R|O|4|5|awesome|T|1|2|ringtones
+A|O|4|5|awesome
+A|T|1|2|ringtones
+
+S|no more annoying series of beeps . 
+
+S|this phone plays up to 4 tones at one time and it actually sounds like music . 
+
+S|you can also assign special rings and graphics to special people when they call . 
+
+S|the massive phonebook can hold 300 entries , with multiple phone number per entry , so you can program your boss 's home , work and cellphone numbers all under one contact . 
+A|R|O|1|2|massive|T|2|3|phonebook
+A|T|2|3|phonebook
+A|O|1|2|massive
+
+S|the phone also sports an image gallery ( with option camera attachment ) , a calendar / organizer , alarm clock with snooze , fm radio ( way cool , even if it is just through an ear-peice ) , games , java applications and gprs high-speed internet connection . 
+
+S|the gprs connection is sometimes slow , and writing instant messages with the included aol instant messenger software is a pain , but the other t-zones applications are quite useful . 
+A|R|O|20|21|pain|T|8|11|writing instant messages
+A|R|O|5|6|slow|T|1|3|gprs connection
+A|R|O|29|30|useful|T|25|27|t-zones applications
+A|T|25|27|t-zones applications
+A|O|29|30|useful
+A|T|8|11|writing instant messages
+A|O|20|21|pain
+A|T|1|3|gprs connection
+A|O|5|6|slow
+
+S|you can get weather , movies , horoscopes and more with a few clicks . 
+
+S|the service deafults to showing the information associated with your billing zip code , but you can change the default and seach other areas while on the go . 
+
+S|one downside : as of this writing , t-mobile has n't updated their t-zone system to fully support the 6610 . 
+
+S|their website does not show it as a compatible phone , and should i try to access the game downloads on t-zones the system returns an error message saying my phone is not supported . 
+
+S|i have been assured this will be fixed soon . 
+
+S|now , for the t-mobile service : 
+
+S|i cannot say enough good things about the people who answer the phones . 
+
+S|if you have a question , they have the answer . 
+
+S|and should they not know it , they can find it out pretty quick . 
+
+S|every phone experience has started with a very brief time on hold followed by a cheerful representative answering the phone . 
+
+S|all my questions or problems have been quickly and satisfactorily resolved . 
+
+S|i 'd like to see my old carrier do that ! 
+
+S|the rate plans are also very good , at least for me . 
+A|R|O|6|7|good|T|1|3|rate plans
+A|T|1|3|rate plans
+A|O|6|7|good
+
+S|different people have different needs , of course , but the t-mobile plans are priced very well for the minutes and services you receive . 
+A|O|16|17|well
+A|T|14|15|priced
+A|T|11|13|t-mobile plans
+A|R|O|16|17|well|T|14|15|priced
+
+S|the phone would have received 5 stars if the phone had voice dialing and the game downloads from t-zones worked . 
+
+S|this phone is highly recommended otherwise . 
+A|T|1|2|phone
+A|R|O|4|5|recommended|T|1|2|phone
+A|O|4|5|recommended
+
+S|t-mobile ruins an otherwise good phone . 
+A|O|1|2|ruins
+A|T|0|1|t-mobile
+A|R|O|1|2|ruins|T|0|1|t-mobile
+
+S|nokia makes a great phone , that 's clear . 
+A|O|3|4|great
+A|T|4|5|phone
+A|R|O|3|4|great|T|4|5|phone
+
+S|with all its complicated features , the menus are easily accessible and the quality of the features is great . 
+A|O|10|11|accessible
+A|T|13|14|quality
+A|O|18|19|great
+A|T|7|8|menus
+A|R|O|10|11|accessible|T|7|8|menus
+A|R|O|18|19|great|T|13|14|quality
+
+S|the one huge disappointment is that the phones manufactured for t-mobile lack many of the menus and functions that a nokia straight from the manufacturer should have . 
+
+S|one of the things t-mobile brags about is the fact that it 's a " worldphone " and can be used in europe , etc. 
+
+S|yet they 've gotten rid of most of the languages that should be in the phone , including italian , german , and dutch . 
+
+S|the internet functions of the phone - wap and gprs - will only work through t-mobile 's services , because they have deleted the menu options that would enable you to configure the phone to be used on a different network . 
+
+S|therefore , if you wanted to travel abroad and pop in a local sim card , even if you unlock the phone , there is no way you can use the local wap browser or internet . 
+
+S|after spending hours being transferred from one tech help person to another , i got fed up and have decided to return the phone . 
+
+S|bottom line , if you 're attracted to this phone because of its tri-band feature so you can take it abroad , forget it . 
+
+S|find another phone , or buy this one in its manufacturer-unlocked form . 
+
+S|a good phone . 
+A|O|1|2|good
+A|R|O|1|2|good|T|2|3|phone
+A|T|2|3|phone
+
+S|this phone is good with a huge array of features built into it . 
+A|T|1|2|phone
+A|O|3|4|good
+A|T|9|10|features
+A|R|O|3|4|good|T|1|2|phone
+A|O|6|7|huge
+A|R|O|6|7|huge|T|9|10|features
+
+S|i purchased the phone last week and have been using till then . . 
+
+S|i did n't had any problem till now . 
+
+S|the design is sleek and the color screen has good resolution . 
+A|T|10|11|resolution
+A|O|3|4|sleek
+A|O|9|10|good
+A|R|O|3|4|sleek|T|1|2|design
+A|T|1|2|design
+A|R|O|9|10|good|T|10|11|resolution
+
+S|it is very light weight and has a good signal strength . 
+A|T|4|5|weight
+A|T|9|11|signal strength
+A|O|3|4|light
+A|O|8|9|good
+A|R|O|3|4|light|T|4|5|weight
+A|R|O|8|9|good|T|9|11|signal strength
+
+S|however , the main problem that i think is the with the sound quality . 
+A|O|4|5|problem
+A|T|12|14|sound quality
+A|R|O|4|5|problem|T|12|14|sound quality
+
+S|it is not as good as the samsung phones that i have used earlier . 
+
+S|when talking the voice is not very clear . 
+A|T|3|4|voice
+A|O|7|8|clear
+A|R|O|7|8|clear|T|3|4|voice
+
+S|but , i would definately recommend this phone . 
+A|O|5|6|recommend
+A|T|7|8|phone
+A|R|O|5|6|recommend|T|7|8|phone
+
+S|go for it ... 
+
+S|people with bad audio quality have defective phones . 
+
+S|i have read a lot of the reviews and my phone does not have a hiss or anything that people are talking about . 
+
+S|it is crystal clear . 
+
+S|this is one of the nicest phones nokia has made . 
+A|T|6|7|phones
+A|R|O|5|6|nicest|T|6|7|phones
+A|O|5|6|nicest
+
+S|i do recommend getting the data kit for those geeks . 
+
+S|there are a lot of cool websites with games and midi ringtones to download for free . 
+

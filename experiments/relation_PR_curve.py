@@ -84,8 +84,8 @@ if __name__ == "__main__":
     digit = [12, 12, 21, 11]
 
     while True:
-        for i in range(2, 3):
-            digit[i-1] = int(input())
+        for i in range(3, 4):
+            #  digit[i-1] = int(input())
             domain_dir = os.path.join(os.getenv("OPIE_DIR"), "data/domains", domains[i-1])
             relation_dir = os.path.join(domain_dir, "relation")
             test_dir = os.path.join(relation_dir, "test")

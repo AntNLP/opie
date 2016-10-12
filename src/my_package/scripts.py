@@ -43,7 +43,7 @@ def save_json_file(filename, var):
 
     '''
     with open(filename, mode="w", encoding="utf8") as f:
-        json.dump(var, f, indent=2, cls=ClsEncoder)
+        json.dump(var, f, indent=2)
 
 
 def mkdir(dirname):

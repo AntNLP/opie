@@ -119,19 +119,20 @@ domain_dir = os.path.join(os.getenv("OPIE_DIR"), "data/domains", domain)
 relation_dir = os.path.join(domain_dir, "relation")
 test_dir = os.path.join(relation_dir, "test")
 word2vect_path = os.path.join(os.getenv("OPIE_DIR"), "tools", "GoogleNews-vectors-negative300.bin")
-#  data = data_helper.load_datas(domain_dir, 1, 2, complex_op=complex_op)
-#  save_pickle_file(os.path.join(relation_dir, "data.pickle"), data)
+data = data_helper.load_datas(domain_dir, 1, 2, complex_op=complex_op)
+save_pickle_file(os.path.join(relation_dir, "data.pickle"), data)
 data = load_pickle_file(os.path.join(relation_dir, "data.pickle"))
 X, y, vocabulary, r = data
-ann_dict = data_helper.get_ann(os.path.join(test_dir, "ann"))
 sentences = load_pickle_file(os.path.join(test_dir, "sentences.candidate.pickle"))
-#  vocab_embeddings = load_bin_vec(word2vect_path, vocabulary["word"])
-#  save_pickle_file(os.path.join(relation_dir, "vocab_embeddings.pickle"), vocab_embeddings)
+ann_dict = data_helper.get_ann(sentences)
+vocab_embeddings = load_bin_vec(word2vect_path, vocabulary["word"])
+save_pickle_file(os.path.join(relation_dir, "vocab_embeddings.pickle"), vocab_embeddings)
 vocab_embeddings = load_pickle_file(os.path.join(relation_dir, "vocab_embeddings.pickle"))
 
 # Split train/test set
 # TODO: This is very crude, should use cross-validation
 
+print("r ", r)
 X_train, X_dev = X[:r], X[r:]
 y_train, y_dev = y[:r], y[r:]
 # Randomly shuffle data
@@ -286,6 +287,7 @@ with tf.Graph().as_default():
                 feed_dict)
             time_str = datetime.datetime.now().isoformat()
             filename = os.path.join(test_dir, "test.dump")
+            print("pred len", len(pred))
             data_helper.dump(filename, sentences, pred)
             handle_normalize(filename)
 
@@ -295,16 +297,17 @@ with tf.Graph().as_default():
             handle_normalize(os.path.join(test_dir, "test.dump.combine"))
             prec, rec, f1 = data_helper.calcu_PRF(filename+".normalize", ann_dict)
             print("{}: step {}, loss {:g}, f1 score {:g}".format(time_str, step, loss, f1))
-            print("Precision", prec)
-            print("Recall", rec)
-            print("f1_score", f1)
+            print("NN Precision", prec)
+            print("NN Recall", rec)
+            print("NN f1_score", f1)
             precision, recall, f1_score = data_helper.calcu_PRF(filename+".combine.normalize", ann_dict)
             print("combine...")
             print("{}: step {}, loss {:g}, f1 score {:g}".format(time_str, step, loss, f1_score))
             print("Precision", precision)
             print("Recall", recall)
             print("f1_score", f1_score)
-            if f1_score > Max["F"]:
+            #  if f1_score > Max["F"]:
+            if f1 > Max["NN-F"]:
                 Max["NN-P"] = prec
                 Max["NN-R"] = rec
                 Max["NN-F"] = f1
