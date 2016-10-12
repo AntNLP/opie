@@ -78,6 +78,7 @@ def generate_train_text(multi_opin_expr_dir, max_document_length):
         print(lines[shuffle_indices[i]], end="", file=f)
     f.close()
 
+
 def load_data_and_labels(domain_dir, max_document_length=200, shuffle_data=False):
     """
     Loads MR polarity data from files, splits the data into words and generates labels.
@@ -128,8 +129,6 @@ def batch_iter(data, batch_size, num_epochs, shuffle=True):
 def tokenizer(iterator):
     for value in iterator:
         yield value.split(' ')
-
-
 
 
 def usage():
