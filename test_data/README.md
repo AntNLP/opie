@@ -32,9 +32,9 @@ test_data
 
 The review text(after word_tokenize and sent_tokenize) and annotation file are under each domain file(Food, Movie, Pet, Phone).
 
-- Each review_%d.txt file has a raw review text. Each row represents a sentence.
+- Each `review_%d.txt` file has a raw review text. Each row represents a sentence.
 
-- Each review_%d.txt file is annotation file. It follows brat annotation format. The formats are explained in the following.
+- Each `review_%d.txt` file is annotation file. It follows brat annotation format. The formats are explained in the following.
 
   - Each row represents a annotation with opinion target or opinion expression or relation
 
