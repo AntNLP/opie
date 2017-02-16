@@ -1,0 +1,24 @@
+T1	OpinionTarget 111 118	Battery
+T2	OpinionExpression 127 136	fantastic
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 176 184	speakers
+T5	OpinionExpression 189 196	amazing
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 199 210	form factor
+T8	OpinionExpression 219 224	solid
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 199 203	form
+T11	OpinionExpression 214 224	very solid
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 199 203	form
+T14	OpinionExpression 219 224	solid
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 204 210	factor
+T17	OpinionExpression 219 224	solid
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 199 210	form factor
+T20	OpinionExpression 214 224	very solid
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 204 210	factor
+T23	OpinionExpression 214 224	very solid
+R24	ExpressionTarget Arg1:T23 Arg2:T22

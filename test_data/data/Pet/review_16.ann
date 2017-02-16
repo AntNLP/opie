@@ -1,0 +1,24 @@
+T1	OpinionTarget 374 377	dog
+T2	OpinionExpression 369 373	nice
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 783 789	seemed
+T5	OpinionExpression 793 800	like it
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 1106 1113	element
+T8	OpinionExpression 1096 1105	redeeming
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 1658 1671	their product
+T11	OpinionExpression 1681 1686	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 1664 1671	product
+T14	OpinionExpression 1681 1686	great
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 2021 2028	process
+T17	OpinionExpression 2012 2020	painless
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 2355 2363	informed
+T20	OpinionExpression 2350 2354	well
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 2417 2420	bed
+T23	OpinionExpression 2402 2411	resilient
+R24	ExpressionTarget Arg1:T23 Arg2:T22

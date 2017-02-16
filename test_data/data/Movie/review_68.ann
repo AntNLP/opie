@@ -1,0 +1,42 @@
+T1	OpinionTarget 196 203	Channel
+T2	OpinionExpression 144 170	appropriate as a precursor
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 336 349	understanding
+T5	OpinionExpression 305 328	gain a better knowledge
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 369 380	the context
+T8	OpinionExpression 305 328	gain a better knowledge
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 353 365	these events
+T11	OpinionExpression 312 318	better
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 336 365	understanding of these events
+T14	OpinionExpression 312 318	better
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 319 328	knowledge
+T17	OpinionExpression 312 318	better
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 336 349	understanding
+T20	OpinionExpression 312 318	better
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 336 365	understanding of these events
+T23	OpinionExpression 305 328	gain a better knowledge
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 438 443	Stone
+T26	OpinionExpression 421 424	bad
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 428 453	an Oliver Stone recasting
+T29	OpinionExpression 421 424	bad
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 553 565	presentation
+T32	OpinionExpression 544 552	accurate
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 755 760	facts
+T35	OpinionExpression 765 780	stubborn things
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 774 780	things
+T38	OpinionExpression 765 773	stubborn
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 755 760	facts
+T41	OpinionExpression 765 773	stubborn
+R42	ExpressionTarget Arg1:T41 Arg2:T40

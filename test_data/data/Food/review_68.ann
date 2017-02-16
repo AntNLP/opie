@@ -1,0 +1,18 @@
+T1	OpinionTarget 23 30	quality
+T2	OpinionExpression 15 22	highest
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 106 114	research
+T5	OpinionExpression 94 105	significant
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 216 227	the product
+T8	OpinionExpression 231 284	designed in a way that your body can actually process
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 187 194	product
+T11	OpinionExpression 174 178	high
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 375 379	feel
+T14	OpinionExpression 387 396	confident
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 521 528	product
+T17	OpinionExpression 508 512	High
+R18	ExpressionTarget Arg1:T17 Arg2:T16

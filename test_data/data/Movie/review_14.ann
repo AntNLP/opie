@@ -1,0 +1,3 @@
+T1	OpinionTarget 255 264	portrayed
+T2	OpinionExpression 295 300	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1

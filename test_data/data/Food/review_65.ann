@@ -1,0 +1,18 @@
+T1	OpinionTarget 33 41	benefits
+T2	OpinionExpression 27 32	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 45 63	consuming curcumin
+T5	OpinionExpression 27 32	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 45 54	consuming
+T8	OpinionExpression 27 32	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 314 325	The product
+T11	OpinionExpression 330 344	delivered fast
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 318 325	product
+T14	OpinionExpression 330 344	delivered fast
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 330 339	delivered
+T17	OpinionExpression 340 344	fast
+R18	ExpressionTarget Arg1:T17 Arg2:T16

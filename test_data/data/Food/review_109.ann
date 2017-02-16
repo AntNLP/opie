@@ -1,0 +1,18 @@
+T1	OpinionTarget 55 60	works
+T2	OpinionExpression 61 65	well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 38 54	the instant kind
+T5	OpinionExpression 55 72	works well for me
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 514 528	instant coffee
+T8	OpinionExpression 532 538	faster
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 567 579	the long run
+T11	OpinionExpression 586 593	cheaper
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 567 579	the long run
+T14	OpinionExpression 580 593	a lot cheaper
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 576 579	run
+T17	OpinionExpression 586 593	cheaper
+R18	ExpressionTarget Arg1:T17 Arg2:T16

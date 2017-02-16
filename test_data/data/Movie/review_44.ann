@@ -1,0 +1,18 @@
+T1	OpinionTarget 7 12	movie
+T2	OpinionExpression 0 6	Decent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 50 56	follow
+T5	OpinionExpression 42 46	hard
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 15 24	Beginning
+T8	OpinionExpression 28 56	confusing and hard to follow
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 47 56	to follow
+T11	OpinionExpression 42 46	hard
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 15 24	Beginning
+T14	OpinionExpression 28 37	confusing
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 148 153	movie
+T17	OpinionExpression 143 147	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16

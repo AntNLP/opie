@@ -1,0 +1,21 @@
+T1	OpinionTarget 108 112	pets
+T2	OpinionExpression 127 174	all too successful in the potty training stages
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 221 227	stains
+T5	OpinionExpression 228 234	galore
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 195 205	my carpets
+T8	OpinionExpression 211 218	a wreck
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 425 430	smell
+T11	OpinionExpression 415 424	wonderful
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 672 675	pet
+T14	OpinionExpression 666 671	nasty
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 676 680	odor
+T17	OpinionExpression 666 671	nasty
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 768 775	product
+T20	OpinionExpression 758 767	wonderful
+R21	ExpressionTarget Arg1:T20 Arg2:T19

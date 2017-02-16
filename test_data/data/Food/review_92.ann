@@ -1,0 +1,12 @@
+T1	OpinionTarget 28 35	the tea
+T2	OpinionExpression 39 66	so wonderful it deserves it
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 32 35	tea
+T5	OpinionExpression 39 66	so wonderful it deserves it
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 28 35	the tea
+T8	OpinionExpression 42 51	wonderful
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 32 35	tea
+T11	OpinionExpression 42 51	wonderful
+R12	ExpressionTarget Arg1:T11 Arg2:T10

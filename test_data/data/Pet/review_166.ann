@@ -1,0 +1,12 @@
+T1	OpinionTarget 19 25	worked
+T2	OpinionExpression 26 31	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 330 352	a strong perfumy smell
+T5	OpinionExpression 382 388	strong
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 347 352	smell
+T8	OpinionExpression 332 338	strong
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 330 352	a strong perfumy smell
+T11	OpinionExpression 365 375	unpleasant
+R12	ExpressionTarget Arg1:T11 Arg2:T10

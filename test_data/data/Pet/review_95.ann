@@ -1,0 +1,39 @@
+T1	OpinionTarget 207 221	many companies
+T2	OpinionExpression 226 234	fabulous
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 277 288	ingredients
+T5	OpinionExpression 268 276	cheapest
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 320 329	reactions
+T8	OpinionExpression 311 319	negative
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 593 597	carb
+T11	OpinionExpression 589 592	bad
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 645 649	gets
+T14	OpinionExpression 650 656	better
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 876 881	candy
+T17	OpinionExpression 871 875	hard
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 817 824	protein
+T20	OpinionExpression 812 816	good
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 3409 3416	fillers
+T23	OpinionExpression 3403 3408	cheap
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 3452 3459	Animals
+T26	OpinionExpression 3464 3513	so little and dependant upon our choices for them
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 3634 3649	bad-carb flours
+T29	OpinionExpression 3653 3671	highly detrimental
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 3833 3839	things
+T32	OpinionExpression 3829 3832	bad
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 4526 4531	brand
+T35	OpinionExpression 4516 4525	expensive
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 4401 4405	Dogs
+T38	OpinionExpression 4413 4440	do well on things like this
+R39	ExpressionTarget Arg1:T38 Arg2:T37

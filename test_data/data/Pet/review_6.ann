@@ -1,0 +1,12 @@
+T1	OpinionTarget 47 53	chewer
+T2	OpinionExpression 36 46	aggressive
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 424 433	recommend
+T5	OpinionExpression 417 423	Highly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 470 477	quality
+T8	OpinionExpression 465 469	nice
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 449 456	The bed
+T11	OpinionExpression 460 477	very nice quality
+R12	ExpressionTarget Arg1:T11 Arg2:T10

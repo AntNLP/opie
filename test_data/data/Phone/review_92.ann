@@ -1,0 +1,45 @@
+T1	OpinionTarget 65 71	Moto E
+T2	OpinionExpression 75 101	much better than expected.
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 70 71	E
+T5	OpinionExpression 80 86	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 126 135	functions
+T8	OpinionExpression 120 125	basic
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 169 176	stories
+T11	OpinionExpression 163 168	short
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 292 298	price.
+T14	OpinionExpression 280 287	extreme
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 292 298	price.
+T17	OpinionExpression 288 291	low
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 312 318	looked
+T20	OpinionExpression 338 345	simpler
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 581 585	apps
+T23	OpinionExpression 576 580	free
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 581 585	apps
+T26	OpinionExpression 591 600	available
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 568 585	Various free apps
+T29	OpinionExpression 591 600	available
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 568 585	Various free apps
+T32	OpinionExpression 591 621	available in android app store
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 671 682	performance
+T35	OpinionExpression 660 670	Surprising
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 783 791	features
+T38	OpinionExpression 769 774	basic
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1008 1016	delivery
+T41	OpinionExpression 1002 1007	quick
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 1101 1112	information
+T44	OpinionExpression 1095 1100	ample
+R45	ExpressionTarget Arg1:T44 Arg2:T43

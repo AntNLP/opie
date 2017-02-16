@@ -1,0 +1,42 @@
+T1	OpinionTarget 39 45	flavor
+T2	OpinionExpression 26 31	clean
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 229 233	deal
+T5	OpinionExpression 224 228	okay
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 330 335	close
+T8	OpinionExpression 322 326	easy
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 305 308	top
+T11	OpinionExpression 292 304	easy to open
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 305 308	top
+T14	OpinionExpression 322 335	easy to close
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 252 255	jar
+T17	OpinionExpression 261 265	nice
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 236 255	The rectangular jar
+T20	OpinionExpression 261 265	nice
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 305 308	top
+T23	OpinionExpression 292 296	easy
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 305 308	top
+T26	OpinionExpression 322 326	easy
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 297 304	to open
+T29	OpinionExpression 292 296	easy
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 327 335	to close
+T32	OpinionExpression 322 326	easy
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 266 274	addition
+T35	OpinionExpression 261 265	nice
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 236 255	The rectangular jar
+T38	OpinionExpression 259 274	a nice addition
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 279 284	reuse
+T41	OpinionExpression 261 265	nice
+R42	ExpressionTarget Arg1:T41 Arg2:T40

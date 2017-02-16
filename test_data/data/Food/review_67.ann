@@ -1,0 +1,18 @@
+T1	OpinionTarget 71 77	seemed
+T2	OpinionExpression 92 107	a little better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 84 91	feeling
+T5	OpinionExpression 101 107	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 71 77	seemed
+T8	OpinionExpression 101 107	better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 71 77	seemed
+T11	OpinionExpression 84 107	feeling a little better
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 182 189	results
+T14	OpinionExpression 175 181	better
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 223 230	results
+T17	OpinionExpression 214 222	positive
+R18	ExpressionTarget Arg1:T17 Arg2:T16

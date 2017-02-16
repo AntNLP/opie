@@ -1,0 +1,9 @@
+T1	OpinionTarget 149 156	dropped
+T2	OpinionExpression 157 168	drastically
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 135 144	the price
+T5	OpinionExpression 149 168	dropped drastically
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 139 144	price
+T8	OpinionExpression 149 168	dropped drastically
+R9	ExpressionTarget Arg1:T8 Arg2:T7

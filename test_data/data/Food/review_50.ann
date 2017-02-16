@@ -1,0 +1,6 @@
+T1	OpinionTarget 205 213	turmeric
+T2	OpinionExpression 217 224	helping
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 201 213	the turmeric
+T5	OpinionExpression 217 224	helping
+R6	ExpressionTarget Arg1:T5 Arg2:T4

@@ -1,0 +1,6 @@
+T1	OpinionTarget 179 184	looks
+T2	OpinionExpression 191 197	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 318 323	works
+T5	OpinionExpression 308 312	well
+R6	ExpressionTarget Arg1:T5 Arg2:T4

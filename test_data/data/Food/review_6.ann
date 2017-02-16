@@ -1,0 +1,24 @@
+T1	OpinionTarget 137 147	absorption
+T2	OpinionExpression 120 128	improves
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 617 628	improvement
+T5	OpinionExpression 610 616	slight
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 600 628	perhaps a slight improvement
+T8	OpinionExpression 662 673	hard to say
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 600 628	perhaps a slight improvement
+T11	OpinionExpression 662 666	hard
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 714 725	organic/non
+T14	OpinionExpression 699 709	appreciate
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 726 729	GMO
+T17	OpinionExpression 699 709	appreciate
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 710 734	the organic/non GMO part
+T20	OpinionExpression 699 709	appreciate
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 790 795	brand
+T23	OpinionExpression 781 789	standard
+R24	ExpressionTarget Arg1:T23 Arg2:T22

@@ -1,0 +1,3 @@
+T1	OpinionTarget 120 130	understand
+T2	OpinionExpression 110 116	easier
+R3	ExpressionTarget Arg1:T2 Arg2:T1

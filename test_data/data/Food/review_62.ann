@@ -1,0 +1,12 @@
+T1	OpinionTarget 61 65	skin
+T2	OpinionExpression 70 78	improved
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 58 65	my skin
+T5	OpinionExpression 70 78	improved
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 171 176	seems
+T8	OpinionExpression 177 183	calmer
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 171 176	seems
+T11	OpinionExpression 193 201	hydrated
+R12	ExpressionTarget Arg1:T11 Arg2:T10

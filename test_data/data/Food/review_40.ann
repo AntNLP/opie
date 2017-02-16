@@ -1,0 +1,21 @@
+T1	OpinionTarget 87 91	feel
+T2	OpinionExpression 92 98	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 77 86	My joints
+T5	OpinionExpression 92 98	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 159 166	product
+T8	OpinionExpression 151 158	natural
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 149 184	a natural product rather than Advil
+T11	OpinionExpression 131 135	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 126 130	feel
+T14	OpinionExpression 131 135	good
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 142 148	taking
+T17	OpinionExpression 131 135	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 142 184	taking a natural product rather than Advil
+T20	OpinionExpression 131 135	good
+R21	ExpressionTarget Arg1:T20 Arg2:T19

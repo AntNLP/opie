@@ -1,0 +1,6 @@
+T1	OpinionTarget 6 13	product
+T2	OpinionExpression 0 5	Great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 21 26	value
+T5	OpinionExpression 16 20	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4

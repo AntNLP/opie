@@ -1,0 +1,78 @@
+T1	OpinionTarget 177 187	experience
+T2	OpinionExpression 165 171	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 194 200	screen
+T5	OpinionExpression 204 209	vivid
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 190 200	The screen
+T8	OpinionExpression 204 236	vivid , bright , and quite sharp
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 190 200	The screen
+T11	OpinionExpression 204 209	vivid
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 249 256	quality
+T14	OpinionExpression 260 269	excellent
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 243 248	build
+T17	OpinionExpression 260 269	excellent
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 316 320	feel
+T20	OpinionExpression 300 306	smooth
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 316 320	feel
+T23	OpinionExpression 309 315	grippy
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 401 405	side
+T26	OpinionExpression 395 400	small
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 574 576	OS
+T29	OpinionExpression 554 558	pure
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 559 566	android
+T32	OpinionExpression 554 558	pure
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 567 573	kitkat
+T35	OpinionExpression 554 558	pure
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 755 764	functions
+T38	OpinionExpression 736 743	typical
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 829 834	media
+T41	OpinionExpression 840 848	smoothly
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 819 828	streaming
+T44	OpinionExpression 840 848	smoothly
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 819 834	streaming media
+T47	OpinionExpression 840 848	smoothly
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 878 881	ran
+T50	OpinionExpression 882 890	smoothly
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 867 873	google
+T53	OpinionExpression 878 890	ran smoothly
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 910 916	seemed
+T56	OpinionExpression 923 927	good
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 978 988	assessment
+T59	OpinionExpression 973 977	fair
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 1040 1048	drawback
+T62	OpinionExpression 1034 1039	major
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 1171 1178	quality
+T65	OpinionExpression 1166 1170	poor
+R66	ExpressionTarget Arg1:T65 Arg2:T64
+T67	OpinionTarget 1310 1316	camera
+T68	OpinionExpression 1320 1329	important
+R69	ExpressionTarget Arg1:T68 Arg2:T67
+T70	OpinionTarget 1310 1316	camera
+T71	OpinionExpression 1320 1336	important to you
+R72	ExpressionTarget Arg1:T71 Arg2:T70
+T73	OpinionTarget 1286 1293	moments
+T74	OpinionExpression 1276 1285	important
+R75	ExpressionTarget Arg1:T74 Arg2:T73
+T76	OpinionTarget 1540 1546	option
+T77	OpinionExpression 1534 1539	solid
+R78	ExpressionTarget Arg1:T77 Arg2:T76

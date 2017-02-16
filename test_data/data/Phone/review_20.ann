@@ -1,0 +1,9 @@
+T1	OpinionTarget 0 9	This cord
+T2	OpinionExpression 19 23	cool
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 19 23	cool
+T5	OpinionExpression 13 18	super
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 33 43	the design
+T8	OpinionExpression 28 32	love
+R9	ExpressionTarget Arg1:T8 Arg2:T7

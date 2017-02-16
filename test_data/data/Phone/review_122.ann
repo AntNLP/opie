@@ -1,0 +1,9 @@
+T1	OpinionTarget 9 14	seems
+T2	OpinionExpression 0 4	fast
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 39 49	resolution
+T5	OpinionExpression 50 55	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 39 49	resolution
+T8	OpinionExpression 15 20	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7

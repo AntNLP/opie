@@ -1,0 +1,18 @@
+T1	OpinionTarget 161 167	coffee
+T2	OpinionExpression 148 152	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 248 273	Cafe Altura , of course ,
+T5	OpinionExpression 226 231	fresh
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 248 259	Cafe Altura
+T8	OpinionExpression 226 231	fresh
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 248 252	Cafe
+T11	OpinionExpression 226 231	fresh
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 303 306	cup
+T14	OpinionExpression 299 302	hot
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 623 626	job
+T17	OpinionExpression 618 622	Good
+R18	ExpressionTarget Arg1:T17 Arg2:T16

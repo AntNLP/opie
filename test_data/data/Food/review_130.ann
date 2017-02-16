@@ -1,0 +1,51 @@
+T1	OpinionTarget 208 217	surprised
+T2	OpinionExpression 197 207	pleasantly
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 246 249	cup
+T5	OpinionExpression 233 237	rich
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 334 339	cuppa
+T8	OpinionExpression 329 333	nice
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 246 249	cup
+T11	OpinionExpression 238 245	intense
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 253 259	coffee
+T14	OpinionExpression 238 245	intense
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 529 539	bitterness
+T17	OpinionExpression 524 528	mild
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 488 498	The flavor
+T20	OpinionExpression 502 508	strong
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 492 498	flavor
+T23	OpinionExpression 502 508	strong
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 612 626	a lot of aroma
+T26	OpinionExpression 632 636	lost
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 717 725	dissolve
+T29	OpinionExpression 726 730	well
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 704 716	The granules
+T32	OpinionExpression 717 730	dissolve well
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 704 716	The granules
+T35	OpinionExpression 726 730	well
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 708 716	granules
+T38	OpinionExpression 726 730	well
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 747 751	cold
+T41	OpinionExpression 742 746	good
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 767 770	cup
+T44	OpinionExpression 763 766	hot
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 708 716	granules
+T47	OpinionExpression 717 730	dissolve well
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 901 907	coffee
+T50	OpinionExpression 887 892	great
+R51	ExpressionTarget Arg1:T50 Arg2:T49

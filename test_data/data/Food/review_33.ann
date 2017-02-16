@@ -1,0 +1,24 @@
+T1	OpinionTarget 86 92	Thumpy
+T2	OpinionExpression 96 146	part of the family and more than worth the expense
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 139 146	expense
+T5	OpinionExpression 129 134	worth
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 521 526	works
+T8	OpinionExpression 527 532	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 549 553	root
+T11	OpinionExpression 543 548	magic
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 984 992	Turmeric
+T14	OpinionExpression 996 1005	wonderful
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 1019 1025	humans
+T17	OpinionExpression 1010 1014	safe
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 984 992	Turmeric
+T20	OpinionExpression 996 1034	wonderful and safe for humans and dogs
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 984 992	Turmeric
+T23	OpinionExpression 996 1014	wonderful and safe
+R24	ExpressionTarget Arg1:T23 Arg2:T22

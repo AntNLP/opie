@@ -1,0 +1,126 @@
+T1	OpinionTarget 160 167	decline
+T2	OpinionExpression 149 159	gracefully
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 464 471	remains
+T5	OpinionExpression 472 479	popular
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 464 471	remains
+T8	OpinionExpression 472 491	popular to this day
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 628 633	cuppa
+T11	OpinionExpression 614 624	convenient
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 625 636	`` cuppa ''
+T14	OpinionExpression 614 624	convenient
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 938 943	roast
+T17	OpinionExpression 914 923	very nice
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 938 943	roast
+T20	OpinionExpression 919 923	nice
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 931 937	bodied
+T23	OpinionExpression 914 923	very nice
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 931 957	bodied roast coffee flavor
+T26	OpinionExpression 914 923	very nice
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 944 950	coffee
+T29	OpinionExpression 914 923	very nice
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 944 950	coffee
+T32	OpinionExpression 919 923	nice
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 924 930	medium
+T35	OpinionExpression 919 923	nice
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 951 957	flavor
+T38	OpinionExpression 919 923	nice
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 877 883	coffee
+T41	OpinionExpression 868 876	stronger
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 938 957	roast coffee flavor
+T44	OpinionExpression 914 923	very nice
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 938 957	roast coffee flavor
+T47	OpinionExpression 919 923	nice
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 931 937	bodied
+T50	OpinionExpression 919 923	nice
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 931 957	bodied roast coffee flavor
+T53	OpinionExpression 919 923	nice
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 1051 1060	the price
+T56	OpinionExpression 1071 1100	outrageous for two 3.5oz jars
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 1051 1060	the price
+T59	OpinionExpression 1071 1081	outrageous
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 1055 1060	price
+T62	OpinionExpression 1071 1081	outrageous
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 1055 1060	price
+T65	OpinionExpression 1071 1100	outrageous for two 3.5oz jars
+R66	ExpressionTarget Arg1:T65 Arg2:T64
+T67	OpinionTarget 1241 1247	coffee
+T68	OpinionExpression 1229 1240	exceptional
+R69	ExpressionTarget Arg1:T68 Arg2:T67
+T70	OpinionTarget 1618 1624	Coffee
+T71	OpinionExpression 1642 1664	pricey here in the USA
+R72	ExpressionTarget Arg1:T71 Arg2:T70
+T73	OpinionTarget 1568 1573	Kenco
+T74	OpinionExpression 1558 1567	fantastic
+R75	ExpressionTarget Arg1:T74 Arg2:T73
+T76	OpinionTarget 1599 1604	Whole
+T77	OpinionExpression 1558 1567	fantastic
+R78	ExpressionTarget Arg1:T77 Arg2:T76
+T79	OpinionTarget 1599 1604	Whole
+T80	OpinionExpression 1642 1648	pricey
+R81	ExpressionTarget Arg1:T80 Arg2:T79
+T82	OpinionTarget 1599 1604	Whole
+T83	OpinionExpression 1540 1550	ripped off
+R84	ExpressionTarget Arg1:T83 Arg2:T82
+T85	OpinionTarget 1494 1501	example
+T86	OpinionExpression 1488 1493	great
+R87	ExpressionTarget Arg1:T86 Arg2:T85
+T88	OpinionTarget 1599 1604	Whole
+T89	OpinionExpression 1642 1664	pricey here in the USA
+R90	ExpressionTarget Arg1:T89 Arg2:T88
+T91	OpinionTarget 1605 1609	Bean
+T92	OpinionExpression 1642 1648	pricey
+R93	ExpressionTarget Arg1:T92 Arg2:T91
+T94	OpinionTarget 1610 1617	Instant
+T95	OpinionExpression 1642 1648	pricey
+R96	ExpressionTarget Arg1:T95 Arg2:T94
+T97	OpinionTarget 1605 1609	Bean
+T98	OpinionExpression 1642 1664	pricey here in the USA
+R99	ExpressionTarget Arg1:T98 Arg2:T97
+T100	OpinionTarget 1618 1624	Coffee
+T101	OpinionExpression 1642 1648	pricey
+R102	ExpressionTarget Arg1:T101 Arg2:T100
+T103	OpinionTarget 1589 1598	Millicano
+T104	OpinionExpression 1558 1567	fantastic
+R105	ExpressionTarget Arg1:T104 Arg2:T103
+T106	OpinionTarget 1610 1617	Instant
+T107	OpinionExpression 1558 1567	fantastic
+R108	ExpressionTarget Arg1:T107 Arg2:T106
+T109	OpinionTarget 1605 1609	Bean
+T110	OpinionExpression 1558 1567	fantastic
+R111	ExpressionTarget Arg1:T110 Arg2:T109
+T112	OpinionTarget 1618 1624	Coffee
+T113	OpinionExpression 1558 1567	fantastic
+R114	ExpressionTarget Arg1:T113 Arg2:T112
+T115	OpinionTarget 1574 1588	MillicanoKenco
+T116	OpinionExpression 1558 1567	fantastic
+R117	ExpressionTarget Arg1:T116 Arg2:T115
+T118	OpinionTarget 1722 1728	coffee
+T119	OpinionExpression 1709 1713	good
+R120	ExpressionTarget Arg1:T119 Arg2:T118
+T121	OpinionTarget 1742 1748	flavor
+T122	OpinionExpression 1736 1741	great
+R123	ExpressionTarget Arg1:T122 Arg2:T121
+T124	OpinionTarget 1709 1728	good instant coffee
+T125	OpinionExpression 1736 1741	great
+R126	ExpressionTarget Arg1:T125 Arg2:T124

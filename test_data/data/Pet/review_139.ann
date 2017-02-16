@@ -1,0 +1,12 @@
+T1	OpinionTarget 96 105	packaging
+T2	OpinionExpression 91 95	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 199 204	color
+T5	OpinionExpression 194 198	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 275 285	surpriseIt
+T8	OpinionExpression 268 274	lovely
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 359 364	shape
+T11	OpinionExpression 354 358	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10

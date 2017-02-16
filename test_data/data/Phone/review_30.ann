@@ -1,0 +1,9 @@
+T1	OpinionTarget 88 94	rubber
+T2	OpinionExpression 83 87	soft
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 102 107	cover
+T5	OpinionExpression 83 87	soft
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 248 253	value
+T8	OpinionExpression 238 247	Excellent
+R9	ExpressionTarget Arg1:T8 Arg2:T7

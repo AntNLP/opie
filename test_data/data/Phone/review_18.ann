@@ -1,0 +1,24 @@
+T1	OpinionTarget 27 39	short cables
+T2	OpinionExpression 20 26	prefer
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 194 203	The bendy
+T5	OpinionExpression 207 276	so flexible you can tuck your phone in more ways than a regular cable
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 198 203	bendy
+T8	OpinionExpression 210 218	flexible
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 194 203	The bendy
+T11	OpinionExpression 210 218	flexible
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 283 288	cable
+T14	OpinionExpression 292 299	thicker
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 279 288	The cable
+T17	OpinionExpression 292 299	thicker
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 305 319	most microUSBs
+T20	OpinionExpression 320 329	available
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 383 388	grips
+T23	OpinionExpression 376 382	better
+R24	ExpressionTarget Arg1:T23 Arg2:T22

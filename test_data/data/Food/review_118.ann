@@ -1,0 +1,12 @@
+T1	OpinionTarget 362 370	lingered
+T2	OpinionExpression 335 345	unpleasant
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 362 397	lingered toward to back of my mouth
+T5	OpinionExpression 335 345	unpleasant
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 346 356	bitterness
+T8	OpinionExpression 335 345	unpleasant
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 748 755	opinion
+T11	OpinionExpression 742 747	split
+R12	ExpressionTarget Arg1:T11 Arg2:T10

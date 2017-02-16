@@ -1,0 +1,9 @@
+T1	OpinionTarget 3 8	works
+T2	OpinionExpression 9 13	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 18 24	signal
+T5	OpinionExpression 34 40	strong
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 25 29	seem
+T8	OpinionExpression 34 40	strong
+R9	ExpressionTarget Arg1:T8 Arg2:T7

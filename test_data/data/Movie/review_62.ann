@@ -1,0 +1,15 @@
+T1	OpinionTarget 52 64	anticipation
+T2	OpinionExpression 46 51	eager
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 25 33	promoted
+T5	OpinionExpression 18 24	highly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 331 348	the fact that Gen
+T8	OpinionExpression 319 327	shameful
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 335 339	fact
+T11	OpinionExpression 319 327	shameful
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 422 429	history
+T14	OpinionExpression 410 421	superficial
+R15	ExpressionTarget Arg1:T14 Arg2:T13

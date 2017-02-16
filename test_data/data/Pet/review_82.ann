@@ -1,0 +1,18 @@
+T1	OpinionTarget 78 85	version
+T2	OpinionExpression 61 77	new and improved
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 139 142	bag
+T5	OpinionExpression 133 138	right
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 194 202	the size
+T8	OpinionExpression 207 221	based on horse
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 224 234	The things
+T11	OpinionExpression 239 262	huge for a 14 pound dog
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 460 467	keeping
+T14	OpinionExpression 468 473	clean
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 450 455	Teeth
+T17	OpinionExpression 460 473	keeping clean
+R18	ExpressionTarget Arg1:T17 Arg2:T16

@@ -1,0 +1,9 @@
+T1	OpinionTarget 126 137	documentary
+T2	OpinionExpression 121 125	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 289 302	see each part
+T5	OpinionExpression 278 285	anxious
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 289 292	see
+T8	OpinionExpression 278 285	anxious
+R9	ExpressionTarget Arg1:T8 Arg2:T7

@@ -1,0 +1,9 @@
+T1	OpinionTarget 29 36	quality
+T2	OpinionExpression 21 28	highest
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 345 352	effects
+T5	OpinionExpression 336 344	positive
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 432 441	condition
+T8	OpinionExpression 424 431	perfect
+R9	ExpressionTarget Arg1:T8 Arg2:T7

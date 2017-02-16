@@ -1,0 +1,24 @@
+T1	OpinionTarget 24 28	feel
+T2	OpinionExpression 34 40	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 136 140	move
+T5	OpinionExpression 153 159	easier
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 136 140	move
+T8	OpinionExpression 148 159	much easier
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 162 174	My headaches
+T11	OpinionExpression 179 208	starting to decreased as well
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 162 174	My headaches
+T14	OpinionExpression 191 208	decreased as well
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 165 174	headaches
+T17	OpinionExpression 191 208	decreased as well
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 165 174	headaches
+T20	OpinionExpression 179 208	starting to decreased as well
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 179 187	starting
+T23	OpinionExpression 191 208	decreased as well
+R24	ExpressionTarget Arg1:T23 Arg2:T22

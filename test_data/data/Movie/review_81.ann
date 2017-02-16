@@ -1,0 +1,21 @@
+T1	OpinionTarget 37 43	actors
+T2	OpinionExpression 53 64	mostly good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 33 43	the actors
+T5	OpinionExpression 53 64	mostly good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 33 43	the actors
+T8	OpinionExpression 60 64	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 37 43	actors
+T11	OpinionExpression 60 64	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 248 258	historians
+T14	OpinionExpression 234 247	distinguished
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 234 247	distinguished
+T17	OpinionExpression 220 233	exceptionally
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 520 524	role
+T20	OpinionExpression 510 519	prominent
+R21	ExpressionTarget Arg1:T20 Arg2:T19

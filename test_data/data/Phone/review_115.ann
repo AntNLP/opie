@@ -1,0 +1,39 @@
+T1	OpinionTarget 75 84	performed
+T2	OpinionExpression 95 99	well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 144 152	performs
+T5	OpinionExpression 129 133	well
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 134 143	the phone
+T8	OpinionExpression 129 133	well
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 161 167	budget
+T11	OpinionExpression 129 133	well
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 259 264	power
+T14	OpinionExpression 254 258	pure
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 540 543	use
+T17	OpinionExpression 522 530	standard
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 586 596	competitor
+T20	OpinionExpression 581 585	real
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 675 680	specs
+T23	OpinionExpression 668 674	better
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 694 700	screen
+T26	OpinionExpression 687 693	bigger
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 824 830	budget
+T29	OpinionExpression 818 823	tight
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 775 784	recommend
+T32	OpinionExpression 796 802	enough
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 985 991	screen
+T35	OpinionExpression 978 984	enough
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 992 997	space
+T38	OpinionExpression 978 984	enough
+R39	ExpressionTarget Arg1:T38 Arg2:T37

@@ -1,0 +1,18 @@
+T1	OpinionTarget 128 134	looked
+T2	OpinionExpression 135 142	fresher
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 153 160	smelled
+T5	OpinionExpression 167 174	fresher
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 741 745	feel
+T8	OpinionExpression 746 752	better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 979 986	effects
+T11	OpinionExpression 965 973	negative
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 1101 1104	try
+T14	OpinionExpression 1093 1098	worth
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 1099 1104	a try
+T17	OpinionExpression 1093 1098	worth
+R18	ExpressionTarget Arg1:T17 Arg2:T16

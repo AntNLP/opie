@@ -1,0 +1,9 @@
+T1	OpinionTarget 16 23	product
+T2	OpinionExpression 10 15	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 331 337	smells
+T5	OpinionExpression 338 343	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 321 330	the house
+T8	OpinionExpression 331 343	smells great
+R9	ExpressionTarget Arg1:T8 Arg2:T7

@@ -1,0 +1,15 @@
+T1	OpinionTarget 61 68	product
+T2	OpinionExpression 51 60	conscious
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 61 68	product
+T5	OpinionExpression 26 34	superior
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 156 160	line
+T8	OpinionExpression 169 185	certainly needed
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 402 409	product
+T11	OpinionExpression 396 401	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 357 361	work
+T14	OpinionExpression 352 356	good
+R15	ExpressionTarget Arg1:T14 Arg2:T13

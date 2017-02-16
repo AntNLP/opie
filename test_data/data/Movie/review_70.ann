@@ -1,0 +1,15 @@
+T1	OpinionTarget 115 125	production
+T2	OpinionExpression 130 160	great by American TV standards
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 115 125	production
+T5	OpinionExpression 130 135	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 111 125	The production
+T8	OpinionExpression 130 135	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 111 125	The production
+T11	OpinionExpression 130 160	great by American TV standards
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 163 165	WW
+T14	OpinionExpression 170 182	fun to watch
+R15	ExpressionTarget Arg1:T14 Arg2:T13

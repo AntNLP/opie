@@ -1,0 +1,66 @@
+T1	OpinionTarget 255 259	fits
+T2	OpinionExpression 260 266	nicely
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 145 151	coffee
+T5	OpinionExpression 152 181	comes in a great glass bottle
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 175 181	bottle
+T8	OpinionExpression 163 168	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 169 174	glass
+T11	OpinionExpression 163 168	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 206 211	shape
+T14	OpinionExpression 197 205	pleasing
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 145 151	coffee
+T17	OpinionExpression 163 168	great
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 285 295	The flavor
+T20	OpinionExpression 299 310	pretty good
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 289 295	flavor
+T23	OpinionExpression 306 310	good
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 342 347	level
+T26	OpinionExpression 335 341	darker
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 348 353	roast
+T29	OpinionExpression 335 341	darker
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 285 295	The flavor
+T32	OpinionExpression 306 310	good
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 348 353	roast
+T35	OpinionExpression 371 375	dark
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 431 434	use
+T38	OpinionExpression 423 427	easy
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 513 520	the soy
+T41	OpinionExpression 526 555	worked better with the flavor
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 517 520	soy
+T44	OpinionExpression 526 555	worked better with the flavor
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 526 532	worked
+T47	OpinionExpression 533 539	better
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 513 520	the soy
+T50	OpinionExpression 533 539	better
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 631 641	The flavor
+T53	OpinionExpression 645 649	good
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 635 641	flavor
+T56	OpinionExpression 645 649	good
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 801 807	bodied
+T59	OpinionExpression 776 800	Definitely rich and full
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 843 870	the recipes -LRB- Smoothies
+T62	OpinionExpression 832 839	awesome
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 847 854	recipes
+T65	OpinionExpression 832 839	awesome
+R66	ExpressionTarget Arg1:T65 Arg2:T64

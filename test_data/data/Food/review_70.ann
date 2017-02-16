@@ -1,0 +1,9 @@
+T1	OpinionTarget 20 49	All natural , organic product
+T2	OpinionExpression 62 67	works
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 42 49	product
+T5	OpinionExpression 62 67	works
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 318 327	recommend
+T8	OpinionExpression 311 317	Highly
+R9	ExpressionTarget Arg1:T8 Arg2:T7

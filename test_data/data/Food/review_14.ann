@@ -1,0 +1,9 @@
+T1	OpinionTarget 210 221	cholesterol
+T2	OpinionExpression 204 209	lower
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 230 235	liver
+T5	OpinionExpression 222 229	improve
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 230 244	liver function
+T8	OpinionExpression 222 229	improve
+R9	ExpressionTarget Arg1:T8 Arg2:T7

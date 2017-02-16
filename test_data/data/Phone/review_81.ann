@@ -1,0 +1,51 @@
+T1	OpinionTarget 166 172	screen
+T2	OpinionExpression 181 211	sharp and bright enough for me
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 153 172	a large ~4in screen
+T5	OpinionExpression 181 186	sharp
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 153 172	a large ~4in screen
+T8	OpinionExpression 181 211	sharp and bright enough for me
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 166 172	screen
+T11	OpinionExpression 181 186	sharp
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 166 172	screen
+T14	OpinionExpression 155 160	large
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 239 243	time
+T17	OpinionExpression 234 238	long
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 258 261	use
+T20	OpinionExpression 249 257	moderate
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 296 303	android
+T23	OpinionExpression 317 322	great
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 304 313	interface
+T26	OpinionExpression 317 322	great
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 290 295	stock
+T29	OpinionExpression 317 322	great
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 279 313	The almost stock android interface
+T32	OpinionExpression 317 322	great
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 377 381	runs
+T35	OpinionExpression 382 386	fast
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 510 515	matte
+T38	OpinionExpression 501 509	colorful
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 516 522	finish
+T41	OpinionExpression 501 509	colorful
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 523 529	shells
+T44	OpinionExpression 501 509	colorful
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 620 636	internal storage
+T47	OpinionExpression 640 648	only 4gb
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 769 774	phone
+T50	OpinionExpression 763 768	great
+R51	ExpressionTarget Arg1:T50 Arg2:T49

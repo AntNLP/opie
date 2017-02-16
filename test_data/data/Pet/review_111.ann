@@ -1,0 +1,9 @@
+T1	OpinionTarget 86 91	looks
+T2	OpinionExpression 92 97	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 336 341	works
+T5	OpinionExpression 347 351	well
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 361 372	recommended
+T8	OpinionExpression 354 360	Highly
+R9	ExpressionTarget Arg1:T8 Arg2:T7

@@ -1,0 +1,48 @@
+T1	OpinionTarget 394 413	a drip coffee maker
+T2	OpinionExpression 378 384	decent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 385 388	cup
+T5	OpinionExpression 378 384	decent
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 401 407	coffee
+T8	OpinionExpression 378 384	decent
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 545 559	Instant Coffee
+T11	OpinionExpression 564 568	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 545 559	Instant Coffee
+T14	OpinionExpression 564 596	good enough to replace my K Cups
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 553 559	Coffee
+T17	OpinionExpression 564 568	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 879 900	These characteristics
+T20	OpinionExpression 905 920	important to me
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 879 900	These characteristics
+T23	OpinionExpression 905 914	important
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 885 900	characteristics
+T26	OpinionExpression 905 914	important
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 885 900	characteristics
+T29	OpinionExpression 905 920	important to me
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 1015 1020	thing
+T32	OpinionExpression 1024 1039	perfectly clear
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 1423 1431	instants
+T35	OpinionExpression 1413 1419	better
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 1543 1553	aftertaste
+T38	OpinionExpression 1532 1539	instant
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 2150 2160	aftertaste
+T41	OpinionExpression 2144 2149	nasty
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 2566 2572	flavor
+T44	OpinionExpression 2554 2558	rich
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 2559 2565	coffee
+T47	OpinionExpression 2554 2558	rich
+R48	ExpressionTarget Arg1:T47 Arg2:T46

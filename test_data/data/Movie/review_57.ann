@@ -1,0 +1,24 @@
+T1	OpinionTarget 50 60	miniseries
+T2	OpinionExpression 67 76	excellent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 77 85	overview
+T5	OpinionExpression 67 76	excellent
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 402 407	piece
+T8	OpinionExpression 392 401	exemplary
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 518 527	presented
+T11	OpinionExpression 528 537	correctly
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 504 512	the wars
+T14	OpinionExpression 518 537	presented correctly
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 508 512	wars
+T17	OpinionExpression 518 537	presented correctly
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 481 499	the actual reasons
+T20	OpinionExpression 518 537	presented correctly
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 775 778	way
+T23	OpinionExpression 765 774	enjoyable
+R24	ExpressionTarget Arg1:T23 Arg2:T22

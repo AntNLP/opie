@@ -1,0 +1,12 @@
+T1	OpinionTarget 5 12	product
+T2	OpinionExpression 17 26	delicious
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 231 241	the straws
+T5	OpinionExpression 242 251	work well
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 242 246	work
+T8	OpinionExpression 247 251	well
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 231 241	the straws
+T11	OpinionExpression 247 251	well
+R12	ExpressionTarget Arg1:T11 Arg2:T10

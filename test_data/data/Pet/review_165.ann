@@ -1,0 +1,3 @@
+T1	OpinionTarget 545 552	product
+T2	OpinionExpression 540 544	Good
+R3	ExpressionTarget Arg1:T2 Arg2:T1

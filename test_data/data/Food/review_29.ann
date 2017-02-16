@@ -1,0 +1,33 @@
+T1	OpinionTarget 78 84	growth
+T2	OpinionExpression 64 72	abnormal
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 73 77	cell
+T5	OpinionExpression 64 72	abnormal
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 344 348	cell
+T8	OpinionExpression 335 343	abnormal
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 349 355	growth
+T11	OpinionExpression 335 343	abnormal
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 511 520	adversary
+T14	OpinionExpression 500 510	formidable
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 616 623	invader
+T17	OpinionExpression 604 615	destructive
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 577 584	arsenal
+T20	OpinionExpression 563 576	comprehensive
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 626 634	Curcumin
+T23	OpinionExpression 638 701	known for its powerful antioxidant effects among other benefits
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 673 680	effects
+T26	OpinionExpression 652 660	powerful
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 731 742	ingredients
+T29	OpinionExpression 721 730	essential
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 815 819	form
+T32	OpinionExpression 811 814	top
+R33	ExpressionTarget Arg1:T32 Arg2:T31

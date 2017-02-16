@@ -1,0 +1,75 @@
+T1	OpinionTarget 22 27	phone
+T2	OpinionExpression 12 21	fantastic
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 52 57	entry
+T5	OpinionExpression 46 51	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 64 74	smartphone
+T8	OpinionExpression 46 51	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 58 63	level
+T11	OpinionExpression 46 51	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 179 185	device
+T14	OpinionExpression 169 178	expensive
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 352 360	handling
+T17	OpinionExpression 346 351	rough
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 316 326	smartphone
+T20	OpinionExpression 305 315	functional
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 400 410	only 2.2GB
+T23	OpinionExpression 415 464	user-accessible for loading applications and data
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 749 755	phones
+T26	OpinionExpression 739 748	expensive
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 829 841	applications
+T29	OpinionExpression 822 828	larger
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 880 900	the internal storage
+T32	OpinionExpression 872 876	free
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 893 900	storage
+T35	OpinionExpression 872 876	free
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 969 975	camera
+T38	OpinionExpression 964 968	rear
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1028 1039	performance
+T41	OpinionExpression 1018 1027	Excellent
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 990 994	lens
+T44	OpinionExpression 978 982	Rear
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 1121 1130	functions
+T47	OpinionExpression 1131 1135	well
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 1105 1130	auto-brightness functions
+T50	OpinionExpression 1131 1135	well
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 1076 1082	Screen
+T53	OpinionExpression 1086 1102	bright and crisp
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 1105 1120	auto-brightness
+T56	OpinionExpression 1131 1135	well
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 1076 1082	Screen
+T59	OpinionExpression 1086 1092	bright
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 1159 1171	notification
+T62	OpinionExpression 1138 1143	Large
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 1159 1171	notification
+T65	OpinionExpression 1146 1152	bright
+R66	ExpressionTarget Arg1:T65 Arg2:T64
+T67	OpinionTarget 1172 1175	LED
+T68	OpinionExpression 1146 1152	bright
+R69	ExpressionTarget Arg1:T68 Arg2:T67
+T70	OpinionTarget 1264 1269	cycle
+T71	OpinionExpression 1252 1256	full
+R72	ExpressionTarget Arg1:T71 Arg2:T70
+T73	OpinionTarget 1399 1406	speaker
+T74	OpinionExpression 1392 1398	Decent
+R75	ExpressionTarget Arg1:T74 Arg2:T73

@@ -1,0 +1,12 @@
+T1	OpinionTarget 69 75	smells
+T2	OpinionExpression 76 80	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 109 113	odor
+T5	OpinionExpression 105 108	bad
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 184 190	buying
+T8	OpinionExpression 167 180	unfortunately
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 215 220	works
+T11	OpinionExpression 224 228	well
+R12	ExpressionTarget Arg1:T11 Arg2:T10

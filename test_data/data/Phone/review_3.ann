@@ -1,0 +1,9 @@
+T1	OpinionTarget 10 15	cable
+T2	OpinionExpression 0 9	Fantastic
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 48 53	cable
+T5	OpinionExpression 43 47	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 181 188	QUALITY
+T8	OpinionExpression 177 180	TOP
+R9	ExpressionTarget Arg1:T8 Arg2:T7

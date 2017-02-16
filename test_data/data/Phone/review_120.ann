@@ -1,0 +1,21 @@
+T1	OpinionTarget 160 166	phones
+T2	OpinionExpression 141 146	cheap
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 83 88	phone
+T5	OpinionExpression 59 62	old
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 228 238	smartphone
+T8	OpinionExpression 219 227	friendly
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 406 417	recognition
+T11	OpinionExpression 421 428	amazing
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 400 405	voice
+T14	OpinionExpression 421 428	amazing
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 396 417	the voice recognition
+T17	OpinionExpression 421 428	amazing
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 470 487	their smartphones
+T20	OpinionExpression 498 524	far more expensive to this
+R21	ExpressionTarget Arg1:T20 Arg2:T19

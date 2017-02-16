@@ -1,0 +1,24 @@
+T1	OpinionTarget 200 205	phone
+T2	OpinionExpression 188 195	perfect
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 298 318	my Garmin unit -RRB-
+T5	OpinionExpression 283 292	versatile
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 368 372	runs
+T8	OpinionExpression 376 381	clean
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 467 472	value
+T11	OpinionExpression 444 453	unlimited
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 467 472	value
+T14	OpinionExpression 436 453	$ 40/mo unlimited
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 432 435	SIM
+T17	OpinionExpression 418 424	Simple
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 467 472	value
+T20	OpinionExpression 456 466	Unbeatable
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 537 545	features
+T23	OpinionExpression 528 536	advanced
+R24	ExpressionTarget Arg1:T23 Arg2:T22

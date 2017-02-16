@@ -1,0 +1,6 @@
+T1	OpinionTarget 94 98	deal
+T2	OpinionExpression 88 93	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 189 195	Amazon
+T5	OpinionExpression 207 249	great about standing behind their mistakes
+R6	ExpressionTarget Arg1:T5 Arg2:T4

@@ -1,0 +1,6 @@
+T1	OpinionTarget 98 102	idea
+T2	OpinionExpression 91 97	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 343 349	lasted
+T5	OpinionExpression 355 361	enough
+R6	ExpressionTarget Arg1:T5 Arg2:T4

@@ -1,0 +1,33 @@
+T1	OpinionTarget 49 52	cup
+T2	OpinionExpression 44 48	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 105 112	coffees
+T5	OpinionExpression 91 96	usual
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 361 371	Fair trade
+T8	OpinionExpression 311 358	reflects philosophical practices that I support
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 302 305	jar
+T11	OpinionExpression 295 301	pretty
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 361 365	Fair
+T14	OpinionExpression 311 358	reflects philosophical practices that I support
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 540 549	recommend
+T17	OpinionExpression 533 539	highly
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 580 593	a gift basket
+T20	OpinionExpression 563 567	Nice
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 582 586	gift
+T23	OpinionExpression 563 567	Nice
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 568 576	addition
+T26	OpinionExpression 563 567	Nice
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 619 624	trade
+T29	OpinionExpression 614 618	fair
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 661 670	packaging
+T32	OpinionExpression 650 660	attractive
+R33	ExpressionTarget Arg1:T32 Arg2:T31

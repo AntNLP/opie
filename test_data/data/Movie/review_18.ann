@@ -1,0 +1,69 @@
+T1	OpinionTarget 288 293	Ellen
+T2	OpinionExpression 275 287	incomparable
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 294 301	Burstyn
+T5	OpinionExpression 275 287	incomparable
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 636 641	track
+T8	OpinionExpression 631 635	lost
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 675 679	feel
+T11	OpinionExpression 686 695	unsettled
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 675 679	feel
+T14	OpinionExpression 686 713	unsettled and uncomfortable
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 618 626	plotting
+T17	OpinionExpression 602 610	reverent
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 898 903	movie
+T20	OpinionExpression 893 897	good
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 944 947	fun
+T23	OpinionExpression 936 943	lunatic
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 1092 1097	movie
+T26	OpinionExpression 1107 1119	entertaining
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 1147 1152	movie
+T29	OpinionExpression 1143 1146	bad
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 1153 1157	mojo
+T32	OpinionExpression 1143 1146	bad
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 1088 1097	the movie
+T35	OpinionExpression 1107 1119	entertaining
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 1384 1393	ballerina
+T38	OpinionExpression 1375 1383	aspiring
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 2185 2190	Romeo
+T41	OpinionExpression 2174 2184	lackluster
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 2102 2105	end
+T44	OpinionExpression 2093 2101	shocking
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 2668 2674	lunacy
+T47	OpinionExpression 2657 2667	delightful
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 2722 2726	Wind
+T50	OpinionExpression 2752 2756	good
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 2705 2729	`` Petals on the Wind ''
+T53	OpinionExpression 2739 2756	particularly good
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 2705 2729	`` Petals on the Wind ''
+T56	OpinionExpression 2752 2756	good
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 2718 2726	the Wind
+T59	OpinionExpression 2752 2756	good
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 2718 2726	the Wind
+T62	OpinionExpression 2739 2756	particularly good
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 2955 2962	moments
+T65	OpinionExpression 2950 2954	nice
+R66	ExpressionTarget Arg1:T65 Arg2:T64
+T67	OpinionTarget 2970 2973	end
+T68	OpinionExpression 2950 2954	nice
+R69	ExpressionTarget Arg1:T68 Arg2:T67

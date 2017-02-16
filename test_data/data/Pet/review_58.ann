@@ -1,0 +1,6 @@
+T1	OpinionTarget 166 174	shipment
+T2	OpinionExpression 158 165	healthy
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 166 174	shipment
+T5	OpinionExpression 148 153	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4

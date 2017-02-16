@@ -1,0 +1,6 @@
+T1	OpinionTarget 315 320	trade
+T2	OpinionExpression 310 314	fair
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 288 296	The fact
+T5	OpinionExpression 305 320	both fair trade
+R6	ExpressionTarget Arg1:T5 Arg2:T4

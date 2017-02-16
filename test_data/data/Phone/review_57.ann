@@ -1,0 +1,276 @@
+T1	OpinionTarget 15 23	unlocked
+T2	OpinionExpression 5 14	wonderful
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 31 36	Phone
+T5	OpinionExpression 5 14	wonderful
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 24 28	Moto
+T8	OpinionExpression 5 14	wonderful
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 72 77	price
+T11	OpinionExpression 42 51	delighted
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 72 77	price
+T14	OpinionExpression 68 71	low
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 29 30	E
+T17	OpinionExpression 5 14	wonderful
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 24 36	Moto E Phone
+T20	OpinionExpression 5 14	wonderful
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 281 285	back
+T23	OpinionExpression 274 280	curved
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 230 236	travel
+T26	OpinionExpression 218 225	perfect
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 443 450	battery
+T29	OpinionExpression 438 442	best
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 570 574	apps
+T32	OpinionExpression 562 569	useless
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 600 603	run
+T35	OpinionExpression 604 610	better
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 580 585	helps
+T38	OpinionExpression 604 610	better
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1666 1672	colors
+T41	OpinionExpression 1677 1682	vivid
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 1687 1704	the fonts , icons
+T44	OpinionExpression 1714 1719	clear
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 1687 1704	the fonts , icons
+T47	OpinionExpression 1709 1719	very clear
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 1699 1704	icons
+T50	OpinionExpression 1709 1719	very clear
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 1662 1672	The colors
+T53	OpinionExpression 1677 1682	vivid
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 1752 1757	phone
+T56	OpinionExpression 1744 1751	smaller
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 1815 1819	text
+T59	OpinionExpression 1823 1828	clear
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 1833 1841	pictures
+T62	OpinionExpression 1847 1852	clear
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 1811 1819	the text
+T65	OpinionExpression 1823 1828	clear
+R66	ExpressionTarget Arg1:T65 Arg2:T64
+T67	OpinionTarget 1876 1882	screen
+T68	OpinionExpression 1886 1894	so clear
+R69	ExpressionTarget Arg1:T68 Arg2:T67
+T70	OpinionTarget 1872 1882	the screen
+T71	OpinionExpression 1889 1894	clear
+R72	ExpressionTarget Arg1:T71 Arg2:T70
+T73	OpinionTarget 1872 1882	the screen
+T74	OpinionExpression 1886 1894	so clear
+R75	ExpressionTarget Arg1:T74 Arg2:T73
+T76	OpinionTarget 1876 1882	screen
+T77	OpinionExpression 1889 1894	clear
+R78	ExpressionTarget Arg1:T77 Arg2:T76
+T79	OpinionTarget 2001 2011	Experience
+T80	OpinionExpression 1988 1992	Pure
+R81	ExpressionTarget Arg1:T80 Arg2:T79
+T82	OpinionTarget 2038 2045	Android
+T83	OpinionExpression 2033 2037	pure
+R84	ExpressionTarget Arg1:T83 Arg2:T82
+T85	OpinionTarget 2096 2100	apps
+T86	OpinionExpression 2086 2095	essential
+R87	ExpressionTarget Arg1:T86 Arg2:T85
+T88	OpinionTarget 2233 2240	Android
+T89	OpinionExpression 2224 2232	straight
+R90	ExpressionTarget Arg1:T89 Arg2:T88
+T91	OpinionTarget 2154 2160	memory
+T92	OpinionExpression 2149 2153	less
+R93	ExpressionTarget Arg1:T92 Arg2:T91
+T94	OpinionTarget 2269 2273	runs
+T95	OpinionExpression 2274 2280	better
+R96	ExpressionTarget Arg1:T95 Arg2:T94
+T97	OpinionTarget 2564 2568	WiFi
+T98	OpinionExpression 2600 2609	strongest
+R99	ExpressionTarget Arg1:T98 Arg2:T97
+T100	OpinionTarget 2564 2568	WiFi
+T101	OpinionExpression 2552 2560	smoothly
+R102	ExpressionTarget Arg1:T101 Arg2:T100
+T103	OpinionTarget 2610 2614	WiFi
+T104	OpinionExpression 2600 2609	strongest
+R105	ExpressionTarget Arg1:T104 Arg2:T103
+T106	OpinionTarget 2569 2585	Connecting/Speed
+T107	OpinionExpression 2552 2560	smoothly
+R108	ExpressionTarget Arg1:T107 Arg2:T106
+T109	OpinionTarget 2561 2585	.+ WiFi Connecting/Speed
+T110	OpinionExpression 2552 2560	smoothly
+R111	ExpressionTarget Arg1:T110 Arg2:T109
+T112	OpinionTarget 2710 2717	connect
+T113	OpinionExpression 2705 2709	fast
+R114	ExpressionTarget Arg1:T113 Arg2:T112
+T115	OpinionTarget 3317 3323	worked
+T116	OpinionExpression 3329 3333	fine
+R117	ExpressionTarget Arg1:T116 Arg2:T115
+T118	OpinionTarget 3403 3408	cards
+T119	OpinionExpression 3393 3399	higher
+R120	ExpressionTarget Arg1:T119 Arg2:T118
+T121	OpinionTarget 3500 3507	removed
+T122	OpinionExpression 3487 3499	unexpectedly
+R123	ExpressionTarget Arg1:T122 Arg2:T121
+T124	OpinionTarget 3675 3679	card
+T125	OpinionExpression 3680 3686	better
+R126	ExpressionTarget Arg1:T125 Arg2:T124
+T127	OpinionTarget 3667 3679	Class 6 card
+T128	OpinionExpression 3680 3686	better
+R129	ExpressionTarget Arg1:T128 Arg2:T127
+T130	OpinionTarget 3667 3672	Class
+T131	OpinionExpression 3680 3686	better
+R132	ExpressionTarget Arg1:T131 Arg2:T130
+T133	OpinionTarget 3648 3653	reads
+T134	OpinionExpression 3680 3686	better
+R135	ExpressionTarget Arg1:T134 Arg2:T133
+T136	OpinionTarget 3970 3973	job
+T137	OpinionExpression 3964 3969	great
+R138	ExpressionTarget Arg1:T137 Arg2:T136
+T139	OpinionTarget 4017 4025	internet
+T140	OpinionExpression 4011 4016	great
+R141	ExpressionTarget Arg1:T140 Arg2:T139
+T142	OpinionTarget 4292 4307	a MS Office App
+T143	OpinionExpression 4314 4318	free
+R144	ExpressionTarget Arg1:T143 Arg2:T142
+T145	OpinionTarget 4294 4296	MS
+T146	OpinionExpression 4314 4318	free
+R147	ExpressionTarget Arg1:T146 Arg2:T145
+T148	OpinionTarget 4297 4303	Office
+T149	OpinionExpression 4314 4318	free
+R150	ExpressionTarget Arg1:T149 Arg2:T148
+T151	OpinionTarget 4304 4307	App
+T152	OpinionExpression 4314 4318	free
+R153	ExpressionTarget Arg1:T152 Arg2:T151
+T154	OpinionTarget 4526 4539	Google Player
+T155	OpinionExpression 4540 4571	also plays music from the Cloud
+R156	ExpressionTarget Arg1:T155 Arg2:T154
+T157	OpinionTarget 4462 4481	my external SD card
+T158	OpinionExpression 4482 4488	nicely
+R159	ExpressionTarget Arg1:T158 Arg2:T157
+T160	OpinionTarget 4533 4539	Player
+T161	OpinionExpression 4540 4571	also plays music from the Cloud
+R162	ExpressionTarget Arg1:T161 Arg2:T160
+T163	OpinionTarget 4526 4532	Google
+T164	OpinionExpression 4540 4571	also plays music from the Cloud
+R165	ExpressionTarget Arg1:T164 Arg2:T163
+T166	OpinionTarget 4477 4481	card
+T167	OpinionExpression 4482 4488	nicely
+R168	ExpressionTarget Arg1:T167 Arg2:T166
+T169	OpinionTarget 4452 4458	stored
+T170	OpinionExpression 4482 4488	nicely
+R171	ExpressionTarget Arg1:T170 Arg2:T169
+T172	OpinionTarget 4438 4443	music
+T173	OpinionExpression 4452 4488	stored on my external SD card nicely
+R174	ExpressionTarget Arg1:T173 Arg2:T172
+T175	OpinionTarget 4474 4476	SD
+T176	OpinionExpression 4482 4488	nicely
+R177	ExpressionTarget Arg1:T176 Arg2:T175
+T178	OpinionTarget 4605 4624	Rocket Music Player
+T179	OpinionExpression 4631 4635	free
+R180	ExpressionTarget Arg1:T179 Arg2:T178
+T181	OpinionTarget 4605 4611	Rocket
+T182	OpinionExpression 4631 4635	free
+R183	ExpressionTarget Arg1:T182 Arg2:T181
+T184	OpinionTarget 4612 4617	Music
+T185	OpinionExpression 4631 4635	free
+R186	ExpressionTarget Arg1:T185 Arg2:T184
+T187	OpinionTarget 4618 4624	Player
+T188	OpinionExpression 4631 4635	free
+R189	ExpressionTarget Arg1:T188 Arg2:T187
+T190	OpinionTarget 4816 4825	the sound
+T191	OpinionExpression 4846 4852	superb
+R192	ExpressionTarget Arg1:T191 Arg2:T190
+T193	OpinionTarget 4820 4825	sound
+T194	OpinionExpression 4846 4852	superb
+R195	ExpressionTarget Arg1:T194 Arg2:T193
+T196	OpinionTarget 4869 4891	The stock video player
+T197	OpinionExpression 4895 4897	OK
+R198	ExpressionTarget Arg1:T197 Arg2:T196
+T199	OpinionTarget 4855 4866	Home Videos
+T200	OpinionExpression 4895 4897	OK
+R201	ExpressionTarget Arg1:T200 Arg2:T199
+T202	OpinionTarget 4970 4975	Adobe
+T203	OpinionExpression 4989 4998	supported
+R204	ExpressionTarget Arg1:T203 Arg2:T202
+T205	OpinionTarget 4976 4981	Flash
+T206	OpinionExpression 4989 4998	supported
+R207	ExpressionTarget Arg1:T206 Arg2:T205
+T208	OpinionTarget 4960 4981	- The new Adobe Flash
+T209	OpinionExpression 4989 4998	supported
+R210	ExpressionTarget Arg1:T209 Arg2:T208
+T211	OpinionTarget 5138 5143	flash
+T212	OpinionExpression 5123 5128	older
+R213	ExpressionTarget Arg1:T212 Arg2:T211
+T214	OpinionTarget 5246 5253	results
+T215	OpinionExpression 5241 5245	good
+R216	ExpressionTarget Arg1:T215 Arg2:T214
+T217	OpinionTarget 5362 5368	camera
+T218	OpinionExpression 5352 5357	lower
+R219	ExpressionTarget Arg1:T218 Arg2:T217
+T220	OpinionTarget 5433 5450	taking situations
+T221	OpinionExpression 5420 5424	best
+R222	ExpressionTarget Arg1:T221 Arg2:T220
+T223	OpinionTarget 5405 5411	camera
+T224	OpinionExpression 5397 5404	regular
+R225	ExpressionTarget Arg1:T224 Arg2:T223
+T226	OpinionTarget 5440 5450	situations
+T227	OpinionExpression 5420 5424	best
+R228	ExpressionTarget Arg1:T227 Arg2:T226
+T229	OpinionTarget 5425 5432	picture
+T230	OpinionExpression 5420 5424	best
+R231	ExpressionTarget Arg1:T230 Arg2:T229
+T232	OpinionTarget 5556 5564	lighting
+T233	OpinionExpression 5549 5555	bright
+R234	ExpressionTarget Arg1:T233 Arg2:T232
+T235	OpinionTarget 5534 5539	shots
+T236	OpinionExpression 5523 5526	few
+R237	ExpressionTarget Arg1:T236 Arg2:T235
+T238	OpinionTarget 5723 5728	shots
+T239	OpinionExpression 5708 5715	serious
+R240	ExpressionTarget Arg1:T239 Arg2:T238
+T241	OpinionTarget 5692 5698	camera
+T242	OpinionExpression 5684 5691	digital
+R243	ExpressionTarget Arg1:T242 Arg2:T241
+T244	OpinionTarget 5692 5698	camera
+T245	OpinionExpression 5676 5683	regular
+R246	ExpressionTarget Arg1:T245 Arg2:T244
+T247	OpinionTarget 5753 5760	storage
+T248	OpinionExpression 5740 5743	Low
+R249	ExpressionTarget Arg1:T248 Arg2:T247
+T250	OpinionTarget 5802 5806	news
+T251	OpinionExpression 5797 5801	good
+R252	ExpressionTarget Arg1:T251 Arg2:T250
+T253	OpinionTarget 6431 6438	battery
+T254	OpinionExpression 6424 6430	SUPERB
+R255	ExpressionTarget Arg1:T254 Arg2:T253
+T256	OpinionTarget 6533 6543	smartphone
+T257	OpinionExpression 6500 6504	easy
+R258	ExpressionTarget Arg1:T257 Arg2:T256
+T259	OpinionTarget 6533 6543	smartphone
+T260	OpinionExpression 6500 6511	easy to use
+R261	ExpressionTarget Arg1:T260 Arg2:T259
+T262	OpinionTarget 6566 6573	battery
+T263	OpinionExpression 6560 6565	great
+R264	ExpressionTarget Arg1:T263 Arg2:T262
+T265	OpinionTarget 6525 6532	Android
+T266	OpinionExpression 6500 6519	easy to use and low
+R267	ExpressionTarget Arg1:T266 Arg2:T265
+T268	OpinionTarget 6533 6543	smartphone
+T269	OpinionExpression 6500 6519	easy to use and low
+R270	ExpressionTarget Arg1:T269 Arg2:T268
+T271	OpinionTarget 6533 6543	smartphone
+T272	OpinionExpression 6516 6519	low
+R273	ExpressionTarget Arg1:T272 Arg2:T271
+T274	OpinionTarget 6566 6573	battery
+T275	OpinionExpression 6553 6565	really great
+R276	ExpressionTarget Arg1:T275 Arg2:T274

@@ -1,0 +1,24 @@
+T1	OpinionTarget 145 155	supplement
+T2	OpinionExpression 137 144	natural
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 97 105	syndrome
+T5	OpinionExpression 84 91	swollen
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 135 155	a natural supplement
+T8	OpinionExpression 162 182	give her some relief
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 145 155	supplement
+T11	OpinionExpression 162 182	give her some relief
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 112 115	FSF
+T14	OpinionExpression 84 91	swollen
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 92 96	hock
+T17	OpinionExpression 84 91	swollen
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 260 267	getting
+T20	OpinionExpression 275 281	better
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 407 412	works
+T23	OpinionExpression 413 419	better
+R24	ExpressionTarget Arg1:T23 Arg2:T22

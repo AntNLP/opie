@@ -1,0 +1,6 @@
+T1	OpinionTarget 29 36	battery
+T2	OpinionExpression 24 28	Good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 54 60	kitkat
+T5	OpinionExpression 47 53	latest
+R6	ExpressionTarget Arg1:T5 Arg2:T4

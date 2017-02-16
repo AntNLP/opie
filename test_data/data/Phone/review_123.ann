@@ -1,0 +1,9 @@
+T1	OpinionTarget 34 40	Screen
+T2	OpinionExpression 44 49	small
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 316 321	price
+T5	OpinionExpression 310 315	Great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 330 338	features
+T8	OpinionExpression 324 329	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7

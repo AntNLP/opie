@@ -1,0 +1,12 @@
+T1	OpinionTarget 103 114	backpacking
+T2	OpinionExpression 88 93	GREAT
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 103 122	backpacking dinners
+T5	OpinionExpression 88 93	GREAT
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 94 98	base
+T8	OpinionExpression 88 93	GREAT
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 424 428	meal
+T11	OpinionExpression 418 423	tasty
+R12	ExpressionTarget Arg1:T11 Arg2:T10

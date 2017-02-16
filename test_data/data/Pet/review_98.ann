@@ -1,0 +1,12 @@
+T1	OpinionTarget 139 143	idea
+T2	OpinionExpression 134 138	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 183 188	price
+T5	OpinionExpression 192 196	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 179 188	The price
+T8	OpinionExpression 192 196	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 179 188	The price
+T11	OpinionExpression 192 227	good too when bought in this volume
+R12	ExpressionTarget Arg1:T11 Arg2:T10

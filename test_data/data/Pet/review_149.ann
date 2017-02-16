@@ -1,0 +1,9 @@
+T1	OpinionTarget 185 190	scent
+T2	OpinionExpression 152 184	clean -LRB- not chemically -RRB-
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 297 303	smells
+T5	OpinionExpression 304 309	fresh
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 318 325	product
+T8	OpinionExpression 312 317	Great
+R9	ExpressionTarget Arg1:T8 Arg2:T7

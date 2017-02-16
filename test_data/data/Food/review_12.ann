@@ -1,0 +1,24 @@
+T1	OpinionTarget 14 33	Rhumatoid Arthritis
+T2	OpinionExpression 43 74	a chronic inflammatory disorder
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 14 33	Rhumatoid Arthritis
+T5	OpinionExpression 2 8	suffer
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 14 23	Rhumatoid
+T8	OpinionExpression 2 8	suffer
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 155 163	swelling
+T11	OpinionExpression 147 154	painful
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 387 395	swelling
+T14	OpinionExpression 406 409	bad
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 374 382	the pain
+T17	OpinionExpression 399 409	really bad
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 387 395	swelling
+T20	OpinionExpression 399 409	really bad
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 337 343	things
+T23	OpinionExpression 332 336	best
+R24	ExpressionTarget Arg1:T23 Arg2:T22

@@ -1,0 +1,9 @@
+T1	OpinionTarget 77 88	ingredients
+T2	OpinionExpression 65 70	crazy
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 77 88	ingredients
+T5	OpinionExpression 71 76	scary
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 355 361	effect
+T8	OpinionExpression 346 349	ill
+R9	ExpressionTarget Arg1:T8 Arg2:T7

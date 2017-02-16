@@ -1,0 +1,21 @@
+T1	OpinionTarget 40 55	The screen size
+T2	OpinionExpression 59 63	tiny
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 143 152	processor
+T5	OpinionExpression 136 142	slower
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 166 171	power
+T8	OpinionExpression 161 165	less
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 125 131	screen
+T11	OpinionExpression 117 124	smaller
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 255 259	city
+T14	OpinionExpression 250 254	huge
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 393 414	GSM frequency support
+T17	OpinionExpression 423 437	crucial for me
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 684 691	battery
+T20	OpinionExpression 677 683	enough
+R21	ExpressionTarget Arg1:T20 Arg2:T19

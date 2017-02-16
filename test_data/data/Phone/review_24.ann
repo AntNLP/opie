@@ -1,0 +1,6 @@
+T1	OpinionTarget 6 11	cable
+T2	OpinionExpression 0 5	Great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 126 146	use with your laptop
+T5	OpinionExpression 116 121	Great
+R6	ExpressionTarget Arg1:T5 Arg2:T4

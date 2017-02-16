@@ -1,0 +1,33 @@
+T1	OpinionTarget 50 60	smartphone
+T2	OpinionExpression 44 49	first
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 244 254	substitute
+T5	OpinionExpression 236 243	perfect
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 311 316	phone
+T8	OpinionExpression 304 310	cheapo
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 322 327	works
+T11	OpinionExpression 333 339	better
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 373 380	holding
+T14	OpinionExpression 391 395	well
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 547 557	the camera
+T17	OpinionExpression 535 543	negative
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 551 557	camera
+T20	OpinionExpression 535 543	negative
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 581 589	pictures
+T23	OpinionExpression 574 580	decent
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 600 608	lighting
+T26	OpinionExpression 595 599	good
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 749 752	end
+T29	OpinionExpression 744 748	high
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 791 797	prices
+T32	OpinionExpression 782 786	high
+R33	ExpressionTarget Arg1:T32 Arg2:T31

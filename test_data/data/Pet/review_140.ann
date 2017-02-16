@@ -1,0 +1,9 @@
+T1	OpinionTarget 0 10	The snails
+T2	OpinionExpression 19 42	pictured and advertised
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 52 57	pinks
+T5	OpinionExpression 45 51	Bright
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 135 139	deal
+T8	OpinionExpression 130 134	Good
+R9	ExpressionTarget Arg1:T8 Arg2:T7

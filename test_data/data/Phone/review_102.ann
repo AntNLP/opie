@@ -1,0 +1,30 @@
+T1	OpinionTarget 282 292	smartphone
+T2	OpinionExpression 276 281	first
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 722 727	phone
+T5	OpinionExpression 718 721	old
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 738 745	upgrade
+T8	OpinionExpression 750 758	free : D
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 738 745	upgrade
+T11	OpinionExpression 750 754	free
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 776 781	phone
+T14	OpinionExpression 796 803	cheaper
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 813 814	G
+T17	OpinionExpression 796 803	cheaper
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 827 834	opinion
+T20	OpinionExpression 838 850	a lot better
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 824 834	my opinion
+T23	OpinionExpression 838 850	a lot better
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 1027 1032	phone
+T26	OpinionExpression 1019 1026	smaller
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 1070 1076	choice
+T29	OpinionExpression 1065 1069	best
+R30	ExpressionTarget Arg1:T29 Arg2:T28

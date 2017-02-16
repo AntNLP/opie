@@ -1,0 +1,6 @@
+T1	OpinionTarget 14 18	book
+T2	OpinionExpression 29 35	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 10 18	the book
+T5	OpinionExpression 29 35	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4

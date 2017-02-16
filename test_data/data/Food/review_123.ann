@@ -1,0 +1,6 @@
+T1	OpinionTarget 133 142	The taste
+T2	OpinionExpression 147 156	very good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 137 142	taste
+T5	OpinionExpression 147 156	very good
+R6	ExpressionTarget Arg1:T5 Arg2:T4

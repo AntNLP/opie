@@ -1,0 +1,6 @@
+T1	OpinionTarget 28 35	product
+T2	OpinionExpression 18 27	excellent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 93 102	reduction
+T5	OpinionExpression 84 92	dramatic
+R6	ExpressionTarget Arg1:T5 Arg2:T4

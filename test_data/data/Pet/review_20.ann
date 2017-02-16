@@ -1,0 +1,30 @@
+T1	OpinionTarget 25 33	material
+T2	OpinionExpression 19 24	tough
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 584 591	process
+T5	OpinionExpression 577 583	simple
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 584 591	process
+T8	OpinionExpression 556 562	smooth
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 584 591	process
+T11	OpinionExpression 565 570	quick
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 607 612	seems
+T14	OpinionExpression 613 622	expensive
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 683 699	the listed price
+T17	OpinionExpression 732 749	a very fair price
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 788 793	value
+T20	OpinionExpression 778 787	excellent
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 761 768	quality
+T23	OpinionExpression 756 760	good
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 744 749	price
+T26	OpinionExpression 739 743	fair
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 769 772	pad
+T29	OpinionExpression 756 760	good
+R30	ExpressionTarget Arg1:T29 Arg2:T28

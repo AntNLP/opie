@@ -1,0 +1,3 @@
+T1	OpinionTarget 108 114	actors
+T2	OpinionExpression 102 107	Great
+R3	ExpressionTarget Arg1:T2 Arg2:T1

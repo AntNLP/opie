@@ -1,0 +1,9 @@
+T1	OpinionTarget 69 72	job
+T2	OpinionExpression 64 68	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 73 82	motorola.
+T5	OpinionExpression 64 68	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 15 22	product
+T8	OpinionExpression 10 14	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7

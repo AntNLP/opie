@@ -1,0 +1,3 @@
+T1	OpinionTarget 0 9	The phone
+T2	OpinionExpression 10 42	arrived before the promised date
+R3	ExpressionTarget Arg1:T2 Arg2:T1

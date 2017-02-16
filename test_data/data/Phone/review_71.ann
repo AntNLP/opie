@@ -1,0 +1,45 @@
+T1	OpinionTarget 113 118	phone
+T2	OpinionExpression 100 105	first
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 348 357	something
+T5	OpinionExpression 358 365	cheaper
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 403 412	no frills
+T8	OpinionExpression 428 437	immediate
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 484 491	quality
+T11	OpinionExpression 473 477	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 478 491	build quality
+T14	OpinionExpression 473 477	good
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 478 483	build
+T17	OpinionExpression 473 477	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 868 873	lumia
+T20	OpinionExpression 836 844	mediocre
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 925 931	device
+T23	OpinionExpression 917 924	perfect
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 993 996	sim
+T26	OpinionExpression 986 992	active
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 1053 1058	level
+T29	OpinionExpression 1034 1041	highest
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 1128 1131	use
+T32	OpinionExpression 1119 1127	moderate
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 1202 1208	screen
+T35	OpinionExpression 1224 1228	nice
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 1198 1208	the screen
+T38	OpinionExpression 1224 1228	nice
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1198 1208	the screen
+T41	OpinionExpression 1219 1239	very nice and bright
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 1202 1208	screen
+T44	OpinionExpression 1219 1239	very nice and bright
+R45	ExpressionTarget Arg1:T44 Arg2:T43

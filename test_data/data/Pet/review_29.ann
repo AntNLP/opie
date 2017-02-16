@@ -1,0 +1,6 @@
+T1	OpinionTarget 59 65	colors
+T2	OpinionExpression 49 58	beautiful
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 77 86	recommend
+T5	OpinionExpression 70 76	highly
+R6	ExpressionTarget Arg1:T5 Arg2:T4

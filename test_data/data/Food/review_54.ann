@@ -1,0 +1,6 @@
+T1	OpinionTarget 626 639	read Curcumin
+T2	OpinionExpression 651 681	help with this disease as well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 626 630	read
+T5	OpinionExpression 651 681	help with this disease as well
+R6	ExpressionTarget Arg1:T5 Arg2:T4

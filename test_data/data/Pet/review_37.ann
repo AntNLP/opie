@@ -1,0 +1,6 @@
+T1	OpinionTarget 109 111	K9
+T2	OpinionExpression 100 104	Good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 105 108	job
+T5	OpinionExpression 100 104	Good
+R6	ExpressionTarget Arg1:T5 Arg2:T4

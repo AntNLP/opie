@@ -1,0 +1,21 @@
+T1	OpinionTarget 247 252	cover
+T2	OpinionExpression 242 246	hard
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 297 302	phone
+T5	OpinionExpression 291 296	solid
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 390 395	phone
+T8	OpinionExpression 379 383	real
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 390 395	phone
+T11	OpinionExpression 384 389	smart
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 390 395	phone
+T14	OpinionExpression 373 378	first
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 444 452	Motorola
+T17	OpinionExpression 434 438	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 439 443	work
+T20	OpinionExpression 434 438	good
+R21	ExpressionTarget Arg1:T20 Arg2:T19

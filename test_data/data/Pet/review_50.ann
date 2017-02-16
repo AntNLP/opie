@@ -1,0 +1,9 @@
+T1	OpinionTarget 13 20	product
+T2	OpinionExpression 7 12	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 42 47	model
+T5	OpinionExpression 27 32	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 33 41	business
+T8	OpinionExpression 27 32	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7

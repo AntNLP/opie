@@ -1,0 +1,27 @@
+T1	OpinionTarget 111 112	E
+T2	OpinionExpression 120 127	perfect
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 106 110	Moto
+T5	OpinionExpression 120 127	perfect
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 102 112	the Moto E
+T8	OpinionExpression 116 133	the perfect phone
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 102 112	the Moto E
+T11	OpinionExpression 120 127	perfect
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 128 133	phone
+T14	OpinionExpression 120 127	perfect
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 145 146	E
+T17	OpinionExpression 152 175	works well with Netflix
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 152 157	works
+T20	OpinionExpression 158 162	well
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 140 144	Moto
+T23	OpinionExpression 152 175	works well with Netflix
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 136 146	The Moto E
+T26	OpinionExpression 152 175	works well with Netflix
+R27	ExpressionTarget Arg1:T26 Arg2:T25

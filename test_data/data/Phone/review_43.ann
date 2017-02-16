@@ -1,0 +1,15 @@
+T1	OpinionTarget 34 35	E
+T2	OpinionExpression 15 20	happy
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 171 179	obstacle
+T5	OpinionExpression 163 170	biggest
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 389 393	fits
+T8	OpinionExpression 399 410	comfortably
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 523 528	works
+T11	OpinionExpression 534 538	fine
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 885 892	working
+T14	OpinionExpression 893 902	perfectly
+R15	ExpressionTarget Arg1:T14 Arg2:T13

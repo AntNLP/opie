@@ -1,0 +1,9 @@
+T1	OpinionTarget 29 43	charging cable
+T2	OpinionExpression 10 19	fantastic
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 29 43	charging cable
+T5	OpinionExpression 20 28	portable
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 38 43	cable
+T8	OpinionExpression 20 28	portable
+R9	ExpressionTarget Arg1:T8 Arg2:T7

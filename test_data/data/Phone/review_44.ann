@@ -1,0 +1,33 @@
+T1	OpinionTarget 24 30	values
+T2	OpinionExpression 19 23	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 421 426	value
+T5	OpinionExpression 410 420	tremendous
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 374 378	Moto
+T8	OpinionExpression 386 390	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 358 365	Reviews
+T11	OpinionExpression 386 390	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 370 380	the Moto E
+T14	OpinionExpression 386 390	good
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 379 380	E
+T17	OpinionExpression 386 390	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 435 443	Motorola
+T20	OpinionExpression 457 472	owned by Google
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 555 562	add-ons
+T23	OpinionExpression 546 554	annoying
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 700 708	performs
+T26	OpinionExpression 714 718	well
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 735 740	phone
+T29	OpinionExpression 729 734	ideal
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 845 852	Battery
+T32	OpinionExpression 861 872	exceptional
+R33	ExpressionTarget Arg1:T32 Arg2:T31

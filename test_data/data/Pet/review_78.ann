@@ -1,0 +1,9 @@
+T1	OpinionTarget 4 10	collar
+T2	OpinionExpression 14 18	cute
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 0 10	The collar
+T5	OpinionExpression 14 18	cute
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 238 242	look
+T8	OpinionExpression 243 247	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7

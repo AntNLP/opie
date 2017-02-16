@@ -1,0 +1,12 @@
+T1	OpinionTarget 17 22	cable
+T2	OpinionExpression 11 16	short
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 30 33	fit
+T5	OpinionExpression 43 52	perfectly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 34 42	the bill
+T8	OpinionExpression 43 52	perfectly
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 132 139	lengths
+T11	OpinionExpression 125 131	longer
+R12	ExpressionTarget Arg1:T11 Arg2:T10

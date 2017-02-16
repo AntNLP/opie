@@ -1,0 +1,6 @@
+T1	OpinionTarget 121 127	worked
+T2	OpinionExpression 128 133	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 170 175	100 %
+T5	OpinionExpression 176 184	reliable
+R6	ExpressionTarget Arg1:T5 Arg2:T4

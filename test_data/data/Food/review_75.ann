@@ -1,0 +1,15 @@
+T1	OpinionTarget 263 278	my leg strength
+T2	OpinionExpression 287 293	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 247 259	some changes
+T5	OpinionExpression 287 293	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 270 278	strength
+T8	OpinionExpression 287 293	better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 252 259	changes
+T11	OpinionExpression 287 293	better
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 266 269	leg
+T14	OpinionExpression 287 293	better
+R15	ExpressionTarget Arg1:T14 Arg2:T13

@@ -1,0 +1,51 @@
+T1	OpinionTarget 130 139	scenarios
+T2	OpinionExpression 120 123	low
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 65 75	The screen
+T5	OpinionExpression 85 89	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 130 139	scenarios
+T8	OpinionExpression 124 129	light
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 69 75	screen
+T11	OpinionExpression 85 89	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 65 75	The screen
+T14	OpinionExpression 79 89	quite good
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 69 75	screen
+T17	OpinionExpression 79 89	quite good
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 535 541	config
+T20	OpinionExpression 515 521	faster
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 432 446	an 8GB SD card
+T23	OpinionExpression 450 487	avoid the hassle of factory resetting
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 535 541	config
+T26	OpinionExpression 508 521	simply faster
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 527 534	editing
+T29	OpinionExpression 515 521	faster
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 542 547	files
+T32	OpinionExpression 515 521	faster
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 527 547	editing config files
+T35	OpinionExpression 515 521	faster
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 527 547	editing config files
+T38	OpinionExpression 508 521	simply faster
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 527 534	editing
+T41	OpinionExpression 508 521	simply faster
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 595 601	Camera
+T44	OpinionExpression 591 594	Bad
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 629 635	phones
+T47	OpinionExpression 620 624	high
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 725 732	Storage
+T50	OpinionExpression 710 715	Small
+R51	ExpressionTarget Arg1:T50 Arg2:T49

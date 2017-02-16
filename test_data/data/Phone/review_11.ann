@@ -1,0 +1,6 @@
+T1	OpinionTarget 139 142	fit
+T2	OpinionExpression 134 138	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 145 161	The Bendy cables
+T5	OpinionExpression 166 172	unique
+R6	ExpressionTarget Arg1:T5 Arg2:T4

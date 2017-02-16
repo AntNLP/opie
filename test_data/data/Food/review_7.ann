@@ -1,0 +1,27 @@
+T1	OpinionTarget 238 243	level
+T2	OpinionExpression 259 265	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 228 243	my energy level
+T5	OpinionExpression 252 265	gotten better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 231 237	energy
+T8	OpinionExpression 259 265	better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 335 341	energy
+T11	OpinionExpression 323 331	improves
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 252 258	gotten
+T14	OpinionExpression 259 265	better
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 231 237	energy
+T17	OpinionExpression 252 265	gotten better
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 228 243	my energy level
+T20	OpinionExpression 259 265	better
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 238 243	level
+T23	OpinionExpression 252 265	gotten better
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 332 347	my energy level
+T26	OpinionExpression 323 331	improves
+R27	ExpressionTarget Arg1:T26 Arg2:T25

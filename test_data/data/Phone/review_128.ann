@@ -1,0 +1,6 @@
+T1	OpinionTarget 182 188	phones
+T2	OpinionExpression 163 167	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 168 181	value/quality
+T5	OpinionExpression 163 167	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4

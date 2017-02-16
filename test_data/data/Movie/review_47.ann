@@ -1,0 +1,24 @@
+T1	OpinionTarget 124 153	the production side of things
+T2	OpinionExpression 113 120	lacking
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 100 106	series
+T5	OpinionExpression 113 120	lacking
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 124 143	the production side
+T8	OpinionExpression 113 120	lacking
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 128 138	production
+T11	OpinionExpression 113 120	lacking
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 160 164	pace
+T14	OpinionExpression 169 182	a little slow
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 156 164	The pace
+T17	OpinionExpression 169 182	a little slow
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 160 164	pace
+T20	OpinionExpression 178 182	slow
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 343 350	battles
+T23	OpinionExpression 339 342	key
+R24	ExpressionTarget Arg1:T23 Arg2:T22

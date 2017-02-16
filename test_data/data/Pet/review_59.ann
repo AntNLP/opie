@@ -1,0 +1,15 @@
+T1	OpinionTarget 102 111	packaging
+T2	OpinionExpression 92 101	excellent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 262 270	shipping
+T5	OpinionExpression 257 261	fast
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 289 303	an extra snail
+T8	OpinionExpression 314 319	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 298 303	snail
+T11	OpinionExpression 314 319	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 346 354	my order
+T14	OpinionExpression 330 340	very happy
+R15	ExpressionTarget Arg1:T14 Arg2:T13

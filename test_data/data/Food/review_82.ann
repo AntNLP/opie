@@ -1,0 +1,9 @@
+T1	OpinionTarget 233 240	company
+T2	OpinionExpression 228 232	fine
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 382 392	experience
+T5	OpinionExpression 374 381	happily
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 393 407	the full value
+T8	OpinionExpression 374 381	happily
+R9	ExpressionTarget Arg1:T8 Arg2:T7

@@ -1,0 +1,9 @@
+T1	OpinionTarget 117 123	animal
+T2	OpinionExpression 112 116	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 93 101	Pedigree
+T5	OpinionExpression 105 151	such a good animal welfare minded organization
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 165 190	reply to multiple request
+T8	OpinionExpression 198 202	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7

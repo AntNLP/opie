@@ -1,0 +1,45 @@
+T1	OpinionTarget 625 634	situation
+T2	OpinionExpression 616 624	horrible
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 649 655	dancer
+T5	OpinionExpression 659 676	strong , forceful
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 645 655	the dancer
+T8	OpinionExpression 659 676	strong , forceful
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 649 655	dancer
+T11	OpinionExpression 659 665	strong
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 637 655	Cathy , the dancer
+T14	OpinionExpression 659 665	strong
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 637 655	Cathy , the dancer
+T17	OpinionExpression 659 676	strong , forceful
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 645 655	the dancer
+T20	OpinionExpression 659 665	strong
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 709 727	Chris , the doctor
+T23	OpinionExpression 731 760	silent , handsome and devoted
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 721 727	doctor
+T26	OpinionExpression 731 737	silent
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 709 727	Chris , the doctor
+T29	OpinionExpression 731 737	silent
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 717 727	the doctor
+T32	OpinionExpression 731 737	silent
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 772 778	Carrie
+T35	OpinionExpression 782 808	sweet , needy and confused
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 772 778	Carrie
+T38	OpinionExpression 782 787	sweet
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 964 969	anger
+T41	OpinionExpression 959 963	deep
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 983 987	pain
+T44	OpinionExpression 974 982	unending
+R45	ExpressionTarget Arg1:T44 Arg2:T43

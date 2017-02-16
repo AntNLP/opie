@@ -1,0 +1,6 @@
+T1	OpinionTarget 0 4	Fits
+T2	OpinionExpression 14 18	well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 5 8	dog
+T5	OpinionExpression 0 18	Fits dog very well
+R6	ExpressionTarget Arg1:T5 Arg2:T4

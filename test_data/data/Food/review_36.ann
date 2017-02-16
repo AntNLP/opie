@@ -1,0 +1,24 @@
+T1	OpinionTarget 287 291	feel
+T2	OpinionExpression 292 297	tight
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 281 286	knees
+T5	OpinionExpression 292 309	tight and swollen
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 287 291	feel
+T8	OpinionExpression 302 309	swollen
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 278 286	my knees
+T11	OpinionExpression 292 309	tight and swollen
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 287 291	feel
+T14	OpinionExpression 292 309	tight and swollen
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 559 563	feel
+T17	OpinionExpression 567 572	tight
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 636 640	feel
+T20	OpinionExpression 641 652	comfortable
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 665 672	product
+T23	OpinionExpression 641 652	comfortable
+R24	ExpressionTarget Arg1:T23 Arg2:T22

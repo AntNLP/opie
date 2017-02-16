@@ -1,0 +1,15 @@
+T1	OpinionTarget 55 63	Packaged
+T2	OpinionExpression 69 73	well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 119 127	the stix
+T5	OpinionExpression 128 133	fresh
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 114 118	keep
+T8	OpinionExpression 128 133	fresh
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 78 104	the ziplock resealable bag
+T11	OpinionExpression 105 133	helps to keep the stix fresh
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 123 127	stix
+T14	OpinionExpression 128 133	fresh
+R15	ExpressionTarget Arg1:T14 Arg2:T13

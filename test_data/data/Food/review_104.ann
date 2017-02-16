@@ -1,0 +1,9 @@
+T1	OpinionTarget 30 33	tea
+T2	OpinionExpression 12 23	really good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 34 39	taste
+T5	OpinionExpression 19 23	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 30 33	tea
+T8	OpinionExpression 19 23	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7

@@ -1,0 +1,6 @@
+T1	OpinionTarget 68 76	problems
+T2	OpinionExpression 60 67	painful
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 103 124	the other supplements
+T5	OpinionExpression 130 139	helped me
+R6	ExpressionTarget Arg1:T5 Arg2:T4

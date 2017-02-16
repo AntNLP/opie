@@ -1,0 +1,3 @@
+T1	OpinionTarget 15 18	use
+T2	OpinionExpression 9 14	basic
+R3	ExpressionTarget Arg1:T2 Arg2:T1

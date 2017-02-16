@@ -1,0 +1,71 @@
+Whether or not the Moto E is right for you depends on what your expectations are .
+Considering that one of the most compelling features of the Moto E is its promise of a good Android experience at a modest price
+it should n't be surprising that the Moto E does not compete on processing performance or feature set .
+Instead
+the Moto E offers a limited but highly functional smartphone experience
+backed by a relatively good display and outstanding battery life .
+There is n't much of a contest if you pit it against modern flagship smartphones -LRB- or even the Moto G
+for that matter -RRB- .
+However , when you compare it to feature phones , older smartphones ,
+or even similarly priced smartphones such as the Redmi from Xiaomi , the Moto E simply shines .
+I initially bought the Moto E to replace an aging but unlocked LG GU295 feature phone that I used while travelling abroad ~ it was once a reliable companion but time has not been kind to it .
+My initial draw to the Moto E was its low price and familiar interface ~ I use a Nexus 4 which runs Stock Android ,
+and the Moto E was instantly familiar .
+Performance-wise ,
+while the Nexus 4 is noticeably faster
+it turned out that the Moto E was not as big of a laggard as its benchmark results might have suggested
+I was able to run all of my productivity and media apps just fine
+MXPlayer
+Chrome
+Maps
+Spotify
+Shazam
+Line
+Facebook
+Exchange email
+Gmail
+Facebook Messenger
+Dropbox
+etc .
+I do n't really play games on my phone -LRB- I have a gaming PC for that ... -RRB- so I ca n't really comment on the gaming experience .
+Just for kicks
+I switched from my Nexus 4 to the Moto E for three weeks ~ and to be honest ,
+besides the lack of an LED flash -LRB- which I use as a flashlight rather often -RRB- and autofocus on the back camera -LRB- I could n't scan several QR codes -RRB-
+I did n't miss my Nexus all that much and I was very pleasantly surprised by the Moto E 's battery life ~ while my Nexus sometimes struggles to even survive a workday
+the Moto E went through 2 whole days on a single charge .
+While phones like Xiaomi 's Redmi might offer higher specs for less
+at the least the example I played with was already using an older version of Android and I found that it was more prone to hanging up .
+The Moto E is n't particularly speedy but it does run most Android apps well enough ,
+though you ca n't get too carried away since the 4GB of space gets used up rather quickly .
+Overall
+the Moto E has been rock solid and I believe that it delivers a good value proposition .Pros:1 -RRB- Awesome battery life for a smart phone .
+It will go all day and all night with moderate use .
+With light use , it will last 2-3 days .
+Voice call quality and cellular reception are both very good .
+Headphone output quality is decent .
+-LRB- Significantly better than the Nexus 4 ~ sound is richer and fuller -RRB- 3 -RRB- Moto E runs close-to-stock Android 4.4.2 and it feels relatively fast
+fluid ,
+and stable .
+It got the 4.4.3 update a day after my Nexus 4.4 -RRB- Snapdragon 200 SoC is adequate for most tasks including playing back HD movie files through MX player .
+The screen quality and Gorilla Glass covering is quite good for the class .
+The Nexus 4 's screen is significantly sharper than the Moto E 's but the Moto E resists fingerprints much better .Cons:1 -RRB- 4GB of internal storage ,
+only 2.2GB available .
+Not all apps can be installed/moved to external SD card using the built-in utility .
+You can manually move some apps from the phone 's virtual SD card to external storage using a file manager .
+The rear camera lacks autofocus and may fail to capture smallish things like QR codes
+bar codes
+etc .
+Dynamic range is also rather poor though HDR mode helps a bit .
+There is no flash , so you do n't get flashlight functionality .
+No magnetic compass means you wo n't get heading information while standing still , negatively impacting Navigation .
+Google maps will assume you 're always facing North .
+No USB OTG , Slimport ,
+or Miracast support .Notes:1 -RRB- The Moto E will sink up to 1.2A in AC charging mode ,
+but the included AC adapter is only rated for 550mA .
+Charging is measurable faster when I use a 5V 1A adapter .
+The Moto E supports CDP charging mode ,
+so on supported machines , you can do both data sync and rapid charging .
+The Moto E uses Micro SIM cards , and SIM insertion/removal is completely tool-less .
+From my experience
+even in places that only have full-size standard SIM 's
+you can often find someone to cut the SIM card down to size .

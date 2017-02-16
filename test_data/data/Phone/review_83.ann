@@ -1,0 +1,111 @@
+T1	OpinionTarget 15 20	phone
+T2	OpinionExpression 10 14	nice
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 38 46	motorola
+T5	OpinionExpression 34 37	old
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 213 219	choice
+T8	OpinionExpression 208 212	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 462 475	teaching apps
+T11	OpinionExpression 481 485	fine
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 476 480	work
+T14	OpinionExpression 481 485	fine
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 476 480	work
+T17	OpinionExpression 481 493	fine as well
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 529 533	deal
+T20	OpinionExpression 525 528	big
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 676 680	deal
+T23	OpinionExpression 671 675	huge
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 650 656	camera
+T26	OpinionExpression 645 649	rear
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 716 721	light
+T29	OpinionExpression 712 715	low
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 970 978	pictures
+T32	OpinionExpression 965 969	cute
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 1097 1108	the display
+T35	OpinionExpression 1112 1117	sharp
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 1101 1108	display
+T38	OpinionExpression 1112 1132	sharp and responsive
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1097 1108	the display
+T41	OpinionExpression 1112 1132	sharp and responsive
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 1101 1108	display
+T44	OpinionExpression 1112 1117	sharp
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 1139 1147	speakers
+T47	OpinionExpression 1152 1156	fine
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 1135 1147	The speakers
+T50	OpinionExpression 1152 1156	fine
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 1270 1274	pair
+T53	OpinionExpression 1263 1269	decent
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 1231 1235	work
+T56	OpinionExpression 1242 1248	nicely
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 1384 1391	Battery
+T59	OpinionExpression 1400 1404	good
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 1622 1629	fitness
+T62	OpinionExpression 1630 1643	going as well
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 1619 1629	my fitness
+T65	OpinionExpression 1630 1643	going as well
+R66	ExpressionTarget Arg1:T65 Arg2:T64
+T67	OpinionTarget 1678 1689	the battery
+T68	OpinionExpression 1700 1704	good
+R69	ExpressionTarget Arg1:T68 Arg2:T67
+T70	OpinionTarget 1678 1689	the battery
+T71	OpinionExpression 1700 1726	good at the end of the day
+R72	ExpressionTarget Arg1:T71 Arg2:T70
+T73	OpinionTarget 1682 1689	battery
+T74	OpinionExpression 1700 1704	good
+R75	ExpressionTarget Arg1:T74 Arg2:T73
+T76	OpinionTarget 1865 1869	cost
+T77	OpinionExpression 1854 1864	reasonable
+R78	ExpressionTarget Arg1:T77 Arg2:T76
+T79	OpinionTarget 1818 1822	time
+T80	OpinionExpression 1813 1817	long
+R81	ExpressionTarget Arg1:T80 Arg2:T79
+T82	OpinionTarget 1907 1913	signal
+T83	OpinionExpression 1901 1906	clean
+R84	ExpressionTarget Arg1:T83 Arg2:T82
+T85	OpinionTarget 1907 1913	signal
+T86	OpinionExpression 1891 1896	Clear
+R87	ExpressionTarget Arg1:T86 Arg2:T85
+T88	OpinionTarget 2008 2014	signal
+T89	OpinionExpression 2003 2007	good
+R90	ExpressionTarget Arg1:T89 Arg2:T88
+T91	OpinionTarget 1978 1985	network
+T92	OpinionExpression 1969 1977	wireless
+R93	ExpressionTarget Arg1:T92 Arg2:T91
+T94	OpinionTarget 2084 2089	price
+T95	OpinionExpression 2073 2083	reasonable
+R96	ExpressionTarget Arg1:T95 Arg2:T94
+T97	OpinionTarget 2107 2114	product
+T98	OpinionExpression 2097 2106	excellent
+R99	ExpressionTarget Arg1:T98 Arg2:T97
+T100	OpinionTarget 2141 2146	bells
+T101	OpinionExpression 2134 2140	latest
+R102	ExpressionTarget Arg1:T101 Arg2:T100
+T103	OpinionTarget 2297 2305	features
+T104	OpinionExpression 2287 2296	excellent
+R105	ExpressionTarget Arg1:T104 Arg2:T103
+T106	OpinionTarget 2335 2340	price
+T107	OpinionExpression 2324 2334	reasonable
+R108	ExpressionTarget Arg1:T107 Arg2:T106
+T109	OpinionTarget 2276 2281	phone
+T110	OpinionExpression 2270 2275	solid
+R111	ExpressionTarget Arg1:T110 Arg2:T109

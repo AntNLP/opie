@@ -1,0 +1,6 @@
+T1	OpinionTarget 42 47	phone
+T2	OpinionExpression 38 41	old
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 42 47	phone
+T5	OpinionExpression 32 37	tired
+R6	ExpressionTarget Arg1:T5 Arg2:T4

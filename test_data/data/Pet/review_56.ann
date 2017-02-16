@@ -1,0 +1,6 @@
+T1	OpinionTarget 94 105	the quality
+T2	OpinionExpression 109 119	tremendous
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 309 312	dog
+T5	OpinionExpression 303 308	happy
+R6	ExpressionTarget Arg1:T5 Arg2:T4

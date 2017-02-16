@@ -1,0 +1,6 @@
+T1	OpinionTarget 164 170	refund
+T2	OpinionExpression 159 163	full
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 213 217	post
+T5	OpinionExpression 209 212	ill
+R6	ExpressionTarget Arg1:T5 Arg2:T4

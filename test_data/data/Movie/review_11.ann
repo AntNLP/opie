@@ -1,0 +1,39 @@
+T1	OpinionTarget 0 9	The movie
+T2	OpinionExpression 14 29	a lot different
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 111 116	thing
+T5	OpinionExpression 106 110	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 130 134	book
+T8	OpinionExpression 141 149	cleverly
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 126 134	The book
+T11	OpinionExpression 141 149	cleverly
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 150 157	written
+T14	OpinionExpression 141 149	cleverly
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 164 173	the movie
+T17	OpinionExpression 188 192	okay
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 252 255	set
+T20	OpinionExpression 243 247	like
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 286 300	cinematography
+T23	OpinionExpression 305 310	great
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 277 300	Even the cinematography
+T26	OpinionExpression 305 310	great
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 448 451	way
+T29	OpinionExpression 443 447	good
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 393 402	the movie
+T32	OpinionExpression 417 427	disturbing
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 397 402	movie
+T35	OpinionExpression 417 427	disturbing
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 393 402	the movie
+T38	OpinionExpression 407 451	much more disturbing , and not in a good way
+R39	ExpressionTarget Arg1:T38 Arg2:T37

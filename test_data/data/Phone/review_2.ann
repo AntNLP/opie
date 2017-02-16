@@ -1,0 +1,21 @@
+T1	OpinionTarget 295 299	made
+T2	OpinionExpression 305 313	flexible
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 323 331	silicone
+T5	OpinionExpression 316 322	sturdy
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 323 331	silicone
+T8	OpinionExpression 305 313	flexible
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 576 585	The Bendy
+T11	OpinionExpression 599 610	versatility
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 984 988	work
+T14	OpinionExpression 989 993	well
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 982 988	t work
+T17	OpinionExpression 989 993	well
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 1203 1214	flexibility
+T20	OpinionExpression 1186 1193	pleased
+R21	ExpressionTarget Arg1:T20 Arg2:T19

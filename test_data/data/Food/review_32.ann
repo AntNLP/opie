@@ -1,0 +1,15 @@
+T1	OpinionTarget 25 33	Turmeric
+T2	OpinionExpression 52 59	amazing
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 60 65	stuff
+T5	OpinionExpression 52 59	amazing
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 17 24	Organic
+T8	OpinionExpression 52 59	amazing
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 145 152	killers
+T11	OpinionExpression 134 139	harsh
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 571 576	smile
+T14	OpinionExpression 564 570	whiter
+R15	ExpressionTarget Arg1:T14 Arg2:T13

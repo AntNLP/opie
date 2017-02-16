@@ -1,0 +1,6 @@
+T1	OpinionTarget 14 18	bang
+T2	OpinionExpression 8 13	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 81 89	pictures
+T5	OpinionExpression 74 80	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4

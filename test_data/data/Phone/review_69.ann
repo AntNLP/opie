@@ -1,0 +1,3 @@
+T1	OpinionTarget 9 14	phone
+T2	OpinionExpression 0 8	Excelent
+R3	ExpressionTarget Arg1:T2 Arg2:T1

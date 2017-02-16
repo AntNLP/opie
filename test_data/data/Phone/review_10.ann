@@ -1,0 +1,3 @@
+T1	OpinionTarget 135 140	works
+T2	OpinionExpression 141 146	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1

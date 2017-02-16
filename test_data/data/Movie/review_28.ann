@@ -1,0 +1,9 @@
+T1	OpinionTarget 264 268	wrap
+T2	OpinionExpression 250 260	impossible
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 284 301	a 90 minute movie
+T5	OpinionExpression 247 260	So impossible
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 352 358	series
+T8	OpinionExpression 341 346	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7

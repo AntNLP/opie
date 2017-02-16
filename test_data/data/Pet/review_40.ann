@@ -1,0 +1,24 @@
+T1	OpinionTarget 0 13	My dog Maggie
+T2	OpinionExpression 14 44	loved the taste of these chews
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 54 58	snap
+T5	OpinionExpression 67 76	perfectly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 3 6	dog
+T8	OpinionExpression 14 44	loved the taste of these chews
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 7 13	Maggie
+T11	OpinionExpression 14 44	loved the taste of these chews
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 92 116	The Dried Kelp Plaqueoff
+T14	OpinionExpression 128 177	included in each bone and the proper dosing level
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 172 177	level
+T17	OpinionExpression 158 164	proper
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 165 171	dosing
+T20	OpinionExpression 158 164	proper
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 402 411	Marketing
+T23	OpinionExpression 395 401	clever
+R24	ExpressionTarget Arg1:T23 Arg2:T22

@@ -1,0 +1,21 @@
+T1	OpinionTarget 22 27	stuff
+T2	OpinionExpression 31 38	amazing
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 99 105	coffee
+T5	OpinionExpression 78 82	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 83 90	instant
+T8	OpinionExpression 78 82	best
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 182 186	slot
+T11	OpinionExpression 172 175	1st
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 253 263	aftertaste
+T14	OpinionExpression 246 252	bitter
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 296 301	cream
+T17	OpinionExpression 281 295	delicious with
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 296 301	cream
+T20	OpinionExpression 281 290	delicious
+R21	ExpressionTarget Arg1:T20 Arg2:T19

@@ -1,0 +1,6 @@
+T1	OpinionTarget 0 9	The spray
+T2	OpinionExpression 10 24	kind of worked
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 91 97	worked
+T5	OpinionExpression 98 103	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4

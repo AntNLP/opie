@@ -1,0 +1,21 @@
+T1	OpinionTarget 489 497	decision
+T2	OpinionExpression 484 488	poor
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 591 595	loss
+T5	OpinionExpression 585 590	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 772 776	Woot
+T8	OpinionExpression 777 788	recommended
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 803 808	price
+T11	OpinionExpression 797 802	cheap
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 911 920	Emergency
+T14	OpinionExpression 906 910	good
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 921 926	cable
+T17	OpinionExpression 906 910	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 965 969	work
+T20	OpinionExpression 970 972	ok
+R21	ExpressionTarget Arg1:T20 Arg2:T19

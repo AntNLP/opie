@@ -1,0 +1,3 @@
+T1	OpinionTarget 57 62	faces
+T2	OpinionExpression 52 56	cute
+R3	ExpressionTarget Arg1:T2 Arg2:T1

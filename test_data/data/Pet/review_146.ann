@@ -1,0 +1,24 @@
+T1	OpinionTarget 166 171	works
+T2	OpinionExpression 172 178	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 126 131	stain
+T5	OpinionExpression 132 146	remover better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 203 209	smells
+T8	OpinionExpression 210 216	better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 705 710	smell
+T11	OpinionExpression 690 695	harsh
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 696 704	chemical
+T14	OpinionExpression 690 695	harsh
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 688 710	a harsh chemical smell
+T17	OpinionExpression 721 738	stain removers do
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 857 858	s
+T20	OpinionExpression 859 863	nice
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 1079 1087	smelling
+T23	OpinionExpression 1088 1093	great
+R24	ExpressionTarget Arg1:T23 Arg2:T22

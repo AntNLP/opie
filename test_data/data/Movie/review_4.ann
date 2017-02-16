@@ -1,0 +1,39 @@
+T1	OpinionTarget 82 88	sequel
+T2	OpinionExpression 97 101	dull
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 78 88	the sequel
+T5	OpinionExpression 93 101	not dull
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 82 88	sequel
+T8	OpinionExpression 93 101	not dull
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 78 88	the sequel
+T11	OpinionExpression 97 101	dull
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 266 272	twists
+T14	OpinionExpression 255 265	unexpected
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 637 647	The acting
+T17	OpinionExpression 660 678	really good by all
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 637 647	The acting
+T20	OpinionExpression 667 671	good
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 641 647	acting
+T23	OpinionExpression 667 671	good
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 641 647	acting
+T26	OpinionExpression 660 678	really good by all
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 688 699	improvement
+T29	OpinionExpression 683 687	vast
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 906 912	person
+T32	OpinionExpression 893 905	intellectual
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 1012 1017	drama
+T35	OpinionExpression 1008 1011	top
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 966 971	enjoy
+T38	OpinionExpression 974 979	lurid
+R39	ExpressionTarget Arg1:T38 Arg2:T37

@@ -1,0 +1,6 @@
+T1	OpinionTarget 5 13	shipping
+T2	OpinionExpression 0 4	Fast
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 22 27	phone
+T5	OpinionExpression 16 21	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4

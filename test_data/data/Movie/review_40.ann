@@ -1,0 +1,12 @@
+T1	OpinionTarget 401 412	finding out
+T2	OpinionExpression 395 400	worth
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 401 408	finding
+T5	OpinionExpression 395 400	worth
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 645 652	stories
+T8	OpinionExpression 637 644	twisted
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 679 683	cast
+T11	OpinionExpression 670 678	gorgeous
+R12	ExpressionTarget Arg1:T11 Arg2:T10

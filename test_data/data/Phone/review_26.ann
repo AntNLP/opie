@@ -1,0 +1,30 @@
+T1	OpinionTarget 111 116	ports
+T2	OpinionExpression 98 101	top
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 215 227	construction
+T5	OpinionExpression 231 254	thick and rubbery solid
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 211 227	The construction
+T8	OpinionExpression 231 263	thick and rubbery solid from end
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 211 227	The construction
+T11	OpinionExpression 231 254	thick and rubbery solid
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 277 281	ends
+T14	OpinionExpression 282 303	snap right into place
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 308 312	feel
+T17	OpinionExpression 313 318	solid
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 273 281	The ends
+T20	OpinionExpression 282 303	snap right into place
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 282 286	snap
+T23	OpinionExpression 287 292	right
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 475 490	small USB cable
+T26	OpinionExpression 470 474	Best
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 485 490	cable
+T29	OpinionExpression 470 474	Best
+R30	ExpressionTarget Arg1:T29 Arg2:T28

@@ -1,0 +1,30 @@
+T1	OpinionTarget 296 306	supplement
+T2	OpinionExpression 271 277	strong
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 242 250	Turmeric
+T5	OpinionExpression 259 306	touted as a strong anti-inflammatory supplement
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 446 455	my eczema
+T8	OpinionExpression 470 478	haunting
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 449 455	eczema
+T11	OpinionExpression 470 478	haunting
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 597 602	price
+T14	OpinionExpression 627 637	reasonable
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 597 602	price
+T17	OpinionExpression 622 637	very reasonable
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 611 618	product
+T20	OpinionExpression 622 637	very reasonable
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 593 602	the price
+T23	OpinionExpression 627 637	reasonable
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 593 602	the price
+T26	OpinionExpression 622 637	very reasonable
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 669 676	effects
+T29	OpinionExpression 655 663	negative
+R30	ExpressionTarget Arg1:T29 Arg2:T28

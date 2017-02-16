@@ -1,0 +1,9 @@
+T1	OpinionTarget 6 13	product
+T2	OpinionExpression 0 5	Great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 146 150	feel
+T5	OpinionExpression 151 160	confident
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 146 150	feel
+T8	OpinionExpression 151 179	confident that it is helping
+R9	ExpressionTarget Arg1:T8 Arg2:T7

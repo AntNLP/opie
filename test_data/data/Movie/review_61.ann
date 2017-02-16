@@ -1,0 +1,15 @@
+T1	OpinionTarget 17 23	series
+T2	OpinionExpression 27 36	excellent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 13 23	the series
+T5	OpinionExpression 27 36	excellent
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 2 7	agree
+T8	OpinionExpression 27 36	excellent
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 205 209	text
+T11	OpinionExpression 178 184	boring
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 197 214	history text book
+T14	OpinionExpression 178 184	boring
+R15	ExpressionTarget Arg1:T14 Arg2:T13

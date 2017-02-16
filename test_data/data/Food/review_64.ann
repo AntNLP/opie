@@ -1,0 +1,12 @@
+T1	OpinionTarget 125 136	functioning
+T2	OpinionExpression 144 148	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 120 124	body
+T5	OpinionExpression 125 148	functioning at its best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 111 124	my older body
+T8	OpinionExpression 144 148	best
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 111 124	my older body
+T11	OpinionExpression 125 148	functioning at its best
+R12	ExpressionTarget Arg1:T11 Arg2:T10

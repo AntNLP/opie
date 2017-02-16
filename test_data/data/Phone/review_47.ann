@@ -1,0 +1,18 @@
+T1	OpinionTarget 0 5	Works
+T2	OpinionExpression 6 10	well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 100 105	price
+T5	OpinionExpression 81 99	Low and affordable
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 125 129	cost
+T8	OpinionExpression 89 99	affordable
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 125 175	cost effective option on the market of smartphones
+T11	OpinionExpression 89 99	affordable
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 140 146	option
+T14	OpinionExpression 130 139	effective
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 100 105	price
+T17	OpinionExpression 89 99	affordable
+R18	ExpressionTarget Arg1:T17 Arg2:T16

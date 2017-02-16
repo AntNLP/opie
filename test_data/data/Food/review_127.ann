@@ -1,0 +1,51 @@
+T1	OpinionTarget 67 86	brewed & # 34 ; joe
+T2	OpinionExpression 61 66	fresh
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 67 73	brewed
+T5	OpinionExpression 61 66	fresh
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 101 107	Altura
+T8	OpinionExpression 111 136	my current favorite brand
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 131 136	brand
+T11	OpinionExpression 122 130	favorite
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 180 183	job
+T14	OpinionExpression 173 177	good
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 287 290	job
+T17	OpinionExpression 282 286	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 259 265	report
+T20	OpinionExpression 248 255	pleased
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 256 265	to report
+T23	OpinionExpression 248 255	pleased
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 318 325	instant
+T26	OpinionExpression 338 342	good
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 318 325	instant
+T29	OpinionExpression 329 351	NEVER as good as fresh
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 439 445	coffee
+T32	OpinionExpression 431 438	instant
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 571 577	coffee
+T35	OpinionExpression 563 570	regular
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 620 627	instant
+T38	OpinionExpression 609 619	acceptable
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 726 733	comment
+T41	OpinionExpression 722 725	sad
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 835 841	coffee
+T44	OpinionExpression 829 834	fresh
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 1077 1083	coffee
+T47	OpinionExpression 1066 1070	good
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 1077 1083	coffee
+T50	OpinionExpression 1071 1076	fresh
+R51	ExpressionTarget Arg1:T50 Arg2:T49

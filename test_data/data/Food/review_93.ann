@@ -1,0 +1,12 @@
+T1	OpinionTarget 0 4	Tazo
+T2	OpinionExpression 10 47	put together a wonderful sampler pack
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 35 42	sampler
+T5	OpinionExpression 25 34	wonderful
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 43 47	pack
+T8	OpinionExpression 25 34	wonderful
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 0 9	Tazo teas
+T11	OpinionExpression 10 47	put together a wonderful sampler pack
+R12	ExpressionTarget Arg1:T11 Arg2:T10

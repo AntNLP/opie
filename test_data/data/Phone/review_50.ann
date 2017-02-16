@@ -1,0 +1,12 @@
+T1	OpinionTarget 6 11	phone
+T2	OpinionExpression 0 5	Great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 38 51	price/quality
+T5	OpinionExpression 33 37	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 52 62	experience
+T8	OpinionExpression 33 37	best
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 79 85	choice
+T11	OpinionExpression 74 78	best
+R12	ExpressionTarget Arg1:T11 Arg2:T10

@@ -1,0 +1,15 @@
+T1	OpinionTarget 32 38	coffee
+T2	OpinionExpression 42 80	generally weak and less than flavorful
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 32 38	coffee
+T5	OpinionExpression 42 56	generally weak
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 32 38	coffee
+T8	OpinionExpression 52 56	weak
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 292 297	trade
+T11	OpinionExpression 287 291	fair
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 389 399	substitute
+T14	OpinionExpression 379 388	excellent
+R15	ExpressionTarget Arg1:T14 Arg2:T13

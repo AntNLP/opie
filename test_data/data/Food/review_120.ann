@@ -1,0 +1,15 @@
+T1	OpinionTarget 77 82	taste
+T2	OpinionExpression 72 76	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 171 177	expect
+T5	OpinionExpression 187 191	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 261 267	coffee
+T8	OpinionExpression 248 252	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 253 260	tasting
+T11	OpinionExpression 248 252	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 261 267	coffee
+T14	OpinionExpression 248 260	good tasting
+R15	ExpressionTarget Arg1:T14 Arg2:T13

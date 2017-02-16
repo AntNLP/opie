@@ -1,0 +1,30 @@
+T1	OpinionTarget 46 49	guy
+T2	OpinionExpression 27 33	speedy
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 259 285	build quality of the phone
+T5	OpinionExpression 289 301	pretty great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 259 285	build quality of the phone
+T8	OpinionExpression 296 301	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 259 264	build
+T11	OpinionExpression 296 301	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 259 272	build quality
+T14	OpinionExpression 296 301	great
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 276 285	the phone
+T17	OpinionExpression 289 301	pretty great
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 422 426	feel
+T20	OpinionExpression 427 441	a little mushy
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 422 426	feel
+T23	OpinionExpression 436 441	mushy
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 605 608	toy
+T26	OpinionExpression 599 604	great
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 894 901	install
+T29	OpinionExpression 882 893	comfortably
+R30	ExpressionTarget Arg1:T29 Arg2:T28

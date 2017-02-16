@@ -1,0 +1,9 @@
+T1	OpinionTarget 0 11	The product
+T2	OpinionExpression 15 19	fine
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 4 11	product
+T5	OpinionExpression 15 19	fine
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 235 244	packaging
+T8	OpinionExpression 231 234	bad
+R9	ExpressionTarget Arg1:T8 Arg2:T7

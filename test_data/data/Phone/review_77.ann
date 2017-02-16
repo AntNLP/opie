@@ -1,0 +1,84 @@
+T1	OpinionTarget 267 272	store
+T2	OpinionExpression 261 266	local
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 311 316	phone
+T5	OpinionExpression 322 333	easy to use
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 383 390	running
+T8	OpinionExpression 396 400	fine
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 307 316	the phone
+T11	OpinionExpression 322 333	easy to use
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 311 316	phone
+T14	OpinionExpression 322 326	easy
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 492 497	Phone
+T17	OpinionExpression 506 516	responsive
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 492 497	Phone
+T20	OpinionExpression 501 516	very responsive
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 606 615	the songs
+T23	OpinionExpression 629 634	great
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 792 799	battery
+T26	OpinionExpression 808 817	very good
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 865 870	phone
+T29	OpinionExpression 856 859	Low
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 914 918	WiFi
+T32	OpinionExpression 922 937	easy to connect
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 914 918	WiFi
+T35	OpinionExpression 922 926	easy
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 968 973	range
+T38	OpinionExpression 963 967	long
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1092 1100	distance
+T41	OpinionExpression 1087 1091	long
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 1032 1038	worked
+T44	OpinionExpression 1039 1043	well
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 1144 1150	signal
+T47	OpinionExpression 1137 1143	strong
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 1263 1271	pictures
+T50	OpinionExpression 1259 1262	few
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 1237 1242	works
+T53	OpinionExpression 1243 1245	OK
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 1321 1324	job
+T56	OpinionExpression 1318 1320	OK
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 1376 1383	quality
+T59	OpinionExpression 1371 1375	high
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 1398 1404	camera
+T62	OpinionExpression 1390 1397	digital
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 1433 1438	phone
+T65	OpinionExpression 1421 1432	much better
+R66	ExpressionTarget Arg1:T65 Arg2:T64
+T67	OpinionTarget 1439 1445	camera
+T68	OpinionExpression 1426 1432	better
+R69	ExpressionTarget Arg1:T68 Arg2:T67
+T70	OpinionTarget 1478 1482	Razr
+T71	OpinionExpression 1466 1469	old
+R72	ExpressionTarget Arg1:T71 Arg2:T70
+T73	OpinionTarget 1433 1438	phone
+T74	OpinionExpression 1426 1432	better
+R75	ExpressionTarget Arg1:T74 Arg2:T73
+T76	OpinionTarget 1485 1494	Bluetooth
+T77	OpinionExpression 1503 1518	able to connect
+R78	ExpressionTarget Arg1:T77 Arg2:T76
+T79	OpinionTarget 1485 1494	Bluetooth
+T80	OpinionExpression 1503 1507	able
+R81	ExpressionTarget Arg1:T80 Arg2:T79
+T82	OpinionTarget 1652 1657	phone
+T83	OpinionExpression 1643 1646	low
+R84	ExpressionTarget Arg1:T83 Arg2:T82

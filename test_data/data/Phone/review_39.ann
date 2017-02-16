@@ -1,0 +1,15 @@
+T1	OpinionTarget 140 146	Screen
+T2	OpinionExpression 150 161	good enough
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 140 146	Screen
+T5	OpinionExpression 150 154	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 328 335	running
+T8	OpinionExpression 336 340	fast
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 425 430	phone
+T11	OpinionExpression 420 424	best
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 550 556	choice
+T14	OpinionExpression 544 549	great
+R15	ExpressionTarget Arg1:T14 Arg2:T13

@@ -1,0 +1,9 @@
+T1	OpinionTarget 142 146	pics
+T2	OpinionExpression 155 162	amazing
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 200 209	lightning
+T5	OpinionExpression 195 199	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 215 220	color
+T8	OpinionExpression 210 214	nice
+R9	ExpressionTarget Arg1:T8 Arg2:T7

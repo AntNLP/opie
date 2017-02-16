@@ -1,0 +1,3 @@
+T1	OpinionTarget 76 80	look
+T2	OpinionExpression 71 75	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1

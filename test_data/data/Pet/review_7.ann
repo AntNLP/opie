@@ -1,0 +1,9 @@
+T1	OpinionTarget 245 252	surface
+T2	OpinionExpression 233 244	comfortable
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 383 392	recommend
+T5	OpinionExpression 376 382	highly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 383 397	recommend them
+T8	OpinionExpression 376 382	highly
+R9	ExpressionTarget Arg1:T8 Arg2:T7

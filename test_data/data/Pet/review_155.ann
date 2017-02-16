@@ -1,0 +1,12 @@
+T1	OpinionTarget 129 136	feeling
+T2	OpinionExpression 123 128	soapy
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 166 173	shocked
+T5	OpinionExpression 159 165	pretty
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 281 284	job
+T8	OpinionExpression 275 280	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 507 514	product
+T11	OpinionExpression 501 506	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10

@@ -1,0 +1,18 @@
+T1	OpinionTarget 19 28	described
+T2	OpinionExpression 6 15	perfectly
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 0 5	Works
+T5	OpinionExpression 6 15	perfectly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 16 28	as described
+T8	OpinionExpression 6 15	perfectly
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 53 58	level
+T11	OpinionExpression 39 46	perfect
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 59 64	phone
+T14	OpinionExpression 39 46	perfect
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 47 52	entry
+T17	OpinionExpression 39 46	perfect
+R18	ExpressionTarget Arg1:T17 Arg2:T16

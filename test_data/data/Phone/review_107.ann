@@ -1,0 +1,48 @@
+T1	OpinionTarget 61 73	a Smartphone
+T2	OpinionExpression 74 106	running Android for a good price
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 63 73	Smartphone
+T5	OpinionExpression 74 106	running Android for a good price
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 101 106	price
+T8	OpinionExpression 96 100	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 192 197	price
+T11	OpinionExpression 182 191	excellent
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 214 218	time
+T14	OpinionExpression 208 213	first
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 273 280	iPhones
+T17	OpinionExpression 294 303	expensive
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 273 280	iPhones
+T20	OpinionExpression 290 303	too expensive
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 375 382	getting
+T23	OpinionExpression 383 389	better
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 306 334	Previous versions of Android
+T26	OpinionExpression 345 359	painful to use
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 327 334	Android
+T29	OpinionExpression 345 359	painful to use
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 425 430	works
+T32	OpinionExpression 438 442	fast
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 416 424	Motorola
+T35	OpinionExpression 438 442	fast
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 564 585	the screen resolution
+T38	OpinionExpression 589 598	beautiful
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 575 585	resolution
+T41	OpinionExpression 589 598	beautiful
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 568 574	screen
+T44	OpinionExpression 589 598	beautiful
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 541 548	version
+T47	OpinionExpression 534 540	latest
+R48	ExpressionTarget Arg1:T47 Arg2:T46

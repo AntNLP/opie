@@ -1,0 +1,9 @@
+T1	OpinionTarget 5 10	works
+T2	OpinionExpression 11 15	well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 60 70	the camera
+T5	OpinionExpression 74 77	bad
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 64 70	camera
+T8	OpinionExpression 74 77	bad
+R9	ExpressionTarget Arg1:T8 Arg2:T7

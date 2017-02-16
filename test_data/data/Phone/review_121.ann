@@ -1,0 +1,12 @@
+T1	OpinionTarget 20 39	great android phone
+T2	OpinionExpression 0 9	Excellent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 34 39	phone
+T5	OpinionExpression 20 25	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 10 19	cellphone
+T8	OpinionExpression 0 9	Excellent
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 26 33	android
+T11	OpinionExpression 20 25	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10

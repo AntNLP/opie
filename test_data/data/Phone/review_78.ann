@@ -1,0 +1,15 @@
+T1	OpinionTarget 40 45	phone
+T2	OpinionExpression 32 39	awesome
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 73 80	upgrade
+T5	OpinionExpression 68 72	huge
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 108 117	Precedent
+T8	OpinionExpression 89 92	old
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 127 136	recommend
+T11	OpinionExpression 120 126	Highly
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 127 164	recommend buying a case to go with it
+T14	OpinionExpression 120 126	Highly
+R15	ExpressionTarget Arg1:T14 Arg2:T13

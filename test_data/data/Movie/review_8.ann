@@ -1,0 +1,6 @@
+T1	OpinionTarget 15 24	storyline
+T2	OpinionExpression 30 41	exceptional
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 105 111	sequel
+T5	OpinionExpression 97 104	perfect
+R6	ExpressionTarget Arg1:T5 Arg2:T4

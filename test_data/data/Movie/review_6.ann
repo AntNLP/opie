@@ -1,0 +1,18 @@
+T1	OpinionTarget 13 18	Cathy
+T2	OpinionExpression 0 12	amazing best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 13 18	Cathy
+T5	OpinionExpression 8 12	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 13 18	Cathy
+T8	OpinionExpression 0 7	amazing
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 86 92	Theron
+T11	OpinionExpression 102 109	awesome
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 77 85	Charlize
+T14	OpinionExpression 102 109	awesome
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 118 121	job
+T17	OpinionExpression 112 117	great
+R18	ExpressionTarget Arg1:T17 Arg2:T16

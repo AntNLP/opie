@@ -1,0 +1,12 @@
+T1	OpinionTarget 19 29	connectors
+T2	OpinionExpression 12 18	flimsy
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 127 136	the color
+T5	OpinionExpression 140 148	cheerful
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 112 122	connectors
+T8	OpinionExpression 107 111	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 131 136	color
+T11	OpinionExpression 140 148	cheerful
+R12	ExpressionTarget Arg1:T11 Arg2:T10

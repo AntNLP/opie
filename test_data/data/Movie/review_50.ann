@@ -1,0 +1,6 @@
+T1	OpinionTarget 12 66	documenting the connections between the two world wars
+T2	OpinionExpression 70 74	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 500 505	grief
+T5	OpinionExpression 495 499	Good
+R6	ExpressionTarget Arg1:T5 Arg2:T4

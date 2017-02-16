@@ -1,0 +1,18 @@
+T1	OpinionTarget 5 9	film
+T2	OpinionExpression 14 19	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 121 126	movie
+T5	OpinionExpression 115 120	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 129 134	Ellen
+T8	OpinionExpression 146 153	perfect
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 135 142	Burstyn
+T11	OpinionExpression 146 153	perfect
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 129 142	Ellen Burstyn
+T14	OpinionExpression 146 153	perfect
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 414 417	guy
+T17	OpinionExpression 409 413	good
+R18	ExpressionTarget Arg1:T17 Arg2:T16

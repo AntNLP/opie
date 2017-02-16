@@ -1,0 +1,6 @@
+T1	OpinionTarget 115 119	fish
+T2	OpinionExpression 124 129	happy
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 96 101	coral
+T5	OpinionExpression 105 110	happy
+R6	ExpressionTarget Arg1:T5 Arg2:T4

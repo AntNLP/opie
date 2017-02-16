@@ -1,0 +1,15 @@
+T1	OpinionTarget 56 60	LGBT
+T2	OpinionExpression 51 55	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 61 66	movie
+T5	OpinionExpression 51 55	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 170 190	portrayed growing up
+T8	OpinionExpression 157 162	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 163 169	actors
+T11	OpinionExpression 157 162	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 170 179	portrayed
+T14	OpinionExpression 157 162	great
+R15	ExpressionTarget Arg1:T14 Arg2:T13

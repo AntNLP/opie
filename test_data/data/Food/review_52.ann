@@ -1,0 +1,6 @@
+T1	OpinionTarget 75 85	tendonitis
+T2	OpinionExpression 67 74	intense
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 350 358	benefits
+T5	OpinionExpression 342 349	healthy
+R6	ExpressionTarget Arg1:T5 Arg2:T4

@@ -1,0 +1,12 @@
+T1	OpinionTarget 349 357	'Flowers
+T2	OpinionExpression 371 382	much better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 415 423	version.
+T5	OpinionExpression 408 414	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 415 423	version.
+T8	OpinionExpression 403 414	much better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 659 667	behavior
+T11	OpinionExpression 650 658	Abnormal
+R12	ExpressionTarget Arg1:T11 Arg2:T10

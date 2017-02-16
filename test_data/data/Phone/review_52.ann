@@ -1,0 +1,9 @@
+T1	OpinionTarget 150 154	Moto
+T2	OpinionExpression 160 187	bigger , faster and cheaper
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 150 156	Moto G
+T5	OpinionExpression 160 187	bigger , faster and cheaper
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 155 156	G
+T8	OpinionExpression 160 187	bigger , faster and cheaper
+R9	ExpressionTarget Arg1:T8 Arg2:T7

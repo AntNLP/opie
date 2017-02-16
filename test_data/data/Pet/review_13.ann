@@ -1,0 +1,6 @@
+T1	OpinionTarget 387 397	cushioning
+T2	OpinionExpression 401 410	important
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 498 507	recommend
+T5	OpinionExpression 491 497	Highly
+R6	ExpressionTarget Arg1:T5 Arg2:T4

@@ -1,0 +1,6 @@
+T1	OpinionTarget 25 31	rinses
+T2	OpinionExpression 32 36	well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 54 63	fragrance
+T5	OpinionExpression 49 53	nice
+R6	ExpressionTarget Arg1:T5 Arg2:T4

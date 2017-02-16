@@ -1,0 +1,6 @@
+T1	OpinionTarget 112 119	Organic
+T2	OpinionExpression 103 107	like
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 108 125	the Organic label
+T5	OpinionExpression 103 107	like
+R6	ExpressionTarget Arg1:T5 Arg2:T4

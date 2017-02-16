@@ -1,0 +1,6 @@
+T1	OpinionTarget 170 176	Hitler
+T2	OpinionExpression 154 159	weird
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 830 837	America
+T5	OpinionExpression 842 871	distracted by war with Mexico
+R6	ExpressionTarget Arg1:T5 Arg2:T4

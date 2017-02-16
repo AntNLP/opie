@@ -1,0 +1,42 @@
+T1	OpinionTarget 124 130	review
+T2	OpinionExpression 110 123	comprehensive
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 166 175	interface
+T5	OpinionExpression 179 189	responsive
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 160 165	touch
+T8	OpinionExpression 179 189	responsive
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 156 175	the touch interface
+T11	OpinionExpression 179 189	responsive
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 190 211	the screen resolution
+T14	OpinionExpression 215 225	acceptable
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 233 237	Maps
+T17	OpinionExpression 243 247	well
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 226 237	Google Maps
+T20	OpinionExpression 238 247	runs well
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 233 237	Maps
+T23	OpinionExpression 238 247	runs well
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 226 232	Google
+T26	OpinionExpression 243 247	well
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 226 232	Google
+T29	OpinionExpression 238 247	runs well
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 238 242	runs
+T32	OpinionExpression 243 247	well
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 226 237	Google Maps
+T35	OpinionExpression 243 247	well
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 292 298	phones
+T38	OpinionExpression 285 291	latest
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 599 605	phones
+T41	OpinionExpression 592 598	better
+R42	ExpressionTarget Arg1:T41 Arg2:T40

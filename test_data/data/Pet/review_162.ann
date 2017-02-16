@@ -1,0 +1,18 @@
+T1	OpinionTarget 367 375	the spot
+T2	OpinionExpression 384 403	darken or resurface
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 522 530	cleaners
+T5	OpinionExpression 541 553	gone as well
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 531 536	scent
+T8	OpinionExpression 541 553	gone as well
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 518 536	the cleaners scent
+T11	OpinionExpression 541 553	gone as well
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 576 594	the entire process
+T14	OpinionExpression 623 629	easier
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 576 594	the entire process
+T17	OpinionExpression 607 613	faster
+R18	ExpressionTarget Arg1:T17 Arg2:T16

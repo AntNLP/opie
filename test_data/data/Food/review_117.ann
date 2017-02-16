@@ -1,0 +1,78 @@
+T1	OpinionTarget 77 85	consider
+T2	OpinionExpression 95 99	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 396 403	pleased
+T5	OpinionExpression 414 418	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 348 368	many organic coffees
+T8	OpinionExpression 396 418	pleased my palate best
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 423 429	tasted
+T11	OpinionExpression 435 439	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 620 624	Cafe
+T14	OpinionExpression 639 646	supreme
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 647 653	coffee
+T17	OpinionExpression 639 646	supreme
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 620 631	Cafe Altura
+T20	OpinionExpression 635 653	the supreme coffee
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 625 631	Altura
+T23	OpinionExpression 639 646	supreme
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 620 631	Cafe Altura
+T26	OpinionExpression 639 646	supreme
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 912 925	12-Ounce Cans
+T29	OpinionExpression 957 977	my absolute favorite
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 1175 1180	trade
+T32	OpinionExpression 1170 1174	fair
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 1510 1514	drop
+T35	OpinionExpression 1518 1549	as sublime as the regular roast
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 1480 1486	coffee
+T38	OpinionExpression 1490 1499	fantastic
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1510 1514	drop
+T41	OpinionExpression 1521 1528	sublime
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 1504 1514	every drop
+T44	OpinionExpression 1518 1549	as sublime as the regular roast
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 1504 1514	every drop
+T47	OpinionExpression 1521 1528	sublime
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 1644 1649	trade
+T50	OpinionExpression 1639 1643	fair
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 1756 1762	freeze
+T53	OpinionExpression 1747 1755	superior
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 1769 1775	coffee
+T56	OpinionExpression 1776 1786	intoxicate
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 1776 1786	intoxicate
+T59	OpinionExpression 1747 1755	superior
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 1809 1813	brew
+T62	OpinionExpression 1803 1808	fresh
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 1944 1950	coffee
+T65	OpinionExpression 1921 1930	wonderful
+R66	ExpressionTarget Arg1:T65 Arg2:T64
+T67	OpinionTarget 2040 2045	cakes
+T68	OpinionExpression 2022 2033	gluten-free
+R69	ExpressionTarget Arg1:T68 Arg2:T67
+T70	OpinionTarget 2112 2118	flavor
+T71	OpinionExpression 2090 2099	exquisite
+R72	ExpressionTarget Arg1:T71 Arg2:T70
+T73	OpinionTarget 2100 2111	coffeehouse
+T74	OpinionExpression 2090 2099	exquisite
+R75	ExpressionTarget Arg1:T74 Arg2:T73
+T76	OpinionTarget 2201 2210	varieties
+T77	OpinionExpression 2219 2238	gluten-free or free
+R78	ExpressionTarget Arg1:T77 Arg2:T76

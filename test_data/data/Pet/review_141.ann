@@ -1,0 +1,9 @@
+T1	OpinionTarget 0 5	Keeps
+T2	OpinionExpression 13 18	clean
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 9 12	bed
+T5	OpinionExpression 13 18	clean
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 6 12	my bed
+T8	OpinionExpression 13 18	clean
+R9	ExpressionTarget Arg1:T8 Arg2:T7

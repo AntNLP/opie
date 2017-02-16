@@ -1,0 +1,18 @@
+T1	OpinionTarget 35 40	price
+T2	OpinionExpression 29 34	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 13 22	the cable
+T5	OpinionExpression 2 7	loved
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 13 22	the cable
+T8	OpinionExpression 27 40	a great price
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 202 207	makes
+T11	OpinionExpression 211 217	sturdy
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 188 196	material
+T14	OpinionExpression 202 217	makes it sturdy
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 176 196	a different material
+T17	OpinionExpression 202 217	makes it sturdy
+R18	ExpressionTarget Arg1:T17 Arg2:T16

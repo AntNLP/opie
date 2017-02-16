@@ -1,0 +1,21 @@
+T1	OpinionTarget 211 221	breakdowns
+T2	OpinionExpression 203 210	nervous
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 473 478	trunk
+T5	OpinionExpression 428 435	magical
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 456 461	Ellen
+T8	OpinionExpression 428 435	magical
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 448 455	grandma
+T11	OpinionExpression 428 435	magical
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 436 444	surprise
+T14	OpinionExpression 428 435	magical
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 462 469	Burstyn
+T17	OpinionExpression 428 435	magical
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 509 515	choice
+T20	OpinionExpression 505 508	A++
+R21	ExpressionTarget Arg1:T20 Arg2:T19

@@ -1,0 +1,6 @@
+T1	OpinionTarget 103 119	Product benefits
+T2	OpinionExpression 125 146	immediate and obvious
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 518 526	turmeric
+T5	OpinionExpression 498 509	all-natural
+R6	ExpressionTarget Arg1:T5 Arg2:T4

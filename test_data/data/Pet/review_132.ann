@@ -1,0 +1,6 @@
+T1	OpinionTarget 117 122	price
+T2	OpinionExpression 111 116	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 101 105	item
+T5	OpinionExpression 95 100	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4

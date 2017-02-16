@@ -1,0 +1,3 @@
+T1	OpinionTarget 168 171	fit
+T2	OpinionExpression 162 167	tight
+R3	ExpressionTarget Arg1:T2 Arg2:T1

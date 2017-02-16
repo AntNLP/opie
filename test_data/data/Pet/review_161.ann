@@ -1,0 +1,18 @@
+T1	OpinionTarget 0 14	Pro Vet choice
+T2	OpinionExpression 15 20	stain
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 312 319	results
+T5	OpinionExpression 301 311	lackluster
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 445 457	other brands
+T8	OpinionExpression 466 484	able to replicated
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 563 568	color
+T11	OpinionExpression 569 573	safe
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 635 643	cleaners
+T14	OpinionExpression 648 652	safe
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 618 621	way
+T17	OpinionExpression 613 617	hard
+R18	ExpressionTarget Arg1:T17 Arg2:T16

@@ -1,0 +1,51 @@
+T1	OpinionTarget 6 11	stars
+T2	OpinionExpression 15 23	generous
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 0 11	Three stars
+T5	OpinionExpression 15 23	generous
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 339 347	overview
+T8	OpinionExpression 334 338	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 706 728	The Russian Revolution
+T11	OpinionExpression 733 769	mentioned only once and inaccurately
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 718 728	Revolution
+T14	OpinionExpression 733 769	mentioned only once and inaccurately
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 918 930	World War II
+T17	OpinionExpression 935 954	better but not much
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 928 930	II
+T20	OpinionExpression 935 941	better
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 924 927	War
+T23	OpinionExpression 935 941	better
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 928 930	II
+T26	OpinionExpression 935 954	better but not much
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 918 923	World
+T29	OpinionExpression 935 941	better
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 918 930	World War II
+T32	OpinionExpression 935 941	better
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 918 923	World
+T35	OpinionExpression 935 954	better but not much
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 924 927	War
+T38	OpinionExpression 935 954	better but not much
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1018 1026	overview
+T41	OpinionExpression 1013 1017	okay
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 979 984	spots
+T44	OpinionExpression 972 978	bright
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 1311 1316	music
+T47	OpinionExpression 1326 1330	good
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 1307 1316	The music
+T50	OpinionExpression 1326 1330	good
+R51	ExpressionTarget Arg1:T50 Arg2:T49

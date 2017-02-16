@@ -1,0 +1,3 @@
+T1	OpinionTarget 330 339	customers
+T2	OpinionExpression 320 329	satisfied
+R3	ExpressionTarget Arg1:T2 Arg2:T1

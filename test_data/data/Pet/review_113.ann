@@ -1,0 +1,9 @@
+T1	OpinionTarget 145 148	toy
+T2	OpinionExpression 137 144	correct
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 177 180	toy
+T5	OpinionExpression 171 176	wrong
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 332 338	Amazon
+T8	OpinionExpression 339 356	refunded my money
+R9	ExpressionTarget Arg1:T8 Arg2:T7

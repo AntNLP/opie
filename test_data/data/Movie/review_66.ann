@@ -1,0 +1,9 @@
+T1	OpinionTarget 1162 1175	the producers
+T2	OpinionExpression 1181 1199	far more concerned
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 1166 1175	producers
+T5	OpinionExpression 1181 1199	far more concerned
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 1497 1501	rest
+T8	OpinionExpression 1502 1508	easier
+R9	ExpressionTarget Arg1:T8 Arg2:T7

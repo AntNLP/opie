@@ -1,0 +1,6 @@
+T1	OpinionTarget 23 35	our Airedale
+T2	OpinionExpression 43 65	a very powerful chewer
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 59 65	chewer
+T5	OpinionExpression 50 58	powerful
+R6	ExpressionTarget Arg1:T5 Arg2:T4

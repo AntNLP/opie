@@ -1,0 +1,12 @@
+T1	OpinionTarget 12 21	Cellphone
+T2	OpinionExpression 3 11	Excelent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 0 27	An Excelent Cellphone 100 %
+T5	OpinionExpression 28 39	Recommended
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 12 21	Cellphone
+T8	OpinionExpression 28 39	Recommended
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 0 21	An Excelent Cellphone
+T11	OpinionExpression 28 39	Recommended
+R12	ExpressionTarget Arg1:T11 Arg2:T10

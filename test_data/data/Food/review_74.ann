@@ -1,0 +1,18 @@
+T1	OpinionTarget 5 12	product
+T2	OpinionExpression 16 21	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 239 250	The results
+T5	OpinionExpression 255 262	amazing
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 243 250	results
+T8	OpinionExpression 255 262	amazing
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 343 354	added to it
+T11	OpinionExpression 324 335	unnecessary
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 343 348	added
+T14	OpinionExpression 324 335	unnecessary
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 336 342	things
+T17	OpinionExpression 324 335	unnecessary
+R18	ExpressionTarget Arg1:T17 Arg2:T16

@@ -1,0 +1,15 @@
+T1	OpinionTarget 44 50	collar
+T2	OpinionExpression 38 43	Great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 67 72	price
+T5	OpinionExpression 62 66	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 104 112	delivery
+T8	OpinionExpression 75 84	Excellent
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 104 112	delivery
+T11	OpinionExpression 99 103	fast
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 104 112	delivery
+T14	OpinionExpression 75 98	Excellent and amazingly
+R15	ExpressionTarget Arg1:T14 Arg2:T13

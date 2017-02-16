@@ -1,0 +1,9 @@
+T1	OpinionTarget 15 20	phone
+T2	OpinionExpression 0 7	Amazing
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 91 98	storage
+T5	OpinionExpression 74 81	limited
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 58 62	part
+T8	OpinionExpression 54 57	bad
+R9	ExpressionTarget Arg1:T8 Arg2:T7

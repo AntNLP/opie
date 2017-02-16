@@ -1,0 +1,30 @@
+T1	OpinionTarget 94 99	point
+T2	OpinionExpression 100 105	clear
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 90 99	the point
+T5	OpinionExpression 100 105	clear
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 182 189	version
+T8	OpinionExpression 177 181	best
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 308 314	acting
+T11	OpinionExpression 319 323	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 304 314	The acting
+T14	OpinionExpression 319 323	good
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 385 390	actor
+T17	OpinionExpression 376 384	talented
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 550 559	the parts
+T20	OpinionExpression 565 579	almost comical
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 711 715	book
+T23	OpinionExpression 719 725	better
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 707 715	The book
+T26	OpinionExpression 719 725	better
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 892 899	desires
+T29	OpinionExpression 881 891	incestuous
+R30	ExpressionTarget Arg1:T29 Arg2:T28

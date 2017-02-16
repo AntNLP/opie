@@ -1,0 +1,9 @@
+T1	OpinionTarget 245 254	their pad
+T2	OpinionExpression 259 269	chew-proof
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 293 300	arrived
+T5	OpinionExpression 301 309	promptly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 738 747	satisfied
+T8	OpinionExpression 731 737	pretty
+R9	ExpressionTarget Arg1:T8 Arg2:T7

@@ -1,0 +1,12 @@
+T1	OpinionTarget 79 86	reviews
+T2	OpinionExpression 74 78	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 468 472	idea
+T5	OpinionExpression 452 460	horrible
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 417 434	the stitched logo
+T8	OpinionExpression 450 472	a horrible design idea
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 461 467	design
+T11	OpinionExpression 452 460	horrible
+R12	ExpressionTarget Arg1:T11 Arg2:T10

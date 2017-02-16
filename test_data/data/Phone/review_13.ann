@@ -1,0 +1,3 @@
+T1	OpinionTarget 0 2	Im
+T2	OpinionExpression 3 8	Cheap
+R3	ExpressionTarget Arg1:T2 Arg2:T1

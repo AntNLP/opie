@@ -1,0 +1,6 @@
+T1	OpinionTarget 5 13	curcumin
+T2	OpinionExpression 17 22	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 111 120	recommend
+T5	OpinionExpression 104 110	highly
+R6	ExpressionTarget Arg1:T5 Arg2:T4

@@ -1,0 +1,21 @@
+T1	OpinionTarget 710 716	format
+T2	OpinionExpression 703 709	unique
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 684 695	observation
+T5	OpinionExpression 672 683	interesting
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 2068 2078	conditions
+T8	OpinionExpression 2050 2059	unwelcome
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 2060 2067	weather
+T11	OpinionExpression 2050 2059	unwelcome
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 2036 2045	campaigns
+T14	OpinionExpression 2026 2035	strenuous
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 2505 2511	pieces
+T17	OpinionExpression 2494 2504	tremendous
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 2749 2755	events
+T20	OpinionExpression 2741 2748	pivotal
+R21	ExpressionTarget Arg1:T20 Arg2:T19

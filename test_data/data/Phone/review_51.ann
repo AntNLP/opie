@@ -1,0 +1,12 @@
+T1	OpinionTarget 0 6	Moto E
+T2	OpinionExpression 10 34	a really nice smartphone
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 24 34	smartphone
+T5	OpinionExpression 19 23	nice
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 43 63	my 1st Android phone
+T8	OpinionExpression 72 104	easy to adapt compare to iPhones
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 230 235	phone
+T11	OpinionExpression 225 229	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10

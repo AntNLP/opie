@@ -1,0 +1,9 @@
+T1	OpinionTarget 159 169	classified
+T2	OpinionExpression 151 155	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 235 242	buckles
+T5	OpinionExpression 251 260	universal
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 370 375	Owner
+T8	OpinionExpression 380 389	very rude
+R9	ExpressionTarget Arg1:T8 Arg2:T7

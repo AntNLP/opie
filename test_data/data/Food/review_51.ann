@@ -1,0 +1,6 @@
+T1	OpinionTarget 47 51	work
+T2	OpinionExpression 52 56	well
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 66 71	Danny
+T5	OpinionExpression 75 80	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4

@@ -1,0 +1,15 @@
+T1	OpinionTarget 82 88	acting
+T2	OpinionExpression 66 81	universally bad
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 102 112	production
+T5	OpinionExpression 93 101	terrible
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 82 88	acting
+T8	OpinionExpression 78 81	bad
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 113 119	values
+T11	OpinionExpression 93 101	terrible
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 142 148	budget
+T14	OpinionExpression 138 141	low
+R15	ExpressionTarget Arg1:T14 Arg2:T13

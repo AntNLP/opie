@@ -1,0 +1,3 @@
+T1	OpinionTarget 210 217	product
+T2	OpinionExpression 204 209	Great
+R3	ExpressionTarget Arg1:T2 Arg2:T1

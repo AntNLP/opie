@@ -1,0 +1,12 @@
+T1	OpinionTarget 193 203	the screen
+T2	OpinionExpression 204 216	did n't work
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 685 691	screen
+T5	OpinionExpression 675 684	defective
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 780 785	phone
+T8	OpinionExpression 776 779	old
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 1524 1531	support
+T11	OpinionExpression 1517 1523	crappy
+R12	ExpressionTarget Arg1:T11 Arg2:T10

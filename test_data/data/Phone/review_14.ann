@@ -1,0 +1,12 @@
+T1	OpinionTarget 6 40	a nice rubbery cord and nice color
+T2	OpinionExpression 45 52	perfect
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 59 63	size
+T5	OpinionExpression 45 52	perfect
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 35 40	color
+T8	OpinionExpression 30 34	nice
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 21 25	cord
+T11	OpinionExpression 8 12	nice
+R12	ExpressionTarget Arg1:T11 Arg2:T10

@@ -1,0 +1,9 @@
+T1	OpinionTarget 82 89	insight
+T2	OpinionExpression 76 81	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 174 180	series
+T5	OpinionExpression 184 189	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 174 180	series
+T8	OpinionExpression 184 202	great in every way
+R9	ExpressionTarget Arg1:T8 Arg2:T7

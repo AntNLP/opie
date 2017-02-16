@@ -1,0 +1,6 @@
+T1	OpinionTarget 0 6	My dog
+T2	OpinionExpression 11 57	pretty destructive on things left in his crate
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 147 151	show
+T5	OpinionExpression 142 146	Good
+R6	ExpressionTarget Arg1:T5 Arg2:T4

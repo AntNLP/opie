@@ -1,0 +1,6 @@
+T1	OpinionTarget 19 24	phone
+T2	OpinionExpression 14 18	nice
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 98 116	the earpiece sound
+T5	OpinionExpression 117 129	did not work
+R6	ExpressionTarget Arg1:T5 Arg2:T4

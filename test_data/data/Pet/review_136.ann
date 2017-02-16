@@ -1,0 +1,27 @@
+T1	OpinionTarget 113 118	shine
+T2	OpinionExpression 103 112	beautiful
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 43 51	smelling
+T5	OpinionExpression 66 72	fluffy
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 43 51	smelling
+T8	OpinionExpression 90 95	clean
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 43 51	smelling
+T11	OpinionExpression 52 59	amazing
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 101 118	a beautiful shine
+T14	OpinionExpression 77 95	refreshingly clean
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 244 250	my pup
+T17	OpinionExpression 254 257	fun
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 286 292	smells
+T20	OpinionExpression 293 300	amazing
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 286 292	smells
+T23	OpinionExpression 293 314	amazing when finished
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 270 275	looks
+T26	OpinionExpression 276 281	great
+R27	ExpressionTarget Arg1:T26 Arg2:T25

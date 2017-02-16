@@ -1,0 +1,36 @@
+T1	OpinionTarget 106 112	coffee
+T2	OpinionExpression 93 105	best tasting
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 106 112	coffee
+T5	OpinionExpression 93 97	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 98 105	tasting
+T8	OpinionExpression 93 97	best
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 481 488	quality
+T11	OpinionExpression 476 480	high
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 523 529	coffee
+T14	OpinionExpression 495 506	exceptional
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 515 522	instant
+T17	OpinionExpression 495 506	exceptional
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 507 529	tasting instant coffee
+T20	OpinionExpression 495 506	exceptional
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 507 514	tasting
+T23	OpinionExpression 495 506	exceptional
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 544 550	flavor
+T26	OpinionExpression 569 575	smooth
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 786 791	taste
+T29	OpinionExpression 806 810	good
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 743 750	feeling
+T32	OpinionExpression 751 755	lazy
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 771 780	something
+T35	OpinionExpression 786 810	taste pretty darned good
+R36	ExpressionTarget Arg1:T35 Arg2:T34

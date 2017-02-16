@@ -1,0 +1,18 @@
+T1	OpinionTarget 102 105	box
+T2	OpinionExpression 92 96	easy
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 191 197	coffee
+T5	OpinionExpression 178 182	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 422 428	coffee
+T8	OpinionExpression 416 421	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 755 761	coffee
+T11	OpinionExpression 748 754	better
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 628 656	my usual French Press method
+T14	OpinionExpression 616 622	bother
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 935 940	stuff
+T17	OpinionExpression 930 934	Good
+R18	ExpressionTarget Arg1:T17 Arg2:T16

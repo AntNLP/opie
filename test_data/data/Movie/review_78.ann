@@ -1,0 +1,48 @@
+T1	OpinionTarget 219 255	a documentary that re-writes history
+T2	OpinionExpression 201 215	complain about
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 219 255	a documentary that re-writes history
+T5	OpinionExpression 201 209	complain
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 534 545	information
+T8	OpinionExpression 561 569	NOT TRUE
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 1513 1517	plan
+T11	OpinionExpression 1508 1512	bold
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 1732 1738	battle
+T14	OpinionExpression 1742 1766	incorrect , misleading ,
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 1728 1738	the battle
+T17	OpinionExpression 1742 1751	incorrect
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 1728 1738	the battle
+T20	OpinionExpression 1742 1766	incorrect , misleading ,
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 1732 1738	battle
+T23	OpinionExpression 1742 1751	incorrect
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 1786 1796	statements
+T26	OpinionExpression 1780 1785	false
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 2761 2767	series
+T29	OpinionExpression 2774 2778	good
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 3197 3203	Patton
+T32	OpinionExpression 3181 3190	prominent
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 3153 3171	the chosen figures
+T35	OpinionExpression 3181 3190	prominent
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 3153 3171	the chosen figures
+T38	OpinionExpression 3176 3190	more prominent
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 3164 3171	figures
+T41	OpinionExpression 3176 3190	more prominent
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 3353 3360	history
+T44	OpinionExpression 3361 3366	wrong
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 3349 3360	the history
+T47	OpinionExpression 3361 3366	wrong
+R48	ExpressionTarget Arg1:T47 Arg2:T46

@@ -1,0 +1,9 @@
+T1	OpinionTarget 239 244	clean
+T2	OpinionExpression 248 253	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 374 380	making
+T5	OpinionExpression 416 425	available
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 392 398	carpet
+T8	OpinionExpression 386 391	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7

@@ -1,0 +1,24 @@
+T1	OpinionTarget 414 420	coffee
+T2	OpinionExpression 409 413	fine
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 491 497	coffee
+T5	OpinionExpression 486 490	best
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 592 596	brew
+T8	OpinionExpression 582 591	delicious
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 679 685	coffee
+T11	OpinionExpression 663 671	stronger
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 679 699	coffee than any dark
+T14	OpinionExpression 663 671	stronger
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 672 675	cup
+T17	OpinionExpression 663 671	stronger
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 741 747	coffee
+T20	OpinionExpression 754 758	good
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 1125 1136	recommended
+T23	OpinionExpression 1100 1106	Highly
+R24	ExpressionTarget Arg1:T23 Arg2:T22

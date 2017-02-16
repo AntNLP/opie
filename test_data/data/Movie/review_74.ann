@@ -1,0 +1,6 @@
+T1	OpinionTarget 125 140	inconsistencies
+T2	OpinionExpression 103 113	irritating
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 983 989	series
+T5	OpinionExpression 974 982	valuable
+R6	ExpressionTarget Arg1:T5 Arg2:T4

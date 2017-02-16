@@ -1,0 +1,15 @@
+T1	OpinionTarget 123 127	Agni
+T2	OpinionExpression 119 122	low
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 144 148	fire
+T5	OpinionExpression 134 143	digestive
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 224 232	sleeping
+T8	OpinionExpression 233 239	better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 261 270	digestion
+T11	OpinionExpression 254 260	better
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 333 340	product
+T14	OpinionExpression 315 322	pleased
+R15	ExpressionTarget Arg1:T14 Arg2:T13

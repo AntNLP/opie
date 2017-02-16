@@ -1,0 +1,12 @@
+T1	OpinionTarget 23 28	store
+T2	OpinionExpression 12 18	pricey
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 19 22	pet
+T5	OpinionExpression 12 18	pricey
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 203 208	works
+T8	OpinionExpression 209 213	well
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 234 240	drinks
+T11	OpinionExpression 203 233	works well on spills from kids
+R12	ExpressionTarget Arg1:T11 Arg2:T10

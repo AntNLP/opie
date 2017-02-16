@@ -1,0 +1,6 @@
+T1	OpinionTarget 0 7	Tumeric
+T2	OpinionExpression 11 18	helpful
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 0 7	Tumeric
+T5	OpinionExpression 11 63	helpful to stop joint pain and help reduce belly fat
+R6	ExpressionTarget Arg1:T5 Arg2:T4

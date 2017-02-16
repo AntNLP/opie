@@ -1,0 +1,6 @@
+T1	OpinionTarget 235 242	details
+T2	OpinionExpression 227 234	trivial
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 353 359	stayed
+T5	OpinionExpression 360 364	true
+R6	ExpressionTarget Arg1:T5 Arg2:T4

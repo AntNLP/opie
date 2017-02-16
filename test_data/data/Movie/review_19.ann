@@ -1,0 +1,24 @@
+T1	OpinionTarget 356 359	job
+T2	OpinionExpression 348 355	amazing
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 380 384	cast
+T5	OpinionExpression 387 393	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 394 399	Cathy
+T8	OpinionExpression 380 393	cast a better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 394 399	Cathy
+T11	OpinionExpression 387 393	better
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 567 572	story
+T14	OpinionExpression 536 540	sick
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 567 572	story
+T17	OpinionExpression 545 552	twisted
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 567 572	story
+T20	OpinionExpression 553 561	romantic
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 567 572	story
+T23	OpinionExpression 536 552	sick and twisted
+R24	ExpressionTarget Arg1:T23 Arg2:T22

@@ -1,0 +1,15 @@
+T1	OpinionTarget 23 28	phone
+T2	OpinionExpression 9 14	first
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 101 115	the ring sound
+T5	OpinionExpression 123 134	loud enough
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 110 115	sound
+T8	OpinionExpression 123 134	loud enough
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 62 69	battery
+T11	OpinionExpression 78 96	better than iphone
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 159 164	works
+T14	OpinionExpression 165 167	ok
+R15	ExpressionTarget Arg1:T14 Arg2:T13

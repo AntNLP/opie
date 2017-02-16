@@ -1,0 +1,18 @@
+T1	OpinionTarget 403 410	players
+T2	OpinionExpression 399 402	key
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 932 945	battle scenes
+T5	OpinionExpression 957 967	repetitive
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 939 945	scenes
+T8	OpinionExpression 957 967	repetitive
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 932 938	battle
+T11	OpinionExpression 957 967	repetitive
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 921 928	collage
+T14	OpinionExpression 957 967	repetitive
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 974 977	war
+T17	OpinionExpression 981 991	repetitive
+R18	ExpressionTarget Arg1:T17 Arg2:T16

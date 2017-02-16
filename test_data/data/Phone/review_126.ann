@@ -1,0 +1,27 @@
+T1	OpinionTarget 8 13	phone
+T2	OpinionExpression 0 7	Stellar
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 75 82	battery
+T5	OpinionExpression 69 74	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 149 153	feel
+T8	OpinionExpression 154 159	cheap
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 122 127	feels
+T11	OpinionExpression 128 133	solid
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 316 336	the headphone output
+T14	OpinionExpression 340 347	quieter
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 298 307	autofocus
+T17	OpinionExpression 340 347	quieter
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 308 315	camera-
+T20	OpinionExpression 340 347	quieter
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 330 336	output
+T23	OpinionExpression 340 347	quieter
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 557 565	features
+T26	OpinionExpression 550 556	newest
+R27	ExpressionTarget Arg1:T26 Arg2:T25

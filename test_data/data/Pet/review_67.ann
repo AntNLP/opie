@@ -1,0 +1,9 @@
+T1	OpinionTarget 269 280	These bones
+T2	OpinionExpression 285 339	great as they are from non killed animals n in the USA
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 275 280	bones
+T5	OpinionExpression 285 290	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 269 280	These bones
+T8	OpinionExpression 285 290	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7

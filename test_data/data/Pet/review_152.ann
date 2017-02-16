@@ -1,0 +1,18 @@
+T1	OpinionTarget 253 256	pet
+T2	OpinionExpression 247 252	clean
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 257 262	vomit
+T5	OpinionExpression 247 252	clean
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 253 262	pet vomit
+T8	OpinionExpression 247 252	clean
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 392 402	the stains
+T11	OpinionExpression 408 453	removed with very little rubbing with a cloth
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 460 465	scent
+T14	OpinionExpression 469 479	very clean
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 456 465	The scent
+T17	OpinionExpression 469 479	very clean
+R18	ExpressionTarget Arg1:T17 Arg2:T16

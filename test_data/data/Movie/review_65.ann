@@ -1,0 +1,66 @@
+T1	OpinionTarget 313 317	play
+T2	OpinionExpression 328 333	loose
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 531 537	things
+T5	OpinionExpression 550 555	wrong
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 591 595	buff
+T8	OpinionExpression 565 573	big-time
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 640 646	series
+T11	OpinionExpression 651 659	accurate
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 973 979	series
+T14	OpinionExpression 951 959	greatest
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 971 979	a series
+T17	OpinionExpression 951 959	greatest
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 960 967	success
+T20	OpinionExpression 951 959	greatest
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 1059 1072	human history
+T23	OpinionExpression 1076 1094	the greatest story
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 1059 1072	human history
+T26	OpinionExpression 1080 1088	greatest
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 1089 1094	story
+T29	OpinionExpression 1080 1088	greatest
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 1198 1204	series
+T32	OpinionExpression 1209 1221	successfully
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 1222 1230	conveyed
+T35	OpinionExpression 1209 1221	successfully
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 1744 1751	conveys
+T38	OpinionExpression 1755 1761	better
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 1813 1822	Americans
+T41	OpinionExpression 1827 1872	so incredibly ignorant of the First World War
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 1902 1908	series
+T44	OpinionExpression 1886 1896	inaccurate
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 1996 1999	War
+T47	OpinionExpression 1970 1979	important
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 1990 1995	World
+T50	OpinionExpression 1970 1979	important
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 2098 2101	war
+T53	OpinionExpression 2089 2097	gigantic
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 2023 2037	the World Wars
+T56	OpinionExpression 2043 2063	intimately connected
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 2240 2249	recommend
+T59	OpinionExpression 2262 2268	enough
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 2296 2305	introduce
+T62	OpinionExpression 2281 2288	perfect
+R63	ExpressionTarget Arg1:T62 Arg2:T61
+T64	OpinionTarget 2289 2292	way
+T65	OpinionExpression 2281 2288	perfect
+R66	ExpressionTarget Arg1:T65 Arg2:T64

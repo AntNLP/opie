@@ -1,0 +1,30 @@
+T1	OpinionTarget 39 48	something
+T2	OpinionExpression 49 52	bad
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 141 147	phones
+T5	OpinionExpression 121 126	super
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 141 147	phones
+T8	OpinionExpression 127 132	quick
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 200 204	apps
+T11	OpinionExpression 208 225	snappy and smooth
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 272 279	display
+T14	OpinionExpression 262 271	beautiful
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 200 204	apps
+T17	OpinionExpression 208 214	snappy
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 330 336	person
+T20	OpinionExpression 322 329	average
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 519 531	The speakers
+T23	OpinionExpression 536 547	loud enough
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 618 625	results
+T26	OpinionExpression 613 617	good
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 574 584	The camera
+T29	OpinionExpression 588 592	fast
+R30	ExpressionTarget Arg1:T29 Arg2:T28

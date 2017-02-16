@@ -1,0 +1,18 @@
+T1	OpinionTarget 50 59	processor
+T2	OpinionExpression 41 49	outdated
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 27 32	phone
+T5	OpinionExpression 8 12	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 93 98	phone
+T8	OpinionExpression 89 92	old
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 349 355	person
+T11	OpinionExpression 343 348	right
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 468 478	smartphone
+T14	OpinionExpression 456 467	inexpensive
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 628 638	your phone
+T17	OpinionExpression 639 645	slower
+R18	ExpressionTarget Arg1:T17 Arg2:T16

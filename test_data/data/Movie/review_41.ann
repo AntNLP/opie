@@ -1,0 +1,27 @@
+T1	OpinionTarget 793 799	script
+T2	OpinionExpression 782 792	disjointed
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 888 891	way
+T5	OpinionExpression 883 887	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 894 902	The plot
+T8	OpinionExpression 903 910	twisted
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 898 902	plot
+T11	OpinionExpression 903 910	twisted
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 1067 1097	The sexual curiosity of Carrie
+T14	OpinionExpression 1102 1147	done awkwardly if not unintentionally comical
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 1091 1097	Carrie
+T17	OpinionExpression 1102 1147	done awkwardly if not unintentionally comical
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 1078 1087	curiosity
+T20	OpinionExpression 1102 1147	done awkwardly if not unintentionally comical
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 1067 1087	The sexual curiosity
+T23	OpinionExpression 1102 1147	done awkwardly if not unintentionally comical
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 1425 1432	kissing
+T26	OpinionExpression 1414 1424	passionate
+R27	ExpressionTarget Arg1:T26 Arg2:T25

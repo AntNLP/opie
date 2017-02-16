@@ -1,0 +1,18 @@
+T1	OpinionTarget 112 119	android
+T2	OpinionExpression 106 111	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 81 86	phone
+T5	OpinionExpression 73 80	perfect
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 112 119	android
+T8	OpinionExpression 73 80	perfect
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 120 128	platform
+T11	OpinionExpression 106 111	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 106 128	great android platform
+T14	OpinionExpression 73 80	perfect
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 264 271	quality
+T17	OpinionExpression 257 263	better
+R18	ExpressionTarget Arg1:T17 Arg2:T16

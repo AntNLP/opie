@@ -1,0 +1,15 @@
+T1	OpinionTarget 8 13	phone
+T2	OpinionExpression 0 7	Awesome
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 172 177	build
+T5	OpinionExpression 167 171	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 178 185	quality
+T8	OpinionExpression 167 171	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 93 98	Phone
+T11	OpinionExpression 102 123	missing some features
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 172 185	build quality
+T14	OpinionExpression 167 171	good
+R15	ExpressionTarget Arg1:T14 Arg2:T13

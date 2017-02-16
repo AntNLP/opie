@@ -1,0 +1,12 @@
+T1	OpinionTarget 411 422	performance
+T2	OpinionExpression 426 437	exceptional
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 407 422	his performance
+T5	OpinionExpression 426 437	exceptional
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 662 665	Leo
+T8	OpinionExpression 685 708	blind to her affections
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 1031 1038	plotted
+T11	OpinionExpression 1026 1030	well
+R12	ExpressionTarget Arg1:T11 Arg2:T10

@@ -1,0 +1,21 @@
+T1	OpinionTarget 81 85	pads
+T2	OpinionExpression 76 80	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 232 237	value
+T5	OpinionExpression 226 231	great
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 209 218	Superpads
+T8	OpinionExpression 224 237	a great value
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 563 575	the thin pad
+T11	OpinionExpression 584 591	too bad
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 652 655	pad
+T14	OpinionExpression 644 651	thinner
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 716 721	price
+T17	OpinionExpression 708 715	cheaper
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 819 823	pads
+T20	OpinionExpression 811 818	awesome
+R21	ExpressionTarget Arg1:T20 Arg2:T19

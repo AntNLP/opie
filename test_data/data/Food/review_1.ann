@@ -1,0 +1,12 @@
+T1	OpinionTarget 25 33	Turmeric
+T2	OpinionExpression 12 16	BEST
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 17 24	quality
+T5	OpinionExpression 12 16	BEST
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 272 276	dose
+T8	OpinionExpression 267 271	high
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 338 345	results
+T11	OpinionExpression 331 337	faster
+R12	ExpressionTarget Arg1:T11 Arg2:T10

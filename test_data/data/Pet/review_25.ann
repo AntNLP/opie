@@ -1,0 +1,6 @@
+T1	OpinionTarget 170 204	Ordered the k9ballistics Crate Pad
+T2	OpinionExpression 210 220	so pleased
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 274 280	sleeps
+T5	OpinionExpression 281 292	comfortably
+R6	ExpressionTarget Arg1:T5 Arg2:T4

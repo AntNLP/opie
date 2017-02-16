@@ -1,0 +1,12 @@
+T1	OpinionTarget 5 12	product
+T2	OpinionExpression 17 42	stopped my acne flare ups
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 106 113	my acne
+T5	OpinionExpression 117 135	almost nonexistent
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 106 113	my acne
+T8	OpinionExpression 124 135	nonexistent
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 109 113	acne
+T11	OpinionExpression 117 135	almost nonexistent
+R12	ExpressionTarget Arg1:T11 Arg2:T10

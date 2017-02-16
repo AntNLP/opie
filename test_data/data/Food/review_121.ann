@@ -1,0 +1,27 @@
+T1	OpinionTarget 5 27	a daily coffee drinker
+T2	OpinionExpression 35 76	picky about the beans and taste of coffee
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 51 56	beans
+T5	OpinionExpression 35 40	picky
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 190 201	Cafe Altura
+T8	OpinionExpression 204 212	pleasant
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 190 194	Cafe
+T11	OpinionExpression 204 212	pleasant
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 213 221	surprise
+T14	OpinionExpression 204 212	pleasant
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 289 292	cup
+T17	OpinionExpression 310 314	weak
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 402 408	brewed
+T20	OpinionExpression 396 401	fresh
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 388 392	pass
+T23	OpinionExpression 396 401	fresh
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 480 486	brewed
+T26	OpinionExpression 474 479	fresh
+R27	ExpressionTarget Arg1:T26 Arg2:T25

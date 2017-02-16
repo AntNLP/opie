@@ -1,0 +1,24 @@
+T1	OpinionTarget 0 12	Matcha Pocky
+T2	OpinionExpression 16 23	amazing
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 0 6	Matcha
+T5	OpinionExpression 16 23	amazing
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 7 12	Pocky
+T8	OpinionExpression 16 23	amazing
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 31 36	stuff
+T11	OpinionExpression 53 62	delicious
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 31 36	stuff
+T14	OpinionExpression 40 62	particularly delicious
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 318 323	price
+T17	OpinionExpression 312 317	great
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 457 464	savings
+T20	OpinionExpression 450 456	decent
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 580 584	deal
+T23	OpinionExpression 575 579	good
+R24	ExpressionTarget Arg1:T23 Arg2:T22

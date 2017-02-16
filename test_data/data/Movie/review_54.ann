@@ -1,0 +1,63 @@
+T1	OpinionTarget 176 185	docudrama
+T2	OpinionExpression 157 164	correct
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 266 276	Eisenhower
+T5	OpinionExpression 281 325	overshadowed by MacArthur 's supposed genius
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 521 527	attack
+T8	OpinionExpression 510 520	amphibious
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 686 693	soldier
+T11	OpinionExpression 680 685	weary
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 1120 1126	showed
+T14	OpinionExpression 1155 1188	leading the troops in the Pacific
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 1127 1136	MacArthur
+T17	OpinionExpression 1155 1188	leading the troops in the Pacific
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 1200 1209	MacArthur
+T20	OpinionExpression 1214 1224	unprepared
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 1683 1689	Patton
+T23	OpinionExpression 1690 1729	showed remarkable tank skills in France
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 1708 1712	tank
+T26	OpinionExpression 1697 1707	remarkable
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 1713 1719	skills
+T29	OpinionExpression 1697 1707	remarkable
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 1825 1835	leadership
+T32	OpinionExpression 1820 1824	poor
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 2412 2418	acting
+T35	OpinionExpression 2422 2430	terrible
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 2408 2418	The acting
+T38	OpinionExpression 2422 2430	terrible
+R39	ExpressionTarget Arg1:T38 Arg2:T37
+T40	OpinionTarget 2450 2461	represented
+T41	OpinionExpression 2479 2483	well
+R42	ExpressionTarget Arg1:T41 Arg2:T40
+T43	OpinionTarget 2443 2449	actors
+T44	OpinionExpression 2450 2483	represented their characters well
+R45	ExpressionTarget Arg1:T44 Arg2:T43
+T46	OpinionTarget 2439 2449	the actors
+T47	OpinionExpression 2479 2483	well
+R48	ExpressionTarget Arg1:T47 Arg2:T46
+T49	OpinionTarget 2439 2449	the actors
+T50	OpinionExpression 2450 2483	represented their characters well
+R51	ExpressionTarget Arg1:T50 Arg2:T49
+T52	OpinionTarget 2462 2478	their characters
+T53	OpinionExpression 2450 2483	represented their characters well
+R54	ExpressionTarget Arg1:T53 Arg2:T52
+T55	OpinionTarget 2488 2493	story
+T56	OpinionExpression 2497 2501	lame
+R57	ExpressionTarget Arg1:T56 Arg2:T55
+T58	OpinionTarget 2484 2493	the story
+T59	OpinionExpression 2497 2501	lame
+R60	ExpressionTarget Arg1:T59 Arg2:T58
+T61	OpinionTarget 2506 2515	the facts
+T62	OpinionExpression 2524 2532	complete
+R63	ExpressionTarget Arg1:T62 Arg2:T61

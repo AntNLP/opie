@@ -1,0 +1,9 @@
+T1	OpinionTarget 40 44	knew
+T2	OpinionExpression 66 70	good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 127 132	price
+T5	OpinionExpression 120 126	better
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 73 83	The antler
+T8	OpinionExpression 88 132	big as advertised and at a much better price
+R9	ExpressionTarget Arg1:T8 Arg2:T7

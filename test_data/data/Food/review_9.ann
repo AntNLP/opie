@@ -1,0 +1,12 @@
+T1	OpinionTarget 42 54	My arthritis
+T2	OpinionExpression 58 67	crippling
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 45 54	arthritis
+T5	OpinionExpression 58 67	crippling
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 230 237	mistake
+T8	OpinionExpression 226 229	Big
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 292 313	going to try turmeric
+T11	OpinionExpression 326 330	best
+R12	ExpressionTarget Arg1:T11 Arg2:T10

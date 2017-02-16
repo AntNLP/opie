@@ -1,0 +1,39 @@
+T1	OpinionTarget 157 165	remedies
+T2	OpinionExpression 149 156	natural
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 679 690	ingredients
+T5	OpinionExpression 661 672	unnecessary
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 614 625	supplements
+T8	OpinionExpression 599 606	organic
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 614 625	supplements
+T11	OpinionExpression 607 613	herbal
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 1185 1206	my supplement regimen
+T14	OpinionExpression 1152 1176	necessary and beneficial
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 1188 1198	supplement
+T17	OpinionExpression 1152 1176	necessary and beneficial
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 1177 1181	part
+T20	OpinionExpression 1152 1176	necessary and beneficial
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 1124 1128	feel
+T23	OpinionExpression 1129 1138	confident
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 1185 1206	my supplement regimen
+T26	OpinionExpression 1166 1176	beneficial
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 1177 1181	part
+T29	OpinionExpression 1152 1161	necessary
+R30	ExpressionTarget Arg1:T29 Arg2:T28
+T31	OpinionTarget 1188 1198	supplement
+T32	OpinionExpression 1166 1176	beneficial
+R33	ExpressionTarget Arg1:T32 Arg2:T31
+T34	OpinionTarget 1177 1181	part
+T35	OpinionExpression 1166 1176	beneficial
+R36	ExpressionTarget Arg1:T35 Arg2:T34
+T37	OpinionTarget 1412 1419	quality
+T38	OpinionExpression 1404 1411	premium
+R39	ExpressionTarget Arg1:T38 Arg2:T37

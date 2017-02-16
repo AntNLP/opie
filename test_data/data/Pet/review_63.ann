@@ -1,0 +1,9 @@
+T1	OpinionTarget 244 248	time
+T2	OpinionExpression 239 243	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 219 224	Danny
+T5	OpinionExpression 228 262	having the best time chewing on it
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 325 330	offer
+T8	OpinionExpression 335 339	best
+R9	ExpressionTarget Arg1:T8 Arg2:T7

@@ -1,0 +1,15 @@
+T1	OpinionTarget 117 122	works
+T2	OpinionExpression 123 132	excellent
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 203 210	browses
+T5	OpinionExpression 211 215	fast
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 190 198	internet
+T8	OpinionExpression 181 189	wireless
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 281 289	pictures
+T11	OpinionExpression 276 280	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 322 326	time
+T14	OpinionExpression 317 321	long
+R15	ExpressionTarget Arg1:T14 Arg2:T13

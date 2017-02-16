@@ -1,0 +1,9 @@
+T1	OpinionTarget 148 153	hopes
+T2	OpinionExpression 143 147	high
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 303 309	things
+T5	OpinionExpression 320 329	important
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 394 403	to follow
+T8	OpinionExpression 382 386	easy
+R9	ExpressionTarget Arg1:T8 Arg2:T7

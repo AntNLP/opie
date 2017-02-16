@@ -1,0 +1,21 @@
+T1	OpinionTarget 73 85	disappointed
+T2	OpinionExpression 66 72	sorely
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 73 85	disappointed
+T5	OpinionExpression 57 72	wound up sorely
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 94 107	the narrative
+T8	OpinionExpression 112 127	mostly accurate
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 94 107	the narrative
+T11	OpinionExpression 119 127	accurate
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 98 107	narrative
+T14	OpinionExpression 112 127	mostly accurate
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 98 107	narrative
+T17	OpinionExpression 119 127	accurate
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 395 408	personalities
+T20	OpinionExpression 385 394	important
+R21	ExpressionTarget Arg1:T20 Arg2:T19

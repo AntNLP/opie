@@ -1,0 +1,3 @@
+T1	OpinionTarget 10 16	follow
+T2	OpinionExpression 0 9	Wonderful
+R3	ExpressionTarget Arg1:T2 Arg2:T1

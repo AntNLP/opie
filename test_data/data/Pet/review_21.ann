@@ -1,0 +1,9 @@
+T1	OpinionTarget 336 339	bed
+T2	OpinionExpression 343 352	well made
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 362 371	her crate
+T5	OpinionExpression 357 381	fits her crate perfectly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 357 361	fits
+T8	OpinionExpression 372 381	perfectly
+R9	ExpressionTarget Arg1:T8 Arg2:T7

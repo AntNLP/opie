@@ -1,0 +1,21 @@
+T1	OpinionTarget 0 10	The collar
+T2	OpinionExpression 14 47	great quality , the buckle strong
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 0 10	The collar
+T5	OpinionExpression 14 27	great quality
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 34 40	buckle
+T8	OpinionExpression 41 47	strong
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 52 57	holds
+T11	OpinionExpression 58 62	well
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 20 27	quality
+T14	OpinionExpression 14 19	great
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 4 10	collar
+T17	OpinionExpression 14 27	great quality
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 68 76	reflects
+T20	OpinionExpression 77 82	great
+R21	ExpressionTarget Arg1:T20 Arg2:T19

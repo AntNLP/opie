@@ -1,0 +1,24 @@
+T1	OpinionTarget 55 79	the battle re-enactments
+T2	OpinionExpression 85 101	done pretty good
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 66 79	re-enactments
+T5	OpinionExpression 85 101	done pretty good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 59 65	battle
+T8	OpinionExpression 85 101	done pretty good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 131 140	presented
+T11	OpinionExpression 154 164	ridiculous
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 131 140	presented
+T14	OpinionExpression 146 164	totally ridiculous
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 420 425	facts
+T17	OpinionExpression 414 419	wrong
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 1669 1678	something
+T20	OpinionExpression 1679 1683	good
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 1716 1723	version
+T23	OpinionExpression 1710 1715	silly
+R24	ExpressionTarget Arg1:T23 Arg2:T22

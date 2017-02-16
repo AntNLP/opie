@@ -1,0 +1,6 @@
+T1	OpinionTarget 7 18	recommended
+T2	OpinionExpression 0 6	Highly
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 99 106	product
+T5	OpinionExpression 93 98	Great
+R6	ExpressionTarget Arg1:T5 Arg2:T4

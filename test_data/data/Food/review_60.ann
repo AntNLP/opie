@@ -1,0 +1,12 @@
+T1	OpinionTarget 64 68	feel
+T2	OpinionExpression 74 80	better
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 232 239	my body
+T5	OpinionExpression 215 219	good
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 220 228	changing
+T8	OpinionExpression 215 219	good
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 220 239	changing in my body
+T11	OpinionExpression 215 219	good
+R12	ExpressionTarget Arg1:T11 Arg2:T10

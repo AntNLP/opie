@@ -1,0 +1,18 @@
+T1	OpinionTarget 30 35	phone
+T2	OpinionExpression 10 15	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 30 35	phone
+T5	OpinionExpression 18 29	inexpensive
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 165 190	a larger internal SD card
+T8	OpinionExpression 200 205	great
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 183 185	SD
+T11	OpinionExpression 200 205	great
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 186 190	card
+T14	OpinionExpression 167 173	larger
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 186 190	card
+T17	OpinionExpression 200 205	great
+R18	ExpressionTarget Arg1:T17 Arg2:T16

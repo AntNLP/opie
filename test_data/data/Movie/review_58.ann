@@ -1,0 +1,21 @@
+T1	OpinionTarget 59 66	viewing
+T2	OpinionExpression 53 58	worth
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 104 131	such a short amount of time
+T5	OpinionExpression 135 168	totally ridiculous and impossible
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 171 191	Many important facts
+T8	OpinionExpression 196 204	left out
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 234 240	errors
+T11	OpinionExpression 248 255	drastic
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 220 240	the technical errors
+T14	OpinionExpression 248 255	drastic
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 220 240	the technical errors
+T17	OpinionExpression 245 289	so drastic that one can not believe anything
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 1462 1471	portrayal
+T20	OpinionExpression 1451 1461	disgusting
+R21	ExpressionTarget Arg1:T20 Arg2:T19

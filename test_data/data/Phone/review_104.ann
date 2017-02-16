@@ -1,0 +1,9 @@
+T1	OpinionTarget 18 23	price
+T2	OpinionExpression 4 9	great
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 367 371	apps
+T5	OpinionExpression 372 384	open as well
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 527 531	feel
+T8	OpinionExpression 521 526	Solid
+R9	ExpressionTarget Arg1:T8 Arg2:T7

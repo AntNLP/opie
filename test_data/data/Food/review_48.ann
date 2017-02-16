@@ -1,0 +1,6 @@
+T1	OpinionTarget 31 42	combination
+T2	OpinionExpression 26 30	best
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 323 334	ingredients
+T5	OpinionExpression 309 316	harmful
+R6	ExpressionTarget Arg1:T5 Arg2:T4

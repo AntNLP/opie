@@ -1,0 +1,6 @@
+T1	OpinionTarget 130 135	SMELL
+T2	OpinionExpression 119 123	FAKE
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 124 129	BACON
+T5	OpinionExpression 119 123	FAKE
+R6	ExpressionTarget Arg1:T5 Arg2:T4

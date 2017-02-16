@@ -1,0 +1,12 @@
+T1	OpinionTarget 342 347	doses
+T2	OpinionExpression 337 341	high
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 596 606	substitute
+T5	OpinionExpression 577 595	potent and healthy
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 596 606	substitute
+T8	OpinionExpression 577 583	potent
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 596 606	substitute
+T11	OpinionExpression 588 595	healthy
+R12	ExpressionTarget Arg1:T11 Arg2:T10

@@ -1,0 +1,30 @@
+T1	OpinionTarget 73 84	'adaptation
+T2	OpinionExpression 62 67	awful
+R3	ExpressionTarget Arg1:T2 Arg2:T1
+T4	OpinionTarget 314 319	acted
+T5	OpinionExpression 308 313	badly
+R6	ExpressionTarget Arg1:T5 Arg2:T4
+T7	OpinionTarget 420 427	Flowers
+T8	OpinionExpression 413 419	better
+R9	ExpressionTarget Arg1:T8 Arg2:T7
+T10	OpinionTarget 420 427	Flowers
+T11	OpinionExpression 404 419	not much better
+R12	ExpressionTarget Arg1:T11 Arg2:T10
+T13	OpinionTarget 525 530	sense
+T14	OpinionExpression 518 524	stupid
+R15	ExpressionTarget Arg1:T14 Arg2:T13
+T16	OpinionTarget 669 677	pleasure
+T17	OpinionExpression 660 668	a guilty
+R18	ExpressionTarget Arg1:T17 Arg2:T16
+T19	OpinionTarget 669 677	pleasure
+T20	OpinionExpression 662 668	guilty
+R21	ExpressionTarget Arg1:T20 Arg2:T19
+T22	OpinionTarget 767 775	her role
+T23	OpinionExpression 779 805	minuscule and not worth it
+R24	ExpressionTarget Arg1:T23 Arg2:T22
+T25	OpinionTarget 771 775	role
+T26	OpinionExpression 779 805	minuscule and not worth it
+R27	ExpressionTarget Arg1:T26 Arg2:T25
+T28	OpinionTarget 750 754	part
+T29	OpinionExpression 739 749	redeemable
+R30	ExpressionTarget Arg1:T29 Arg2:T28
