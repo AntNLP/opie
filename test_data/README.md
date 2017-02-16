@@ -40,14 +40,14 @@ The review text(after word_tokenize and sent_tokenize) and annotation file are u
 
   - For opinion target row, it consisits of three columns separated by `\t`.
   	- The first colum string starts with `T`
-  	- The second colum string is `OpinionTarget left right`. The offsets in the plain text representation of the Amazon review are denoted by left and right.
+  	- The second colum string is `OpinionTarget left right`. The offsets in the plain text representation of the Amazon review are denoted by `left` and `right`.
   	- the third colum string  is the exact string representation of the opinion target.
 
-  - For opinion expression row, it consisits of three columns separated by '\t'.
+  - For opinion expression row, it consisits of three columns separated by `\t`.
   	- The first colum string starts with `T`
-  	- The second colum string is `OpinionExpression left right`. The offsets in the plain text representation of the Amazon review are denoted by left and right.
+  	- The second colum string is `OpinionExpression left right`. The offsets in the plain text representation of the Amazon review are denoted by `left` and `right`.
   	- the third colum string  is the exact string representation of the opinion expression.
 
-  - For relation row, it consisits of two columns separated by '\t'.
+  - For relation row, it consisits of two columns separated by `\t`.
   	- The first colum string starts with `R`
-  	- The second colum string is `ExpressionTarget Arg1:T%d Arg2:T%d`. The Arg1 represents opinion expression and the Arg2 represents opinion target.
+  	- The second colum string is `ExpressionTarget Arg1:T%d Arg2:T%d`. The `Arg1` represents opinion expression and the `Arg2` represents opinion target.
