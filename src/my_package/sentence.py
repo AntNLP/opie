@@ -10,8 +10,9 @@ import re
 
 from nltk import Tree
 
-from scripts import load_pickle_file
-from static import Static
+from my_package.scripts import load_pickle_file
+from my_package.static import Static
+from normalization import remove_subset, merge_continues
 
 
 class Sentence:
@@ -93,7 +94,7 @@ class Sentence:
     def add_relation(self, idx_profeat, idx_opinwd, rname):
         self.relation[(tuple(idx_profeat), tuple(idx_opinwd))] = rname
 
-    def generate_candidate_relation(self, table_opinwd, mysql_db, test=False):
+    def generate_candidate_relation(self, table_opinwd, mysql_db=None, complex_opinwd=None, test=False):
         if "candidate_relation" in dir(self):
             return
         self.candidate_dependency = []
@@ -101,7 +102,8 @@ class Sentence:
         idx_candidate_opinwd = self.generate_candidate_opinwd()
         self.candidate_relation = self.restrict_candidate_relation(
             idx_candidate_profeat, idx_candidate_opinwd,
-            table_opinwd, mysql_db, test)
+            table_opinwd, mysql_db, test, complex_opinwd)
+
 
     def generate_candidate_profeat(self):
         idx_candidate_profeat_set = self.generate_candidate_NP()
@@ -147,18 +149,23 @@ class Sentence:
                                     idx_candidate_opinwd,
                                     table_opinwd,
                                     mysql_db,
-                                    test):
+                                    test,
+                                    complex_opinwd=None):
         idx_candidate_profeat = self.restrict_candidate_profeat(
             idx_candidate_profeat, mysql_db)
         idx_candidate_opinwd = self.restrict_candidate_opinwd(
-            idx_candidate_opinwd, mysql_db, table_opinwd)
+            idx_candidate_opinwd, mysql_db, table_opinwd, complex_opinwd, test)
         return self.restrict_candidate_joint(idx_candidate_profeat,
-                                             idx_candidate_opinwd, test)
+                                             idx_candidate_opinwd,
+                                             test, complex_opinwd)
 
     def restrict_candidate_joint(self,
                                  idx_candidate_profeat,
                                  idx_candidate_opinwd,
-                                 test):
+                                 test,
+                                 complex_opinwd):
+        self.dep_count = 20
+        idx_candi_set = set()
         idx_candidate_relation = []
         for idx_profeat in idx_candidate_profeat:
             for idx_opinwd in idx_candidate_opinwd:
@@ -166,24 +173,65 @@ class Sentence:
                     continue
                 if self.restrict_middle_word(idx_profeat, idx_opinwd):
                     continue
-                f, dist, dep_str = self.dependency_path(idx_profeat,
-                                                        idx_opinwd)
-                if not f or dist > 13:
-                    continue
-                if not test:
-                    idx_profeat_set = set()
-                    idx_opinwd_set = set()
-                    for e1, e2 in self.relation.keys():
-                        idx_profeat_set.add(e1)
-                        idx_opinwd_set.add(e2)
-                    if (idx_profeat not in idx_profeat_set and
-                            idx_opinwd not in idx_opinwd_set):
-                        continue
+                idx_candi_set.add((idx_profeat, idx_opinwd))
+        idx_candi_set = remove_subset(idx_candi_set)
+        #  idx_candi_set = merge_continues(idx_candi_set)
+        for idx_profeat, idx_opinwd in idx_candi_set:
+            f, dist, dep_str = self.dependency_path(idx_profeat,
+                                                    idx_opinwd)
+            if not f or dist > self.dep_count:
+                continue
+
+            opinwd_str = self.print_phrase(idx_opinwd).lower()
+            if complex_opinwd and opinwd_str in complex_opinwd:
                 idx_candidate_relation.append((idx_profeat, idx_opinwd))
                 self.candidate_dependency.append([dist, dep_str])
+                continue
+
+            # 训练集候选必须有一个包含在已经找到的 relation 中
+            if not test:
+                idx_profeat_set = set()
+                idx_opinwd_set = set()
+                for e1, e2 in self.relation.keys():
+                    idx_profeat_set.add(e1)
+                    idx_opinwd_set.add(e2)
+                if (idx_profeat not in idx_profeat_set and
+                        idx_opinwd not in idx_opinwd_set):
+                    continue
+            idx_candidate_relation.append((idx_profeat, idx_opinwd))
+            self.candidate_dependency.append([dist, dep_str])
+        # add relation
+        if test:
+            idx_candidate_relation = []
+            self.candidate_dependency = []
+            #  #  idx_profeat_set = [e[0] for e in self.relation.keys()]
+            #  #  idx_opinwd_set = [e[1] for e in self.relation.keys()]
+            idx_profeat_set = self.aspect
+            idx_opinwd_set = self.subj
+            for e1 in set(idx_profeat_set):
+                for e2 in set(idx_opinwd_set):
+                    if set(e1) & set(e2):
+                        continue
+                    if self.restrict_middle_word(e1, e2):
+                        continue
+                    f, dist, dep_str = self.dependency_path(e1, e2)
+                    idx_candidate_relation.append((e1, e2))
+                    self.candidate_dependency.append([dist, dep_str])
+
+            #  for e in self.relation.keys():
+                #  m = False
+                #  for i in range(len(idx_candidate_relation)):
+                    #  if e == idx_candidate_relation[i]:
+                        #  m = True
+                #  if not m:
+                    #  f, dist, dep_str = self.dependency_path(e[0], e[1])
+                    #  idx_candidate_relation.append(e)
+                    #  self.candidate_dependency.append([dist, dep_str])
         return idx_candidate_relation
 
     def dependency_path(self, idx_profeat, idx_opinwd):
+        idx_central_profeat = idx_profeat[-1]
+        idx_central_opinwd = idx_opinwd[-1]
         for idx in idx_profeat:
             if self.pos_tag[idx] in (Static.NOUN | Static.VERB):
                 idx_central_profeat = idx
@@ -198,22 +246,22 @@ class Sentence:
         b = min(len(profeat_to_root), len(opinwd_to_root))
         if profeat_to_root == opinwd_to_root[:b]:
             dependency_item.append(self.tokens[idx_central_profeat])
-            #  dependency_item.append(self.pos_tag[idx_central_profeat])
+            dependency_item.append(self.pos_tag[idx_central_profeat])
             for e in opinwd_to_root[b:]:
                 dependency_item.append(">")
                 dependency_item.append(self.tokens[e])
-                #  dependency_item.append(self.pos_tag[e])
+                dependency_item.append(self.pos_tag[e])
                 #  dependency_item.append(self.dependency_parent_type[e])
 
         elif profeat_to_root[:b] == opinwd_to_root:
             dependency_item.append(self.tokens[idx_central_profeat])
-            #  dependency_item.append(self.pos_tag[idx_central_profeat])
+            dependency_item.append(self.pos_tag[idx_central_profeat])
             #  dependency_item.append(
             #  self.dependency_parent_type[idx_central_profeat])
             for e in profeat_to_root[::-1][1:]:
                 dependency_item.append("<")
                 dependency_item.append(self.tokens[e])
-                #  dependency_item.append(self.pos_tag[e])
+                dependency_item.append(self.pos_tag[e])
                 if e == idx_central_opinwd:
                     break
                 #  dependency_item.append(self.dependency_parent_type[e])
@@ -224,19 +272,23 @@ class Sentence:
                     bb = profeat_to_root[i-1]
                     break
             dependency_item.append(self.tokens[idx_central_profeat])
-            #  dependency_item.append(self.pos_tag[idx_central_profeat])
+            dependency_item.append(self.pos_tag[idx_central_profeat])
             #  dependency_item.append(self.dependency_parent_type[feat])
             for e in profeat_to_root[b:-1][::-1]:
                 dependency_item.append("<")
-                dependency_item.append(self.tokens[e])
-                #  dependency_item.append(self.pos_tag[e])
+                if e == 0:
+                    dependency_item.append("ROOT")
+                    dependency_item.append("ROOT")
+                else:
+                    dependency_item.append(self.tokens[e])
+                    dependency_item.append(self.pos_tag[e])
                 if e == bb:
                     break
                 #  dependency_item.append(self.dependency_parent_type[e])
             for e in opinwd_to_root[b+1:]:
                 dependency_item.append(">")
                 dependency_item.append(self.tokens[e])
-                #  dependency_item.append(self.pos_tag[e])
+                dependency_item.append(self.pos_tag[e])
                 #  dependency_item.append(self.dependency_parent_type[e])
         #  if None in set(dependency_item):
             #  return False, 0, 0
@@ -291,20 +343,43 @@ class Sentence:
         idx_candidate = []
         for idx_profeat in idx_candidate_profeat:
             profeat_str = self.print_phrase(idx_profeat).lower()
-            if len(idx_profeat) <= 8 and not self.is_weak_profeat(profeat_str):
+            if len(idx_profeat) <= 7 and not self.is_weak_profeat(profeat_str):
+                #  m = True
+                #  for i in idx_profeat:
+                    #  if self.is_weak_profeat(self.tokens[i].lower()):
+                        #  m = False
+                        #  break
+                #  if m:
                 idx_candidate.append(idx_profeat)
         return idx_candidate
 
     def restrict_candidate_opinwd(self,
                                   idx_candidate_opinwd,
                                   mysql_db,
-                                  table_opinwd):
+                                  table_opinwd,
+                                  complex_opinwd,
+                                  test):
         idx_candidate = []
         for idx_opinwd in idx_candidate_opinwd:
             opinwd_str = self.print_phrase(idx_opinwd).lower()
-            if (opinwd_str in table_opinwd and
-                    not self.is_weak_profeat(opinwd_str) and
-                    len(idx_opinwd) <= 6):
+            if complex_opinwd and opinwd_str in complex_opinwd:
+                idx_candidate.append(idx_opinwd)
+                continue
+            #  if test:
+                #  if (not self.is_weak_profeat(opinwd_str) and
+                        #  len(idx_opinwd) <= 6):
+                    #  idx_candidate.append(idx_opinwd)
+            #  else:
+            mark = False
+            for e in idx_opinwd:
+                if self.tokens[e].lower() in table_opinwd:
+                    mark = True
+                    break
+            if not mark:
+                continue
+
+            if (not self.is_weak_opinwd(opinwd_str) and
+                    len(idx_opinwd) <= 5):
                 idx_candidate.append(idx_opinwd)
         return idx_candidate
 
@@ -653,16 +728,28 @@ class Sentence:
     def create_dependency_count(self, lexcion, idx_dep):
         return [self.candidate_dependency[idx_dep][0]]
 
+
+    def have_overlap(self, e1, e2):
+        if set(e1[0]) & set(e2[0]) != set() and set(e1[1]) & set(e2[1]) != set():
+            return True
+        return False
+
     def generate_label(self, test):
         if test:
             self.label = [0] * len(self.candidate_relation)
             return
         self.label = []
         for each in self.candidate_relation:
-            if each in self.relation:
-                self.label.append(1)
-            else:
-                self.label.append(0)
+            m = 0
+            for key in self.relation.keys():
+                if self.have_overlap(each, key):
+                    m = 1
+                    break
+            self.label.append(m)
+            #  if each in self.relation:
+                #  self.label.append(1)
+            #  else:
+                #  self.label.append(0)
 
     def generate_candidate_featvect(self, lexcion):
         feature_vector = []
@@ -770,38 +857,174 @@ class Sentence:
                     feat_vector.append(base + e)
                 base += pos_tags_len
 
-            # 特征词和情感词依赖树路径
+            #  特征词和情感词依赖树路径
             for e in sorted(set(f[19])):
                 feat_vector.append(base + e)
             base += len(lexcion["unigram"]["dep"])
 
             # 依赖路径上词的个数
-            for e in f[24]:
+            for e in sorted(set(f[24])):
                 feat_vector.append(base + e)
-            base += 13
+            base += self.dep_count
 
             # 两词之间是否有be
-            for e in f[25]:
+            for e in sorted(set(f[25])):
                 feat_vector.append(base + e)
             base += 2
 
             # 特征词和情感词中间是否有this it ... [PRP, EX]
-            for e in f[35]:
+            for e in sorted(set(f[35])):
                 feat_vector.append(base + e)
             base += 2
 
             # 特征词和情感词的POS tag
-            for e in f[36]:
+            for e in sorted(set(f[36])):
                 feat_vector.append(base + e)
             base += len(lexcion["unigram"]["joint_pos_tag"])
 
             # 特征词和情感词的相对顺序
-            for e in f[0]:
+            for e in sorted(set(f[0])):
                 feat_vector.append(base + e)
             base += 2
 
             feature_vector.append(feat_vector)
         return feature_vector
+
+    # relation data helper
+    def generate_each_sentence(self):
+        n = len(self.tokens)
+        X, y = [], []
+        for (profeat_idx, opinwd_idx), label, (dep_len, dep_str) in zip(self.candidate_relation,
+                                                                        self.label,
+                                                                        self.candidate_dependency):
+            features = []
+            if label == 1:
+                y.append([0.0, 1.0])
+            else:
+                y.append([1.0, 0.0])
+            if profeat_idx[-1] < opinwd_idx[0]:
+                min_idx = profeat_idx
+                max_idx = opinwd_idx
+                features.append([1])
+            else:
+                min_idx = opinwd_idx
+                max_idx = profeat_idx
+                features.append([0])
+
+            # L
+            t = ["<S/>"]
+            t.extend([self.tokens[j].lower() for j in range(1, min_idx[0])])
+            features.append(t)
+            t = ["<S/>"]
+            t.extend([self.pos_tag[j] for j in range(1, min_idx[0])])
+            features.append(t)
+
+            # Min
+            t = [self.tokens[j].lower() for j in min_idx]
+            features.append(t)
+            t = [self.pos_tag[j] for j in min_idx]
+            features.append(t)
+
+            # B
+            t = [self.tokens[j].lower()
+                 for j in range(min_idx[-1]+1, max_idx[0])]
+            features.append(t)
+            t = [self.pos_tag[j] for j in range(min_idx[-1]+1, max_idx[0])]
+            features.append(t)
+
+            # Max
+            t = [self.tokens[j].lower() for j in max_idx]
+            features.append(t)
+            t = [self.pos_tag[j] for j in max_idx]
+            features.append(t)
+
+            # R
+            t = [self.tokens[j].lower() for j in range(max_idx[-1]+1, n+1)]
+            t.append("<E/>")
+            features.append(t)
+            t = [self.pos_tag[j] for j in range(max_idx[-1]+1, n+1)]
+            t.append("<E/>")
+            features.append(t)
+
+            i = 0
+            t1, t2, t3 = [], [], []
+            while i < len(dep_str):
+                t1.append(dep_str[i].lower())
+                t2.append(dep_str[i+1])
+                if i < len(dep_str) - 2:
+                    t3.append(dep_str[i+2])
+                i += 3
+            t3.append(">")
+            features.append(t1)
+            features.append(t2)
+            features.append(t3)
+
+            #  t = [self.tokens[j].lower() for j in range(1, len(self.tokens)+1)]
+            #  features.append(t)
+
+            #  t = [self.pos_tag[j] for j in range(1, len(self.tokens)+1)]
+            #  features.append(t)
+
+            X.append(features)
+        return X, y
+
+    def generate_each_sentence_with_conv(self, w=5):
+        n = len(self.tokens)
+        X, y = [], []
+        for (profeat_idx, opinwd_idx), label, (dep_len, dep_str) in zip(self.candidate_relation,
+                                                                        self.label,
+                                                                        self.candidate_dependency):
+            features = []
+            if label == 1:
+                y.append([0.0, 1.0])
+            else:
+                y.append([1.0, 0.0])
+            if profeat_idx[-1] < opinwd_idx[0]:
+                min_idx = profeat_idx
+                max_idx = opinwd_idx
+                features.append([1])
+            else:
+                min_idx = opinwd_idx
+                max_idx = profeat_idx
+                features.append([0])
+
+            t = [self.tokens[j].lower() for j in range(max(1, min_idx[0]-w), min_idx[0])]
+            features.append(t)
+            t = [self.pos_tag[j] for j in range(max(1, min_idx[0]-w), min_idx[0])]
+            features.append(t)
+
+            t = [self.tokens[j].lower() for j in range(min_idx[-1]+1, max_idx[0])]
+            features.append(t)
+            t = [self.pos_tag[j] for j in range(min_idx[-1]+1, max_idx[0])]
+            features.append(t)
+
+            t = [self.tokens[j].lower() for j in range(max_idx[-1]+1, min(max_idx[-1]+w+1, n+1))]
+            features.append(t)
+            t = [self.pos_tag[j] for j in range(max_idx[-1]+1, min(max_idx[-1]+w+1, n+1))]
+            features.append(t)
+
+            t = [self.tokens[j].lower() for j in min_idx]
+            features.append(t)
+            t = [self.pos_tag[j] for j in min_idx]
+            features.append(t)
+
+            t = [self.tokens[j].lower() for j in max_idx]
+            features.append(t)
+            t = [self.pos_tag[j] for j in max_idx]
+            features.append(t)
+
+            i = 0
+            t1, t2 = [], []
+            while i < len(dep_str):
+                t1.append(dep_str[i].lower())
+                t2.append(dep_str[i+1])
+                #  if i < len(dep_str) - 2:
+                    #  t.append((dep_str[i+2], dep_str[i+2]))
+                i += 3
+            features.append(t1)
+            features.append(t2)
+            X.append(features)
+        return X, y
 
     @classmethod
     def is_weak(cls, word_str, table_weak):

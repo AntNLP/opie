@@ -6,93 +6,16 @@ Created on 2015年8月28日
 '''
 import pickle
 import os
+import sys
 import json
 import bz2
+import numpy as np
 from json.encoder import JSONEncoder
 
 
 def remove(filename):
     if os.path.exists(filename):
         os.remove(filename)
-
-
-def all_match(pair1, pair2):
-    '''判断两个 pair 是否完全匹配
-
-    keyword argument:
-
-    pair1 -- 当前一个 pair
-    pair2 -- 当前另一个 pair
-
-    return:
-
-    如果完全匹配，返回 True，否则返回 False
-
-    '''
-    return pair1 == pair2
-
-
-def all_cover(pair1, pair2):
-    '''判断两个 pair2 是否完全覆盖 pair1
-
-    keyword argument:
-
-    pair1 -- 当前一个 pair
-    pair2 -- 当前另一个 pair
-
-    return:
-
-    如果完全覆盖，返回 True，否则返回 False
-
-    '''
-    set1 = set(pair1[0])
-    set2 = set(pair1[1])
-    set3 = set(pair2[0])
-    set4 = set(pair2[1])
-    if set1 & set3 == set1 and set2 & set4 == set2:
-        return True
-    return False
-
-
-def have_part(pair1, pair2):
-    '''判断 pair1 和 pair2 是否有重叠的部分
-
-    keyword argument:
-
-    pair1 -- 当前一个 pair
-    pair2 -- 当前另一个 pair
-
-    return:
-
-    如果对应部分都有重叠，则返回 True，否则返回 False
-
-    '''
-    set1 = set(pair1[0])
-    set2 = set(pair1[1])
-    set3 = set(pair2[0])
-    set4 = set(pair2[1])
-    if (set1 & set3 != set()) and (set2 & set4 != set()):
-        return True
-    return False
-
-
-def obj2dict(obj):
-
-    #if isinstance(obj, bytes):
-    #    return {'__class__': 'bytes',
-    #            '__value__': list(obj)}
-    memberlist = [m for m in dir(obj)]
-    _dict = {}
-    for m in memberlist:
-        if m[0] != '_' and not callable(m):
-            _dict[m] = getattr(obj, m)
-    return _dict
-    raise TypeError(repr(object) + ' is not JSON serializable')
-
-
-class ClsEncoder(JSONEncoder):
-    def default(self, o):
-        return obj2dict(o)
 
 
 def load_json_file(filename):
@@ -120,20 +43,14 @@ def save_json_file(filename, var):
 
     '''
     with open(filename, mode="w", encoding="utf8") as f:
-        json.dump(var, f, indent=2, cls=ClsEncoder)
+        json.dump(var, f, indent=2)
 
-
-def create_content(content_name):
-    '''若当前目录不存在，则创建当前目录
-    '''
-    if not os.path.exists(content_name):
-        os.mkdir(content_name)
 
 def mkdir(dirname):
     '''若当前目录不存在，则创建当前目录
     '''
     if not os.path.exists(dirname):
-        os.mkdir(dirname)
+        os.makedirs(dirname)
 
 def load_pickle_file(filename):
     ''' load pickle 文件
@@ -172,10 +89,6 @@ def save_pickle_file(filename, var):
         filename = filename + ".bz2"
     with bz2.open(filename, "wb") as out:
         pickle.dump(var, out)
-
-
-def return_none():
-    return None
 
 
 def load_file_line(filename):
@@ -254,29 +167,6 @@ def del_common():
             print(e, file=out)
 
 
-def inquire_content(connection, var, table_lm, t=-25):
-    try:
-
-        # 游标
-        with connection.cursor() as cursor:
-            sql = "select * from {0} where content=\"{1}\" and score>={2}".format(table_lm, var, t)
-            #  sql = "select * from lm_db where content=%s"
-            #  sql = "select * from lm_db where content=\"{0}\"".format(var)
-            #  cursor.execute(sql, (var))
-            cursor.execute(sql)
-            res = cursor.fetchall()
-            if len(res) == 0:
-                return False
-            else:
-                return True
-    except Exception as err:
-        print(err)
-        print(var)
-        return False
-    finally:
-        pass
-
-
 def get_index(connection, table_lm, var):
     try:
         # 游标
@@ -312,29 +202,64 @@ def get_position(connection, table_posting, var):
     finally:
         pass
 
-def have_overlap(index1, index2):
-    '''判断两个下标是否有重叠
-    '''
-    return bool(set(index1) & set(index2))
+
+def print_percentage(i, total):
+    percent = float(i)*100 / float(total)
+    sys.stdout.write("process percentage: %.2f" % percent)
+    sys.stdout.write("%\r")
+    sys.stdout.flush()
 
 
-def have_dependent(dependency_tree, pp, sp):
-    sp_set = set(sp)
-    pp_set = set(pp)
-    for e in pp:
-        if e not in dependency_tree:
+# load wordvec bin file
+def load_bin_vec(fname, vocab, embedding_size=300):
+    """
+    Loads 300x1 word vecs from Google (Mikolov) word2vec
+    """
+    word_vecs = {}
+    with open(fname, "rb") as f:
+        header = f.readline()
+        length = len(vocab)
+        vocab_size, layer1_size = map(int, header.split())
+        binary_len = np.dtype('float32').itemsize * layer1_size
+        for line in range(vocab_size):
+            word = []
+            i = 0
+            print_percentage(line, vocab_size)
+            if len(word_vecs) == length:
+                return word_vecs
+            while True:
+                ch = f.read(1)
+                if ch == b' ':
+                    word = b''.join(word)
+                    break
+                if ch != b'\n':
+                    word.append(ch)
+            word = word.decode()
+            if word in vocab:
+                i += 1
+                word_vecs[word] = np.fromstring(f.read(binary_len), dtype='float32')
+            else:
+                f.read(binary_len)
+
+    vocab_embeddings = [np.array([0] * embedding_size)] * len(vocab)
+    print("The number of word in vec:%d" % len(word_vecs))
+    for word in vocab:
+        index = vocab[word]
+        if index == 0:
             continue
-        for value in dependency_tree[e]:
-            if value['id'] in sp_set:
-                return True
-    for e in sp:
-        if e not in dependency_tree:
-            continue
-        for value in dependency_tree[e]:
-            if value['id'] in pp_set:
-                return True
-    return False
+        if word in word_vecs:
+            vocab_embeddings[index] = word_vecs[word]
+        else:
+            vocab_embeddings[index] = np.random.uniform(-0.25, 0.25, 300)
+    #  with open("../data/train/google_wordvec." + str(embedding_size) + ".txt","w") as fw:
+        #  for vec in vocab_embeddings:
+            #  fw.write(" ".join([str(v) for v in vec]) + "\n")
+    return vocab_embeddings
 
 if __name__ == "__main__":
-    create_weak_file(r"../../data/raw/subjclueslen1-HLTEMNLP05.tff")
-    del_common()
+    #  create_weak_file(r"../../data/raw/subjclueslen1-HLTEMNLP05.tff")
+    #  del_common()
+    word2vect_path = os.path.join(os.getenv("OPIE_DIR"), "tools", "GoogleNews-vectors-negative300.bin")
+    vocab = {"UNK": 0, "word": 1}
+    vocal_embedings = load_bin_vec(word2vect_path, vocab)
+    print(vocal_embedings["UNK"].shape)

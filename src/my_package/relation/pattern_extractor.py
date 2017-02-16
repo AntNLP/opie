@@ -31,12 +31,14 @@ class PatternExtractor:
                                          "pickles/parse_sentences")
         self.pickle_btsp = os.path.join(self.domain_dir,
                                         "pickles/bootstrapping")
-        self.btsp_dir = os.path.join(self.domain_dir, "bootstrapping")
+        self.btsp_dir = os.path.join(self.domain_dir,
+                                     "relation", "bootstrapping")
         self.p1_dep_type = set(["amod", "dep"])
-        self.p2_dep_type = set(["acomp", "xcomp"])
+        self.p2_dep_type = set(["acomp", "xcomp", "dobj"])
         self.p3_dep_type = set(["advmod"])
         self.p4_mid_pos_tag = set(["PRP", "EX", "CD"])
         self.p4_coplua = set(["is", "was", "are", "were", "am", "be"])
+        self.p5_dep_type = set(["dobj"])
         mkdir(self.btsp_dir)
         mkdir(self.pickle_btsp)
 
@@ -52,10 +54,12 @@ class PatternExtractor:
                 continue
             profeat, opinword, mark = self.match_all_condition(
                 sentence, idx_profeat, idx_conj_opinwd,
-                profeat_pos_tag, Static.ADJ | Static.ADV)
+                profeat_pos_tag, Static.ADJ | Static.ADV, is_C1=True)
             if not mark:
                 continue
-            sentence.add_relation(profeat, opinword, rname)
+
+            self.relation_opinwd_add(profeat, opinword, rname, sentence)
+
             self.C2(sentence, profeat, idx_conj_opinwd, rname+"C2")
 
     def C2(self, sentence, profeat, idx_opinwd, rname):
@@ -85,7 +89,9 @@ class PatternExtractor:
             opinwd = [idx_opinwd, idx_to, idx_verb]
             if not self.match_joint_condition(sentence, profeat, opinwd):
                 continue
-            sentence.add_relation(profeat, opinwd, rname)
+
+            self.relation_opinwd_add(profeat, opinwd, rname, sentence)
+
             return True
         return False
 
@@ -110,22 +116,29 @@ class PatternExtractor:
             nn_profeat = sentence.get_max_NP(idx_nn_profeat, idx_profeat)
             if not self.match_joint_condition(sentence, nn_profeat, opinwd):
                 continue
-            sentence.add_relation(nn_profeat, opinwd, rname)
 
-    def P(self, sentence, dep_type, rname, profeat_pos_tag, opinwd_pos_tag):
+            self.relation_opinwd_add(nn_profeat, opinwd, rname, sentence)
+
+    def P(self, sentence, dep_type,
+          rname, profeat_pos_tag, opinwd_pos_tag, is_swap=False):
         for idx_token, childs in sentence.dependency_tree.items():
             if idx_token == 0:
                 continue
             for child in childs:
                 if child['type'] not in dep_type:
                     continue
-                idx_profeat, idx_opinwd = idx_token, child['id']
+                if not is_swap:
+                    idx_profeat, idx_opinwd = idx_token, child['id']
+                else:
+                    idx_opinwd, idx_profeat = idx_token, child['id']
                 profeat, opinword, mark = self.match_all_condition(
                     sentence, idx_profeat, idx_opinwd,
                     profeat_pos_tag, opinwd_pos_tag)
                 if not mark:
                     continue
-                sentence.add_relation(profeat, opinword, rname)
+
+                self.relation_opinwd_add(profeat, opinword, rname, sentence)
+
                 self.C1(sentence, idx_profeat, idx_opinwd,
                         rname+"C1", profeat_pos_tag)
                 self.C2(sentence, profeat, idx_opinwd, rname+"C2")
@@ -148,12 +161,14 @@ class PatternExtractor:
             if idx_token == 0:
                 continue
             for child in childs:
-                idx_profeat, idx_opinwd = idx_token, child['id']
-                if idx_profeat > idx_opinwd:
-                    continue
+                if idx_token < child['id']:
+                    idx_profeat, idx_opinwd = idx_token, child['id']
+                else:
+                    idx_profeat, idx_opinwd = child['id'], idx_token
                 if not self.match_middle_condition(sentence,
                                                    idx_profeat, idx_opinwd):
                     continue
+                #  print(idx_profeat, idx_opinwd)
                 if not self.match_profeat_condition(sentence,
                                                     idx_profeat, Static.NOUN):
                     break
@@ -174,9 +189,15 @@ class PatternExtractor:
                     continue
                 if not self.match_joint_condition(sentence, profeat, opinwd):
                     continue
-                sentence.add_relation(profeat, opinwd, "P4")
+
+                self.relation_opinwd_add(profeat, opinwd, "P4", sentence)
+
                 self.C1(sentence, idx_profeat,
                         idx_opinwd, "P4C1", Static.NOUN)
+
+    def P5(self, sentence):
+        self.P(sentence, self.p5_dep_type, "P5",
+               Static.NOUN, Static.VERB, is_swap=True)
 
     def match_middle_and(self, sentence, idx1, idx2):
         idx_min, idx_max = min(idx1, idx2), max(idx1, idx2)
@@ -204,9 +225,14 @@ class PatternExtractor:
             return False
         return True
 
-    def match_opinwd_condition(self, sentence, idx_opinwd, pos_tag):
+    def match_opinwd_condition(self,
+                               sentence,
+                               idx_opinwd,
+                               pos_tag,
+                               is_C1=False):
         opinwd_str = sentence.tokens[idx_opinwd].lower()
         if opinwd_str not in self.table_opinwd:
+        #  if not is_C1 and opinwd_str not in self.table_opinwd:
             return False
         if sentence.pos_tag[idx_opinwd] not in pos_tag:
             return False
@@ -234,12 +260,15 @@ class PatternExtractor:
                             idx_profeat,
                             idx_opinwd,
                             profeat_pos_tag,
-                            opinwd_pos_tag):
+                            opinwd_pos_tag,
+                            is_C1=False):
             if not self.match_profeat_condition(sentence,
                                                 idx_profeat, profeat_pos_tag):
                 return None, None, False
             if not self.match_opinwd_condition(sentence,
-                                               idx_opinwd, opinwd_pos_tag):
+                                               idx_opinwd,
+                                               opinwd_pos_tag,
+                                               is_C1=is_C1):
                 return None, None, False
             if profeat_pos_tag == Static.NOUN:
                 profeat = sentence.get_max_NP(idx_profeat, idx_opinwd)
@@ -254,11 +283,19 @@ class PatternExtractor:
         self.P2(sentence)
         self.P3(sentence)
         self.P4(sentence)
+        self.P5(sentence)
 
     def handle_sentences(self, sentences):
         for sentence in sentences:
             sentence.init_bootstrapping()
             self.handle_sentence(sentence)
+
+    def relation_opinwd_add(self, profeat, opinwd, rname, sentence):
+        # add opinwd to table_opinwd
+        #  opinwd_str = " ".join([sentence.tokens[e].lower() for e in opinwd])
+        #  self.table_opinwd.add(opinwd_str)
+
+        sentence.add_relation(profeat, opinwd, rname)
 
 
 def write_sentence(sentence, f):
@@ -275,6 +312,15 @@ def write(sentences, f):
     for sentence in sentences:
         if sentence.relation:
             write_sentence(sentence, f)
+
+
+def usage():
+    '''print help information'''
+    print("pattern_extractor.py 用法:")
+    print("-h, --help: 打印帮助信息")
+    print("-d, --domain: 需要处理的领域名称")
+    print("-b, --begin: parse_sentences pickel 文件的开始编号(包含此文件)")
+    print("-e, --end: parse_sentences pickel 文件的结束编号(不包含此文件)")
 
 if __name__ == "__main__":
     try:
@@ -301,9 +347,9 @@ if __name__ == "__main__":
     i = b
     spath = os.path.join(r.pickle_parse, "parse_sentences_%d.pickle" % i)
     while i < e and os.path.exists(spath + ".bz2"):
-        print(i, "loading")
+        print("pickle index: %d  loading" % i)
         sentences = load_pickle_file(spath)
-        print(i, "loaded")
+        print("pickle index: %d  loaded" % i)
         r.handle_sentences(sentences)
         write(sentences, f)
         save_pickle_file(
@@ -313,4 +359,4 @@ if __name__ == "__main__":
         i += 1
         spath = os.path.join(r.pickle_parse, "parse_sentences_%d.pickle" % i)
     f.close()
-    print("end")
+    print(len(r.table_opinwd))

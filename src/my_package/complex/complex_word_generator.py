@@ -84,9 +84,22 @@ class ComplexWordGenerator:
             for word, pos_tag in self.complex_word.items():
                 print("0\t%s\t%s" % (word, pos_tag), file=f)
 
+
+def usage():
+    '''print help information'''
+    print("complex_word_generator.py 用法:")
+    print("-h, --help: 打印帮助信息")
+    print("-p, --pivot: pivot word")
+    print("-b, --begin: ")
+    print("-e, --end: ")
+    print("-d, --domain: 需要处理的领域名称")
+
 if __name__ == "__main__":
     try:
-        opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help", "domain="])
+        opts, args = getopt.getopt(
+            sys.argv[1:],
+            "hp:b:e:d:",
+            ["help", "pivot=", "begin=", "end=", "domain="])
     except getopt.GetoptError:
         print("命令行参数输入错误！")
         usage()
@@ -97,20 +110,21 @@ if __name__ == "__main__":
             sys.exit()
         if op in ("-d", "--domain"):
             domain = value
-
-    pivot_word = ["music"]
+        if op in ("-p", "--pivot"):
+            pivot_word = value.split(' ')
+        if op in ("-b", "--begin"):
+            b = int(value)
+        if op in ("-e", "--end"):
+            e = int(value)
     c = ComplexWordGenerator(domain, pivot_word)
-    i = 1
+    i = b
     filename = os.path.join(c.pickle_parse, "parse_sentences_%d.pickle" % i)
-    while os.path.exists(filename+".bz2"):
+    while i < e and os.path.exists(filename+".bz2"):
         print("pickle index: %d loading" % i)
         sentences = load_pickle_file(filename)
         print("pickle index: %d loaded" % i)
         c.handle_sentences(sentences)
-        if i == 1:
-            break
         i += 1
         filename = os.path.join(c.pickle_parse,
                                 "parse_sentences_%d.pickle" % i)
     c.print_complex_word()
-    print("end")

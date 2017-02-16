@@ -10,6 +10,10 @@ import sys
 import getopt
 
 import numpy as np
+from sklearn.datasets import load_svmlight_file
+from sklearn.metrics import f1_score, precision_score, recall_score
+from sklearn.linear_model import LogisticRegression
+from sklearn import svm
 
 from my_package.scripts import load_pickle_file
 from my_package.scripts import save_pickle_file
@@ -25,7 +29,7 @@ class ComplexWordClassifier:
         self.pickle_dir = os.path.join(self.domain_dir, "pickles")
         self.train_dir = os.path.join(self.domain_dir, "train")
         self.test_dir = os.path.join(self.domain_dir, "test")
-        self.near_dir = os.path.join(self.domain_dir, "near")
+        self.near_dir = os.path.join(self.domain_dir, "complex", "near")
         self.table_opinwd = set(Static.opinwd.keys())
         self.lexcion = {
             "unigram": {
@@ -51,13 +55,27 @@ class ComplexWordClassifier:
                 "word_pos_tag": []
                 }
             }
-        self.label = []
-        self.lens = []
-        self.is_general_opinwd = []
-        self.opinwd_str = []
+        self.train_label = []
+        self.train_lens = []
+        self.train_is_general_opinwd = []
+        self.train_opinwd_str = []
+        self.test_label = []
+        self.test_lens = []
+        self.test_is_general_opinwd = []
+        self.test_opinwd_str = []
 
-    def generate_featvect_item(self, test=False):
-        with open(os.path.join(self.near_dir, "complex_word_pos_tag.ann"),
+    def generate_featvect_item(self, filename, test=False):
+        if test:
+            self.label = self.test_label
+            self.lens = self.test_lens
+            self.is_general_opinwd = self.test_is_general_opinwd
+            self.opinwd_str = self.test_opinwd_str
+        else:
+            self.label = self.train_label
+            self.lens = self.train_lens
+            self.is_general_opinwd = self.train_is_general_opinwd
+            self.opinwd_str = self.train_opinwd_str
+        with open(os.path.join(self.near_dir, filename),
                   "r", encoding="utf8") as out:
             for line in out:
                 label, word, pos_tag = line.strip().split('\t')
@@ -67,22 +85,22 @@ class ComplexWordClassifier:
                 self.lens.append(len(complex_word_list))
                 self.create_unigram(
                     complex_word_list, pos_tag_list,
-                    self.lexcion["unigram"], self.featvect_item["unigram"], 0)
+                    self.lexcion["unigram"], self.featvect_item["unigram"], 0, test)
                 self.create_unigram(
                     complex_word_list, pos_tag_list,
-                    self.lexcion["unigram"], self.featvect_item["unigram"], 1)
+                    self.lexcion["unigram"], self.featvect_item["unigram"], 1, test)
                 self.create_unigram(
                     complex_word_list, pos_tag_list,
-                    self.lexcion["unigram"], self.featvect_item["unigram"], 2)
+                    self.lexcion["unigram"], self.featvect_item["unigram"], 2, test)
                 self.create_bigram(
                     complex_word_list, pos_tag_list,
-                    self.lexcion["bigram"], self.featvect_item["bigram"], 0)
+                    self.lexcion["bigram"], self.featvect_item["bigram"], 0, test)
                 self.create_bigram(
                     complex_word_list, pos_tag_list,
-                    self.lexcion["bigram"], self.featvect_item["bigram"], 1)
+                    self.lexcion["bigram"], self.featvect_item["bigram"], 1, test)
                 self.create_bigram(
                     complex_word_list, pos_tag_list,
-                    self.lexcion["bigram"], self.featvect_item["bigram"], 2)
+                    self.lexcion["bigram"], self.featvect_item["bigram"], 2, test)
                 m = False
                 for w in complex_word_list:
                     if w in self.table_opinwd:
@@ -174,10 +192,12 @@ class ComplexWordClassifier:
                     ret[lex[each]] += 1
         featvect_item.append(ret)
 
-    def output_feature_vector(self):
-        with open(os.path.join(self.near_dir, "feature_vector"),
+    def output_feature_vector(self, filename, have_general=True):
+        with open(os.path.join(self.near_dir, filename),
                   "w", encoding="utf8") as out:
             for i in range(len(self.label)):
+                if not have_general and self.is_general_opinwd[i]:
+                    continue
                 base = 0
                 print("%d" % self.label[i], end="", file=out)
                 base = self.write_feature_vector(
@@ -218,6 +238,13 @@ class ComplexWordClassifier:
                 print(" %d:1" % (base+key), end="", file=out)
         return base + len(lexcion)
 
+
+def usage():
+    '''print help information'''
+    print("complex_word_classifier.py 用法:")
+    print("-h, --help: 打印帮助信息")
+    print("-d, --domain: 需要处理的领域名称")
+
 if __name__ == "__main__":
     try:
         opts, args = getopt.getopt(sys.argv[1:], "hd:", ["help", "domain="])
@@ -232,5 +259,40 @@ if __name__ == "__main__":
         if op in ("-d", "--domain"):
             domain = value
     c = ComplexWordClassifier(domain)
-    c.generate_featvect_item()
-    c.output_feature_vector()
+
+    c.generate_featvect_item("complex_data.ann")
+    c.output_feature_vector("train_feature_vector")
+
+    c.generate_featvect_item("complex_pickle_test", True)
+    c.output_feature_vector("pickle_test_feature_vector")
+
+    X_train, y_train  = load_svmlight_file(os.path.join(c.near_dir, "train_feature_vector"))
+    X_test, y_test = load_svmlight_file(os.path.join(c.near_dir, "pickle_test_feature_vector"))
+
+    #  r = int(len(y) * 0.6)
+    #  X_train, X_test = X[:r, :], X[r:, :]
+    #  y_train, y_test = y[:r], y[r:]
+    clf = LogisticRegression(C=1.0, intercept_scaling=1, dual=False,
+            fit_intercept=True, penalty="l2", tol=0.0001)
+    print("fit..")
+    clf.fit(X_train, y_train)
+    print("fit end...")
+    y = clf.predict(X_test)
+    #  y_rand = np.random.randint(0, 2, (len(y)))
+    #  y = [1 if e == 0 else 0 for e in y]
+    #  print("P", precision_score(y_test, y))
+    #  print("R", recall_score(y_test, y))
+    #  print("F", f1_score(y_test, y))
+    #  print("P", precision_score(y_test, y_rand))
+    #  print("R", recall_score(y_test, y_rand))
+    #  print("F", f1_score(y_test, y_rand))
+    f = open(os.path.join(c.domain_dir, "complex", "candidate_raw", "step"),
+             "w", encoding="utf8")
+    with open(os.path.join(c.near_dir, "complex_pickle_test"), "r", encoding="utf8") as out:
+        i = 0
+        for line in out:
+            _, word, _ = line.strip().split('\t')
+            if y[i]:
+                print(word, file=f)
+            i += 1
+    f.close()

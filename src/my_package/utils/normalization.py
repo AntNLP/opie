@@ -66,7 +66,7 @@ def merge_continues(new):
                     m = False
                     t.append(tuple(range(min_v, max_v+1)))
                     t.append(e[1])
-                    t.append("merge_continues")
+                    #  t.append("merge_continues")
                     t = tuple(t)
                     tmp.add(t)
                 else:
@@ -79,7 +79,7 @@ def merge_continues(new):
                     m = False
                     t.append(e[0])
                     t.append(tuple(range(min_v, max_v+1)))
-                    t.append("merge_continues")
+                    #  t.append("merge_continues")
                     t = tuple(t)
                     tmp.add(t)
                 else:
@@ -91,6 +91,46 @@ def merge_continues(new):
         res = tmp
     return res
 
+
+def handle_normalize(each_file):
+    #  article = set(["the", "a", "an", "'s'", "is",
+                   #  "am", "are", "was", "were", "been", "being", "be"])
+    article = set()
+    out = open(each_file+".normalize", "w", encoding="utf8")
+    for e in parse(each_file):
+        print("S\t%s"%e["S"], file=out)
+        j, tokens = 1, {}
+        for token in e["S"].lower().split(' '):
+            tokens[j] = token
+            j += 1
+        new = set()
+        for r in e["R"]:
+            feat_pos = [int(e) for e in r[2][1:-1].split(', ')]
+            sent_pos = [int(e) for e in r[3][1:-1].split(', ')]
+            feat_sent = []
+            i = 0
+            while i < len(feat_pos) and tokens[feat_pos[i]] in article:
+                i += 1
+            feat_sent.append(tuple(feat_pos[i:]))
+            i = 0
+            while i < len(sent_pos) and tokens[sent_pos[i]] in article:
+                i += 1
+            feat_sent.append(tuple(sent_pos[i:]))
+            #  if len(r) > 4:
+                #  feat_sent.append(r[4])
+            new.add(tuple(feat_sent))
+        new = remove_subset(new)
+        new = merge_continues(new)
+        #  for feat, sent, regu in new:
+        for feat, sent in new:
+            print("R\t%s"%(" ".join([tokens[e]
+                                        for e in feat])), end="\t", file=out)
+            print("%s"%(" ".join([tokens[e]
+                                    for e in sent])), end="\t", file=out)
+            print(list(feat), end="\t", file=out)
+            print(list(sent), end="\t", file=out)
+            print(file=out)
+    out.close()
 
 def usage():
     '''打印帮助信息'''
@@ -113,43 +153,7 @@ if __name__ == "__main__":
             content = value
 
     field_content = r"../../data/domains/" + content + r"/"
-    #  field_content = r"../../data/soft_domains/" + content + r"/"
-    #  files = [field_content+"bootstrap/bootstarp_general_relation",
-             #  field_content+"result/all_match_predict_text"]
-    article = set(["the", "a", "an", "'s'", "is",
-                   "am", "are", "was", "were", "been", "being", "be"])
+    domain_dir = os.path.join(os.getenv("OPIE_DIR"), "data/domains", domain)
     files = [field_content+"bootstrap/bootstrap_test_general_relation"]
     for each_file in files:
-        out = open(each_file+".normalize", "w", encoding="utf8")
-        for e in parse(each_file):
-            print("S\t%s"%e["S"], file=out)
-            j, tokens = 1, {}
-            for token in e["S"].lower().split(' '):
-                tokens[j] = token
-                j += 1
-            new = set()
-            for r in e["R"]:
-                feat_pos = [int(e) for e in r[2][1:-1].split(', ')]
-                sent_pos = [int(e) for e in r[3][1:-1].split(', ')]
-                feat_sent = []
-                i = 0
-                while i < len(feat_pos) and tokens[feat_pos[i]] in article:
-                    i += 1
-                feat_sent.append(tuple(feat_pos[i:]))
-                i = 0
-                while i < len(sent_pos) and tokens[sent_pos[i]] in article:
-                    i += 1
-                feat_sent.append(tuple(sent_pos[i:]))
-                feat_sent.append(r[4])
-                new.add(tuple(feat_sent))
-            new = remove_subset(new)
-            new = merge_continues(new)
-            for feat, sent, regu in new:
-                print("R\t%s"%(" ".join([tokens[e]
-                                         for e in feat])), end="\t", file=out)
-                print("%s"%(" ".join([tokens[e]
-                                      for e in sent])), end="\t", file=out)
-                print(list(feat), end="\t", file=out)
-                print(list(sent), end="\t", file=out)
-                print(regu, file=out)
-        out.close()
+        handle_normalize(each_file)
